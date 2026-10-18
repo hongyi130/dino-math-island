@@ -49,7 +49,11 @@
   }
   function image(path) {
     const url = absolute(path);
-    if (resolved.has(url)) return Promise.resolve(resolved.get(url));
+    if (resolved.has(url)) {
+      const target = resolved.get(url);
+      if (target !== url) repairImages(url, target);
+      return Promise.resolve(target);
+    }
     if (pending.has(url)) return pending.get(url);
     const attempt = index => new Promise((resolve, reject) => {
       const picture = new Image();
