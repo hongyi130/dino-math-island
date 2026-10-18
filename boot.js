@@ -28,7 +28,12 @@
     if (!started) {
       show('恐龙伙伴到齐啦！', '点一下出发，听听这次的小任务。', '开始探险 · 听任务');
       action.focus();
-    } else dismiss();
+    } else {
+      dismiss();
+      const next = enter;
+      enter = null;
+      next?.(false);
+    }
   }
   function retryUrl(url, attempt) {
     const next = new URL(url);
@@ -88,6 +93,13 @@
     enter = onEnter;
     retry = () => prepareLevel(paths, onEnter);
     show('恐龙正在赶来…', '正在准备这片岛屿和恐龙伙伴。');
+    // A cached level can start its voice in the original click gesture.
+    if (urls.every(path => resolved.has(absolute(path)))) {
+      urls.forEach(path => repairImages(absolute(path), resolved.get(absolute(path))));
+      imagesReady = true;
+      ready();
+      return Promise.resolve();
+    }
     let done = 0;
     return Promise.all(urls.map(path => image(path).then(() => {
       done++;
@@ -105,7 +117,9 @@
     if (scriptsReady && imagesReady && !failed) {
       started = true;
       dismiss();
-      enter?.(); // play() stays inside the real click gesture on mobile.
+      const next = enter;
+      enter = null;
+      next?.(true); // play() stays inside the real click gesture on mobile.
     } else retry();
   });
   // Lazy gallery images and later SVG renders also get one visible recovery path.
@@ -120,14 +134,18 @@
     const name = node.tagName.toLowerCase() === 'image' ? 'href' : 'src';
     const path = node.getAttribute(name);
     if (!path) return;
-    image(path).then(target => {
-      if (node.isConnected) node.setAttribute(name, target === absolute(path) ? retryUrl(target, 2) : target);
-    }).catch(() => {
+    const showRetry = () => {
       if (!node.isConnected || !node.getClientRects().length) return;
       retry = () => { recovered.delete(node); node.setAttribute(name, retryUrl(absolute(path), 3)); dismiss(); };
       show('这只恐龙还没加载好', '点一下再接它过来。', '重试图片');
       imagesReady = false;
-    });
+    };
+    image(path).then(target => {
+      if (!node.isConnected) return;
+      node.addEventListener('error', showRetry, { once: true });
+      node.addEventListener('load', () => node.removeEventListener('error', showRetry), { once: true });
+      node.setAttribute(name, target === absolute(path) ? retryUrl(target, 2) : target);
+    }).catch(showRetry);
   }, true);
   window.DinoBoot = { prepareLevel, image };
   function fail(message) {

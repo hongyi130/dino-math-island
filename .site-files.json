@@ -2551,8 +2551,8 @@
   },
   {
     "path": "boot.js",
-    "bytes": 6898,
-    "sha256": "c21c571f4ea50213d377999351d2890f839a0dcd2734215cd8c3aedf06d81982"
+    "bytes": 7546,
+    "sha256": "76b2ff3e0b5542298159dfc4e8e1a266fe047fbaa023554272ecaca967d70a71"
   },
   {
     "path": "challenge-engine.js",
@@ -2586,8 +2586,8 @@
   },
   {
     "path": "game.js",
-    "bytes": 83421,
-    "sha256": "160140e4d9bcd500f42742bcb19fa2b266cffb907ecb3cdb2decc0ef08e3fd01"
+    "bytes": 83621,
+    "sha256": "4e4085252f42bb37e7a8f39ded40b4fb692a5eb820d85112f286d2b13a286d6d"
   },
   {
     "path": "grade2-engine.js",

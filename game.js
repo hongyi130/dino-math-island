@@ -537,11 +537,16 @@
         const path = node.getAttribute(node.tagName.toLowerCase() === 'image' ? 'href' : 'src');
         if (path) assets.push(path);
       });
-      window.DinoBoot.prepareLevel(assets, () => {
-        if (introToken === roundToken) { setSound(true); playTaskNarration(); }
+      window.DinoBoot.prepareLevel(assets, fromGesture => {
+        if (introToken !== roundToken) return;
+        if (fromGesture) setSound(true);
+        if (soundOn && (announce || fromGesture)) {
+          if (!$('#chapterGate').hidden) playChapterNarration();
+          else playTaskNarration();
+        }
       });
     }
-    if (announce && soundOn) {
+    if (!window.DinoBoot && announce && soundOn) {
       if (!$('#chapterGate').hidden) playChapterNarration();
       else playTaskNarration();
     }
