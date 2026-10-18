@@ -2,7 +2,7 @@
 window.DINO_CHARACTERS = {
   "trike": {
     "name": "三角龙",
-    "image": "trike-3d.png",
+    "image": "trike-3d.webp",
     "aspect": 1.2,
     "height": 96,
     "color": "#dba977",
@@ -19,7 +19,7 @@ window.DINO_CHARACTERS = {
   },
   "stego": {
     "name": "剑龙",
-    "image": "stego-3d.png",
+    "image": "stego-3d.webp",
     "aspect": 1.5,
     "height": 82,
     "color": "#9ab877",
@@ -36,7 +36,7 @@ window.DINO_CHARACTERS = {
   },
   "brachio": {
     "name": "腕龙",
-    "image": "brachio-3d.png",
+    "image": "brachio-3d.webp",
     "aspect": 0.6666666666666666,
     "height": 96,
     "color": "#8dbba8",
@@ -53,7 +53,7 @@ window.DINO_CHARACTERS = {
   },
   "raptor": {
     "name": "迅猛龙",
-    "image": "raptor-3d.png",
+    "image": "raptor-3d.webp",
     "aspect": 0.9624413145539906,
     "height": 96,
     "color": "#87a9b2",
@@ -70,7 +70,7 @@ window.DINO_CHARACTERS = {
   },
   "trex": {
     "name": "霸王龙",
-    "image": "trex-3d.png",
+    "image": "trex-3d.webp",
     "aspect": 1.5,
     "height": 88,
     "color": "#d99a6d",
@@ -87,7 +87,7 @@ window.DINO_CHARACTERS = {
   },
   "anky": {
     "name": "甲龙",
-    "image": "anky-3d.png",
+    "image": "anky-3d.webp",
     "aspect": 1.5,
     "height": 80,
     "color": "#c4a876",
@@ -104,7 +104,7 @@ window.DINO_CHARACTERS = {
   },
   "parasaur": {
     "name": "副栉龙",
-    "image": "parasaur-3d.png",
+    "image": "parasaur-3d.webp",
     "aspect": 0.976,
     "height": 96,
     "color": "#dc9477",
@@ -121,7 +121,7 @@ window.DINO_CHARACTERS = {
   },
   "spino": {
     "name": "棘龙",
-    "image": "spino-3d.png",
+    "image": "spino-3d.webp",
     "aspect": 1.5,
     "height": 85,
     "color": "#719ca7",
@@ -138,7 +138,7 @@ window.DINO_CHARACTERS = {
   },
   "pachy": {
     "name": "肿头龙",
-    "image": "pachy-3d.png",
+    "image": "pachy-3d.webp",
     "aspect": 0.978,
     "height": 90,
     "color": "#c4ad70",
@@ -155,7 +155,7 @@ window.DINO_CHARACTERS = {
   },
   "iguano": {
     "name": "禽龙",
-    "image": "iguano-3d.png",
+    "image": "iguano-3d.webp",
     "aspect": 1.5,
     "height": 82,
     "color": "#a6be81",
@@ -172,7 +172,7 @@ window.DINO_CHARACTERS = {
   },
   "carno": {
     "name": "食肉牛龙",
-    "image": "carno-3d.png",
+    "image": "carno-3d.webp",
     "aspect": 0.937,
     "height": 96,
     "color": "#ba7572",
@@ -189,7 +189,7 @@ window.DINO_CHARACTERS = {
   },
   "allo": {
     "name": "异特龙",
-    "image": "allo-3d.png",
+    "image": "allo-3d.webp",
     "aspect": 1.5,
     "height": 84,
     "color": "#8eaa77",
@@ -206,7 +206,7 @@ window.DINO_CHARACTERS = {
   },
   "dilo": {
     "name": "双脊龙",
-    "image": "dilo-3d.png",
+    "image": "dilo-3d.webp",
     "aspect": 1.5,
     "height": 85,
     "color": "#9280ab",
@@ -223,7 +223,7 @@ window.DINO_CHARACTERS = {
   },
   "diplo": {
     "name": "梁龙",
-    "image": "diplo-3d.png",
+    "image": "diplo-3d.webp",
     "aspect": 2,
     "height": 67,
     "color": "#9caed0",
@@ -240,7 +240,7 @@ window.DINO_CHARACTERS = {
   },
   "oviraptor": {
     "name": "窃蛋龙",
-    "image": "oviraptor-3d.png",
+    "image": "oviraptor-3d.webp",
     "aspect": 0.949,
     "height": 90,
     "color": "#dba67b",
@@ -257,7 +257,7 @@ window.DINO_CHARACTERS = {
   },
   "ptero": {
     "name": "翼龙",
-    "image": "ptero-3d.png",
+    "image": "ptero-3d.webp",
     "aspect": 1.2,
     "height": 84,
     "color": "#e9b87d",
@@ -274,7 +274,7 @@ window.DINO_CHARACTERS = {
   },
   "styraco": {
     "name": "戟龙",
-    "image": "styraco-3d.png",
+    "image": "styraco-3d.webp",
     "aspect": 1,
     "height": 96,
     "color": "#b7ae73",
@@ -293,7 +293,7 @@ window.DINO_CHARACTERS = {
   },
   "proto": {
     "name": "原角龙",
-    "image": "proto-3d.png",
+    "image": "proto-3d.webp",
     "aspect": 1.2,
     "height": 90,
     "color": "#dfb595",
@@ -312,7 +312,7 @@ window.DINO_CHARACTERS = {
   },
   "psittaco": {
     "name": "鹦鹉嘴龙",
-    "image": "psittaco-3d.png",
+    "image": "psittaco-3d.webp",
     "aspect": 1.2,
     "height": 91,
     "color": "#83b0a3",
@@ -331,7 +331,7 @@ window.DINO_CHARACTERS = {
   },
   "kentro": {
     "name": "肯氏龙",
-    "image": "kentro-3d.png",
+    "image": "kentro-3d.webp",
     "aspect": 1,
     "height": 96,
     "color": "#a2ad7b",
@@ -350,7 +350,7 @@ window.DINO_CHARACTERS = {
   },
   "therizino": {
     "name": "镰刀龙",
-    "image": "therizino-3d-v2.png",
+    "image": "therizino-3d-v2.webp",
     "aspect": 1.2,
     "height": 98,
     "color": "#91b9ad",
@@ -369,7 +369,7 @@ window.DINO_CHARACTERS = {
   },
   "amarga": {
     "name": "阿马加龙",
-    "image": "amarga-3d.png",
+    "image": "amarga-3d.webp",
     "aspect": 1.2,
     "height": 96,
     "color": "#a7a8c2",
@@ -388,7 +388,7 @@ window.DINO_CHARACTERS = {
   },
   "lambeo": {
     "name": "赖氏龙",
-    "image": "lambeo-3d-v2.png",
+    "image": "lambeo-3d-v2.webp",
     "aspect": 1.2,
     "height": 96,
     "color": "#d7a17b",
@@ -407,7 +407,7 @@ window.DINO_CHARACTERS = {
   },
   "nodo": {
     "name": "结节龙",
-    "image": "nodo-3d.png",
+    "image": "nodo-3d.webp",
     "aspect": 1.473378509196515,
     "height": 85,
     "color": "#aeb181",
@@ -426,7 +426,7 @@ window.DINO_CHARACTERS = {
   },
   "struthio": {
     "name": "似鸵龙",
-    "image": "struthio-3d-v3.png",
+    "image": "struthio-3d-v3.webp",
     "aspect": 1.1991266375545853,
     "height": 98,
     "color": "#bd956d",
@@ -445,7 +445,7 @@ window.DINO_CHARACTERS = {
   },
   "compso": {
     "name": "美颌龙",
-    "image": "compso-3d.png",
+    "image": "compso-3d.webp",
     "aspect": 1.2,
     "height": 91,
     "color": "#94b278",
@@ -464,7 +464,7 @@ window.DINO_CHARACTERS = {
   },
   "cerato": {
     "name": "角鼻龙",
-    "image": "cerato-3d-v2.png",
+    "image": "cerato-3d-v2.webp",
     "aspect": 1.2,
     "height": 94,
     "color": "#c78c7b",
@@ -483,7 +483,7 @@ window.DINO_CHARACTERS = {
   },
   "bary": {
     "name": "重爪龙",
-    "image": "bary-3d-v3.png",
+    "image": "bary-3d-v3.webp",
     "aspect": 1.1991266375545853,
     "height": 95,
     "color": "#93b1a7",
@@ -503,7 +503,7 @@ window.DINO_CHARACTERS = {
   "apato": {
     "name": "迷惑龙",
     "latinName": "Apatosaurus",
-    "image": "new30-apato.png",
+    "image": "new30-apato.webp",
     "aspect": 1.2,
     "height": 97.67,
     "color": "#a6bd88",
@@ -530,7 +530,7 @@ window.DINO_CHARACTERS = {
   "mamenshi": {
     "name": "马门溪龙",
     "latinName": "Mamenchisaurus",
-    "image": "new30-mamenshi.png",
+    "image": "new30-mamenshi.webp",
     "aspect": 1.5,
     "height": 101.84,
     "color": "#a9bcb7",
@@ -557,7 +557,7 @@ window.DINO_CHARACTERS = {
   "argentino": {
     "name": "阿根廷龙",
     "latinName": "Argentinosaurus",
-    "image": "new30-argentino.png",
+    "image": "new30-argentino.webp",
     "aspect": 1.5,
     "height": 96.55,
     "color": "#9fb1c6",
@@ -584,7 +584,7 @@ window.DINO_CHARACTERS = {
   "alamo": {
     "name": "阿拉莫龙",
     "latinName": "Alamosaurus",
-    "image": "new30-alamo.png",
+    "image": "new30-alamo.webp",
     "aspect": 1.5,
     "height": 96.16,
     "color": "#d2ad82",
@@ -611,7 +611,7 @@ window.DINO_CHARACTERS = {
   "shuno": {
     "name": "蜀龙",
     "latinName": "Shunosaurus",
-    "image": "new30-shuno.png",
+    "image": "new30-shuno.webp",
     "aspect": 1.5,
     "height": 100.48,
     "color": "#88aa9a",
@@ -638,7 +638,7 @@ window.DINO_CHARACTERS = {
   "camara": {
     "name": "圆顶龙",
     "latinName": "Camarasaurus",
-    "image": "new30-camara.png",
+    "image": "new30-camara.webp",
     "aspect": 1.5,
     "height": 99.54,
     "color": "#c0ad83",
@@ -665,7 +665,7 @@ window.DINO_CHARACTERS = {
   "europa": {
     "name": "欧罗巴龙",
     "latinName": "Europasaurus",
-    "image": "new30-europa.png",
+    "image": "new30-europa.webp",
     "aspect": 1.5,
     "height": 100.9,
     "color": "#b3b891",
@@ -692,7 +692,7 @@ window.DINO_CHARACTERS = {
   "dicraeo": {
     "name": "叉龙",
     "latinName": "Dicraeosaurus",
-    "image": "new30-dicraeo.png",
+    "image": "new30-dicraeo.webp",
     "aspect": 1.5,
     "height": 99.85,
     "color": "#8ba7ac",
@@ -719,7 +719,7 @@ window.DINO_CHARACTERS = {
   "niger": {
     "name": "尼日尔龙",
     "latinName": "Nigersaurus",
-    "image": "new30-niger.png",
+    "image": "new30-niger.webp",
     "aspect": 1.5,
     "height": 99.92,
     "color": "#bca087",
@@ -746,7 +746,7 @@ window.DINO_CHARACTERS = {
   "corytho": {
     "name": "盔龙",
     "latinName": "Corythosaurus",
-    "image": "new30-corytho.png",
+    "image": "new30-corytho.webp",
     "aspect": 0.9624413145539906,
     "height": 95.88,
     "color": "#d6af78",
@@ -773,7 +773,7 @@ window.DINO_CHARACTERS = {
   "maia": {
     "name": "慈母龙",
     "latinName": "Maiasaura",
-    "image": "new30-maia.png",
+    "image": "new30-maia.webp",
     "aspect": 1.0,
     "height": 110.37,
     "color": "#a6bd88",
@@ -800,7 +800,7 @@ window.DINO_CHARACTERS = {
   "edmonto": {
     "name": "埃德蒙顿龙",
     "latinName": "Edmontosaurus",
-    "image": "new30-edmonto.png",
+    "image": "new30-edmonto.webp",
     "aspect": 1.0,
     "height": 123.3,
     "color": "#a9bcb7",
@@ -827,7 +827,7 @@ window.DINO_CHARACTERS = {
   "ourano": {
     "name": "豪勇龙",
     "latinName": "Ouranosaurus",
-    "image": "new30-ourano.png",
+    "image": "new30-ourano.webp",
     "aspect": 1.0,
     "height": 133.04,
     "color": "#9fb1c6",
@@ -854,7 +854,7 @@ window.DINO_CHARACTERS = {
   "tsintao": {
     "name": "青岛龙",
     "latinName": "Tsintaosaurus",
-    "image": "new30-tsintao.png",
+    "image": "new30-tsintao.webp",
     "aspect": 1.0,
     "height": 96.94,
     "color": "#d2ad82",
@@ -881,7 +881,7 @@ window.DINO_CHARACTERS = {
   "saurolo": {
     "name": "栉龙",
     "latinName": "Saurolophus",
-    "image": "new30-saurolo.png",
+    "image": "new30-saurolo.webp",
     "aspect": 1.0,
     "height": 100.32,
     "color": "#88aa9a",
@@ -908,7 +908,7 @@ window.DINO_CHARACTERS = {
   "pachyrhino": {
     "name": "厚鼻龙",
     "latinName": "Pachyrhinosaurus",
-    "image": "new30-pachyrhino.png",
+    "image": "new30-pachyrhino.webp",
     "aspect": 1.2,
     "height": 99.75,
     "color": "#c0ad83",
@@ -935,7 +935,7 @@ window.DINO_CHARACTERS = {
   "centro": {
     "name": "尖角龙",
     "latinName": "Centrosaurus",
-    "image": "new30-centro.png",
+    "image": "new30-centro.webp",
     "aspect": 1.0,
     "height": 105.72,
     "color": "#b3b891",
@@ -962,7 +962,7 @@ window.DINO_CHARACTERS = {
   "chasmo": {
     "name": "开角龙",
     "latinName": "Chasmosaurus",
-    "image": "new30-chasmo.png",
+    "image": "new30-chasmo.webp",
     "aspect": 1.2,
     "height": 95.59,
     "color": "#8ba7ac",
@@ -989,7 +989,7 @@ window.DINO_CHARACTERS = {
   "nasuto": {
     "name": "大鼻角龙",
     "latinName": "Nasutoceratops",
-    "image": "new30-nasuto.png",
+    "image": "new30-nasuto.webp",
     "aspect": 1.2,
     "height": 101.92,
     "color": "#bca087",
@@ -1016,7 +1016,7 @@ window.DINO_CHARACTERS = {
   "pentacera": {
     "name": "五角龙",
     "latinName": "Pentaceratops",
-    "image": "new30-pentacera.png",
+    "image": "new30-pentacera.webp",
     "aspect": 1.2,
     "height": 96.27,
     "color": "#d6af78",
@@ -1043,7 +1043,7 @@ window.DINO_CHARACTERS = {
   "euoplo": {
     "name": "包头龙",
     "latinName": "Euoplocephalus",
-    "image": "new30-euoplo.png",
+    "image": "new30-euoplo.webp",
     "aspect": 1.2,
     "height": 125.74,
     "color": "#a6bd88",
@@ -1070,7 +1070,7 @@ window.DINO_CHARACTERS = {
   "sauropelta": {
     "name": "蜥结龙",
     "latinName": "Sauropelta",
-    "image": "new30-sauropelta.png",
+    "image": "new30-sauropelta.webp",
     "aspect": 1.5,
     "height": 99.32,
     "color": "#a9bcb7",
@@ -1097,7 +1097,7 @@ window.DINO_CHARACTERS = {
   "tuojiang": {
     "name": "沱江龙",
     "latinName": "Tuojiangosaurus",
-    "image": "new30-tuojiang.png",
+    "image": "new30-tuojiang.webp",
     "aspect": 1.5,
     "height": 99.52,
     "color": "#9fb1c6",
@@ -1124,7 +1124,7 @@ window.DINO_CHARACTERS = {
   "huayang": {
     "name": "华阳龙",
     "latinName": "Huayangosaurus",
-    "image": "new30-huayang.png",
+    "image": "new30-huayang.webp",
     "aspect": 1.2,
     "height": 96.7,
     "color": "#d2ad82",
@@ -1151,7 +1151,7 @@ window.DINO_CHARACTERS = {
   "deinonych": {
     "name": "恐爪龙",
     "latinName": "Deinonychus",
-    "image": "new30-deinonych.png",
+    "image": "new30-deinonych.webp",
     "aspect": 1.2,
     "height": 99.29,
     "color": "#88aa9a",
@@ -1178,7 +1178,7 @@ window.DINO_CHARACTERS = {
   "utah": {
     "name": "犹他盗龙",
     "latinName": "Utahraptor",
-    "image": "new30-utah.png",
+    "image": "new30-utah.webp",
     "aspect": 1.2,
     "height": 99.2,
     "color": "#c0ad83",
@@ -1205,7 +1205,7 @@ window.DINO_CHARACTERS = {
   "sino": {
     "name": "中华龙鸟",
     "latinName": "Sinosauropteryx",
-    "image": "new30-sino.png",
+    "image": "new30-sino.webp",
     "aspect": 1.2,
     "height": 96.36,
     "color": "#b3b891",
@@ -1232,7 +1232,7 @@ window.DINO_CHARACTERS = {
   "micro": {
     "name": "小盗龙",
     "latinName": "Microraptor",
-    "image": "new30-micro.png",
+    "image": "new30-micro.webp",
     "aspect": 1.2,
     "height": 104.6,
     "color": "#8ba7ac",
@@ -1259,7 +1259,7 @@ window.DINO_CHARACTERS = {
   "yuty": {
     "name": "羽王龙",
     "latinName": "Yutyrannus",
-    "image": "new30-yuty.png",
+    "image": "new30-yuty.webp",
     "aspect": 1.2,
     "height": 98.29,
     "color": "#bca087",
@@ -1286,7 +1286,7 @@ window.DINO_CHARACTERS = {
   "galli": {
     "name": "似鸡龙",
     "latinName": "Gallimimus",
-    "image": "new30-galli.png",
+    "image": "new30-galli.webp",
     "aspect": 1.2,
     "height": 95.67,
     "color": "#d6af78",

@@ -19,7 +19,7 @@
   const newKinds = Object.keys(species).filter(kind => species[kind].expansion === '2026-10-17');
   const collectionKinds = Object.keys(species).sort((a, b) => Number(newKinds.includes(b)) - Number(newKinds.includes(a)) || Number(Boolean(species[b].isNew)) - Number(Boolean(species[a].isNew)));
   const introductions = Object.fromEntries(Object.entries(species).map(([kind, data]) => [kind, data.intro]));
-  const eggImage = { image: 'egg-3d.png', aspect: 1230 / 1278, height: 70, color: '#efe0af' };
+  const eggImage = { image: 'egg-3d.webp', aspect: 1230 / 1278, height: 70, color: '#efe0af' };
   const ring = directions.map(([q, r]) => key(q, r));
   const levels = window.DINO_LEVELS.concat(window.DINO_CHALLENGES || [], window.DINO_GRADE2 || [], window.DINO_KNOWLEDGE || [], [
     { tag: '自由探险', title: '继续救出恐龙队伍', guidance: '放一对，连三只。看看能救出多少队。',
@@ -82,7 +82,7 @@
   const regions = ['火山双瀑谷', '蕨叶森林', '碧蓝湖湾', '红岩峡谷', '彩虹花谷', '巨杉秘境', '晨雾溪谷', '高山湖畔', '琥珀海湾', '阳光花海'];
   const scenes = levels.map((level, index) => window.dinoSceneForLevel?.(index) || ({
     name: level.mode === 'free' ? '自由恐龙岛' : regions[level.sceneIndex],
-    image: 'scenes-v2/scene-' + String((level.sceneIndex ?? 0) + 1).padStart(2, '0') + '.png',
+    image: 'scenes-v2/scene-' + String((level.sceneIndex ?? 0) + 1).padStart(2, '0') + '.webp',
     position: 'center center',
     filter: 'brightness(' + (1 + (index % 5) * .008).toFixed(3) + ') saturate(' + (1 + (index % 5) * .012).toFixed(3) + ')'
   }));
@@ -105,18 +105,23 @@
   const islandAudio = window.createIslandAudio?.({ enabled: soundOn });
   let audioContext;
   const narration = new Audio();
-  narration.preload = 'auto';
+  narration.preload = 'none';
   let narrationTimer;
   let narrationPlayToken = 0;
   const galleryNarration = new Audio();
   galleryNarration.preload = 'none';
   const taskNarration = new Audio();
-  taskNarration.preload = 'auto';
+  taskNarration.preload = 'metadata';
+  let taskPlayToken = 0;
+  let chapterPlayToken = 0;
+  let wrongPlayToken = 0;
   const voiceVersion = '?v=20261018-curriculum-r3';
-  const wrongNarration = new Audio('./assets/voice/wrong-answer.m4a' + voiceVersion);
-  wrongNarration.preload = 'auto';
-  const chapterNarration = new Audio('./assets/voice/' + (window.DINO_KNOWLEDGE?.length ? 'knowledge-complete.m4a' : window.DINO_GRADE2?.length ? 'grade2-complete.m4a' : 'chapter2-complete.m4a') + voiceVersion);
-  chapterNarration.preload = 'auto';
+  const wrongNarration = new Audio();
+  wrongNarration.preload = 'none';
+  wrongNarration.src = './assets/voice/wrong-answer.m4a' + voiceVersion;
+  const chapterNarration = new Audio();
+  chapterNarration.preload = 'none';
+  chapterNarration.src = './assets/voice/' + (window.DINO_KNOWLEDGE?.length ? 'knowledge-complete.m4a' : window.DINO_GRADE2?.length ? 'grade2-complete.m4a' : 'chapter2-complete.m4a') + voiceVersion;
   let gallerySelected = 'styraco';
   let galleryAudioKind = '';
   let galleryPlayToken = 0;
@@ -131,7 +136,7 @@
     if (keep !== galleryNarration) stopGalleryNarration();
     if (keep !== taskNarration) stopTaskNarration();
     if (keep !== chapterNarration) stopChapterNarration();
-    if (keep !== wrongNarration) wrongNarration.pause();
+    if (keep !== wrongNarration) { wrongPlayToken++; wrongNarration.pause(); }
     syncVoiceMix();
   }
   function setSound(enabled) {
@@ -212,7 +217,7 @@
     if (result.wrong) {
       stopOtherVoices(wrongNarration);
       tone([294, 247]);
-      if (soundOn) { wrongNarration.currentTime = 0; wrongNarration.play().catch(() => {}); }
+      playWrongNarration();
     } else if (result.changed) {
       wrongNarration.pause();
       if (action !== 'undo') islandAudio?.creature(currentLevel().factKind, 'touch');
@@ -498,7 +503,7 @@
     const seed = level.mode === 'math' ? mathSeed(level) : level.seed;
     try { localStorage.setItem(currentLevelKey, String(levelIndex)); } catch (_) {}
     setScene(levelIndex);
-    preloadScene(levelIndex + 1);
+    // On public/mobile connections, give the current island and dinosaur priority.
     state = {
       level: levelIndex, tiles: new Map(seed), pieceIndex: 0, orientation: 0,
       progress: level.mode === 'math' ? level.start : level.mode === 'egg' ? ring.filter((cellKey) => level.seed.some(([seedKey]) => seedKey === cellKey)).length : level.mode === 'parallel' ? 1 : 0, rescued: 0, hover: null,
@@ -524,6 +529,18 @@
     taskNarration.src = './assets/voice/' + (level.taskFile || (level.mode === 'free' ? 'task-free' : 'task-' + String(levelIndex + 1).padStart(2, '0')) + '.m4a') + voiceVersion;
     taskNarration.load();
     $('#taskSpeakButton').classList.add('needs-tap');
+    if (window.DinoBoot) {
+      const assets = ['./assets/' + scenes[levelIndex].image];
+      if (level.factKind && species[level.factKind]) assets.push('./assets/' + species[level.factKind].image);
+      $('.app').querySelectorAll('img, svg image').forEach(node => {
+        if (!node.getClientRects().length || node.closest('[hidden]')) return;
+        const path = node.getAttribute(node.tagName.toLowerCase() === 'image' ? 'href' : 'src');
+        if (path) assets.push(path);
+      });
+      window.DinoBoot.prepareLevel(assets, () => {
+        if (introToken === roundToken) { setSound(true); playTaskNarration(); }
+      });
+    }
     if (announce && soundOn) {
       if (!$('#chapterGate').hidden) playChapterNarration();
       else playTaskNarration();
@@ -709,6 +726,43 @@
       });
     } catch (_) {}
   }
+  function playVoiceAudio(audio, restart = false) {
+    // Keep play() inside the user's gesture, including a retry after MediaError.
+    try {
+      if (audio.error) audio.load();
+      if (restart) audio.currentTime = 0;
+      const pending = audio.play();
+      // Preserve the media promise's scheduling; older browsers returned void.
+      return pending && typeof pending.then === 'function' ? pending : Promise.resolve();
+    } catch (error) { return Promise.reject(error); }
+  }
+  function setTaskAudioStatus(status) {
+    const button = $('#taskSpeakButton');
+    const labels = {
+      idle: ['听一听', '播放本关任务语音'],
+      loading: ['加载中…', '任务语音加载中'],
+      playing: ['正在说', '正在播放任务语音，点击重播'],
+      retry: ['点此重试', '语音加载失败，点击重新加载'],
+      blocked: ['点此开声音', '点击开启声音并播放任务语音'],
+      ended: ['再听一次', '重播本关任务语音']
+    };
+    const [label, aria] = labels[status] || labels.idle;
+    const caption = button.querySelector('small');
+    if (caption) caption.textContent = label;
+    button.setAttribute('aria-label', aria);
+    button.classList.toggle('is-playing', status === 'playing');
+    button.classList.toggle('needs-tap', status === 'retry' || status === 'blocked');
+  }
+  function playWrongNarration() {
+    if (!soundOn || document.hidden) return;
+    const token = ++wrongPlayToken;
+    const round = roundToken;
+    playVoiceAudio(wrongNarration, true).catch((error) => {
+      if (token !== wrongPlayToken || round !== roundToken || !soundOn || error?.name === 'AbortError') return;
+      wrongNarration.pause();
+      setTaskAudioStatus(error?.name === 'NotAllowedError' ? 'blocked' : 'retry');
+    });
+  }
   function stopNarration() {
     narrationPlayToken++;
     clearTimeout(narrationTimer);
@@ -719,13 +773,13 @@
     $('#listenButton').textContent = '▶ 听故事';
   }
   function stopTaskNarration() {
+    taskPlayToken++;
     taskNarration.pause();
     taskNarration.currentTime = 0;
-    $('#taskSpeakButton').classList.remove('is-playing');
-    $('#taskSpeakButton').classList.remove('needs-tap');
-    $('#taskSpeakButton').setAttribute('aria-label', '播放本关任务语音');
+    setTaskAudioStatus('idle');
   }
   function stopChapterNarration() {
+    chapterPlayToken++;
     chapterNarration.pause();
     chapterNarration.currentTime = 0;
     $('#chapterSpeak').textContent = '🔊 听听接下来怎么玩';
@@ -733,27 +787,42 @@
   function playChapterNarration() {
     if (!soundOn || document.hidden) return;
     stopOtherVoices(chapterNarration);
-    chapterNarration.currentTime = 0;
-    chapterNarration.play().then(() => { $('#chapterSpeak').textContent = '♪ 正在说'; }).catch(() => {});
+    const token = ++chapterPlayToken;
+    const round = roundToken;
+    $('#chapterSpeak').textContent = '声音加载中…';
+    playVoiceAudio(chapterNarration, true).then(() => {
+      if (token === chapterPlayToken && round === roundToken && soundOn && !chapterNarration.paused) $('#chapterSpeak').textContent = '♪ 正在说';
+    }).catch((error) => {
+      if (token !== chapterPlayToken || round !== roundToken || !soundOn || error?.name === 'AbortError') return;
+      $('#chapterSpeak').textContent = error?.name === 'NotAllowedError' ? '🔊 点此开启声音' : '↻ 声音没加载好，点此重试';
+    });
   }
   chapterNarration.addEventListener('ended', () => { $('#chapterSpeak').textContent = '↻ 再听一次'; });
+  chapterNarration.addEventListener('error', () => {
+    if (chapterNarration.error && soundOn && !$('#chapterGate').hidden) $('#chapterSpeak').textContent = '↻ 声音没加载好，点此重试';
+  });
   function playTaskNarration() {
     if (!soundOn || document.hidden || !taskNarration.src) return;
     stopOtherVoices(taskNarration);
-    taskNarration.currentTime = 0;
     const token = roundToken;
-    taskNarration.play().then(() => {
-      if (token !== roundToken) return;
-      $('#taskSpeakButton').classList.add('is-playing');
-      $('#taskSpeakButton').classList.remove('needs-tap');
-      $('#taskSpeakButton').setAttribute('aria-label', '正在播放任务语音，点击重播');
-    }).catch(() => {
-      if (token === roundToken) $('#taskSpeakButton').classList.add('needs-tap');
+    const playToken = ++taskPlayToken;
+    const source = taskNarration.src;
+    setTaskAudioStatus('loading');
+    playVoiceAudio(taskNarration, true).then(() => {
+      if (token !== roundToken || playToken !== taskPlayToken || source !== taskNarration.src || !soundOn || taskNarration.paused) return;
+      setTaskAudioStatus('playing');
+    }).catch((error) => {
+      if (token !== roundToken || playToken !== taskPlayToken || source !== taskNarration.src || !soundOn || error?.name === 'AbortError') return;
+      setTaskAudioStatus(error?.name === 'NotAllowedError' ? 'blocked' : 'retry');
     });
   }
   taskNarration.addEventListener('ended', () => {
-    $('#taskSpeakButton').classList.remove('is-playing');
-    $('#taskSpeakButton').setAttribute('aria-label', '重播本关任务语音');
+    if (taskNarration.ended) setTaskAudioStatus('ended');
+  });
+  taskNarration.addEventListener('error', () => {
+    // Ignore a queued error from a retired source after start() assigned a new one.
+    if (!taskNarration.error || (taskNarration.currentSrc && taskNarration.currentSrc !== taskNarration.src)) return;
+    if (soundOn && !document.hidden) setTaskAudioStatus('retry');
   });
   function playNarration(reset = true, startPart = null) {
     clearTimeout(narrationTimer);
@@ -764,7 +833,7 @@
     const token = roundToken;
     const playToken = ++narrationPlayToken;
     if (startPart !== null) rewardStory.seek(startPart);
-    narration.play().then(() => {
+    playVoiceAudio(narration).then(() => {
       if (token !== roundToken || playToken !== narrationPlayToken || narration.paused || !soundOn || $('#finish').hidden) return;
       $('#listenButton').classList.add('is-playing');
       $('#listenButton').textContent = 'Ⅱ 暂停';
@@ -1048,7 +1117,7 @@
     render();
     $('.interaction-bar').classList.remove('shake');
     requestAnimationFrame(() => $('.interaction-bar').classList.add('shake'));
-    if (soundOn) { wrongNarration.currentTime = 0; wrongNarration.play().catch(() => {}); }
+    playWrongNarration();
   }
   function place(anchor) {
     if (!state || state.animating || state.complete) return;
@@ -1374,7 +1443,7 @@
     }
     if (startPart !== null) galleryStory.seek(startPart);
     const token = ++galleryPlayToken;
-    galleryNarration.play().then(() => {
+    playVoiceAudio(galleryNarration).then(() => {
       if (token === galleryPlayToken && !galleryNarration.paused && !$('#collectionOverlay').hidden) $('#collectionListen').textContent = 'Ⅱ 暂停';
     }).catch(() => {
       if (token === galleryPlayToken) $('#collectionListen').textContent = '▶ 点这里听';
@@ -1401,6 +1470,11 @@
   });
   $('#soundButton').addEventListener('click', () => {
     setSound(!soundOn);
+    if (!soundOn) return;
+    if (!$('#collectionOverlay').hidden) playGalleryNarration();
+    else if (!$('#finish').hidden && !$('#factCard').hidden) playNarration(false);
+    else if (!$('#chapterGate').hidden) playChapterNarration();
+    else playTaskNarration();
   });
   document.addEventListener('keydown', (event) => {
     if (levelPicker?.visible) return;

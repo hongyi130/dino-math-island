@@ -57,8 +57,9 @@
     const playVersions = new WeakMap();
     const all = [];
     const create = (file) => {
-      const audio = new Audio('./assets/sfx/' + file + '.wav' + version);
-      audio.preload = 'auto';
+      const audio = new Audio();
+      audio.preload = 'none';
+      audio.src = './assets/sfx/' + file + '.wav' + version;
       document.querySelector?.('#soundscape')?.appendChild?.(audio);
       all.push(audio);
       return audio;
@@ -94,7 +95,12 @@
       const version = (playVersions.get(audio) || 0) + 1;
       playVersions.set(audio, version);
       const rejected = () => { if (playVersions.get(audio) === version) pause(audio); };
-      try { const pending = audio.play(); pending?.catch(rejected); } catch (_) { rejected(); }
+      try {
+        // A failed network request leaves MediaError set until load() resets it.
+        if (audio.error) audio.load();
+        const pending = audio.play();
+        pending?.catch(rejected);
+      } catch (_) { rejected(); }
     };
     const stopEffects = () => {
       for (const audio of [...effects]) pause(audio, true);

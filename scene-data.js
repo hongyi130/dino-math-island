@@ -4,7 +4,7 @@
   const discoveries = ['白岸石拱','银杏秋谷','紫晶洞口','雪山温泉','沙漠绿洲','萤火蕨谷'];
   window.DINO_SCENES = original.concat(discoveries).map((name,index) => ({
     name,
-    image: (index < 10 ? 'scenes-v2/' : 'scenes-v3/') + 'scene-' + String(index + 1).padStart(2,'0') + '.png',
+    image: (index < 10 ? 'scenes-v2/' : 'scenes-v3/') + 'scene-' + String(index + 1).padStart(2,'0') + '.webp',
     position: 'center center', size: 'cover', filter: 'none'
   }));
   const route = [0,10,1,11,2,12,3,13,4,14,5,15,6,7,8,9];

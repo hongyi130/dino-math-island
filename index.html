@@ -13,8 +13,16 @@
   <link rel="stylesheet" href="./jump-ui.css?v=20261017-jump-size-r2">
   <link rel="stylesheet" href="./grade2-ui.css?v=20261017-ground-lift-r5">
   <link rel="stylesheet" href="./knowledge-ui.css?v=20261018-curriculum-r3">
+  <style>#bootCover[hidden], #bootAction[hidden] { display:none !important; }</style>
 </head>
 <body>
+  <section id="bootCover" role="dialog" aria-modal="true" aria-labelledby="bootTitle" aria-busy="true" style="position:fixed;inset:0;z-index:10000;display:grid;place-content:center;justify-items:center;gap:18px;padding:24px;background:linear-gradient(160deg,#123d36f5,#264e34eb);color:#fff5d7;text-align:center;font-family:system-ui,sans-serif">
+    <span aria-hidden="true" style="font-size:56px">🐾</span>
+    <h2 id="bootTitle" style="margin:0;font-size:clamp(24px,5vw,40px)">恐龙岛准备中…</h2>
+    <p id="bootDetail" role="status" aria-live="polite" style="margin:0;max-width:32em;line-height:1.7">第一次来，正在接恐龙伙伴到岛上。</p>
+    <button id="bootAction" type="button" hidden style="min-height:56px;padding:14px 28px;border:0;border-radius:24px;background:#ffe297;color:#244a3c;font-size:22px;font-weight:800;cursor:pointer">重新加载游戏</button>
+    <noscript>游戏需要启用浏览器的 JavaScript。</noscript>
+  </section>
   <div id="fileNotice" class="file-notice" hidden>
     <span>这是电脑上的本地文件，手机打不开。请先在电脑双击「启动手机试玩.command」，再用手机打开窗口显示的网址。</span>
     <a href="http://localhost:8765/">电脑切换到可共享版本</a>
@@ -22,7 +30,7 @@
   </div>
   <main class="app">
     <div class="scene-backdrops" aria-hidden="true">
-      <div id="sceneA" class="scene-backdrop is-visible" data-scene="scenes-v2/scene-01.png" style="background-image:url('./assets/scenes-v2/scene-01.png')"></div>
+      <div id="sceneA" class="scene-backdrop is-visible" data-scene="scenes-v2/scene-01.webp" style="background-image:url('./assets/scenes-v2/scene-01.webp')"></div>
       <div id="sceneB" class="scene-backdrop"></div>
     </div>
     <div class="scene-shade" aria-hidden="true"></div>
@@ -57,7 +65,7 @@
               <p id="encouragement" class="encouragement"></p>
               </div>
               <div id="factCard" class="fact-card story-card">
-                <button id="factHello" class="fact-portrait story-portrait" type="button" aria-label="和恐龙打招呼"><img id="factPortrait" src="./assets/trike-3d.png" alt=""><span class="portrait-touch" aria-hidden="true">👋</span></button>
+                <button id="factHello" class="fact-portrait story-portrait" type="button" aria-label="和恐龙打招呼"><img id="factPortrait" src="./assets/trike-3d.webp" alt="" loading="lazy"><span class="portrait-touch" aria-hidden="true">👋</span></button>
                 <div class="fact-copy story-copy">
                   <div class="story-heading"><small>我来陪你探险啦</small><strong id="factName"></strong><span id="factNickname" class="story-nickname"></span></div>
                   <p id="dinoFact" class="story-caption"></p>
@@ -76,9 +84,9 @@
               <p>恐龙岛数学探险</p>
               <h2 id="chapterGateTitle">230 关全部完成！</h2>
               <div class="chapter-dinos" aria-hidden="true">
-                <img src="./assets/trike-3d.png" alt="">
-                <img src="./assets/stego-3d.png" alt="">
-                <img src="./assets/oviraptor-3d.png" alt="">
+                <img src="./assets/trike-3d.webp" alt="" loading="lazy">
+                <img src="./assets/stego-3d.webp" alt="" loading="lazy">
+                <img src="./assets/oviraptor-3d.webp" alt="" loading="lazy">
               </div>
               <p class="chapter-gate-note">数学关卡已经通关。可以重新挑战，或者去没有关卡终点的自由恐龙岛。</p>
               <button id="chapterSpeak" class="chapter-speak" type="button">🔊 听听接下来怎么玩</button>
@@ -121,7 +129,7 @@
         <button id="collectionClose" type="button" aria-label="关闭恐龙图鉴">×</button>
       </div>
       <div class="collection-feature story-card">
-        <button id="collectionHello" class="collection-feature-art story-portrait" type="button" aria-label="和恐龙打招呼"><img id="collectionPortrait" src="./assets/trike-3d.png" alt=""><span class="portrait-touch" aria-hidden="true">👋</span></button>
+        <button id="collectionHello" class="collection-feature-art story-portrait" type="button" aria-label="和恐龙打招呼"><img id="collectionPortrait" src="./assets/trike-3d.webp" alt="" loading="lazy"><span class="portrait-touch" aria-hidden="true">👋</span></button>
         <div class="collection-feature-copy story-copy">
           <div class="story-heading"><small id="collectionType">恐龙伙伴</small><h3 id="collectionName">三角龙</h3><span id="collectionNickname" class="story-nickname"></span></div>
           <p id="collectionIntro" class="story-caption"></p>
@@ -148,23 +156,7 @@
     </section>
   </div>
   <div id="soundscape" hidden aria-hidden="true"></div>
-  <script src="./characters-data.js?v=20261017-expansion30"></script>
-  <script src="./levels-data.js?v=20261017-expansion30"></script>
-  <script src="./knowledge-levels.js?v=20261018-curriculum-r3"></script>
-  <script src="./learning-catalog.js?v=20261018-curriculum-r3"></script>
-  <script src="./scene-data.js?v=20261018-curriculum-r3"></script>
-  <script src="./challenge-levels.js?v=20261017-expansion30"></script>
-  <script src="./grade2-levels.js?v=20261017-herds-r1"></script>
-  <script src="./challenge-engine.js?v=20261015-expedition-r3"></script>
-  <script src="./grade2-engine.js?v=20261017-herds-r1"></script>
-  <script src="./knowledge-engine.js?v=20261018-curriculum-r3"></script>
-  <script src="./knowledge-ui.js?v=20261018-curriculum-r3"></script>
-  <script src="./grade2-ui.js?v=20261017-clear-meadow-r4"></script>
-  <script src="./challenge-ui.js?v=20261017-grade2-r1"></script>
-  <script src="./voice-cues.js?v=20261017-expansion30"></script>
-  <script src="./story-player.js?v=20261003-stories2"></script>
-  <script src="./island-audio.js?v=20261017-expansion30"></script>
-  <script src="./level-picker.js?v=20261018-curriculum-r3"></script>
-  <script src="./game.js?v=20261018-curriculum-r3"></script>
+  <script type="application/json" id="runtimeScripts">["./characters-data.js?v=20261018-media-r4", "./levels-data.js?v=20261018-media-r4", "./knowledge-levels.js?v=20261018-media-r4", "./learning-catalog.js?v=20261018-media-r4", "./scene-data.js?v=20261018-media-r4", "./challenge-levels.js?v=20261018-media-r4", "./grade2-levels.js?v=20261018-media-r4", "./challenge-engine.js?v=20261018-media-r4", "./grade2-engine.js?v=20261018-media-r4", "./knowledge-engine.js?v=20261018-media-r4", "./knowledge-ui.js?v=20261018-media-r4", "./grade2-ui.js?v=20261018-media-r4", "./challenge-ui.js?v=20261018-media-r4", "./voice-cues.js?v=20261018-media-r4", "./story-player.js?v=20261018-media-r4", "./island-audio.js?v=20261018-media-r4", "./level-picker.js?v=20261018-media-r4", "./game.js?v=20261018-media-r4"]</script>
+  <script src="./boot.js?v=20261018-media-r4" onerror="document.getElementById('bootTitle').textContent='游戏文件没有加载成功';var b=document.getElementById('bootAction');b.hidden=false;b.onclick=function(){location.reload()}"></script>
 </body>
 </html>
