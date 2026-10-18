@@ -1,0 +1,98 @@
+/* A continuous island scene with pinned guidance and clear, countable herds. */
+.app.grade2-mode{--ground-lift:clamp(24px,5svh,60px);}
+.grade2-play{container-type:inline-size;--dino-w:clamp(96px,calc(11.2cqw - 4px),156px);--dino-h:calc(var(--dino-w) * .82);width:min(1460px,100%);height:100%;max-height:100%;min-height:0;flex-shrink:0;margin:0 auto;padding:8px 28px 18px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;color:#fff8da;text-shadow:0 2px 5px #1c3826;}
+.app.grade2-mode .playfield{position:absolute;inset:calc(max(145px,calc(32svh - 62px)) - var(--ground-lift)) 0 0;overflow:visible;align-items:stretch;padding:0;}
+.app.grade2-mode .scene-backdrops{filter:none;}
+.app.grade2-mode .scene-shade{background:linear-gradient(180deg,#102e2938,transparent 27%,transparent 78%,#102b2455);}
+
+.app.grade2-mode #guidance{display:none;}
+.g2-instruction{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;align-self:center;padding:7px 24px;position:relative;isolation:isolate;}
+.g2-instruction::before{content:"";position:absolute;inset:-5px -35px;z-index:-1;background:radial-gradient(ellipse,#173a29a8,transparent 73%);}
+.g2-instruction strong{font-size:30px;line-height:1.35;}.g2-instruction strong b{font-size:42px;color:#ffe5a2;}.g2-instruction>span{font-size:20px;font-weight:750;}
+.g2-savanna{display:grid;grid-template-columns:minmax(0,56%) minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:28px;align-items:stretch;align-self:start;width:100%;height:calc(100% - var(--ground-lift));min-height:0;position:relative;isolation:isolate;}
+.g2-savanna::before,.g2-waiting::before{content:none;}
+.g2-savanna.without-pool,.g2-savanna.is-empty-pool{grid-template-columns:1fr;}
+.g2-savanna.is-empty-pool .g2-waiting{display:none;}
+.g2-savanna.is-empty-pool .g2-clearings{grid-template-columns:repeat(2,minmax(0,1fr));}
+.g2-teamland{min-width:0;min-height:0;overflow-y:auto;overflow-x:hidden;scroll-padding-block:1px 1px;}
+.g2-waiting{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:0;padding:0;position:relative;isolation:isolate;}
+.g2-waiting-label{font-size:24px;font-weight:900;text-align:center;margin-bottom:6px;min-height:48px;flex-shrink:0;color:#fff6d3;}.g2-waiting-label small{display:block;font-size:17px;font-weight:700;margin-top:4px;}
+.g2-pool-herd{display:flex;flex-wrap:wrap;flex:1 1 0;width:100%;max-width:calc(var(--dino-w)*5 + 16px);justify-content:center;align-content:flex-start;align-items:end;gap:4px;min-height:0;overflow-y:auto;overflow-x:hidden;padding:6px 0 12px;}
+.g2-pool-herd>.g2-dino{flex:0 0 var(--dino-w);width:var(--dino-w);height:var(--dino-h);}
+.g2-waiting.is-remainder .g2-waiting-label{font-size:26px;color:#ffdf86;}.g2-remainder-note{margin-top:12px;font-size:22px;font-weight:900;color:#ffe59c;}
+.g2-all-away{grid-column:1/-1;font-size:36px;opacity:.65;min-height:90px;display:grid;place-items:center;}
+.g2-clearings{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start;}
+.g2-clearing{position:relative;isolation:isolate;min-width:0;width:100%;max-width:none;justify-self:center;padding:30px 6px 18px;align-self:start;}
+.g2-landmark{position:absolute;left:2%;top:calc(30px + var(--dino-h) - 52px);display:block;color:var(--camp-color);width:42px;height:54px;filter:drop-shadow(1px 2px 1px #18332424);}.g2-landmark svg{width:100%;height:100%;}.g2-landmark b{position:absolute;top:8px;left:17px;font-size:14px;line-height:1;color:#273d2d;text-shadow:none;}
+.g2-ground{display:none;}
+.g2-residents{display:flex;flex-wrap:wrap;align-items:end;justify-content:center;position:relative;gap:4px;min-height:var(--dino-h);max-width:calc(var(--dino-w)*3 + 8px);margin:0 auto;}
+.g2-place{position:relative;display:flex;align-items:end;justify-content:center;flex:0 0 var(--dino-w);width:var(--dino-w);height:var(--dino-h);min-width:0;padding:0;border:0;background:none;}
+.g2-dino{position:relative;display:block;width:100%;height:100%;min-width:0;padding:0;border:0;background:none;isolation:isolate;}
+.g2-dino::before{content:"";position:absolute;left:24%;right:10%;bottom:-1px;height:9%;background:radial-gradient(ellipse,#172e27b3,transparent 70%);filter:blur(2px);z-index:-1;transform:rotate(-6deg);}
+.grade2-play .g2-dino img{width:100%;height:100%;max-height:none;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 1px 1px #fff1c22e) drop-shadow(-2px 4px 2px #172c2945);}
+.g2-dino.is-arriving{animation:g2-arrive .42s ease-out;}
+.g2-dino[data-g2-action]:hover img{transform:translateY(-4px);}
+.g2-footstep{scroll-margin-block:10px 25px;align-items:flex-end;padding-bottom:19px;min-height:var(--dino-h);}
+.g2-paw{width:61px;height:72px;fill:#345344ae;stroke:#f5e5b9c9;stroke-width:1.8;transform:rotate(-10deg) scaleY(.78);filter:drop-shadow(0 3px 1px #122b2666);}
+.g2-footstep.quiet{opacity:.45;}
+.g2-footstep.is-next::before{content:"";position:absolute;width:90%;max-width:120px;bottom:14px;height:36%;border:2px solid #ffdf86;border-radius:50%;background:radial-gradient(ellipse,#ffd26e80,transparent 72%);box-shadow:0 0 16px #ffce6666;animation:g2-foot-glow 1.6s ease-in-out infinite;pointer-events:none;}
+.g2-footstep.is-next .g2-paw{width:70px;height:82px;fill:#ffdf88;stroke:#674923;stroke-width:2;filter:drop-shadow(0 2px 1px #102c2999);}
+.g2-tap-cue{position:absolute;bottom:20px;right:7%;font-size:31px;color:#fff3c6;filter:drop-shadow(0 2px 2px #1d3426);animation:g2-tap 1.6s ease-in-out infinite;}
+.g2-tap-label{position:absolute;bottom:0;left:50%;translate:-50% 0;padding:3px 10px;border-radius:12px;background:#193e32;color:#fff0be;white-space:nowrap;font-size:15px;line-height:1.25;font-weight:900;box-shadow:0 2px 5px #122b2640;text-shadow:none;}
+.g2-group-caption{display:block;text-align:center;font-size:19px;font-weight:800;min-height:26px;margin-top:10px;color:#fff8d8;}
+.g2-clearing.is-full .g2-group-caption{color:#e0f2bb;}.g2-clearing.is-full .g2-landmark{filter:drop-shadow(0 0 6px #e6eea366);}
+.g2-pool-herd,.g2-teamland,.g2-savanna.remainder-ready{scrollbar-width:thin;scrollbar-color:#e8cd8770 transparent;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+.g2-sum{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:15px auto 0;font-size:28px;font-weight:800;color:#fff0b1;}
+.g2-footer{max-width:none;width:100%;margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:12px 20px;background:#183f35e8;border:1px solid #e8e0a754;box-shadow:none;flex:0 0 auto;}
+.g2-footer .challenge-feedback{font-size:21px;}.g2-answer{grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:25px;order:-1;}.g2-answer>strong{font-size:28px;color:#fff0b1;}.g2-options{display:flex;gap:14px;}.g2-options button{min-width:82px;min-height:70px;border:2px solid #fff0bb;border-radius:40% 42% 35% 38%;font-size:40px;font-weight:900;color:#28523f;background:#fff0c2;box-shadow:0 4px 0 #a88f6470;}.g2-options button.wrong{background:#ffb2a0;border-color:#e37057;animation:g2-shake .28s;}.g2-answer-hint{font-size:16px;color:#f7e6b0;}
+.grade2-play button:focus-visible{outline:3px solid #ffec99;outline-offset:3px;border-radius:18px;}.grade2-play button:disabled{cursor:default;}
+@keyframes g2-arrive{from{opacity:.2;translate:-25px -10px;}to{opacity:1;translate:0 0;}}
+@keyframes g2-foot-glow{50%{opacity:.45;scale:.88;}}@keyframes g2-tap{50%{translate:0 -5px;}}@keyframes g2-shake{25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+.g2-savanna.without-pool .g2-clearings{grid-template-columns:repeat(min(var(--teams),2),minmax(0,1fr));gap:18px 32px;}
+/* Finished herds use the meadow width instead of a long narrow column. */
+.g2-savanna.remainder-ready{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:max-content;gap:18px 28px;overflow-y:auto;overflow-x:hidden;align-items:start;}
+.g2-savanna.remainder-ready .g2-teamland,.g2-savanna.remainder-ready .g2-clearings{display:contents;}
+.g2-savanna.remainder-ready .g2-clearing{order:1;}
+.g2-savanna.remainder-ready .g2-waiting{order:2;align-self:center;overflow:visible;}
+.g2-savanna.remainder-ready .g2-pool-herd{max-width:calc(var(--dino-w)*3 + 8px);overflow:visible;flex:auto;}
+@media(max-width:700px){
+ .app.grade2-mode{--ground-lift:16px;}
+ .app.grade2-mode .playfield{inset:calc(max(96px,calc(25svh - 62px)) - var(--ground-lift)) 0 0;}
+ .app.grade2-mode .grade2-play{--dino-w:min(108px,calc((100cqw - 22px)/4));height:100%;max-height:100%;min-height:0;padding:6px 12px 12px;gap:8px;}
+ .g2-instruction{padding:0 9px;gap:0;}.g2-instruction>span{display:none;}.g2-instruction strong{font-size:22px;}.g2-instruction strong b{font-size:30px;}.g2-instruction>span{font-size:16px;}
+ .g2-savanna{grid-template-columns:1fr;grid-template-rows:minmax(105px,1fr) minmax(calc(var(--dino-h) + 66px),.65fr);gap:12px;}.g2-savanna.without-pool,.g2-savanna.is-empty-pool{grid-template-rows:minmax(0,1fr);}.g2-savanna.remainder-ready{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:max-content;gap:14px;}
+ .g2-teamland{order:1;}.g2-waiting{order:2;padding:0;}
+ .g2-waiting-label{font-size:20px;min-height:38px;}.g2-waiting-label small{display:inline;margin-left:8px;font-size:14px;}
+ .g2-savanna.is-empty-pool .g2-waiting{display:none;}
+ .g2-pool-herd{max-width:calc(var(--dino-w)*4 + 12px);padding:4px 0;}.g2-residents{max-width:calc(var(--dino-w)*var(--places) + (var(--places) - 1)*4px);}
+ .g2-clearings,.g2-savanna.without-pool .g2-clearings,.g2-savanna.is-empty-pool .g2-clearings{grid-template-columns:1fr;gap:14px;}
+ .g2-clearing{padding:25px 0 8px;}.g2-landmark{width:25px;height:32px;left:0;top:calc(25px + var(--dino-h) - 31px);}.g2-ground{top:25px;}
+ .g2-landmark b{top:5px;left:10px;font-size:10px;}.g2-paw{width:48px;height:58px;}.g2-footstep.is-next .g2-paw{width:48px;height:56px;}.g2-tap-cue{font-size:22px;right:0;}.g2-tap-label{font-size:12px;}.g2-group-caption{font-size:15px;min-height:20px;margin-top:3px;}
+ .g2-waiting.is-remainder .g2-waiting-label{font-size:21px;}.g2-remainder-note{font-size:18px;margin-top:4px;}
+ .g2-sum{font-size:24px;margin-top:10px;gap:7px;}
+ .g2-footer{display:flex;flex-direction:column;gap:6px;padding:8px 11px;}.g2-footer .challenge-feedback{font-size:17px;}.g2-answer{flex-direction:column;gap:9px;}.g2-answer>strong{font-size:25px;}.g2-options button{min-width:74px;min-height:62px;font-size:35px;}.g2-footer .challenge-controls{gap:12px;}.g2-footer .challenge-controls>button{min-width:48px;}.g2-answer-hint{flex:1;text-align:center;}
+}
+@media(max-height:560px) and (orientation:landscape){
+ .app.grade2-mode{--ground-lift:6px;}
+ .app.grade2-mode .playfield{inset:calc(max(56px,calc(25svh - 50px)) - var(--ground-lift)) 0 0;}
+ .app.grade2-mode .grade2-play{--dino-w:clamp(78px,calc(11.2cqw - 4px),110px);height:100%;min-height:0;padding:0 12px 8px;gap:6px;display:grid;}
+ .g2-instruction{padding:0 10px;flex-direction:row;gap:15px;}.g2-instruction strong{font-size:20px;}.g2-instruction strong b{font-size:28px;}.g2-instruction>span{font-size:15px;}
+ .g2-savanna{grid-template-columns:minmax(0,56%) minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:20px;}.g2-savanna.without-pool,.g2-savanna.is-empty-pool{grid-template-columns:1fr;}
+.g2-savanna.is-empty-pool .g2-waiting{display:none;}
+.g2-savanna.is-empty-pool .g2-clearings{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .g2-teamland,.g2-waiting{order:0;}.g2-waiting-label{font-size:18px;min-height:38px;}.g2-waiting-label small{font-size:13px;}.g2-pool-herd{max-width:calc(var(--dino-w)*5 + 16px);}.g2-clearings{gap:14px;grid-template-columns:1fr;}
+ .g2-clearing{padding:38px 0 8px;}.g2-landmark{width:24px;height:31px;top:calc(38px + var(--dino-h) - 30px);}.g2-ground{top:38px;}.g2-paw{width:40px;height:48px;}.g2-footstep.is-next .g2-paw{width:47px;height:56px;}.g2-landmark b{top:5px;left:10px;font-size:10px;}.g2-tap-label{font-size:11px;padding:2px 7px;}.g2-tap-cue{font-size:22px;}.g2-group-caption{font-size:14px;min-height:20px;margin-top:3px;}.g2-sum{font-size:22px;margin:6px 0 0;}
+ .g2-footer{position:relative;bottom:auto;z-index:4;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;width:100%;padding:8px 12px;}.g2-footer .challenge-feedback{font-size:16px;text-align:left;}.g2-footer .challenge-controls{width:auto;flex-wrap:nowrap;gap:8px;}.g2-footer .challenge-check{order:0;width:auto;min-height:44px;font-size:19px;padding:5px 14px;}.g2-footer .challenge-controls button{min-width:44px;min-height:44px;}.g2-answer{flex-direction:row;gap:18px;}.g2-answer>strong{font-size:22px;}.g2-options button{min-height:48px;min-width:65px;font-size:30px;}
+}
+@media(prefers-reduced-motion:reduce){.g2-dino.is-arriving,.g2-footstep.is-next::before,.g2-tap-cue,.g2-options button.wrong{animation:none;}}
+
+/* The small scroll cue belongs to the herd label, outside the countable animals. */
+.g2-scroll-cue{display:none;color:#ffe2a0;font-size:13px;font-weight:800;white-space:nowrap;}
+.g2-waiting.is-scrollable .g2-scroll-cue{display:inline;margin-left:10px;}
+@media(max-width:700px){.g2-scroll-cue{font-size:12px;}.g2-waiting.is-scrollable .g2-scroll-cue{display:block;margin:2px 0 0;}.g2-waiting-label{min-height:48px;}}
+
+@media(max-width:700px) and (max-height:650px) and (orientation:portrait){
+ .app.grade2-mode .grade2-play{--dino-h:calc(var(--dino-w)*.66);gap:6px;}
+ .g2-instruction{flex-direction:row;gap:10px;}.g2-instruction strong{font-size:18px;white-space:nowrap;}.g2-instruction strong b{font-size:26px;}.g2-instruction>span{font-size:14px;}
+ .g2-footer .challenge-feedback{font-size:14px;}.g2-footer .challenge-controls button{min-height:44px;}.g2-footer .challenge-check{font-size:19px;}
+}

@@ -1,0 +1,96 @@
+/* A dinosaur tells its story on a small sunlit clearing. */
+:root { --story-leaf: #356749; --story-paper: #fff9e9; --story-gold: #eac784; }
+.finish-card { border-width: 2px; box-shadow: 0 4px 10px #163b2924, 0 18px 44px -15px #081f284d; }
+.game-layout:has(.finish:not([hidden])) { z-index: 10; }
+.collection-panel { border-width: 1px; box-shadow: 0 3px 8px #112c261f, 0 20px 55px -20px #08232075; }
+.collection-grid button { border-width: 1px; box-shadow: 0 2px 5px #3e624814; transition: border-color .16s, background .16s; }
+.collection-grid button:hover,.collection-grid button.is-selected { transform: none; border-color: #b88b39; background: #fff2c9; box-shadow: inset 0 0 0 1px #e2b657; }
+.collection-grid img { filter: none; }
+.task-speak { box-shadow: 0 2px 5px #614d292b, inset 0 1px 0 #fff2c8; }
+.answer-options button { box-shadow: 0 3px 7px #6b522e38, inset 0 1px 0 #fff2c8; }
+.answer-options button.is-wrong { box-shadow: 0 3px 7px #903d3233; }
+.board-toast { box-shadow: 0 4px 12px #493e2940; }
+.finish-card .finish-actions button { box-shadow: 0 3px 8px #17473830; }
+
+.story-card { --portrait-size: 170px; position: relative; display: grid; grid-template-columns: var(--portrait-size) minmax(0,1fr); gap: 18px; align-items: center; padding: 16px; border: 1px solid #afc696; background: linear-gradient(145deg,#edf2dc,#dbe7ce); }
+.story-card .story-copy { min-width: 0; }
+.story-card .story-heading small { display: block; color: #667e4c; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+.story-card .story-heading h3,.story-card .story-heading strong { display: block; margin: 4px 0 3px; color: #254d3b; font-size: 26px; line-height: 1.2; }
+.story-card .story-nickname { display: block; margin: 0 0 10px; color: #73714d; font-size: 12px; font-weight: 600; }
+.story-card .story-caption { position: relative; min-height: 4.8em; margin: 0; padding: 10px 12px; border-radius: 4px 16px 16px; background: #fffcefdd; color: #355745; font-size: 15px; line-height: 1.6; font-weight: 600; text-align: left; overflow-wrap: anywhere; }
+.story-card .story-caption::before { content: ''; position: absolute; top: 0; left: -7px; border-top: 10px solid #fffcefdd; border-left: 8px solid transparent; }
+.story-card .story-portrait { position: relative; align-self: center; width: 100%; height: 195px; min-height: 44px; padding: 0; border: 0; border-radius: 46% 46% 28% 28%; display: grid; place-items: end center; background: radial-gradient(ellipse at 70% 22%,#fff3c4b0,transparent 62%); box-shadow: none; overflow: visible; cursor: pointer; touch-action: manipulation; }
+.story-card .story-portrait::after { content: ''; position: absolute; z-index: 0; left: 19%; bottom: 9px; width: 62%; height: 17px; background: radial-gradient(ellipse,#41563b36 0%,#49663c15 40%,transparent 72%); transform: rotate(-9deg); filter: none; pointer-events: none; }
+.story-card .story-portrait img { position: relative; z-index: 1; width: 100%; height: 185px; object-fit: contain; object-position: center bottom; transform-origin: 58% 96%; filter: none; animation: portraitBreathe 4.2s ease-in-out infinite; pointer-events: none; }
+.story-card .story-portrait:active { transform: none; box-shadow: none; }
+.story-card .portrait-touch { position: absolute; z-index: 2; right: 0; bottom: 1px; display: grid; place-items: center; width: 30px; height: 30px; margin: 0; border-radius: 50%; background: #fff5d4; border: 1px solid #d7b867; font-size: 17px; box-shadow: 0 2px 5px #4e633524; pointer-events: none; }
+.story-card .story-portrait.is-speaking .portrait-touch { background: #e7f1c6; }
+.story-card .story-portrait.is-responding img { animation: storyNod .65s ease-in-out; }
+.story-card .story-portrait.is-responding[data-greeting=hop] img { animation-name: storyHop; }
+.story-card .story-portrait.is-responding[data-greeting=flutter] img { animation-name: storyFlutter; }
+.story-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.story-card .story-controls > button { margin: 0; padding: 8px 13px; min-height: 44px; border: 1px solid #78a07e; border-radius: 30px; background: #fffbed; color: #315f47; box-shadow: 0 2px 4px #2b4e3014; font-size: 13px; white-space: nowrap; }
+.story-card .story-controls > button.is-playing { background: #356749; color: #fffbea; animation: none; }
+.story-steps { display: flex; align-items: center; gap: 2px; }
+.story-card .story-steps button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; box-shadow: none; }
+.story-steps i { display: block; width: 7px; height: 7px; border-radius: 50%; background: #b2c6a1; transition: width .2s,background .2s; }
+.story-steps button[aria-pressed=true] i { width: 20px; border-radius: 9px; background: #5d8450; }
+.story-steps button:hover { background: #ffffff52; }
+.fact-card.story-card { --portrait-size: 135px; gap: 12px; margin-bottom: 12px; padding: 12px; }
+.fact-card.story-card .story-portrait { height: 175px; }
+.fact-card.story-card .story-portrait img { height: 168px; }
+.fact-card.story-card .story-heading strong { font-size: 23px; }
+.fact-card.story-card .story-caption { font-size: 13px; }
+.fact-card.story-card .story-controls { gap: 3px; }
+.fact-card.story-card .story-steps button { width: 44px; }
+@keyframes storyNod { 0%,100% { transform: rotate(0); } 30% { transform: rotate(4deg) scaleY(.97); } 65% { transform: rotate(-2deg) scaleY(1.02); } }
+@keyframes storyHop { 0%,100% { transform: translateY(0); } 20% { transform: scaleY(.96); } 50% { transform: translateY(-10px) rotate(-3deg); } 80% { transform: scaleY(.98); } }
+@keyframes storyFlutter { 0%,100% { transform: translateY(0); } 25% { transform: translateY(-7px) rotate(-4deg); } 60% { transform: translateY(-10px) rotate(4deg); } }
+
+@media (max-width: 620px) and (orientation: portrait) {
+  .collection-overlay { padding: max(8px,env(safe-area-inset-top)) 10px max(8px,env(safe-area-inset-bottom)); }
+  .collection-panel { height: calc(100svh - 20px); max-height: calc(100svh - 20px); padding: 11px; border-radius: 22px; }
+  .collection-heading { margin-bottom: 8px; }
+  .collection-heading small { display: none; }
+  .collection-heading h2 { font-size: 22px; }
+  .story-card,.fact-card.story-card { --portrait-size: 112px; grid-template-columns: var(--portrait-size) minmax(0,1fr); gap: 7px 12px; padding: 10px 12px; }
+  .story-card .story-copy { display: contents; }
+  .story-card .story-portrait,.fact-card.story-card .story-portrait { height: 108px; grid-column: 1; grid-row: 1; }
+  .story-card .story-portrait img,.fact-card.story-card .story-portrait img { height: 110px; }
+  .story-card .story-heading { grid-column: 2; grid-row: 1; }
+  .story-card .story-heading h3,.story-card .story-heading strong { font-size: 23px; }
+  .story-card .story-nickname { margin: 6px 0 0; font-size: 12px; }
+  .story-card .story-caption,.fact-card.story-card .story-caption { grid-column: 1 / -1; min-height: 4.6em; padding: 8px 10px; font-size: 14px; line-height: 1.6; }
+  .story-card .story-controls { grid-column: 1 / -1; justify-content: space-between; margin-top: 0; gap: 4px; }
+  .fact-card.story-card .story-steps button { width: 44px; }
+  .collection-help { font-size: 11px; margin: 8px 2px; }
+  .collection-grid { gap: 8px; }
+  .collection-grid button { min-height: 142px; }
+  .collection-grid img { height: 88px; }
+  .finish-card { padding: 12px; }
+  .finish-star { font-size: 27px; }
+  .finish-card .encouragement { font-size: 12px; }
+  .finish-card .finish-actions button { min-height: 46px; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .collection-panel { grid-template-columns: minmax(265px,1fr) 1.45fr; }
+  .collection-feature.story-card { grid-template-columns: 76px minmax(0,1fr); grid-template-rows: 65px minmax(0,1fr) auto; gap: 6px 10px; padding: 8px; overflow-y: auto; }
+  .collection-feature.story-card .story-copy { display: contents; }
+  .collection-feature.story-card .story-portrait { grid-row: 1; height: 68px; width: 76px; }
+  .collection-feature.story-card .story-portrait img { height: 70px; width: 76px; }
+  .collection-feature.story-card .story-heading { grid-column: 2; grid-row: 1; }
+  .collection-feature.story-card .story-heading small { display: none; }
+  .collection-feature.story-card .story-heading h3 { font-size: 21px; }
+  .collection-feature.story-card .story-nickname { margin: 0; font-size: 11px; }
+  .collection-feature.story-card .story-caption { grid-column: 1 / -1; min-height: 0; padding: 5px 8px; font-size: 12px; line-height: 1.5; }
+  .collection-feature.story-card .story-controls { grid-column: 1 / -1; margin: 0; justify-content: space-between; gap: 0; }
+  .collection-feature.story-card .story-steps button { width: 44px; }
+  .story-card .portrait-touch { width: 24px; height: 24px; font-size: 14px; }
+  .fact-card.story-card { --portrait-size: 105px; gap: 8px; padding: 8px; }
+  .fact-card.story-card .story-portrait,.fact-card.story-card .story-portrait img { height: 125px; }
+  .fact-card.story-card .story-heading strong { font-size: 20px; }
+  .fact-card.story-card .story-nickname { margin: 2px 0 5px; }
+  .fact-card.story-card .story-caption { min-height: 3.7em; padding: 6px 8px; font-size: 12px; line-height: 1.45; }
+  .fact-card.story-card .story-controls { margin-top: 3px; }
+}
+@media (prefers-reduced-motion: reduce) { .story-card .story-portrait img { animation: none !important; } }

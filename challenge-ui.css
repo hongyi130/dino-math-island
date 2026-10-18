@@ -1,0 +1,85 @@
+/* Immersive, large-touch activities for lessons 51–70. */
+.app.challenge-mode .interaction-bar,.app.challenge-mode #board,.app.challenge-mode #emptyIsland {display:none!important}
+.app.challenge-mode .game-layout {grid-template-rows:minmax(0,1fr);}
+.app.challenge-mode .game-panel {display:flex;flex-direction:column;min-height:0}
+.app.challenge-mode .playfield {position:relative;inset:auto;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:visible}
+.app.challenge-mode .mission-strip {position:relative;left:auto;top:auto;bottom:auto;transform:none;align-self:center;flex-shrink:0;margin:0 auto 8px;width:max-content;max-width:calc(100% - 20px)}
+.challenge-play {width:min(100%,1050px);margin:auto;position:relative;z-index:2;padding:12px 24px;display:flex;flex-direction:column;gap:16px;max-height:100%;color:#fff9df;text-shadow:0 2px 5px #123b32}
+.challenge-play[hidden]{display:none}
+.challenge-hands {display:flex;flex-direction:column;align-items:center;gap:12px;min-height:0}
+.challenge-play button {font:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer;user-select:none}
+.challenge-play button:focus-visible {outline:4px solid #fff3a0;outline-offset:3px}
+.challenge-play img {display:block;box-sizing:border-box;width:100%;height:100%;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain;pointer-events:none;filter:drop-shadow(0 5px 3px #14322255)}
+.fill-nest {display:grid;grid-template-columns:repeat(5,minmax(50px,130px));gap:12px;width:min(100%,730px)}
+.nest-place {position:relative;min-width:0;min-height:0;height:130px;overflow:hidden;background:radial-gradient(ellipse at 50% 85%,#f9e6a130,transparent 65%);border:2px solid #e5db9680;border-radius:40% 40% 25% 25%;padding:0;box-shadow:0 3px 7px #14282118}
+.nest-place.waiting {border-style:dashed;background:#fff2ac20}
+.nest-place .footprint {font-size:40px;opacity:.7}.nest-place>b {position:absolute;bottom:7px;right:12px;font-size:30px;color:#ffdf84}
+.nest-place small {position:absolute;right:2px;bottom:2px;background:#ffdc8e;color:#214d3c;border-radius:50%;padding:5px;font-size:15px;font-weight:900;text-shadow:none}
+.nest-place:disabled {cursor:default;opacity:1}.nest-place.occupied img{animation:challenge-arrive .32s ease-out}
+.challenge-equation {display:flex;gap:14px;align-items:center;font-size:clamp(26px,4vw,42px);font-weight:900;line-height:1.2;background:#123e3bce;padding:10px 24px;border-radius:24px}
+.challenge-equation .moving-number {color:#ffda86}.challenge-equation small{font-size:18px;color:#f3e1a6}
+.challenge-footer {width:100%;max-width:900px;margin:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;background:#173c35ed;border:1px solid #f7eed46e;border-radius:24px;padding:14px 20px;box-shadow:0 8px 24px #0a282a28;text-shadow:none}
+.challenge-feedback {font-size:clamp(18px,2.1vw,25px);line-height:1.5;font-weight:750;margin:0;min-height:1.5em}
+.challenge-controls {display:flex;gap:10px;align-items:center}.challenge-controls button{border:0;border-radius:18px;min-width:52px;min-height:52px;color:#28543e;background:#fff5d8;font-size:25px;font-weight:900;box-shadow:0 3px 0 #2c4d3525}
+.challenge-controls .challenge-check {background:#ffdc86;padding:10px 22px;font-size:24px;white-space:nowrap}.challenge-check span{font-size:32px}
+.challenge-controls button:disabled {opacity:.5;cursor:default}.challenge-error .challenge-footer{border:3px solid #ffb7a0;background:#70362eea}.challenge-error .challenge-feedback{color:#fff3df}.challenge-feedback>b{display:inline-block;background:#fff0db;color:#a64229;border-radius:50%;width:30px;text-align:center;line-height:30px}
+.waiting-partners {display:flex;justify-content:center;flex-wrap:wrap;min-height:80px;gap:3px;max-width:850px}
+.waiting-dino{display:block;flex:0 0 auto;min-width:0;min-height:0;width:74px;height:80px}.all-sorted{align-self:center;font-size:24px;font-weight:800;color:#ffeaab}
+.camp-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:min(100%,850px)}
+.dino-camp {border:2px solid #ffdd9180;border-radius:28px;background:#b7a35130;padding:8px 12px;position:relative;min-height:170px}.dino-camp.right{border-color:#a5dfedb0;background:#60949c30}
+.camp-send{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff0beee;color:#38543a;border:0;border-radius:16px;width:100%;padding:8px;font-size:20px;font-weight:800;min-height:60px;text-shadow:none;flex-wrap:wrap}.right .camp-send {background:#dcf2f6ee}.camp-send>span:first-child {font-size:25px}.camp-send strong{white-space:nowrap}.camp-dots{font-size:14px;letter-spacing:2px}.camp-arrive{font-size:22px}
+.camp-residents{display:flex;justify-content:center;align-items:end;flex-wrap:wrap;min-height:80px;gap:0}.resident{display:block;flex:0 0 auto;min-width:0;min-height:0;border:0;background:none;width:74px;height:82px;padding:0}.camp-count{display:block;text-align:center;font-size:25px;color:#fff4cb}
+.pairing-cards {display:grid;grid-template-columns:repeat(5,minmax(70px,150px));gap:10px;width:min(100%,850px)}
+.matching-pair{position:relative;display:grid;grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);overflow:hidden;align-items:center;border:1px dashed #eadfbfa8;border-radius:18px;padding:5px 0;height:100px;background:#effbd224;min-width:0}.matching-pair>span{height:100%;min-height:0;display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden}.matching-pair .team-sun{background:radial-gradient(ellipse at 50% 90%,#ffd17299,transparent 70%)}.matching-pair .team-moon{background:radial-gradient(ellipse at 50% 90%,#79cfe0bb,transparent 70%)}.matching-pair .pair-link{font-size:25px;color:#fff1ad}.matching-pair.paired{border-style:solid;background:#afdeb957;opacity:1}.matching-pair.unpaired{border-color:#f8d78d;background:#ffdc863b;opacity:1}.matching-pair:disabled{cursor:default}
+.compare-pick{display:flex;gap:18px;align-items:center;justify-content:center}.compare-pick button{border:2px solid #d8dfbca1;background:#ffedbfe8;color:#355343;border-radius:20px;min-width:115px;min-height:70px;font-size:30px;display:flex;align-items:center;justify-content:center;gap:8px}.compare-pick button.moon{background:#ddf4f6e8}.compare-pick button.equal{background:#e1e9d7ed}.compare-pick strong{font-size:22px}.compare-pick button.selected{outline:4px solid #ffdb6f;outline-offset:3px;box-shadow:0 0 0 7px #ffdd6f33}
+.jump-order {display:flex;gap:8px;align-items:center}.jump-order>b{font-size:50px;color:#ffe69d}.jump-step{font-size:30px;position:relative;border:2px dashed #f4d68b;padding:5px;border-radius:12px;background:#193f3a99}.jump-step.done{background:#e1eebcbb;border-style:solid}.jump-step i{position:absolute;bottom:-3px;right:0;color:#274f30;font-size:20px;background:#fff3c1;border-radius:50%;font-style:normal}
+.stone-path {display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;width:100%;padding:14px 22px 8px;scroll-padding:35%;scrollbar-width:thin;scrollbar-color:#f7dfa9 #304f4650;-webkit-overflow-scrolling:touch;}
+.number-stone {position:relative;flex:0 0 72px;min-width:72px;min-height:155px;padding:0;border:0;background:none;color:#254d3e;display:flex;flex-direction:column;align-items:center;justify-content:end;scroll-margin-inline:70px}
+.number-stone img,.stone-space{height:94px;display:block;flex:none;width:104px!important;max-width:none}.number-stone>b{display:block;border-radius:42% 42% 35% 35%;width:62px;height:48px;line-height:42px;font-size:28px;background:linear-gradient(#f7e9bd,#c8c698);border:2px solid #eef2ca;box-shadow:0 5px 2px #354f4240}.number-stone.visited>b{background:#c8e4b6}.number-stone.current>b{outline:4px solid #ffce65;background:#ffdd8b}.number-stone small{position:absolute;bottom:-16px;color:#fff4cf;white-space:nowrap;font-size:15px}.jump-position{font-size:22px;margin-top:6px;background:#173d3ad9;padding:8px 20px;border-radius:20px}.jump-position strong{font-size:32px;color:#ffdc86}
+@keyframes challenge-arrive{from{transform:translateY(-8px) scale(.92);opacity:.5}to{transform:none;opacity:1}}
+@media(max-width:700px){
+ .challenge-play{padding:5px 10px;gap:10px}.challenge-hands{gap:10px}
+ .fill-nest{gap:5px}.nest-place{height:90px}.nest-place .footprint{font-size:29px}.nest-place>b{font-size:25px;right:4px}.nest-place small{font-size:12px;padding:3px}
+ .challenge-equation{gap:10px;padding:8px 15px;font-size:29px}.challenge-equation small{font-size:14px}
+ .challenge-footer{display:flex;flex-direction:column;gap:9px;padding:12px;border-radius:20px}.challenge-feedback{font-size:18px;text-align:center;line-height:1.35}.challenge-controls{width:100%;justify-content:space-between}.challenge-controls .challenge-check{flex:1;max-width:230px;font-size:22px;padding:8px 18px}
+ .waiting-partners{min-height:48px;gap:0}.waiting-dino{width:48px;height:55px}.camp-layout{gap:8px}.dino-camp{padding:6px;border-radius:20px;min-height:160px}.camp-send{gap:4px;font-size:16px;min-height:75px}.camp-send>span:first-child{font-size:20px}.camp-dots{font-size:10px;letter-spacing:1px}.camp-arrive{font-size:20px}.camp-residents{min-height:75px}.resident{width:48px;height:55px}.camp-count{font-size:20px}
+ .pairing-cards{grid-template-columns:repeat(3,minmax(70px,1fr));gap:6px;max-width:430px}.matching-pair{height:72px;grid-template-columns:1fr 22px 1fr;border-radius:14px}.matching-pair .pair-link{font-size:21px}.compare-pick{gap:9px}.compare-pick button{min-width:92px;min-height:60px;font-size:25px;gap:4px}.compare-pick strong{font-size:17px}
+ .jump-order>b{font-size:38px}.jump-step{font-size:26px}.stone-path{padding-left:15px;padding-right:15px}.number-stone{flex-basis:70px;min-width:70px}
+}
+@media(max-height:560px) and (orientation:landscape){
+ .app.challenge-mode .mission-strip{padding-top:0!important;padding-bottom:0!important}.app.challenge-mode #missionTag,.app.challenge-mode #guidance{display:none}.app.challenge-mode #missionTitle{font-size:32px;line-height:1.1}.app.challenge-mode .question-row{min-height:45px}
+ .challenge-play{width:min(100%,1080px);padding:0 10px;gap:6px;flex-direction:row;align-items:center}.challenge-hands{flex:1;min-width:0;gap:4px}.challenge-footer{width:220px;flex:0 0 220px;display:flex;flex-direction:column;padding:12px;gap:12px}.challenge-feedback{font-size:17px;text-align:center}.challenge-controls{gap:6px;flex-wrap:wrap;justify-content:center}.challenge-controls button{min-width:48px;min-height:46px}.challenge-controls .challenge-check{order:-1;width:100%;font-size:22px;min-height:50px}
+ .fill-nest{max-width:550px;gap:5px}.nest-place{height:80px}.challenge-equation{font-size:27px;padding:5px 14px}.challenge-equation small{font-size:15px}
+ .waiting-partners{min-height:30px}.waiting-dino{width:36px;height:39px}.camp-layout{gap:10px}.dino-camp{min-height:130px;padding:4px}.camp-send{min-height:45px;font-size:16px;gap:4px;padding:4px}.camp-send>span:first-child{font-size:18px}.camp-dots{font-size:9px}.camp-residents{min-height:45px}.resident{width:42px;height:48px}.camp-count{font-size:20px}
+ .pairing-cards{grid-template-columns:repeat(5,minmax(50px,1fr));gap:5px;max-width:none}.matching-pair{height:65px;grid-template-columns:1fr 15px 1fr}.matching-pair .pair-link{font-size:17px}.compare-pick button{min-height:45px;min-width:95px;font-size:23px}.compare-pick strong{font-size:17px}.compare-pick{gap:12px;margin-top:3px}
+ .jump-order>b{font-size:29px}.jump-step{font-size:20px;padding:2px}.stone-path{padding-top:0;padding-bottom:8px;gap:5px}.number-stone{min-height:115px;flex-basis:54px;min-width:54px}.number-stone img,.stone-space{height:72px;width:80px!important}.number-stone>b{width:48px;height:34px;line-height:29px;font-size:22px}.jump-position{font-size:16px;padding:4px 15px}.jump-position strong{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){.nest-place.occupied img{animation:none}}
+
+.pairing-legend{display:flex;align-items:center;justify-content:center;gap:24px;font-size:20px;font-weight:800;padding:5px 18px;border-radius:18px;background:#123e35d4}.pairing-legend span:first-child{color:#ffe09a}.pairing-legend span:last-child{color:#caf0ff}.team-sun,.team-moon{position:relative}.matching-pair .team-icon{position:absolute;left:1px;top:0;z-index:1;font-style:normal;font-size:15px;line-height:1;filter:none;text-shadow:none}.matching-pair img{padding-top:8px}@media(max-height:560px) and (orientation:landscape){.pairing-legend{font-size:14px;padding:2px 15px}.matching-pair .team-icon{font-size:11px}.app.challenge-mode .mission-strip{margin-bottom:3px}}
+/* Short portrait screens scroll the activity as one continuous surface.
+   Neither the cards nor the result controls may shrink over another row. */
+@media (max-width:700px) and (max-height:740px) and (orientation:portrait) {
+  .app.challenge-mode .playfield {
+    overflow-y:auto;
+    overflow-x:hidden;
+    align-items:flex-start;
+    justify-content:flex-start;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-padding-block:12px;
+    padding-bottom:max(10px,env(safe-area-inset-bottom));
+  }
+  .app.challenge-mode .challenge-play {
+    max-height:none;
+    min-height:max-content;
+    margin:0 auto;
+    padding-top:6px;
+    padding-bottom:12px;
+    flex-shrink:0;
+  }
+  .app.challenge-mode .challenge-hands,
+  .app.challenge-mode .challenge-footer {
+    flex-shrink:0;
+  }
+}

@@ -1,0 +1,126 @@
+/* A single dinosaur leads a continuous number path through the island. */
+.challenge-play[data-type="jump"] {
+  width:min(100%,1460px);
+  padding:8px 20px;
+  gap:12px;
+}
+.challenge-play[data-type="jump"] .challenge-hands {width:100%;gap:0;}
+.jump-journey {
+  --jump-gutter:143px;
+  --jump-hop-height:-33px;
+  --jump-hero-height:273px;
+  --jump-hero-width:338px;
+  width:100%;min-width:0;
+}
+.jump-instruction {
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:12px 26px;width:fit-content;max-width:100%;margin:0 auto;
+  padding:10px 22px;border:1px solid #fbe7a56b;border-radius:24px;
+  background:#173e35eb;color:#fff7d9;text-shadow:none;
+  box-shadow:0 4px 16px #142b2820;
+}
+.jump-route-order {display:flex;align-items:center;justify-content:center;gap:14px;white-space:nowrap;font-size:21px;font-weight:750;}
+.jump-route-order strong {font-size:34px;line-height:1;color:#ffdf85;}
+.jump-route-order .jump-direction {font-size:42px;line-height:1;color:#ffdf85;}
+.jump-progress {display:flex;align-items:center;gap:5px;}
+.jump-paw {display:grid;place-items:center;width:32px;height:32px;border:1px dashed #f0d28b9c;border-radius:10px;background:#fff2bc0c;font-size:21px;color:#fff9d8;}
+.jump-paw.done {background:#dce9bb;color:#25523b;border-style:solid;font-size:24px;font-weight:900;}
+.jump-progress-count {padding-left:7px;font-weight:900;font-size:25px;color:#ffdf85;white-space:nowrap;}
+.jump-progress-count small {font-size:17px;color:#eee9d7;}
+.jump-viewport {position:relative;width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#ffe2a699 #294b3a33;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;}
+.jump-viewport:focus-visible {outline:3px solid #ffe2a6;outline-offset:0;border-radius:16px;}
+.jump-track {position:relative;box-sizing:border-box;min-width:900px;width:100%;padding:calc(var(--jump-hero-height) + 38px) var(--jump-gutter) 32px;}
+.challenge-play[data-type="jump"] .stone-path {display:grid;grid-template-columns:repeat(11,minmax(0,1fr));overflow:visible;width:100%;padding:0;gap:0;scroll-padding:0;}
+.challenge-play[data-type="jump"] .number-stone {display:flex;justify-content:flex-start;align-items:center;position:relative;min-width:0;min-height:74px;width:100%;padding:5px 2px 0;scroll-margin:0;box-sizing:border-box;text-shadow:none;}
+.challenge-play[data-type="jump"] .number-stone>b {display:grid;place-items:center;width:calc(100% - 4px);max-width:95px;height:62px;border-radius:43% 39% 36% 35%;font-size:clamp(28px,3vw,40px);line-height:1;border:2px solid #fff0bd;background:linear-gradient(155deg,#f6e7b9,#c1c198);color:#294c3b;box-shadow:0 5px 0 #64715177,0 9px 7px #273e3521;}
+.challenge-play[data-type="jump"] .number-stone.origin>b {border-color:#cfeab9;background:linear-gradient(155deg,#e7eebe,#bdd29d);}
+.challenge-play[data-type="jump"] .number-stone.visited>b {border-color:#dcf2b5;background:linear-gradient(155deg,#e7edc4,#b7cf9e);}
+.challenge-play[data-type="jump"] .number-stone.current>b {outline:3px solid #ffeaa1;outline-offset:2px;background:linear-gradient(155deg,#ffeda9,#e9bd61);border-color:#fff5cf;box-shadow:0 5px 0 #ad8e506e,0 0 22px #ffdc8e4d;}
+.challenge-play[data-type="jump"] .number-stone.up-next>b {border-color:#ffe6a0;box-shadow:0 5px 0 #64715177,0 0 0 2px #ffe5a04d;}
+.challenge-play[data-type="jump"] .number-stone small {position:absolute;top:81px;bottom:auto;left:50%;transform:translateX(-50%);color:#fff8d9;white-space:nowrap;font-size:14px;font-weight:800;line-height:1.1;text-shadow:0 1px 4px #263e2e,0 1px 8px #263e2e;}
+.challenge-play[data-type="jump"] .stone-next-cue {position:absolute;top:-22px;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:26px;height:24px;border-radius:50%;background:#fff1b8;color:#375337;font-size:22px;font-weight:900;line-height:1;box-shadow:0 2px 5px #31462b30;}
+.jump-ground-line {position:absolute;left:var(--jump-gutter);right:var(--jump-gutter);bottom:73px;height:3px;background:#f9e6ad7a;box-shadow:0 1px 2px #213d2a47;}
+.jump-arcs {position:absolute;left:var(--jump-gutter);bottom:97px;width:calc(100% - 2 * var(--jump-gutter));height:64px;overflow:visible;pointer-events:none;filter:drop-shadow(0 2px 2px #364c3244);}
+.jump-arcs path {fill:none;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;}
+.jump-arcs path.taken {stroke:#fff0b2;}
+.jump-arcs circle.taken {fill:#fff0b2;}
+.jump-arcs path.next {stroke:#fff4c3a8;stroke-width:2;stroke-dasharray:5 7;}
+.jump-arcs circle.next {fill:#fff4c3a8;}
+.jump-hero {position:absolute;bottom:100px;width:var(--jump-hero-width);height:var(--jump-hero-height);transform:translateX(-50%);pointer-events:none;z-index:2;}
+.jump-contact-shadow {position:absolute;left:22%;right:17%;bottom:-4px;height:20px;background:radial-gradient(ellipse,#25382252 0%,#25382227 36%,transparent 72%);transform:rotate(-6deg);}
+.jump-creature {display:block;width:100%;height:100%;transform-origin:50% 95%;}
+.challenge-play[data-type="jump"] .jump-hero img {width:100%;height:100%;object-fit:contain;object-position:center bottom;max-width:none;max-height:none;padding:0;filter:drop-shadow(3px 4px 2px #21332120);}
+.jump-hero.faces-left img {transform:scaleX(-1);}
+.jump-hero.is-hopping .jump-creature {animation:jump-island-hop .48s cubic-bezier(.2,.6,.25,1) both;}
+.jump-hero.is-hopping .jump-contact-shadow {animation:jump-shadow-hop .48s ease-out;}
+.jump-scroll-guide {display:none;}
+.challenge-play[data-type="jump"] .challenge-footer {max-width:1320px;}
+@keyframes jump-island-hop {0% {transform:translateX(var(--jump-travel)) translateY(0) scale(1,.96);} 42% {transform:translateX(calc(var(--jump-travel) * .48)) translateY(var(--jump-hop-height)) rotate(-2deg);} 82% {transform:translateX(0) translateY(1px) scale(1.03,.96);} 100% {transform:none;}}
+@keyframes jump-shadow-hop {0%,100% {opacity:1;transform:scaleX(1) rotate(-6deg);} 45% {opacity:.35;transform:scaleX(.65) rotate(-6deg);}}
+@media (min-width:1000px) and (min-height:850px) {
+ .jump-journey {--jump-hero-height:312px;--jump-hero-width:377px;--jump-gutter:161px;}
+ .jump-track {padding-top:calc(var(--jump-hero-height) + 38px);}
+}
+@media (max-width:700px) {
+ .challenge-play[data-type="jump"] {padding:5px 8px;gap:8px;}
+ .jump-journey {--jump-hero-height:192.4px;--jump-hero-width:244.4px;--jump-gutter:104px;}
+ .jump-instruction {gap:7px 14px;border-radius:19px;padding:9px 13px;}
+ .jump-route-order {font-size:18px;gap:11px;}
+ .jump-route-order strong {font-size:28px;}
+ .jump-route-order .jump-direction {font-size:33px;}
+ .jump-paw {width:26px;height:26px;font-size:17px;border-radius:8px;}
+ .jump-paw.done {font-size:20px;}
+ .jump-progress-count {font-size:22px;}
+ .jump-progress-count small {font-size:15px;}
+ .jump-track {min-width:840px;padding-top:calc(var(--jump-hero-height) + 40px);padding-bottom:31px;}
+ .challenge-play[data-type="jump"] .number-stone {min-height:62px;}
+ .challenge-play[data-type="jump"] .number-stone>b {width:48px;max-width:calc(100% - 5px);height:52px;font-size:30px;}
+ .challenge-play[data-type="jump"] .number-stone small {top:67px;font-size:13px;}
+ .jump-hero {bottom:87px;}
+ .jump-contact-shadow {height:16px;bottom:-3px;}
+ .jump-arcs {height:52px;bottom:84px;}
+ .jump-ground-line {bottom:62px;}
+ .jump-scroll-guide {display:flex;justify-content:space-between;align-items:center;gap:10px;padding:2px 12px;margin-top:3px;color:#fff8d9;text-shadow:0 1px 5px #243e30;font-size:15px;font-weight:800;}
+ .jump-scroll-guide i {font-size:12px;font-style:normal;font-weight:650;}
+ .challenge-play[data-type="jump"] .challenge-footer {padding:10px 12px;}
+}
+@media (max-height:560px) and (orientation:landscape) {
+ .challenge-play[data-type="jump"] {width:100%;padding:0 10px;gap:12px;align-items:center;}
+ .challenge-play[data-type="jump"] .challenge-hands {flex:1;min-width:0;}
+ .jump-journey {--jump-hero-height:145.6px;--jump-hero-width:188.5px;--jump-gutter:88.4px;--jump-hop-height:-20px;}
+ .jump-instruction {padding:5px 12px;border-radius:15px;gap:6px 12px;}
+ .jump-route-order {font-size:16px;gap:9px;}
+ .jump-route-order strong {font-size:25px;}
+ .jump-route-order .jump-direction {font-size:29px;}
+ .jump-paw {width:23px;height:23px;font-size:15px;border-radius:7px;}
+ .jump-paw.done {font-size:18px;}
+ .jump-progress-count {font-size:20px;}
+ .jump-progress-count small {font-size:13px;}
+ .jump-track {min-width:775px;padding-top:calc(var(--jump-hero-height) + 22px);padding-bottom:25px;}
+ .challenge-play[data-type="jump"] .number-stone {min-height:50px;}
+ .challenge-play[data-type="jump"] .number-stone>b {width:46px;max-width:calc(100% - 5px);height:44px;font-size:25px;}
+ .challenge-play[data-type="jump"] .number-stone small {top:55px;font-size:12px;}
+ .challenge-play[data-type="jump"] .stone-next-cue {top:-20px;width:22px;height:20px;font-size:18px;}
+ .jump-hero {bottom:69px;}
+ .jump-contact-shadow {height:13px;bottom:-3px;}
+ .jump-arcs {height:45px;bottom:67px;}
+ .jump-ground-line {bottom:49px;}
+ .jump-scroll-guide {display:flex;justify-content:space-between;align-items:center;margin-top:1px;padding:0 10px;font-size:13px;line-height:1.2;}
+ .jump-scroll-guide i {font-size:10px;font-style:normal;}
+ .challenge-play[data-type="jump"] .challenge-footer {width:190px;flex:0 0 190px;padding:12px;gap:10px;}
+ .challenge-play[data-type="jump"] .challenge-feedback {font-size:16px;}
+}
+@media (prefers-reduced-motion:reduce) {
+ .jump-hero.is-hopping .jump-creature,.jump-hero.is-hopping .jump-contact-shadow {animation:none;}
+}
+
+/* Give the larger character its own height, including on a short phone. */
+.app.challenge-mode:has(.challenge-play[data-type="jump"]:not([hidden])) .playfield {
+  overflow-y:auto;overflow-x:hidden;align-items:flex-start;overscroll-behavior-y:contain;
+}
+.challenge-play[data-type="jump"] {flex-shrink:0;max-height:none;min-height:max-content;}
+@media(max-height:560px) and (orientation:landscape) {
+ .challenge-play[data-type="jump"] {margin:0 auto;}
+ .challenge-play[data-type="jump"] .challenge-hands {flex-shrink:0;}
+ .challenge-play[data-type="jump"] .challenge-footer {position:sticky;top:8px;align-self:flex-start;margin-top:20px;}
+}
