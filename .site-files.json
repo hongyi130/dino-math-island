@@ -2551,8 +2551,8 @@
   },
   {
     "path": "boot.js",
-    "bytes": 7546,
-    "sha256": "76b2ff3e0b5542298159dfc4e8e1a266fe047fbaa023554272ecaca967d70a71"
+    "bytes": 9346,
+    "sha256": "9ef9ceee42fe9260a04680f9e8beb54ebdcceb5b17e91566c8c48d90a6309e1a"
   },
   {
     "path": "challenge-engine.js",
@@ -2611,8 +2611,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 13918,
-    "sha256": "a7c3b036511f463ed966c2ff4af5304a03731980a4d547b7ea7f3274c9513aa0"
+    "bytes": 21772,
+    "sha256": "85a80950d1cb7098249c6d570ea6ad9510e5be052f3a7d140344e8f7a1a8f301"
   },
   {
     "path": "island-audio.js",
@@ -2665,6 +2665,11 @@
     "sha256": "3a6fc4570177ae8f3c99628dbc674b7ab7114ffa875477e60bfb5a09abe6300a"
   },
   {
+    "path": "runtime.88106516cf8e.js",
+    "bytes": 402650,
+    "sha256": "88106516cf8e4db61a8e7852472975703e36b64183391d900b2c97c4906e035d"
+  },
+  {
     "path": "scene-data.js",
     "bytes": 961,
     "sha256": "e4401c626a218751ab9203453b5a7a59c42c6fb9b09e7d4f5a56b2cdead8f84c"
@@ -2683,6 +2688,11 @@
     "path": "style.css",
     "bytes": 41806,
     "sha256": "d5785d9734b4111fd44e4b870cc3ee17b25a6d8d708cef3944ed22a9c056a650"
+  },
+  {
+    "path": "styles.d6ebac6c6067.css",
+    "bytes": 137240,
+    "sha256": "d6ebac6c606774a84d19dd4db5200b3b64b249a8339aeb8031ee7f214b4f78ac"
   },
   {
     "path": "voice-cues.js",

@@ -10,6 +10,8 @@
   let scriptsReady = false, started = false, failed = false, generation = 0;
   let retry = () => location.reload(), enter = null, imagesReady = false;
   const absolute = path => new URL(path, document.baseURI).href;
+  const startupAssetKey = 'dino-island-startup-assets-v1';
+  const currentLevelKey = 'dino-math-island-current-v6';
   function show(heading, message, label = '') {
     cover.hidden = false;
     app.inert = true;
@@ -26,6 +28,8 @@
   function ready() {
     if (failed || !scriptsReady || !imagesReady) return;
     if (!started) {
+      // Useful for measuring actual ready-to-play time, independent of audio.
+      if (!cover.dataset.readyMs) cover.dataset.readyMs = String(Math.round(performance.now()));
       show('恐龙伙伴到齐啦！', '点一下出发，听听这次的小任务。', '开始探险 · 听任务');
       action.focus();
     } else {
@@ -89,6 +93,13 @@
   function prepareLevel(paths, onEnter) {
     const token = ++generation;
     const urls = [...new Set(paths.filter(Boolean))];
+    // On the next visit, fetch this island while the game code downloads.
+    // This is only a media hint; game.js remains the authority for saved levels.
+    try {
+      localStorage.setItem(startupAssetKey, JSON.stringify({
+        level: localStorage.getItem(currentLevelKey), paths: urls
+      }));
+    } catch (_) {}
     imagesReady = false;
     enter = onEnter;
     retry = () => prepareLevel(paths, onEnter);
@@ -148,6 +159,22 @@
     }).catch(showRetry);
   }, true);
   window.DinoBoot = { prepareLevel, image };
+  function warmStartupImages() {
+    let paths = [];
+    try {
+      const saved = JSON.parse(localStorage.getItem(startupAssetKey));
+      if (saved && saved.level === localStorage.getItem(currentLevelKey) && Array.isArray(saved.paths)) {
+        paths = saved.paths;
+      } else if (['dino-math-island-current-v6', 'dino-math-island-current-v5',
+          'dino-math-island-current-v3', 'dino-math-island-unlocked-v3']
+          .every(key => localStorage.getItem(key) === null)) {
+        paths = ['./assets/scenes-v2/scene-01.webp', './assets/trike-3d.webp'];
+      }
+    } catch (_) {}
+    paths.filter(path => typeof path === 'string' &&
+      /^\.\/assets\/[\w/-]+\.webp$/.test(path)).slice(0, 12)
+      .forEach(path => image(path).catch(() => {}));
+  }
   function fail(message) {
     failed = true;
     retry = () => location.reload();
@@ -169,6 +196,16 @@
   (async () => {
     try {
       const scripts = JSON.parse(document.querySelector('#runtimeScripts').textContent);
+      // Development uses separate source files; prefetch in parallel but keep
+      // execution ordered. The published site has one content-hashed bundle.
+      for (const path of scripts) {
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'script';
+        preload.href = path;
+        document.head.appendChild(preload);
+      }
+      warmStartupImages();
       for (const path of scripts) {
         if (failed) return;
         await loadScript(path);
