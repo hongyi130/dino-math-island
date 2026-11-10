@@ -1,11 +1,35 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#efe0be"><title>巨杉营地 · 化石挖掘</title><link rel="icon" href="data:,"><link rel="stylesheet" href="./style.css?v=20261110-st1-r1"></head><body>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#efe0be"><title>巨杉营地 · 化石挖掘</title><link rel="icon" href="data:,"><link rel="stylesheet" href="./style.css?v=20261110-f11-r3"></head><body>
 <header><a href="../island-journey.html?v=20261031-trex-r1" id="back">← 地图</a><span id="campLabel">巨杉营地 · 化石挖掘</span><button id="sound" type="button" aria-pressed="true">声音开</button></header>
-<main id="app"><div class="heading"><p class="eyebrow" id="eyebrow">你的第一块化石</p><h1 id="title">敲开化石岩石</h1><p id="instruction"></p><ol class="steps" aria-label="挖掘步骤"><li data-step="knock">1 敲</li><li data-step="brush">2 刷</li><li data-step="puzzle">3 拼</li></ol></div>
+<main id="app"><div class="heading"><p class="eyebrow" id="eyebrow">你的第一块化石</p><h1 id="title" tabindex="-1">敲开化石岩石</h1><p id="instruction"></p><ol class="steps" aria-label="挖掘步骤"><li data-step="knock">1 敲</li><li data-step="rubble" hidden>2 移石</li><li data-step="brush">2 刷</li><li data-step="puzzle">3 拼</li></ol></div>
 <section id="locked" hidden><img id="lockedImg" alt="藏着化石的实心岩石"><h2>一块化石在等你</h2><p>完成巨杉营地的 3 关，就能来挖化石啦。</p><a class="primary" href="../g2-multiply/?journey=cedar&level=76&v=20261031-trex-r1">去巨杉营地</a></section>
 <section id="workspace" aria-label="化石挖掘区"><div id="board"><div id="rockStage">
 <div id="eggContents"><img id="bowl" alt="敲开的岩石和脚下的碎石"><img id="cleanFace" alt="干净的化石切面"><div id="slab"></div><div id="grooves" hidden></div><canvas id="sand" width="1254" height="1254" aria-label="沿着骨头来回刷沙土" hidden></canvas><div id="targets" hidden></div><div id="boneHighlights" aria-hidden="true"></div></div>
 <button id="egg" type="button" aria-label="敲化石岩石"><canvas id="eggSurface" width="1254" height="1254" aria-hidden="true"></canvas></button>
+<div id="tideDig" hidden>
+  <img id="tideRock" alt="深青色的潮汐岩板">
+  <svg viewBox="0 0 100 100" aria-hidden="true">
+    <g class="tide-channel"><path d="M86 23 Q84 20 77 26 T73 31"/><path d="M73 31 Q68 40 60 29 T52 23"/><path d="M52 23 Q47 18 37 25 T27 33"/><path d="M27 33 Q22 38 13 33 T6 37"/></g>
+    <g><path class="tide-water" pathLength="1" d="M86 23 Q84 20 77 26 T73 31"/><path class="tide-water" pathLength="1" d="M73 31 Q68 40 60 29 T52 23"/><path class="tide-water" pathLength="1" d="M52 23 Q47 18 37 25 T27 33"/><path class="tide-water" pathLength="1" d="M27 33 Q22 38 13 33 T6 37"/></g>
+    <circle cx="86" cy="23" r="2.1" class="tide-spring"/>
+  </svg>
+  <button type="button" data-gate="0" style="--x:73%;--y:31%">泉眼</button>
+  <button type="button" data-gate="1" style="--x:52%;--y:23%">弯道</button>
+  <button type="button" data-gate="2" style="--x:27%;--y:33%">出口</button>
+</div>
+<div id="fieldDig" hidden>
+  <img id="fieldRock" alt="正在发掘的岩板">
+  <div id="extraFieldTool" hidden></div>
+  <div id="echoPoints" role="group" aria-label="岩层上的探测点" hidden></div>
+  <div id="wedgeTool" hidden>
+    <div id="wedgeMark" aria-hidden="true"><span class="crack"></span><span class="wedge"></span></div>
+    <div class="wedge-controls">
+      <button type="button" id="turnWedge">旋转楔子</button>
+      <button type="button" id="pressWedge">沿缝撬开</button>
+    </div>
+  </div>
+</div>
 <img id="eggWhole" alt="" hidden><img id="sandSource" alt="" hidden>
+<div id="rubble" role="group" aria-label="岩板上的碎石" hidden></div>
 <div id="effects" aria-hidden="true"></div><div id="demoHand" aria-hidden="true" hidden>☝️</div>
 </div><div id="floatingSkeleton" aria-hidden="true" hidden></div><div id="reveal" hidden><img id="living" alt="" hidden><p id="speechBubble" hidden></p></div>
 </div><div id="tray" aria-label="从石板中取出的五块骨头" hidden></div></section>
@@ -19,4 +43,4 @@
 <feOffset in="SourceAlpha" dx="-1" dy="-1.5" result="backShift"/><feComposite in="SourceAlpha" in2="backShift" operator="out" result="lip"/><feFlood flood-color="#ffe6b1"/><feComposite in2="lip" operator="in" result="light"/><feMerge><feMergeNode in="base"/><feMergeNode in="inset"/><feMergeNode in="light"/></feMerge></filter><filter id="fossil-bone-groove" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
 <feFlood flood-color="#ac8959" result="stoneColor"/><feComposite in="stoneColor" in2="SourceAlpha" operator="in" result="base"/>
 <feOffset in="SourceAlpha" dx="2" dy="3" result="shift"/><feComposite in="SourceAlpha" in2="shift" operator="out" result="edge"/><feGaussianBlur in="edge" stdDeviation=".8" result="soft"/><feFlood flood-color="#4a2d14"/><feComposite in2="soft" operator="in" result="inset"/>
-<feOffset in="SourceAlpha" dx="-1" dy="-1.5" result="backShift"/><feComposite in="SourceAlpha" in2="backShift" operator="out" result="lip"/><feFlood flood-color="#ffe6b1"/><feComposite in2="lip" operator="in" result="light"/><feMerge><feMergeNode in="base"/><feMergeNode in="inset"/><feMergeNode in="light"/></feMerge></filter></defs></svg><div id="soundscape" hidden></div><script src="../../island-audio.js?v=20261031-trex-r1"></script><script src="../island-journey/journey-store.js?v=20261031-trex-r1"></script><script src="./bone-area.js?v=20261031-trex-r1"></script><script src="./fossils.js?v=20261031-trex-r1"></script><script src="./natural-fossils.js?v=20261031-trex-r1"></script><script src="./r3-rebuilt-fossils.js?v=20261101-mamenshi-r1"></script><script src="./journey-fossils.js?v=20261031-f6-r1"></script><script src="../../fossil-unlock.js?v=20261109-f7-r1"></script><script src="../../story.js?v=20261110-st1-r3"></script><script src="./fossil-store.js?v=20261109-f7-r1"></script><script src="./fossil-effects.js?v=20261031-trex-r1"></script><script src="./fossil-audio.js?v=20261031-trex-r1"></script><script src="./app.js?v=20261110-st1-r1"></script></body></html>
+<feOffset in="SourceAlpha" dx="-1" dy="-1.5" result="backShift"/><feComposite in="SourceAlpha" in2="backShift" operator="out" result="lip"/><feFlood flood-color="#ffe6b1"/><feComposite in2="lip" operator="in" result="light"/><feMerge><feMergeNode in="base"/><feMergeNode in="inset"/><feMergeNode in="light"/></feMerge></filter></defs></svg><div id="soundscape" hidden></div><script src="../../island-audio.js?v=20261031-trex-r1"></script><script src="../island-journey/journey-store.js?v=20261031-trex-r1"></script><script src="./bone-area.js?v=20261031-trex-r1"></script><script src="./fossils.js?v=20261031-trex-r1"></script><script src="./natural-fossils.js?v=20261031-trex-r1"></script><script src="./r3-rebuilt-fossils.js?v=20261101-mamenshi-r1"></script><script src="./journey-fossils.js?v=20261031-f6-r1"></script><script src="./tide-fossil.js?v=20261110-f8-r2"></script><script src="./field-fossils.js?v=20261110-f9-r2"></script><script src="./expedition-fossils.js?v=20261110-f11-r3"></script><script src="./excavation-layers.js?v=20261110-f10-r1"></script><script src="../../fossil-unlock.js?v=20261109-f7-r1"></script><script src="../../story.js?v=20261110-st1-r3"></script><script src="./fossil-store.js?v=20261110-f10-r1"></script><script src="./fossil-effects.js?v=20261031-trex-r1"></script><script src="./fossil-audio.js?v=20261031-trex-r1"></script><script src="./field-tools.js?v=20261110-f11-r3"></script><script src="./app.js?v=20261110-f11-r3"></script></body></html>

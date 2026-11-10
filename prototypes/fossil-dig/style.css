@@ -178,3 +178,68 @@
 .story-star.fresh{animation:story-star-glow .9s ease-out both}
 @keyframes story-star-glow{0%{r:1.6;fill:#fff}50%{r:4;fill:#fff7cf}100%{r:2.4;fill:#ffe58a}}
 @media(prefers-reduced-motion:reduce){.story-star.fresh{animation:none}}
+
+/* Spinosaurus dig. The water and rock are decorative; the gates own input. */
+#tideDig,#tideRock,#tideDig svg{position:absolute;inset:0;width:100%;height:100%}
+#tideRock,#tideDig svg{pointer-events:none}
+#tideDig path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tide-channel{stroke:#162e34;stroke-width:2.6;opacity:.8}
+.tide-water{stroke:#8ce4dd;stroke-width:1.4;opacity:0}
+.tide-water.wet{opacity:1}
+.tide-spring{fill:#b7fbef;stroke:#3d918b;stroke-width:1.25}
+#tideDig.flowing .tide-water.fresh{stroke-dasharray:1;animation:tide-flow .63s ease-out both}
+@keyframes tide-flow{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+#tideDig button{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);min-width:48px;min-height:44px;padding:4px 8px;border:2px solid #e6c89b;border-radius:13px;background:#544031;color:#fff3da;box-shadow:0 3px 4px #172c29b0;font:inherit;font-size:13px;font-weight:800;line-height:1;cursor:pointer}
+#tideDig button.open{background:#254d50;border-color:#96ddd1;color:#d0f7ee}
+#tideDig button:focus-visible{outline:3px solid #fff2a8;outline-offset:2px}
+#tray[data-n="4"]{grid-template-columns:repeat(4,minmax(48px,1fr))}
+@media(min-width:701px) and (max-height:600px){#tray[data-n="4"]{grid-template-columns:repeat(2,minmax(48px,1fr))}}
+
+/* The rock stays registered while the excavation tools change. */
+#fieldDig,#fieldRock,#echoPoints,#wedgeTool{position:absolute;inset:0;width:100%;height:100%}
+#fieldRock,#wedgeMark{pointer-events:none}
+#fieldDig button{min-width:48px;min-height:44px;border:2px solid #e7cd9e;background:#543625;color:#fff6df;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+#fieldDig button:focus-visible{outline:3px solid #fff2a8;outline-offset:2px}
+.echo-point{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);height:48px;border-radius:50%;box-shadow:0 2px 4px #422315a0}
+.echo-point[data-signal="near"]{background:#285d50;box-shadow:0 0 0 4px #b0e8bd}
+.echo-point[data-signal="far"]{background:#4e4940;border-style:dashed}
+#wedgeMark{position:absolute;left:var(--x);top:var(--y);width:80px;height:70px;transform:translate(-50%,-50%);background:#311b1391;border:1px solid #ffe7be;border-radius:50%}
+#wedgeMark span{position:absolute;left:50%;top:50%;transform-origin:50% 50%}
+#wedgeMark .crack{width:48px;height:8px;background:#f8e5b4;transform:translate(-50%,-50%) rotate(var(--crack));clip-path:polygon(0 35%,28% 20%,47% 57%,69% 23%,100% 37%,100% 77%,68% 65%,46% 100%,26% 54%,0 68%)}
+#wedgeMark .wedge{width:49px;height:12px;background:#83ded4;transform:translate(-50%,-50%) rotate(var(--wedge)) translateX(-24px);clip-path:polygon(0 5%,39% 5%,100% 50%,39% 95%,0 95%)}
+.wedge-controls{position:absolute;inset:auto 0 2% 0;display:flex;justify-content:center;gap:8px}
+.wedge-controls button{padding:6px 10px;border-radius:12px}
+#fieldDig.field-found #fieldRock{animation:field-reveal .55s ease-out}
+#fieldDig.field-found :is(#echoPoints,#wedgeTool){visibility:hidden}
+@keyframes field-reveal{from{filter:brightness(1.2)}to{filter:brightness(1)}}
+
+#rubble{position:absolute;inset:0;z-index:6;pointer-events:none}
+.rubble-piece{position:absolute;left:var(--x);top:var(--y);width:max(44px,var(--width));aspect-ratio:1;min-height:44px;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);cursor:pointer;pointer-events:auto;touch-action:manipulation;transition:left .38s ease-out,top .38s ease-out,transform .38s ease-out}
+.rubble-piece::before{content:'';position:absolute;inset:0;background:var(--atlas) var(--tile-x) var(--tile-y)/200% 200% no-repeat;filter:drop-shadow(2px 5px 2px #251b17a6);pointer-events:none}
+.rubble-piece:focus-visible{outline:3px solid #fff0a3;outline-offset:-2px;border-radius:24%}
+.rubble-piece.moved{left:var(--edge-x);top:var(--edge-y);transform:translate(-50%,-50%) rotate(-9deg) scale(.61);pointer-events:none}
+
+#extraFieldTool{position:absolute;inset:0}
+#fieldDig.field-found #extraFieldTool{visibility:hidden}
+#extraFieldTool .site-point{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);min-width:48px;min-height:48px;border-radius:50%;box-shadow:0 2px 4px #241b1ab0}
+.site-tool-controls{position:absolute;inset:auto 0 2% 0;display:flex;align-items:center;justify-content:center;gap:6px}
+.site-tool-controls button{border-radius:12px;padding:4px 8px}
+.rope-line{position:absolute;left:var(--x);top:var(--y);width:var(--length);border-top:4px dashed #f4d788;filter:drop-shadow(0 2px 2px #3e261d);transform:rotate(var(--angle));transform-origin:0 0;pointer-events:none}
+.rope-target{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) rotate(var(--angle));color:#fff1bc;background:#245851;border:2px solid #ddca95;border-radius:50%;padding:2px 9px;font-size:22px;line-height:1;pointer-events:none}
+#fieldDig .rope-grip{color:#fff1bd;background:#285d54;touch-action:none;cursor:grab}
+#fieldDig .rope-grip:active{cursor:grabbing}
+#fieldDig .rhythm-point{font-size:20px;background:#465785}
+#fieldDig .rhythm-point[data-tone="1"]{background:#7e4757}
+#fieldDig .rhythm-point[data-tone="2"]{background:#4e6047}
+#fieldDig .rhythm-point[data-tone="3"]{background:#795536}
+#fieldDig .rhythm-point.lit{color:#292816;background:#ffdd79;box-shadow:0 0 0 5px #fff0afae}
+.brace-slot{position:absolute;left:var(--x);top:var(--y);width:var(--span);height:19px;border-inline:4px solid #fff1b6;border-bottom:3px dashed #fff1b6;background:#4a36277a;transform:translate(-50%,-50%);filter:drop-shadow(1px 3px 2px #261a13);pointer-events:none}
+#fieldDig .brace-choice{width:calc(var(--span) + 11px);min-width:58px;padding-inline:4px}
+.brace-choice::before{content:'';display:block;width:var(--span);height:4px;margin:3px auto 4px;background:#85dbcc;border-radius:3px}
+.lever-beam{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:70%;height:12px;border:2px solid #eccc8c;border-radius:5px;background:linear-gradient(#a96b34,#744022);box-shadow:1px 3px 3px #281a14a1;pointer-events:none}
+.lever-block{position:absolute;left:var(--x);top:var(--y);width:21%;aspect-ratio:1;transform:translate(-50%,-50%);background:var(--rock) 0 0/200% 200% no-repeat;filter:drop-shadow(1px 4px 3px #302820af);pointer-events:none}
+#fieldDig .lever-point{color:#fff1b6;font-size:22px}
+.lift-bag{--fill:0;position:absolute;left:var(--x);top:var(--y);width:22%;height:12%;transform:translate(-50%,-50%) scaleY(calc(.45 + var(--fill)));border:3px solid #b7dec5;border-radius:38% 48% 33% 34%;background:radial-gradient(ellipse at 35% 20%,#69a993,#224f43);box-shadow:0 4px 3px #242d22aa;pointer-events:none}
+#fieldDig .bag-pump{touch-action:none;user-select:none}
+.bag-meter{width:min(30%,125px);height:20px;accent-color:#2b6352}
+@media(prefers-reduced-motion:reduce){.lift-bag{transform:translate(-50%,-50%)}}

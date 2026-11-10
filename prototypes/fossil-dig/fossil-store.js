@@ -11,13 +11,23 @@
   const areas={},areaOf=id=>areas[id]||=id==='brachio'?MASK:(()=>{const weights=new Array(CELLS).fill(0);DATA[id].area.weights.forEach(([n,w])=>{weights[n]=w;});return{weights,total:DATA[id].area.total};})();
   const partsOf=id=>id==='brachio'?['head','neck','body','tail','legs']:DATA[id].art.parts.map(p=>p.id);
   const PARTS=partsOf(ACTIVE);
+  const mode=DATA[ACTIVE].excavation;
+  const answers=mode==='tide'?[0,1,2]:DATA[ACTIVE].fieldTool?.answers;
+  // These four cells sit outside all layered fossil masks. They preserve which
+  // stones moved in the same v1 record, without counting toward brush coverage.
+  const STONES=Object.freeze([1020,1021,1022,1023]);
+  const layered=Boolean(DATA[ACTIVE].excavationLayers);
   const coverage=(cells,id=ACTIVE)=>{const a=areaOf(id),unique=new Set(cells);return [...unique].reduce((n,i)=>n+(a.weights[i]||0),0)/a.total;};
   const metricOf=id=>id==='brachio'?'rock-v2':DATA[id].area.metric;
   const record=(id=ACTIVE)=>({step:'knock',hits:0,cleared:[],placed:[],brushMetric:metricOf(id)});
   const fresh=()=>({version:1,dig:{brachio:record('brachio'),[ACTIVE]:record()},museum:[]});
   // F7: levels 1-50 open fossils too (fossil-unlock.js); either that or the forest route is enough.
   const eligible=(id=ACTIVE)=>PREVIEW||STANDALONE||window.DinoFossilUnlock?.unlocked(id)===true?true:(DATA[id]?.journey?.routes?.length?DATA[id].journey.routes.every(route=>window.DinoJourneyStore?.routeDone(route)===true):Boolean(DATA[id]?.journey?.route)&&window.DinoJourneyStore?.routeDone(DATA[id].journey.route)===true);
-  const phase=(d,id=ACTIVE)=>d.hits<6?'knock':coverage(d.cleared,id)<THRESHOLD?'brush':d.placed.length<partsOf(id).length?'puzzle':'revive';
+  function phase(d,id=ACTIVE){
+    if(d.hits<6)return 'knock';
+    if(coverage(d.cleared,id)>=THRESHOLD)return d.placed.length<partsOf(id).length?'puzzle':'revive';
+    return DATA[id].excavationLayers&&!STONES.every(cell=>d.cleared.includes(cell))?'rubble':'brush';
+  }
   function normalizeOne(id,s){
     const x=record(id);if(!s)return x;
     x.hits=Number.isInteger(s.hits)&&s.hits>=0&&s.hits<=6?s.hits:0;
@@ -101,8 +111,29 @@
     listeners.forEach(fn=>fn());return healthy;
   }
   const mine=d=>d.dig[ACTIVE]||(d.dig[ACTIVE]=record());
-  function hit(){if(!eligible())return false;const d=load(),s=mine(d);if(s.step!=='knock')return false;s.hits++;s.step=phase(s);return write(d);}
-  function brush(cells){if(!eligible())return false;const d=load(),s=mine(d);if(s.step!=='brush')return false;s.cleared=[...new Set([...s.cleared,...cells.filter(n=>Number.isInteger(n)&&n>=0&&n<CELLS)])];s.step=phase(s);return write(d);}
+  function hit(){if(answers||!eligible())return false;const d=load(),s=mine(d);if(s.step!=='knock')return false;s.hits++;s.step=phase(s);return write(d);}
+  function brush(cells){
+    if(!eligible())return false;
+    const d=load(),s=mine(d);if(s.step!=='brush')return false;
+    s.cleared=[...new Set([...s.cleared,...cells.filter(n=>Number.isInteger(n)&&n>=0&&n<CELLS&&(!layered||areaOf(ACTIVE).weights[n]>0))])];
+    s.step=phase(s);return write(d);
+  }
+  function clearSection(stage,answer){
+    if(!Number.isInteger(stage)||stage<0||stage>=3||!answers||answers[stage]!==answer||!eligible())return false;
+    const d=load(),s=mine(d);
+    if(s.step!=='knock'||s.hits!==stage*2)return false;
+    s.hits+=2;
+    if(s.hits===6&&!layered)s.cleared=DATA[ACTIVE].area.weights.map(([cell])=>cell);
+    s.step=phase(s);
+    return write(d);
+  }
+  const openGate=index=>mode==='tide'&&clearSection(index,index);
+  function removeStone(index){
+    if(!layered||!eligible()||!Number.isInteger(index)||index<0||index>=STONES.length)return false;
+    const d=load(),s=mine(d),cell=STONES[index];
+    if(s.step!=='rubble'||s.cleared.includes(cell))return false;
+    s.cleared.push(cell);s.step=phase(s);return write(d);
+  }
   function place(id){if(!eligible()||!PARTS.includes(id))return false;const d=load(),s=mine(d);if(s.step!=='puzzle'||s.placed.includes(id))return false;s.placed.push(id);s.step=phase(s);return write(d);}
   function claim(){
     if(!eligible())return false;const d=load(),s=mine(d);
@@ -117,5 +148,5 @@
   addEventListener('storage',e=>{if(e.key===savedKey||e.key===null)notify();});
   // owned(id) is read-only: the codex uses it for the gold "化石已挖到" mark.
   const owned=id=>loadSaved().museum.includes(id);
-  window.DinoFossils=Object.freeze({KEY,PARTS:Object.freeze(PARTS),CELLS,THRESHOLD,ACTIVE,PREVIEW,STANDALONE,coverage,eligible,load,hit,brush,place,claim,owned,startRepeat,resumeRepeat,hasRepeat:()=>!!repeatRecord(),isRepeating:()=>!!repeatMemory,storageOK:()=>healthy,subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);}});
+  window.DinoFossils=Object.freeze({KEY,PARTS:Object.freeze(PARTS),CELLS,THRESHOLD,STONES,ACTIVE,PREVIEW,STANDALONE,coverage,eligible,load,hit,brush,openGate,clearSection,removeStone,place,claim,owned,startRepeat,resumeRepeat,hasRepeat:()=>!!repeatRecord(),isRepeating:()=>!!repeatMemory,storageOK:()=>healthy,subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);}});
 })();
