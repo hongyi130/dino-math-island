@@ -1,0 +1,2 @@
+/* Keep the fitted shoreline still: breathing would move it under stationary feet. */
+.scene-backdrop[data-ground-fit] { animation:none; transform:none; will-change:auto; }

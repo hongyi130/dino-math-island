@@ -6,6 +6,48 @@
     const parts = () => character()?.introParts || [character()?.intro || ''];
     const cues = () => window.DINO_VOICE_CUES?.[filename] || [];
     const matchesSource = () => audio.src.split('/').pop()?.split('?')[0] === filename;
+    const portraitImage = portrait.querySelector('img');
+    const shadowLayer = document.createElement('span');
+    shadowLayer.className = 'portrait-ground-shadows';
+    shadowLayer.setAttribute('aria-hidden', 'true');
+    portrait.appendChild(shadowLayer);
+    function fitPortrait() {
+      const width = portrait.clientWidth, height = portrait.clientHeight;
+      if (!width || !height || !portraitImage.complete || !portraitImage.naturalWidth) return;
+      const imageFile = portraitImage.currentSrc.split('/').pop()?.split('?')[0];
+      const data = imageFile === character()?.image ? window.DINO_GROUND_DATA?.[kind] : null;
+      const bounds = data?.bounds || [0, 0, 1, 1], contacts = data?.contacts || [];
+      const style = getComputedStyle(portraitImage);
+      const boxWidth = parseFloat(style.width), boxHeight = parseFloat(style.height);
+      const scale = Math.min(boxWidth / portraitImage.naturalWidth, boxHeight / portraitImage.naturalHeight);
+      const drawnWidth = portraitImage.naturalWidth * scale, drawnHeight = portraitImage.naturalHeight * scale;
+      // Contain size stays unchanged. Only the transparent padding is offset so
+      // the visible alpha silhouette, rather than its file rectangle, is centred.
+      const shiftX = drawnWidth * (.5 - (bounds[0] + bounds[2]) / 2);
+      const shiftY = drawnHeight * (.5 - (bounds[1] + bounds[3]) / 2);
+      portraitImage.style.setProperty('--portrait-shift-x', shiftX.toFixed(3) + 'px');
+      portraitImage.style.setProperty('--portrait-shift-y', shiftY.toFixed(3) + 'px');
+      const footX = contacts.length ? contacts.reduce((sum, foot) => sum + foot[0], 0) / contacts.length : .5;
+      const footY = contacts.length ? Math.max(...contacts.map(foot => foot[1])) : bounds[3];
+      portraitImage.style.setProperty('--portrait-origin-x', ((boxWidth - drawnWidth) / 2 + footX * drawnWidth).toFixed(3) + 'px');
+      portraitImage.style.setProperty('--portrait-origin-y', ((boxHeight - drawnHeight) / 2 + footY * drawnHeight).toFixed(3) + 'px');
+      const left = (width - drawnWidth) / 2 + shiftX, top = (height - drawnHeight) / 2 + shiftY;
+      shadowLayer.replaceChildren(...contacts.map(([x, y, footWidth]) => {
+        const shadow = document.createElement('i');
+        shadow.style.left = (left + x * drawnWidth).toFixed(3) + 'px';
+        shadow.style.top = (top + y * drawnHeight + .25).toFixed(3) + 'px';
+        shadow.style.width = Math.max(3, footWidth * drawnWidth * 1.1).toFixed(3) + 'px';
+        shadow.style.height = Math.max(2, Math.min(6, drawnHeight * .018)).toFixed(3) + 'px';
+        return shadow;
+      }));
+      portrait.dataset.portraitFitted = data ? kind : 'fallback';
+    }
+    portraitImage.addEventListener('load', fitPortrait);
+    if (typeof ResizeObserver === 'function') {
+      const observer = new ResizeObserver(fitPortrait);
+      observer.observe(portrait);
+      observer.observe(portraitImage);
+    } else window.addEventListener('resize', fitPortrait);
     function showPart(index, text) {
       if (!kind) return;
       part = index;
@@ -35,6 +77,9 @@
     function setCharacter(nextKind, nextFile) {
       kind = nextKind;
       filename = nextFile;
+      shadowLayer.replaceChildren();
+      delete portrait.dataset.portraitFitted;
+      requestAnimationFrame(fitPortrait);
       pendingSeek = null;
       greetingToken++;
       portrait.classList.remove('is-responding', 'is-speaking');

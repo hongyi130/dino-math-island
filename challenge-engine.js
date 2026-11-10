@@ -18,7 +18,7 @@
     const l=state.level;
     if(action==='check') {
       if(!correct(state)) {
-        const text=l.challengeType==='fill'?'还有空脚印，接齐伙伴再试试。':l.challengeType==='split'?(state.camps.includes(null)?'还有伙伴没进营地。':`左边要住 ${l.b} 只。点营地里的伙伴，可以请它回来。`):l.challengeType==='compare'?(state.paired.length<Math.min(l.a,l.b)?'先让每一对伙伴牵手。':state.choice===null?'点更多的一边；一样多就点等号。':'再看剩下的伙伴，重新选一选。'):'还没到站。沿着箭头，一步一块石头。';
+        const text=l.challengeType==='fill'?'还有空位，接齐伙伴再试试。':l.challengeType==='split'?(state.camps.includes(null)?'还有伙伴没进营地。':`左边要住 ${l.b} 只。点营地里的伙伴，可以请它回来。`):l.challengeType==='compare'?(state.paired.length<Math.min(l.a,l.b)?'先让每一对伙伴牵手。':state.choice===null?'点更多的一边；一样多就点等号。':'再看剩下的伙伴，重新选一选。'):'还没到站。沿着箭头，一步一块石头。';
         return reject(state,text);
       }
       state.error=false;state.complete=true;state.feedback=l.cheer;
@@ -36,7 +36,7 @@
       if(!Number.isInteger(index)||index<l.a||index>=l.b) return {changed:false};
       const at=state.placed.indexOf(index);
       at<0?state.placed.push(index):state.placed.splice(at,1);
-      state.feedback=state.placed.length===l.b?'脚印站满啦，点 ✓ 看看。':`接来了 ${state.placed.length-l.a} 只。`;
+      state.feedback=state.placed.length===l.b?'空位站满啦，点 ✓ 看看。':`来了 ${state.placed.length-l.a} 只。`;
     } else if(l.challengeType==='split'&&action==='camp') {
       if(!['left','right'].includes(value)) return {changed:false};
       const next=state.camps.indexOf(null);

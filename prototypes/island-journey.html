@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#193e38">
+  <title>恐龙拼拼岛 · 年代探险地图</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./island-journey/journey.css?v=20261031-f6-r1">
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.2 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1Z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-parent" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="18" cy="10" r="2"/><path d="M3 21v-4a6 6 0 0 1 12 0v4m0-7a4 4 0 0 1 7 3v4"/></symbol>
+  </defs></svg>
+  <header class="topbar">
+    <a class="brand" href="./island-journey.html" aria-label="恐龙拼拼岛，地图首页"><span class="brand-mark"><svg><use href="#i-compass"/></svg></span><span>恐龙拼拼岛<small>穿越时光的小探险</small></span></a>
+    <a class="main-game-link" href="../index.html">← 返回数学游戏</a><span class="sample-mark">森林挑战 · 6关</span>
+    <button class="parent-button" data-action="parent"><svg><use href="#i-parent"/></svg><span>家长</span></button>
+  </header>
+  <main class="journey-shell">
+    <aside class="journey-sidebar">
+      <div class="intro"><p class="eyebrow">你的恐龙时光之旅</p><h1>下一站，<br>去见新伙伴。</h1><p class="intro-copy">沿着小路探险，<br>把一个个发现装进口袋。</p></div>
+      <nav class="eras" aria-label="恐龙时代">
+        <button class="era era-triassic" data-era="triassic"><span class="era-order">Ⅰ</span><span><strong>三叠纪</strong><small>恐龙初登场</small></span><svg class="era-status"><use href="#i-compass"/></svg></button>
+        <button class="era era-jurassic" data-era="jurassic" aria-current="page"><span class="era-order">Ⅱ</span><span><strong>侏罗纪</strong><small>巨兽的森林</small></span><span class="era-now">正在探索</span></button>
+        <button class="era era-cretaceous" data-era="cretaceous"><span class="era-order">Ⅲ</span><span><strong>白垩纪</strong><small>缤纷的恐龙世界</small></span><svg class="era-status"><use href="#i-lock"/></svg></button>
+      </nav>
+      <div class="guide"><img src="../assets/ptero-3d.webp" alt="翼龙向导"><div><strong>沿着小路，向森林深处走！</strong><p>每完成一站，就离新伙伴更近一点。</p><small>翼龙是会飞的爬行动物，不是恐龙。</small></div></div>
+      <button class="learning-chip" data-action="parent"><span class="learning-dot"></span><span id="learningText">二年级 · 乘法与除法</span><span aria-hidden="true">⌄</span></button>
+      <button class="text-button collection-link" data-action="collection">我的发现 <span>博物馆 →</span></button>
+    </aside>
+    <section class="island-section" aria-labelledby="chapterTitle">
+      <div class="chapter-heading"><div><p class="eyebrow">侏罗纪 · 森林篇</p><h2 id="chapterTitle">巨兽森林</h2></div><div class="chapter-progress"><span><b>0</b> / 6 关</span><div aria-label="森林篇已完成0关，共6关"><i></i><i></i><i class="empty"></i><i class="empty"></i><i class="empty"></i></div></div></div>
+      <div class="map-wrap">
+        <div class="map-canvas" id="mapCanvas">
+          <img class="map-art" src="./island-journey/jurassic-map.webp" alt="俯视的森林岛屿，蜿蜒道路连接五处岩台，途中经过河流与瀑布" fetchpriority="high" width="1122" height="1402">
+          <button class="map-node preview node-one" data-stop="0" style="--x:32%;--y:72%" aria-label="蕨叶入口，参观地点"><img class="resident stego" src="../assets/stego-3d.webp" alt=""><span class="node-disc"><svg><use href="#i-star"/></svg></span><span class="node-name">蕨叶入口<small>可参观</small></span></button>
+          <button class="map-node preview node-two" data-stop="1" style="--x:70%;--y:56%" aria-label="苏铁渡口，参观地点"><span class="node-disc"><svg><use href="#i-star"/></svg></span><span class="node-name">苏铁渡口<small>可参观</small></span></button>
+          <button class="map-node current node-three" data-stop="2" style="--x:35%;--y:40%" aria-label="巨杉营地，当前地点，查看今日3关"><span class="here-tag">你在这里</span><img class="resident brachio" src="../assets/brachio-3d.webp" alt=""><span class="node-disc">3</span><span class="node-name">巨杉营地<small>开始探险 →</small></span></button>
+          <button class="map-node locked node-four" data-stop="3" style="--x:69%;--y:24%" aria-label="瀑布岩台，未解锁，查看解锁条件"><span class="here-tag" hidden>你在这里</span><span class="node-disc"><svg><use href="#i-lock"/></svg></span><span class="node-name">瀑布岩台<small>完成营地解锁</small></span></button>
+          <button class="map-node locked node-five" data-stop="4" style="--x:47%;--y:9%" aria-label="山顶瞭望台，未解锁，查看解锁条件"><span class="node-disc"><svg><use href="#i-lock"/></svg></span><span class="node-name">山顶瞭望台<small>森林篇终点</small></span></button>
+          <button id="fossilDigEntry" class="dig-node" data-action="dig" data-fossil="brachio" hidden><span aria-hidden="true">⛏</span><span id="digLabel">有一枚化石等你挖</span></button>
+          <button id="waterfallDigEntry" class="dig-node" data-action="dig" data-fossil="mamenshi" hidden><span aria-hidden="true">⛏</span><span>有一枚化石等你挖</span></button>
+          <div class="map-legend" aria-label="地图图例"><span><b>★</b> 已完成</span><span><b class="legend-current">●</b> 当前</span><span><svg><use href="#i-lock"/></svg> 未解锁</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="today-card" aria-labelledby="todayTitle"><div class="today-top"><span class="today-badge">今日探险</span><span class="today-duration">3 关 · 约 10–15 分钟</span></div><h2 id="todayTitle">去巨杉营地，看看腕龙</h2><p id="todayDescription">接来一样多的伙伴，发现乘法的秘密。</p><div class="route-dots" aria-label="巨杉营地路线，共3关"><span>1</span><i></i><span>2</span><i></i><span>3</span><svg><use href="#i-star"/></svg></div><button class="primary" data-action="today">看看今天的路线 <svg><use href="#i-arrow"/></svg></button><p class="today-note">先动手，再想一想，最后选答案。</p></section>
+  </main>
+  <footer class="page-footer">森林挑战已开放 · 山顶可参观 <button class="text-button" data-action="about">玩法说明</button></footer>
+  <dialog id="detailDialog" aria-labelledby="dialogTitle"><div class="dialog-shell"><button class="close-button" id="closeDialog" aria-label="关闭">×</button><div id="dialogContent"></div></div></dialog>
+  <script src="../characters-data.js"></script><script src="../levels-data.js"></script><script src="../challenge-levels.js"></script><script src="../grade2-levels.js"></script><script src="../knowledge-levels.js"></script><script src="../learning-catalog.js"></script>
+  <script src="./island-journey/journey-store.js?v=20261027-f1-r4"></script>
+  <script src="./fossil-dig/bone-area.js?v=20261027-f1-r9"></script><script src="./fossil-dig/fossils.js?v=20261031-trex-r1"></script><script src="./fossil-dig/natural-fossils.js?v=20261031-trex-r1"></script><script src="./fossil-dig/r3-rebuilt-fossils.js?v=20261101-mamenshi-r1"></script><script src="./fossil-dig/journey-fossils.js?v=20261031-f6-r1"></script><script src="../fossil-unlock.js?v=20261109-f7-r1"></script><script src="./fossil-dig/fossil-store.js?v=20261109-f7-r1"></script>
+  <script src="./island-journey/journey.js?v=20261101-mamenshi-r1"></script>
+</body>
+</html>

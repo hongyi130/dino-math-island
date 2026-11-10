@@ -121,10 +121,10 @@ window.DINO_CHARACTERS = {
   },
   "spino": {
     "name": "棘龙",
-    "image": "spino-3d.webp",
-    "aspect": 1.5,
-    "height": 85,
-    "color": "#719ca7",
+    "image": "spino-reference-v1.webp",
+    "aspect": 2.0,
+    "height": 74,
+    "color": "#718f68",
     "intro": "小伙伴，我是棘龙，愿意陪我在这座小岛上看一看自己的特别装扮吗！我背上的长骨刺撑起高高的帆，嘴巴细细长长，里面有尖牙。鱼是我的食物之一，背上的帆可不是小船借给我的。把五根手指张开竖起来，在空中比一比我的大帆吧！",
     "isDinosaur": true,
     "introParts": [
@@ -134,7 +134,12 @@ window.DINO_CHARACTERS = {
     ],
     "nickname": "背着高帆的伙伴",
     "invitation": "把五根手指张开竖起来，在空中比一比我的大帆吧！",
-    "greeting": "nod"
+    "greeting": "nod",
+    "ground": [
+      0.5001,
+      0.9312,
+      0.0485
+    ]
   },
   "pachy": {
     "name": "肿头龙",

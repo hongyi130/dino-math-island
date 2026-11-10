@@ -1,0 +1,87 @@
+/* Living island: ambient motion over the painted scenes, and island-made UI surfaces.
+   Layout sizes stay as defined in style.css / expedition-ui.css; only skins change here. */
+
+/* ---------- Backdrop breathing ---------- */
+.scene-backdrop { transform-origin: 50% 82%; animation: sceneBreath 46s ease-in-out infinite alternate; will-change: transform; }
+.scene-backdrops[data-math=true] .scene-backdrop { animation: none; transform: none; will-change: auto; }
+@keyframes sceneBreath { from { transform: scale(1) translateX(0); } to { transform: scale(1.045) translateX(-.7%); } }
+.scene-shade { background:
+  radial-gradient(ellipse 120% 90% at 50% 45%, transparent 62%, #0f2a2240 100%),
+  linear-gradient(180deg,#183e352e,transparent 24%,transparent 82%,#102b244a); }
+
+/* ---------- Ambient layer ---------- */
+.scene-ambient, .ambient-ground, .ambient-shadow-field { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.scene-ambient * { pointer-events: none; }
+.scene-backdrop:not(.is-visible) .scene-ambient * { animation-play-state: paused; }
+.ambient-clip-defs { position: absolute; }
+.ambient-light, .ambient-ground { display: none; }
+.scene-ambient[data-daylight=day] .ambient-light,
+.scene-ambient:is([data-daylight=day], [data-daylight=dusk])[data-ground=clipped] .ambient-ground { display: block; }
+
+/* Upper-right daylight only pulses in brightness: no sweeping beam or camera movement. */
+.ambient-light { position: absolute; inset: 0; mix-blend-mode: soft-light; opacity: .12;
+  background:
+    radial-gradient(ellipse 55% 45% at 93% 0%, #fff6d6 0, #fff6d600 75%),
+    repeating-conic-gradient(from 200deg at 94% -5%, #fff6d200 0deg 5deg, #fff6d244 7deg 9deg, #fff6d200 11deg 17deg);
+  -webkit-mask-image: radial-gradient(ellipse 80% 85% at 95% 0%, #000 10%, transparent 78%);
+          mask-image: radial-gradient(ellipse 80% 85% at 95% 0%, #000 10%, transparent 78%);
+  animation: sunRays 18s ease-in-out infinite alternate; }
+@keyframes sunRays { from { opacity: .08; } to { opacity: .18; } }
+
+/* Soft, very faint shadows are clipped to each painting's actual dry ground.
+   The moving gradient never moves the painting or crosses its water/obstacle masks. */
+.ambient-cloud { position: absolute; left: -75%; width: 75%; height: 28%; border-radius: 50%;
+  background: radial-gradient(closest-side, #193527 0, #19352700 100%);
+  opacity: .075; mix-blend-mode: multiply; animation: cloudPass 68s linear infinite; }
+.ambient-cloud-a { top: 55%; animation-delay: -24s; }
+.ambient-cloud-b { top: 72%; width: 62%; height: 20%; animation-duration: 91s; animation-delay: -51s; opacity: .05; }
+@keyframes cloudPass { from { transform: translateX(0); } to { transform: translateX(340%); } }
+.scene-ambient[data-daylight=dusk] .ambient-cloud { opacity: .035; }
+.scene-ambient[data-daylight=dusk] .ambient-cloud-b { opacity: .025; }
+
+/* Battery and motion preferences */
+.ambient-paused .scene-ambient, .ambient-paused .scene-ambient *, .ambient-paused .scene-ambient *::before, .ambient-paused .scene-ambient *::after,
+.ambient-paused .scene-backdrop { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) {
+  .scene-ambient { display: none; }
+  .scene-ambient * { animation: none !important; }
+  .scene-backdrop { animation: none; transform: none; }
+}
+
+/* ---------- Island-made surfaces ---------- */
+/* Equation: a sandstone tablet. */
+.app .mission-strip h1 { color: #4a3418; border: 2px solid #b8925a; border-radius: 24px 28px 22px 26px;
+  background:
+    radial-gradient(ellipse at 28% 18%, #fffaf0b0, #fffaf000 58%),
+    radial-gradient(circle at 82% 78%, #a27a4422 0 2px, transparent 3px) 0 0 / 23px 19px,
+    radial-gradient(circle at 30% 60%, #a27a441c 0 1.5px, transparent 2.5px) 0 0 / 17px 21px,
+    linear-gradient(180deg, #f7e8c6, #e8d1a2);
+  box-shadow: 0 5px 0 #94703e, 0 12px 26px #1c382a6b, inset 0 2px #fffaf0, inset 0 -4px 8px #9c76432e; }
+.app .mission-strip h1 .equation-symbol { color: #8a6a3a; }
+.app .mission-strip h1 .answer-blank { background: #f0c96f; color: #6f4612; box-shadow: inset 0 3px 6px #8c5f2240, 0 1px #fff6dc; }
+
+/* Hints: a small wooden plank. */
+.app .guidance { color: #fff4d2; border: 1.5px solid #c89a5c; border-radius: 10px; text-shadow: 0 1px 2px #3b230e;
+  background:
+    repeating-linear-gradient(180deg, #ffffff00 0 5px, #ffffff0d 5px 6px, #00000000 6px 11px, #0000000f 11px 12px),
+    linear-gradient(180deg, #9d6d3c, #7c522b);
+  box-shadow: 0 3px 0 #5a391b, 0 6px 14px #1a2a1a55; }
+
+/* Bottom control area: a moss-topped wooden ledge. */
+.app .interaction-bar { border: 1.5px solid #d6b878a6; border-top: 3px solid #8fbf5a;
+  background:
+    linear-gradient(180deg, #6f9f43d0 0, #6f9f4300 10px),
+    repeating-linear-gradient(178deg, #ffffff00 0 9px, #ffffff08 9px 10px, #00000000 10px 21px, #00000012 21px 22px),
+    linear-gradient(180deg, #4d3a24ee, #3a2b1aef);
+  box-shadow: 0 10px 28px #14231a73, inset 0 1px #ffffff22, inset 0 -6px 14px #00000033; }
+
+/* Top buttons and labels: polished river pebbles. */
+.app .level-label, .app .collection-trigger, .app .icon-button, .app .scene-label {
+  background: linear-gradient(180deg, #3f5a43d9, #263f30e0); border-color: #e8d69c88;
+  box-shadow: 0 3px 0 #15291e8c, 0 6px 14px #1537253b, inset 0 1px #ffffff2e; }
+.fullscreen-button { display: grid; place-items: center; padding: 0; }
+@media (max-width: 700px) and (orientation: portrait) { .fullscreen-button { display: none; } }
+@media (orientation: landscape) and (max-height: 600px) { .fullscreen-button svg { width: 18px; height: 18px; } }
+
+/* Home-screen app: no browser chrome, so respect the notch on every side. */
+.is-standalone .app { height: 100dvh; }

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>瀑布岩台 · 平均分</title>
+<link rel="stylesheet" href="./style.css?v=20261028-f3-r1">
+<link rel="stylesheet" href="../fossil-dig/egg-progress.css?v=20261028-f3-r1">
+</head>
+<body>
+<main id="stage">
+  <div id="scene" aria-hidden="true"></div><div id="shade" aria-hidden="true"></div>
+  <header><a id="back" href="../island-journey.html">← 地图</a><span id="lessonTag"></span><button id="voiceToggle" type="button">听提示</button></header>
+  <section id="card" aria-label="这关的算式"><div id="equation"></div><p id="task"></p></section>
+  <section id="field" aria-label="把恐龙平均分到营地">
+    <section id="pool" aria-label="等候区"><div class="pool-label">等候区 <strong id="poolCount">0</strong><small>只</small></div><div class="rack" id="poolRack"></div></section>
+    <div id="camps"></div>
+  </section>
+  <div id="controls" aria-label="操作工具">
+    <button id="hint" type="button"><span aria-hidden="true">☼</span><small>提示</small></button>
+    <button id="undo" type="button"><span aria-hidden="true">↶</span><small>撤回</small></button>
+    <button id="restart" type="button"><span aria-hidden="true">↻</span><small>重玩</small></button>
+  </div>
+  <section id="bar"><h1 id="headline"></h1><p id="feedback" role="status" aria-live="polite"></p><div id="actions"></div><p id="saveWarning" hidden role="status">进度还没保存，请保持页面打开后重试。</p></section>
+  <section id="locked" hidden><h1>先完成巨杉营地</h1><p>完成巨杉营地的三关，就能来这里平均分啦。</p><a class="primary" href="../island-journey.html">返回地图 →</a></section>
+</main>
+<script src="../../characters-data.js"></script>
+<script src="../../dino-ground-data.js"></script>
+<script src="../../grade2-levels.js"></script>
+<script src="../../challenge-engine.js"></script>
+<script src="../../grade2-engine.js"></script>
+<script src="../island-journey/journey-store.js?v=20261026-waterfall-r1"></script>
+<script src="./backgrounds.js?v=20261026-waterfall-r1"></script>
+<script src="./speech.js?v=20261026-waterfall-r1"></script>
+<script src="../fossil-dig/egg-progress.js?v=20261028-f3-r1"></script>
+<script src="./app.js?v=20261028-f3-r1"></script>
+<script src="../island-journey/props.js?v=20261028-g2p-r2"></script>
+</body>
+</html>

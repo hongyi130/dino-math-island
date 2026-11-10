@@ -1,0 +1,1332 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-26",
+  "scope": "Genus-level geological period lookup for 57 dinosaurs, plus clade-level range for the generic pterosaur guide. Not an audit of species ages, image anatomy, habitat, geographic coexistence or audio.",
+  "summary": {
+    "entries": 58,
+    "reviewedPeriodEntries": 58,
+    "needsReviewEntries": 0,
+    "jurassicGenera": 16,
+    "cretaceousGenera": 41,
+    "triassicDinosaurGenera": 0,
+    "genericNonDinosaurGuides": 1
+  },
+  "displayPolicy": {
+    "unknownLabel": "年代待核对",
+    "exactNumericalAgesApproved": false,
+    "subperiodDisplayApproved": false,
+    "currentMapLocalCharacters": [
+      "stego",
+      "brachio"
+    ],
+    "currentTrialMathCharacters": [
+      "pachyrhino",
+      "euoplo",
+      "galli",
+      "parasaur",
+      "saurolo",
+      "mamenshi"
+    ],
+    "crossEraLessonLabel": "来自不同年代的数学伙伴",
+    "notes": [
+      "periodLabel is the child-facing coarse label. sourceSubperiod records the consulted source wording, not a recommended precise chronology display.",
+      "Use reviewed === true and status === reviewed before displaying a period. Unknown/unreviewed entries must retain the fallback label.",
+      "Do not infer that animals sharing a geological period lived together in the same location."
+    ]
+  },
+  "entries": {
+    "trike": {
+      "name": "三角龙",
+      "latinName": "Triceratops",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/triceratops.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "stego": {
+      "name": "剑龙",
+      "latinName": "Stegosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/stegosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ],
+      "currentTrialRole": "jurassic-map-resident"
+    },
+    "brachio": {
+      "name": "腕龙",
+      "latinName": "Brachiosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/brachiosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ],
+      "currentTrialRole": "jurassic-map-resident"
+    },
+    "raptor": {
+      "name": "迅猛龙",
+      "latinName": "Velociraptor",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/velociraptor.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "trex": {
+      "name": "霸王龙",
+      "latinName": "Tyrannosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/tyrannosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "anky": {
+      "name": "甲龙",
+      "latinName": "Ankylosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/ankylosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "parasaur": {
+      "name": "副栉龙",
+      "latinName": "Parasaurolophus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/parasaurolophus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "spino": {
+      "name": "棘龙",
+      "latinName": "Spinosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/spinosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "pachy": {
+      "name": "肿头龙",
+      "latinName": "Pachycephalosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/pachycephalosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "iguano": {
+      "name": "禽龙",
+      "latinName": "Iguanodon",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/iguanodon.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "carno": {
+      "name": "食肉牛龙",
+      "latinName": "Carnotaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/carnotaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "allo": {
+      "name": "异特龙",
+      "latinName": "Allosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/allosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "dilo": {
+      "name": "双脊龙",
+      "latinName": "Dilophosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Early Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/dilophosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "diplo": {
+      "name": "梁龙",
+      "latinName": "Diplodocus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/diplodocus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "oviraptor": {
+      "name": "窃蛋龙",
+      "latinName": "Oviraptor",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/oviraptor.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "ptero": {
+      "name": "翼龙",
+      "latinName": "Pterosauria",
+      "taxonScope": "clade-not-a-genus",
+      "isDinosaur": false,
+      "periods": [
+        "triassic",
+        "jurassic",
+        "cretaceous"
+      ],
+      "periodLabel": "三叠纪至白垩纪",
+      "sourceSubperiod": "Late Triassic to end-Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-clade-range-only",
+      "reviewedAt": "2026-10-26",
+      "currentTrialRole": "fictional-cross-era-guide",
+      "sources": [
+        {
+          "url": "https://nhmu.utah.edu/articles/why-arent-pterosaurs-dinosaurs",
+          "publisher": "Natural History Museum of Utah",
+          "evidence": "馆方说明翼龙类出现于晚三叠世，延续至白垩纪末，并明确其不是恐龙。"
+        },
+        {
+          "url": "https://www.amnh.org/explore/news-blogs/what-is-a-pterosaur",
+          "publisher": "American Museum of Natural History",
+          "evidence": "馆方说明翼龙类生存于约2.2亿年前至6600万年前，分类上不属于恐龙。"
+        }
+      ],
+      "note": "游戏名称是翼龙类泛称；不能据形象把它当成翼手龙等某个属，也不能声称同一翼龙物种横跨三个纪。"
+    },
+    "styraco": {
+      "name": "戟龙",
+      "latinName": "Styracosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/styracosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "proto": {
+      "name": "原角龙",
+      "latinName": "Protoceratops",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/protoceratops.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "psittaco": {
+      "name": "鹦鹉嘴龙",
+      "latinName": "Psittacosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/psittacosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "kentro": {
+      "name": "肯氏龙",
+      "latinName": "Kentrosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/kentrosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "therizino": {
+      "name": "镰刀龙",
+      "latinName": "Therizinosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/therizinosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "amarga": {
+      "name": "阿马加龙",
+      "latinName": "Amargasaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/amargasaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "lambeo": {
+      "name": "赖氏龙",
+      "latinName": "Lambeosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/lambeosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "nodo": {
+      "name": "结节龙",
+      "latinName": "Nodosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/nodosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "struthio": {
+      "name": "似鸵龙",
+      "latinName": "Struthiomimus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/struthiomimus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "compso": {
+      "name": "美颌龙",
+      "latinName": "Compsognathus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/compsognathus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "cerato": {
+      "name": "角鼻龙",
+      "latinName": "Ceratosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/ceratosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "bary": {
+      "name": "重爪龙",
+      "latinName": "Baryonyx",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/baryonyx.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "apato": {
+      "name": "迷惑龙",
+      "latinName": "Apatosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/apatosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "mamenshi": {
+      "name": "马门溪龙",
+      "latinName": "Mamenchisaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/mamenchisaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "argentino": {
+      "name": "阿根廷龙",
+      "latinName": "Argentinosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/argentinosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "alamo": {
+      "name": "阿拉莫龙",
+      "latinName": "Alamosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/alamosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "shuno": {
+      "name": "蜀龙",
+      "latinName": "Shunosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Mid Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/shunosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Mid Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "camara": {
+      "name": "圆顶龙",
+      "latinName": "Camarasaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/camarasaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "europa": {
+      "name": "欧罗巴龙",
+      "latinName": "Europasaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/europasaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "dicraeo": {
+      "name": "叉龙",
+      "latinName": "Dicraeosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/dicraeosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "niger": {
+      "name": "尼日尔龙",
+      "latinName": "Nigersaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/nigersaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "corytho": {
+      "name": "盔龙",
+      "latinName": "Corythosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/corythosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "maia": {
+      "name": "慈母龙",
+      "latinName": "Maiasaura",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/maiasaura.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "edmonto": {
+      "name": "埃德蒙顿龙",
+      "latinName": "Edmontosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/edmontosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "ourano": {
+      "name": "豪勇龙",
+      "latinName": "Ouranosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/ouranosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "tsintao": {
+      "name": "青岛龙",
+      "latinName": "Tsintaosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/tsintaosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "saurolo": {
+      "name": "栉龙",
+      "latinName": "Saurolophus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/saurolophus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "pachyrhino": {
+      "name": "厚鼻龙",
+      "latinName": "Pachyrhinosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/pachyrhinosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ],
+      "currentTrialRole": "cretaceous-math-partner",
+      "localToJurassicMap": false
+    },
+    "centro": {
+      "name": "尖角龙",
+      "latinName": "Centrosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/centrosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "chasmo": {
+      "name": "开角龙",
+      "latinName": "Chasmosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/chasmosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "nasuto": {
+      "name": "大鼻角龙",
+      "latinName": "Nasutoceratops",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://nhmu.utah.edu/press/big-nosed-long-horned-dinosaur-discovered-utah",
+          "publisher": "Natural History Museum of Utah",
+          "evidence": "馆方发现公告将大鼻角龙所处的拉腊米迪亚动物群置于晚白垩世。"
+        }
+      ]
+    },
+    "pentacera": {
+      "name": "五角龙",
+      "latinName": "Pentaceratops",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/pentaceratops.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "euoplo": {
+      "name": "包头龙",
+      "latinName": "Euoplocephalus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/euoplocephalus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ],
+      "currentTrialRole": "cretaceous-math-partner",
+      "localToJurassicMap": false
+    },
+    "sauropelta": {
+      "name": "蜥结龙",
+      "latinName": "Sauropelta",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/sauropelta.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "tuojiang": {
+      "name": "沱江龙",
+      "latinName": "Tuojiangosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Late Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/tuojiangosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "huayang": {
+      "name": "华阳龙",
+      "latinName": "Huayangosaurus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "jurassic"
+      ],
+      "periodLabel": "侏罗纪",
+      "sourceSubperiod": "Mid Jurassic",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/huayangosaurus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Mid Jurassic，本表仅采用其侏罗纪粗分类。"
+        }
+      ]
+    },
+    "deinonych": {
+      "name": "恐爪龙",
+      "latinName": "Deinonychus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/deinonychus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "utah": {
+      "name": "犹他盗龙",
+      "latinName": "Utahraptor",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/utahraptor.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "sino": {
+      "name": "中华龙鸟",
+      "latinName": "Sinosauropteryx",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/sinosauropteryx.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "micro": {
+      "name": "小盗龙",
+      "latinName": "Microraptor",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/microraptor.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "yuty": {
+      "name": "羽王龙",
+      "latinName": "Yutyrannus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Early Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/yutyrannus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Early Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ]
+    },
+    "galli": {
+      "name": "似鸡龙",
+      "latinName": "Gallimimus",
+      "taxonScope": "genus",
+      "isDinosaur": true,
+      "periods": [
+        "cretaceous"
+      ],
+      "periodLabel": "白垩纪",
+      "sourceSubperiod": "Late Cretaceous",
+      "reviewed": true,
+      "status": "reviewed",
+      "confidence": "high-for-period-only",
+      "reviewedAt": "2026-10-26",
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/dino-directory/gallimimus.html",
+          "publisher": "Natural History Museum, London",
+          "evidence": "该属条目的“When it lived”栏标为 Late Cretaceous，本表仅采用其白垩纪粗分类。"
+        }
+      ],
+      "currentTrialRole": "cretaceous-math-partner",
+      "localToJurassicMap": false
+    }
+  }
+}

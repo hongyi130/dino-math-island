@@ -30,7 +30,10 @@
     if (!started) {
       // Useful for measuring actual ready-to-play time, independent of audio.
       if (!cover.dataset.readyMs) cover.dataset.readyMs = String(Math.round(performance.now()));
-      show('恐龙伙伴到齐啦！', '点一下出发，听听这次的小任务。', '开始探险 · 听任务');
+      // ST1: the start screen shows the story line that the first tap will read aloud, under a still comet and the stars lit so far.
+      const story = window.DinoStory, lit = story?.stars() || 0;
+      if (story) document.querySelector('#bootMark').innerHTML = story.cometMark() + (lit ? '<small style="font-size:16px;font-weight:700;color:#ffe58a">屋顶亮了 ' + lit + ' 颗星</small>' : '');
+      show('恐龙伙伴到齐啦！', story?.opening()?.text || '点一下出发，听听这次的小任务。', '开始探险 · 听任务');
       action.focus();
     } else {
       dismiss();
@@ -168,7 +171,7 @@
       } else if (['dino-math-island-current-v6', 'dino-math-island-current-v5',
           'dino-math-island-current-v3', 'dino-math-island-unlocked-v3']
           .every(key => localStorage.getItem(key) === null)) {
-        paths = ['./assets/scenes-v2/scene-01.webp', './assets/trike-3d.webp'];
+        paths = ['./assets/scenes-v4/scene-01.webp', './assets/trike-3d.webp'];
       }
     } catch (_) {}
     paths.filter(path => typeof path === 'string' &&

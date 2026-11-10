@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>二年级乘法样品</title>
+<style>
+  :root { --paper:#fff5d8; --gold:#ffdc83; --muted:#d8caa9; --wood1:#4e3c27f5; --wood2:#382a1df7; --ok:#9fd27c; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; background:#1d1712; overflow:hidden; font-family:-apple-system,"PingFang SC","Hiragino Sans GB",sans-serif; -webkit-tap-highlight-color:transparent; }
+  #stage { position:fixed; inset:0; overflow:hidden; }
+  #scene { position:absolute; background-repeat:no-repeat; pointer-events:none; }
+  #shade { position:absolute; inset:0; background:linear-gradient(180deg,#0f1d1a33,transparent 30%,transparent 70%,#0f1d1a55); pointer-events:none; }
+
+  header { position:absolute; top:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:max(10px,env(safe-area-inset-top)) 14px 0; color:var(--paper); text-shadow:0 2px 6px #0008; font-weight:800; z-index:5; }
+  header .tag { font-size:12px; font-weight:700; padding:5px 10px; border-radius:20px; background:#1f3a2fcc; border:1px solid #ffefb866; }
+
+  /* Equation tablet: grows from 3 to 3 + 3 + 3 + 3 and then 3 × 4. */
+  #card { position:absolute; left:50%; transform:translateX(-50%); z-index:5; text-align:center; color:#4a3418; padding:5px 18px 5px; border:2px solid #b8925a; border-radius:24px 28px 22px 26px;
+    background:radial-gradient(ellipse at 28% 18%,#fffaf0b0,#fffaf000 58%),linear-gradient(180deg,#f7e8c6,#e8d1a2);
+    box-shadow:0 5px 0 #94703e,0 10px 18px #1c382a6b,inset 0 2px #fffaf0; white-space:nowrap; }
+  /* Same structure as the grade-1 tablet: one number row, pictures under each number. */
+  #card .eq { display:grid; grid-template-columns:repeat(5,auto); grid-template-rows:auto auto; column-gap:16px; row-gap:0; align-items:center; justify-items:center; justify-content:center; font-size:34px; font-weight:900; line-height:1; white-space:nowrap; }
+  #card .eq .sym { color:#8a6a3a; font-size:.72em; }
+  #card .eq .ans { display:grid; place-items:center; min-width:1.15em; height:1.1em; border-radius:11px; background:#f0c96f; color:#6f4612; box-shadow:inset 0 3px 6px #8c5f2240,0 1px #fff6dc; }
+  #card .eq .pics { display:flex; gap:1px; align-items:flex-end; height:20px; }
+  #card .eq .pics img { width:21px; height:19px; object-fit:contain; }
+  #card .eq .pics svg { width:12px; height:19px; }
+  #card .sum { margin-top:4px; font-size:22px; font-weight:800; color:#6b4c22; min-height:1.3em; }
+  #card .sum span { display:inline-block; animation:pop .35s ease-out both; }
+  #card .groups { margin-top:2px; font-size:16px; font-weight:800; color:#6b4c22; min-height:1.3em; white-space:nowrap; }
+  #card .groups small { font-size:.78em; font-weight:700; color:#8a6a3a; margin-left:4px; }
+  #card .groups span { display:inline-block; animation:pop .35s ease-out both; }
+
+  svg#field { position:absolute; inset:0; width:100%; height:100%; z-index:2; overflow:visible; }
+  .tile.full { stroke:#e8dca0; stroke-opacity:.55; }
+  .tile.counting { stroke:#ffdf83; stroke-opacity:1; stroke-width:2.8; fill:#ffe9a0; fill-opacity:.25; animation:tileGlow 1s ease-in-out infinite alternate; }
+  .tile { fill:#fff3cf; fill-opacity:.10; stroke:#f5d58b; stroke-opacity:.75; stroke-width:1.6; }
+  .tile.next { fill:#ffe9a0; fill-opacity:.35; stroke:#ffdf83; stroke-width:2.6; animation:tileGlow 1s ease-in-out infinite alternate; }
+  .plus circle { fill:#ffdf83; stroke:#946432; stroke-width:1.6; }
+  .plus text { fill:#574821; font-weight:900; text-anchor:middle; }
+  .flag text { fill:var(--paper); font-weight:800; paint-order:stroke; stroke:#2b1f12; stroke-width:3px; }
+  .flag path { fill:#ffdc83; stroke:#5c4220; stroke-width:1; }
+  .flag line { stroke:#5c4220; stroke-width:2; }
+  .hit { fill:transparent; cursor:pointer; }
+  .bubble rect { fill:#fff6db; stroke:#946432; stroke-width:2; }
+  .bubble text { fill:#5a3a12; font-weight:900; text-anchor:middle; font-variant-numeric:tabular-nums; }
+  .bubble { animation:pop .35s ease-out both; }
+
+  .dino { position:absolute; z-index:3; pointer-events:none; transform-origin:50% 96%; }
+  .dino img { display:block; width:100%; height:auto; filter:drop-shadow(0 3px 2px #0005); }
+  .dino.arrive { animation:runIn .7s cubic-bezier(.2,.75,.3,1) both; }
+  .dino.hop { animation:hop .5s ease-in-out both; }
+  .dino.idle img { animation:breathe 3.2s ease-in-out infinite; transform-origin:50% 96%; }
+  .dense .dino { --hop-height:-3px; }
+  .dense .dino.arrive { animation-name:settleIn; animation-duration:.45s; }
+  .dense #bar .icons { gap:2px; }
+  .dense #bar .icons img { width:22px; height:22px; }
+  .shadow { position:absolute; z-index:2; pointer-events:none; border-radius:50%; background:radial-gradient(closest-side,#0008,#0000); }
+
+  #bar { position:absolute; left:50%; transform:translateX(-50%); bottom:max(10px,env(safe-area-inset-bottom)); width:min(820px,calc(100% - 20px)); z-index:6; color:var(--paper);
+    border-top:3px solid #a3bb74; border-radius:22px; padding:14px 18px 12px; background:linear-gradient(180deg,var(--wood1),var(--wood2)); box-shadow:0 6px 20px #0006,inset 0 1px #fff1c52e; min-height:146px; }
+  #bar { text-align:center; }
+  #bar h2 { margin:0 44px; font-size:22px; line-height:1.3; }
+  @media (max-width:480px) { #bar h2 { margin:0 36px; font-size:19px; white-space:nowrap; } #bar p { font-size:14px; } }
+  #bar p { margin:4px 0 0; color:var(--muted); font-size:15px; min-height:1.4em; }
+  #bar .row { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:10px; flex-wrap:wrap; }
+  #bar .icons { display:flex; gap:4px; }
+  #bar .icons img { width:30px; height:26px; object-fit:contain; }
+  #bar .icons img.wait { filter:grayscale(1) brightness(1.7); opacity:.55; }
+  #bar button { font:inherit; }
+  .primary { min-height:48px; padding:8px 20px; border:0; border-radius:16px; background:var(--gold); color:#4a3418; font-size:19px; font-weight:900; box-shadow:0 4px 0 #a87937; cursor:pointer; }
+  .primary:active { transform:translateY(2px); box-shadow:0 2px 0 #a87937; }
+  .answers { display:flex; gap:10px; width:100%; }
+  .answers button { flex:1; min-height:58px; border:0; border-radius:16px; background:linear-gradient(180deg,#fff6dc,#f6e2b0); color:#3b2a14; box-shadow:0 4px 0 #b48a4e; cursor:pointer; }
+  #bar .answers button { font-size:32px; font-weight:900; line-height:1; }
+  .answers button.wrong { background:#f4c0b4; color:#7a2a1c; }
+  #restart { position:absolute; right:12px; top:12px; width:40px; height:40px; display:grid; place-items:center; align-content:center; gap:1px; padding:0; border-radius:50%; border:1.5px solid #f1d79a88; background:#ffffff14; color:var(--paper); cursor:pointer; }
+  #restart span { font-size:16px; line-height:16px; }
+  #restart small { font-size:12px; line-height:13px; font-weight:700; }
+  #voiceToggle { position:absolute; left:12px; top:12px; width:40px; height:40px; padding:0; border-radius:50%; border:1.5px solid #f1d79a88; background:#ffffff14; color:var(--paper); font-size:0; cursor:pointer; }
+  #voiceToggle::before { content:'🔊'; font-size:20px; }
+  #bar #voiceToggle { font-size:0; }
+  #voiceToggle[aria-pressed=false]::before { content:'🔇'; }
+  #voiceToggle[data-speaking=true] { border-color:var(--gold); }
+  #toast { position:absolute; left:50%; transform:translateX(-50%); z-index:7; padding:8px 16px; border-radius:16px; background:#2b2116e6; color:var(--paper); font-weight:800; opacity:0; transition:opacity .2s; pointer-events:none; white-space:nowrap; }
+  #toast.show { opacity:1; }
+
+  @keyframes runIn { from { transform:translateX(-70px); opacity:0; } 20% { opacity:1; } to { transform:none; opacity:1; } }
+  @keyframes settleIn { from { transform:translateY(3px) scale(.96); opacity:0; } 35% { opacity:1; } to { transform:none; opacity:1; } }
+  @keyframes hop { 0%,100% { transform:none; } 45% { transform:translateY(var(--hop-height,-14px)) scale(.98,1.03); } 75% { transform:translateY(0) scale(1.03,.97); } }
+  @keyframes breathe { 0%,100% { transform:none; } 50% { transform:scale(1.008,1.016); } }
+  @keyframes tileGlow { to { fill-opacity:.6; } }
+  @keyframes pop { from { transform:scale(.6); opacity:0; } to { transform:none; opacity:1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .dino.arrive, .dino.hop, .dino.idle img, .tile.next, .tile.counting, .bubble, #card .groups span { animation:none !important; }
+  }
+  @media (orientation:landscape) and (max-height:600px) {
+    #card { padding:4px 16px 5px; } #card .eq { font-size:24px; column-gap:12px; } #card .eq .pics { height:14px; } #card .eq .pics img { width:15px; height:13px; } #card .eq .pics svg { width:10px; height:14px; } #card .groups { margin-top:1px; font-size:13px; }
+    header { padding-top:6px; }
+    #bar { padding:6px 14px 6px; min-height:80px; border-radius:16px; } #bar h2 { font-size:15px; } #bar p { font-size:12px; margin-top:1px; } #bar .row { margin-top:4px; }
+    #bar .icons img { width:24px; height:20px; } .primary { min-height:40px; font-size:16px; padding:6px 14px; }
+    .answers button { min-height:44px; } #restart { width:36px; height:36px; top:6px; }
+    #restart span { font-size:14px; line-height:14px; }
+    #voiceToggle { width:36px; height:36px; top:6px; }
+  }
+</style>
+<link rel="stylesheet" href="./journey-play.css?v=20261026-journey-r2">
+<link rel="stylesheet" href="../fossil-dig/egg-progress.css?v=20261027-f1-r4">
+</head>
+<body>
+<div id="stage">
+  <div id="scene" aria-hidden="true"></div>
+  <div id="shade"></div>
+  <header><span>✦ 恐龙拼拼岛</span><span class="tag">二年级乘法 · 样品（第 76 关）</span></header>
+  <div id="card" role="status" aria-live="polite">
+    <div class="eq" id="eq"></div>
+    <div class="groups" id="groups">每队 3 只，接来 4 队</div>
+  </div>
+  <svg id="field" aria-label="恐龙队伍"></svg>
+  <div id="dinos"></div>
+  <div id="toast"></div>
+  <section id="bar">
+    <button id="voiceToggle" type="button" aria-label="听当前提示">听提示</button>
+    <button id="restart" type="button" aria-label="重玩本关" title="重玩"><span aria-hidden="true">↻</span><small>重玩</small></button>
+    <h2 id="barTitle"></h2>
+    <p id="barSub"></p>
+    <div class="row" id="barRow"></div>
+  </section>
+</div>
+<script src="../../characters-data.js"></script>
+<script src="../../dino-ground-data.js"></script>
+<script src="../../scene-data.js"></script>
+<script src="../../grade2-levels.js?v=20261025-g2-density-r1"></script>
+<script src="./backgrounds.js?v=20261027-f1-r4"></script>
+<script src="../island-journey/journey-store.js?v=20261027-f1-r4"></script>
+<script src="./speech.js?v=20261025-g2-density-r1"></script>
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  const journey = params.get('journey') === 'cedar' ? window.DinoJourneyStore : null;
+  const requestedLevel = Number(params.get('level'));
+  const level = window.DINO_GRADE2.find(item => item.id === requestedLevel && item.challengeType === 'multiply') ||
+    window.DINO_GRADE2.find(item => item.id === 76);
+  const PER = level.perGroup, GROUPS = level.groups, KIND = level.factKind;
+  const dense = PER >= 5;
+  document.querySelector('header .tag').textContent = `二年级乘法 · 样品（第 ${level.id} 关）`;
+  document.title = `第${level.id}关乘法样品 · ${PER} × ${GROUPS}`;
+  const journeyLesson = journey && journey.ROUTE.includes(level.id);
+  const mapURL = new URL('../island-journey.html?v=20261028-f3-r1', location.href).href;
+  if (journeyLesson) {
+    document.body.classList.add('journey-play');
+    document.querySelector('header span:first-child').outerHTML = `<a id="journeyBack" href="${mapURL}">← 地图</a>`;
+    document.querySelector('header .tag').textContent = `白垩纪伙伴 · 第 ${level.id} 关`;
+    document.querySelector('header .tag').setAttribute('aria-label', `来自白垩纪的伙伴，巨杉营地任务 ${journey.ROUTE.indexOf(level.id) + 1} / ${journey.ROUTE.length}，第 ${level.id} 关`);
+  }
+  document.querySelector('#stage').classList.toggle('dense', dense);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dino = window.DINO_CHARACTERS[KIND];
+  const anchor = window.DINO_GROUND_DATA?.[KIND];
+  const backgrounds = window.G2_VOLCANO_BACKGROUNDS;
+  let scene = backgrounds.portrait;
+  const dinoImg = '../../assets/' + dino.image;
+  const $ = s => document.querySelector(s);
+  const field = $('#field'), dinosEl = $('#dinos'), stage = $('#stage');
+  let dinoAspect = 1.2;
+
+  // ---------- state ----------
+  let state, speech, roundToken = 0;
+  function later(action, delay) {
+    const token = roundToken;
+    setTimeout(() => { if (token === roundToken) action(); }, delay);
+  }
+  function snapshot() {
+    if (!state) return null;
+    const phase = state.phase === 'build' && state.filled.every(n => n === PER) ? 'count' : state.phase;
+    return { phase, filled: [...state.filled], counted: state.counted };
+  }
+  function persistAttempt() {
+    if (!journeyLesson || !state) return;
+    journey.saveAttempt(level.id, snapshot());
+    const warning = document.querySelector('#journeyStorageWarning');
+    if (warning) warning.hidden = journey.storageOK();
+  }
+  function validSnapshot(saved) {
+    if (!saved || !['build','count','answer','done'].includes(saved.phase) || !Array.isArray(saved.filled) || saved.filled.length !== GROUPS) return null;
+    if (!saved.filled.every(n => Number.isInteger(n) && n >= 0 && n <= PER) || !Number.isInteger(saved.counted) || saved.counted < 0 || saved.counted > GROUPS) return null;
+    const all = saved.filled.every(n => n === PER);
+    if ((saved.phase !== 'build' && !all) || (['answer','done'].includes(saved.phase) && saved.counted !== GROUPS)) return null;
+    return { phase: saved.phase === 'build' && all ? 'count' : saved.phase, filled: [...saved.filled], counted: saved.counted, wrong: null, busy: false };
+  }
+  function reset(restore = false) {
+    roundToken++;
+    speech?.reset();
+    clearTimeout(toast.timer);
+    $('#toast').classList.remove('show');
+    state = restore === true && journeyLesson ? validSnapshot(journey.snapshot(level.id)) : null;
+    state ||= { phase: 'build', filled: Array(GROUPS).fill(0), counted: 0, wrong: null, busy: false };
+    dinosEl.innerHTML = '';
+    render(true);
+  }
+  const activeRow = () => state.filled.findIndex(n => n < PER);
+
+  // ---------- layout ----------
+  let L = null;
+  // The new pair supplies a high ground edge without enlarging the scene to
+  // rescue the layout. Cover remains responsive; extra zoom is capped at 1.05.
+  const MAX_ZOOM = 1.05;
+  function placement(z) {
+    const [iw, ih] = scene.ground?.size || [1672, 941];
+    const s = Math.max(L.W / iw, L.H / ih) * z;
+    // Keep the volcano and sky visible on wide phones; crop surplus foreground.
+    return { iw, ih, s, left: (L.W - iw * s) / 2, top: 0 };
+  }
+  function groundTopOver(P, x0, x1) {
+    let worst = -Infinity;
+    for (let x = x0; x <= x1; x += 8) worst = Math.max(worst, P.top + groundAt((x - P.left) / (P.iw * P.s)) * P.ih * P.s);
+    return worst;
+  }
+  function layout() {
+    scene = stage.clientWidth > stage.clientHeight ? backgrounds.landscape : backgrounds.portrait;
+    const short = stage.clientHeight < 600;
+    const minGap = short ? 44 : 64;
+    let chosen = null;
+    for (const z of [1, MAX_ZOOM]) {
+      let extra = 0;
+      for (let pass = 0; pass < 40; pass++) {
+        buildLayout(extra);
+        const P = placement(z), cardBottom = $('#card').getBoundingClientRect().bottom;
+        let need = 0;
+        for (const r of L.rows) need = Math.max(need, groundTopOver(P, r.left, r.right) + P.ih * P.s * .02 + 1 - (r.tileTop ?? r.y - r.th / 2));
+        const back = L.rows[0];
+        need = Math.max(need, cardBottom + 6 - (back.headTop ?? back.y - (back.tw * 0.95 / dinoAspect) * 0.97));
+        if (need <= 0.5) break;
+        extra += need;
+      }
+      chosen = z;
+      if (L.rowGap >= minGap) break;
+    }
+    L.zoom = chosen;
+    fitScene();
+  }
+  function buildLayout(extra) {
+    const W = stage.clientWidth, H = stage.clientHeight;
+    const card = $('#card'), bar = $('#bar');
+    card.style.top = (W > H && H < 600 ? 34 : 52) + 'px';
+    const top = card.getBoundingClientRect().bottom + (H < 600 ? 10 : 22) + extra;
+    const bottom = bar.getBoundingClientRect().top - (H < 600 ? 6 : 14);
+    // Narrow phones stack teams. Tablets also use two columns in portrait so
+    // the tall painting can retain its sky without four teams overlapping.
+    const tc = W > H * 1.15 || W >= 700 ? 2 : 1;
+    const tr = Math.ceil(GROUPS / tc);
+    const rowGap = (bottom - top) / tr;
+    const bubbleRoom = 64, flagRoom = 46;
+    const innerRows = dense ? 2 : 1;
+    const innerCols = Math.ceil(PER / innerRows);
+    const bounds = anchor?.bounds || [0,0,1,1];
+    const sole = anchor?.contacts?.length ? Math.max(...anchor.contacts.map(c => c[1])) : .96;
+    const headLift = .95 / dinoAspect * (sole - bounds[1]);
+    const rowSpace = H < 600 ? 5 : 7;
+    const heightLimit = (rowGap - 14 - (innerRows - 1) * rowSpace) / (innerRows * (headLift + .17));
+    const baseW = Math.min((W / tc - bubbleRoom - flagRoom - 16) / (innerCols * 1.04), rowGap * 1.45, 190,
+      dense || level.id !== 76 ? heightLimit : Infinity);
+    const rows = [];
+    for (let g = 0; g < GROUPS; g++) {
+      const ri = Math.floor(g / tc), ci = g % tc;
+      const t = tr === 1 ? 1 : ri / (tr - 1);
+      const k = (dense ? .94 : .8) + (dense ? .06 : .2) * t;                     // farther rows are a little smaller
+      const tw = baseW * k, th = tw * 0.34;
+      const y = top + rowGap * (ri + 0.7);
+      const span = PER * tw * 1.04;
+      const cx = W / 2 + (ci - (tc - 1) / 2) * (W / tc) + (flagRoom - bubbleRoom) / 2;
+      const cols = [];
+      for (let c = 0; c < PER; c++) {
+        const innerRow = Math.floor(c / innerCols), column = c % innerCols;
+        const count = Math.min(innerCols, PER - innerRow * innerCols);
+        const py = dense ? top + rowGap * ri + 7 + headLift * tw + innerRow * (headLift * tw + th / 2 + rowSpace) : y;
+        cols.push({ x: cx + (column - (count - 1) / 2) * tw * 1.04, y: py });
+      }
+      const headTop = Math.min(...cols.map(p => p.y)) - headLift * tw;
+      const tileTop = Math.min(...cols.map(p => p.y)) - th / 2;
+      const tileBottom = Math.max(...cols.map(p => p.y)) + th / 2;
+      rows.push({ y: dense ? (headTop + tileBottom) / 2 : y, tw, th, cols,
+        ...(dense ? { headTop, tileTop, tileBottom } : {}),
+        left: Math.min(...cols.map(p => p.x)) - tw / 2 - 12,
+        right: Math.max(...cols.map(p => p.x)) + tw / 2 + 12 });
+    }
+    L = { W, H, top, bottom, rows, rowGap, teamColumns: tc };
+  }
+
+  // Project the selected painting's conservative walkable edge into the viewport.
+  function groundAt(nx) {
+    const u = scene.ground?.upper || [[0, .6], [1, .6]];
+    for (let i = 1; i < u.length; i++) if (nx <= u[i][0]) { const [x0, y0] = u[i - 1], [x1, y1] = u[i]; return y0 + (y1 - y0) * (nx - x0) / (x1 - x0 || 1); }
+    return u[u.length - 1][1];
+  }
+  function fitScene() {
+    const P = placement(L.zoom || 1);
+    const el = $('#scene');
+    el.style.width = P.iw * P.s + 'px'; el.style.height = P.ih * P.s + 'px';
+    el.style.left = P.left + 'px'; el.style.top = P.top + 'px';
+    el.style.backgroundImage = 'url("' + scene.image + '")'; el.style.backgroundSize = '100% 100%';
+    el.dataset.zoom = (L.zoom || 1).toFixed(2);
+    el.dataset.variant = scene === backgrounds.portrait ? 'portrait' : 'landscape';
+  }
+
+  // ---------- drawing ----------
+  const hex = (x, y, w, h) => [[x - w / 2, y], [x - w / 4, y - h / 2], [x + w / 4, y - h / 2], [x + w / 2, y], [x + w / 4, y + h / 2], [x - w / 4, y + h / 2]].map(p => p.map(v => v.toFixed(1)).join(',')).join(' ');
+  function drawField() {
+    const ar = activeRow();
+    // Counting labels are UI, so they share one size instead of inheriting
+    // each team's perspective. Keep one fixed right-hand axis per team column.
+    const countSize = Math.max(18, Math.min(26, ...L.rows.map((r, i) => {
+      const edge = ((i % L.teamColumns) + 1) * L.W / L.teamColumns - 8;
+      return (edge - r.right - 8) / 2;
+    })));
+    let svg = '';
+    L.rows.forEach((r, i) => {
+      const full = state.filled[i] === PER;
+      const counting = state.phase === 'count' && i === state.counted;
+      const fx = r.left - 6, fy = r.y;
+      svg += `<g class="flag"><line x1="${fx}" y1="${fy + 4}" x2="${fx}" y2="${fy - 30}"/><path d="M${fx},${fy - 30} l18,6 l-18,6 z"/><text x="${fx - 2}" y="${fy + 22}" font-size="${Math.max(13, r.tw * .15)}" text-anchor="middle">第${i + 1}队</text></g>`;
+      r.cols.forEach((p, c) => {
+        const next = state.phase === 'build' && i === ar && (i === 0 ? c === state.filled[i] : c >= state.filled[i]);
+        svg += `<polygon class="tile ${next ? 'next' : ''} ${counting ? 'counting' : ''} ${full ? 'full' : ''}" points="${hex(p.x, p.y, r.tw, r.th)}"/>`;
+      });
+      // A "+" only where a child can tap: the next empty tile of the first team.
+      if (state.phase === 'build' && i === ar && i === 0) {
+        const p = r.cols[state.filled[0]], rad = Math.max(14, r.tw * .11);
+        svg += `<g class="plus" pointer-events="none"><circle cx="${p.x}" cy="${p.y}" r="${rad}"/><text x="${p.x}" y="${p.y + rad * .42}" font-size="${rad * 1.35}">+</text></g>`;
+      }
+      if (state.phase !== 'build' && i < state.counted) {
+        const edge = ((i % L.teamColumns) + 1) * L.W / L.teamColumns - 8;
+        const size = countSize, bx = edge - size;
+        svg += `<g class="bubble"><rect x="${bx - size}" y="${r.y - size * .9}" width="${size * 2}" height="${size * 1.6}" rx="${size * .5}"/><text x="${bx}" y="${r.y - size * .1}" dominant-baseline="central" font-size="${size}">${PER * (i + 1)}</text></g>`;
+      }
+      // Partition each team hit area at the column/row boundaries. Tall sprites
+      // must not let a later team's invisible rectangle steal earlier taps.
+      const column = i % L.teamColumns, band = Math.floor(i / L.teamColumns);
+      const hitLeft = Math.max(column * L.W / L.teamColumns + 2, r.left - 30);
+      const hitRight = Math.min((column + 1) * L.W / L.teamColumns - 2, r.right + 30);
+      const hitTop = L.top + band * L.rowGap + 2;
+      svg += `<rect class="hit" data-row="${i}" x="${hitLeft}" y="${hitTop}" width="${hitRight - hitLeft}" height="${Math.max(0, L.rowGap - 4)}"/>`;
+    });
+    field.innerHTML = svg;
+  }
+
+  function placeDino(row, col, delay = 0, arrive = true) {
+    const r = L.rows[row], p = r.cols[col];
+    const w = r.tw * 0.95, h = w / dinoAspect;
+    const b = anchor?.bounds || [0, 0, 1, 1];
+    const soleY = anchor ? Math.max(...anchor.contacts.map(c => c[1])) : 0.96;
+    const cx = (b[0] + b[2]) / 2;
+    let el = dinosEl.querySelector(`.dino[data-pos="${row}-${col}"]`);
+    if (!el) {
+      el = document.createElement('div'); el.className = 'dino'; el.dataset.pos = row + '-' + col; el.dataset.row = row;
+      el.innerHTML = `<img src="${dinoImg}" alt="">`;
+      const sh = document.createElement('div'); sh.className = 'shadow'; sh.dataset.pos = row + '-' + col;
+      dinosEl.append(sh, el);
+      if (arrive && !reduced) { el.style.animationDelay = delay + 'ms'; el.classList.add('arrive'); el.addEventListener('animationend', () => { el.classList.remove('arrive'); el.classList.add('idle'); }, { once: true }); }
+      else el.classList.add('idle');
+    }
+    el.style.width = w + 'px'; el.style.left = p.x - w * cx + 'px'; el.style.top = p.y - h * soleY + 'px'; el.style.zIndex = dense ? 3 + row * 2 + Math.floor(col / Math.ceil(PER / 2)) : 3 + row;
+    const sh = dinosEl.querySelector(`.shadow[data-pos="${row}-${col}"]`);
+    sh.style.width = w * .7 + 'px'; sh.style.height = r.th * .5 + 'px'; sh.style.left = p.x - w * .35 + 'px'; sh.style.top = p.y - r.th * .25 + 'px';
+  }
+  function relayoutDinos() { state.filled.forEach((n, r) => { for (let c = 0; c < n; c++) placeDino(r, c, 0, false); }); }
+  function hopRow(row, delayStep = 70) {
+    if (reduced) return;
+    dinosEl.querySelectorAll(`.dino[data-row="${row}"]`).forEach((el, i) => {
+      el.classList.remove('hop', 'idle'); void el.offsetWidth; el.style.animationDelay = (dense ? 0 : i * delayStep) + 'ms'; el.classList.add('hop');
+      el.addEventListener('animationend', () => { el.classList.remove('hop'); el.style.animationDelay = ''; el.classList.add('idle'); }, { once: true });
+    });
+  }
+
+  // ---------- sound (existing assets / short tones only) ----------
+  const step = new Audio('../../assets/sfx/footstep-grass.wav'); step.volume = .45;
+  let ctx;
+  const activeTones = new Set();
+  function tone(freq) {
+    if (speech?.isSpeaking()) return;
+    try {
+      ctx = ctx || new AudioContext();
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = freq; g.gain.setValueAtTime(.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.12, ctx.currentTime + .02);
+      g.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + .25);
+      o.connect(g).connect(ctx.destination); activeTones.add(o);
+      o.onended = () => activeTones.delete(o);
+      o.start(); o.stop(ctx.currentTime + .3);
+    } catch (_) {}
+  }
+  function stepSound() {
+    if (speech?.isSpeaking()) return;
+    try { step.currentTime = 0; step.play().catch(() => {}); } catch (_) {}
+  }
+  speech = window.G2SampleSpeech.create({
+    button: $('#voiceToggle'),
+    onSpeaking(playing) {
+      if (!playing) return;
+      step.pause();
+      activeTones.forEach(tone => { try { tone.stop(); } catch (_) {} });
+      activeTones.clear();
+    }
+  });
+
+  function toast(text, row) {
+    const t = $('#toast'); t.textContent = text;
+    t.style.top = (row != null ? L.rows[row].y - L.rows[row].th * 3.2 : L.top) + 'px';
+    t.classList.add('show'); clearTimeout(toast.timer); toast.timer = setTimeout(() => t.classList.remove('show'), 1300);
+  }
+
+  // ---------- card + bar ----------
+  function renderCard() {
+    const done = state.filled.filter(n => n === PER).length;
+    const sum = Array.from({ length: done }, () => `<span>${PER}</span>`).join(' + ');
+    // 3 shows the size of one team (dinosaurs); 4 shows how many teams (flags).
+    const flag = '<svg viewBox="0 0 15 22" aria-hidden="true"><line x1="2" y1="2" x2="2" y2="21" stroke="#6b4c22" stroke-width="2"/><path d="M2,2 L14,6 L2,10 Z" fill="#d9a441" stroke="#6b4c22" stroke-width="1"/></svg>';
+    const cell = (col, row, html, cls = '') => `<span class="${cls}" style="grid-column:${col};grid-row:${row}">${html}</span>`;
+    const pics = (html, n) => Array.from({ length: n }, () => html).join('');
+    $('#eq').innerHTML = cell(1, 1, PER) + cell(2, 1, '×', 'sym') + cell(3, 1, GROUPS) + cell(4, 1, '=', 'sym') +
+      cell(5, 1, state.phase === 'done' ? PER * GROUPS : '?', 'ans');
+    $('#eq').setAttribute('aria-label', `${PER} 乘 ${GROUPS} 等于 ${state.phase === 'done' ? PER * GROUPS : '多少'}`);
+    if (state.phase === 'done') { $('#groups').innerHTML = `${sum} = ${PER * GROUPS}`; return; }
+    $('#groups').innerHTML = done === 0 ? `每队 ${PER} 只，接来 ${GROUPS} 队` : `${sum}<small>（${done} 个 ${PER}）</small>`;
+  }
+  function icons(n, total) { return '<div class="icons">' + Array.from({ length: total }, (_, i) => `<img src="${dinoImg}" alt="" class="${i < n ? '' : 'wait'}">`).join('') + '</div>'; }
+  function renderBar() {
+    const t = $('#barTitle'), s = $('#barSub'), row = $('#barRow');
+    const ar = activeRow();
+    if (state.phase === 'build' && ar === 0) {
+      t.textContent = `先凑齐第 1 队：每队 ${PER} 只`;
+      s.textContent = state.filled[0] ? `第 1 队已经有 ${state.filled[0]} 只` : '点发光的格子，一只一只接过来';
+      row.innerHTML = icons(state.filled[0], PER) + `<span>还差 <b style="color:var(--gold);font-size:20px">${PER - state.filled[0]}</b> 只</span>`;
+    } else if (state.phase === 'build') {
+      t.textContent = `每队都是 ${PER} 只，再来一队`;
+      s.textContent = `已经有 ${ar} 队，还要 ${GROUPS - ar} 队`;
+      row.innerHTML = `<button class="primary" id="nextTeam" type="button">＋ 再来一队（${PER} 只）</button>`;
+      $('#nextTeam').onclick = () => bringTeam(ar);
+    } else if (state.phase === 'count') {
+      t.textContent = '一队一队数一数';
+      s.textContent = state.counted ? `数到 ${PER * state.counted} 了，接着点第 ${state.counted + 1} 队` : state.wrong != null ? `不是 ${state.wrong} 哦，我们再一队一队数一遍` : '从第 1 队开始，点一下这一队';
+      row.innerHTML = '';
+    } else if (state.phase === 'answer') {
+      t.textContent = `${GROUPS} 个 ${PER} 是多少？`;
+      s.textContent = state.wrong != null ? '不对哦，看看刚才数到了几' : '';
+      const opts = [PER * GROUPS, PER * GROUPS - PER, PER * GROUPS + PER].sort(() => .5 - Math.random());
+      row.innerHTML = '<div class="answers">' + opts.map(v => `<button type="button" data-answer="${v}" class="${state.wrong === v ? 'wrong' : ''}">${v}</button>`).join('') + '</div>';
+      row.querySelectorAll('[data-answer]').forEach(b => b.onclick = () => answer(+b.dataset.answer));
+    } else {
+      t.textContent = `${PER} × ${GROUPS} = ${PER * GROUPS}`;
+      s.textContent = `每队一样多，${GROUPS} 个 ${PER} 就用乘法：${PER} × ${GROUPS}。`;
+      if (journeyLesson) {
+        const next = journey.nextLevel();
+        row.innerHTML = `<button class="primary" id="journeyContinue" type="button">${next ? '下一关 →' : '去挖化石！'}</button><button class="journey-again" id="again" type="button">再练一次</button>`;
+        $('#journeyContinue').onclick = () => {
+          persistAttempt(); speech.stop();
+          if (!journey.storageOK()) { toast('进度还未保存，请保持页面打开后再试'); return; }
+          const latestNext = journey.nextLevel();
+          location.href = latestNext ? `./?journey=cedar&level=${latestNext}&v=20261028-f3-r1` : new URL('../fossil-dig/?v=20261028-f3-r1',location.href).href;
+        };
+      } else row.innerHTML = '<button class="primary" id="again" type="button">再玩一次</button>';
+      $('#again').onclick = () => reset();
+    }
+  }
+  function render(full) {
+    renderCard(); renderBar();
+    if (full || !L || dense) { layout(); if (state.filled.some(n => n)) relayoutDinos(); }
+    drawField();
+    speech.update({ phase: state.phase, filled: [...state.filled], per: PER, groups: GROUPS, levelId: level.id, wrong: state.wrong });
+    persistAttempt();
+  }
+
+  // ---------- actions ----------
+  function bringOne() {
+    if (state.busy) return;
+    const col = state.filled[0]; if (col >= PER) return;
+    state.filled[0]++; placeDino(0, col); stepSound();
+    if (state.filled[0] === PER) { finishTeam(0); } else render();
+  }
+  function bringTeam(row) {
+    if (state.busy || row < 1) return;
+    state.busy = true;
+    const stagger = dense ? 70 : 140;
+    for (let c = 0; c < PER; c++) placeDino(row, c, c * stagger);
+    state.filled[row] = PER; stepSound();
+    later(() => { state.busy = false; finishTeam(row); }, reduced ? 0 : (dense ? 450 : 700) + PER * stagger);
+    render();
+  }
+  function finishTeam(row) {
+    tone(523 + row * 60);
+    later(() => hopRow(row), reduced ? 0 : 150);
+    toast(`凑齐一队：${PER} 只 ✓`, row);
+    if (state.filled.every(n => n === PER)) { state.phase = 'count'; later(() => { if (state.phase === 'count') toast('都到齐了！一队一队数一数'); }, reduced ? 0 : 1300); }
+    render();
+  }
+  function countRow(row) {
+    if (row !== state.counted) { toast(`从第 ${state.counted + 1} 队数起`, row); return; }
+    state.counted++; hopRow(row, 50); tone(440 + state.counted * 80);
+    if (state.counted === GROUPS) { state.phase = 'answer'; }
+    render();
+  }
+  function answer(v) {
+    if (v === PER * GROUPS) {
+      state.phase = 'done'; state.wrong = null;
+      clearTimeout(toast.timer); $('#toast').classList.remove('show');
+      if (journeyLesson) journey.complete(level.id, snapshot());
+      tone(784); later(() => tone(1047), 160);
+      L.rows.forEach((_, r) => later(() => hopRow(r, 40), r * 120));
+    } else { state.wrong = v; state.phase = 'count'; state.counted = 0; tone(247); }
+    render();
+  }
+  field.addEventListener('click', e => {
+    const hit = e.target.closest('[data-row]'); if (!hit) return;
+    const row = +hit.dataset.row;
+    if (state.phase === 'build') {
+      const ar = activeRow();
+      if (row !== ar) { toast(`先凑齐第 ${ar + 1} 队`, row); return; }
+      if (row === 0) bringOne(); else bringTeam(row);
+    } else if (state.phase === 'count') countRow(row);
+  });
+  $('#restart').onclick = () => reset();
+  if (journeyLesson) {
+    const warning = document.createElement('p');
+    warning.id = 'journeyStorageWarning'; warning.setAttribute('role', 'status');
+    warning.textContent = '本次进度暂时无法保存，请保持此页面打开。';
+    warning.hidden = journey.storageOK(); stage.append(warning);
+    journey.subscribe(() => { if (state?.phase === 'done') renderBar(); });
+    addEventListener('pagehide', () => { persistAttempt(); speech.stop(); step.pause(); activeTones.forEach(tone => { try { tone.stop(); } catch (_) {} }); activeTones.clear(); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) persistAttempt(); });
+  }
+  addEventListener('resize', () => { layout(); relayoutDinos(); drawField(); });
+
+  const probe = new Image();
+  probe.onload = () => { dinoAspect = probe.naturalWidth / probe.naturalHeight; reset(true); };
+  probe.onerror = () => reset(true);
+  probe.src = dinoImg;
+  // Fetch both native-size WebPs so rotation can reuse the matching painting.
+  Object.values(backgrounds).forEach(background => { const image = new Image(); image.src = background.image; });
+  window.__sample = { get state() { return state; }, get layout() { return L; }, config: { id: level.id, per: PER, groups: GROUPS, kind: KIND, total: PER * GROUPS } };
+})();
+</script>
+<script src="../fossil-dig/egg-progress.js?v=20261028-f3-r1"></script>
+<script src="../island-journey/props.js?v=20261028-g2p-r2"></script>
+</body>
+</html>

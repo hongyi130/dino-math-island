@@ -105,6 +105,7 @@ button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--gol
 .answer-options button { position: relative; flex: 1; min-width: 64px; max-width: 115px; height: 66px; border: 2px solid #ffedb8; border-radius: 16px; background: #ffda85; color: #493e23; box-shadow: 0 5px #a97937; font-size: 37px; line-height: 1; font-weight: 900; transition: transform .12s; }
 .answer-options button:active { transform: translateY(4px); box-shadow: 0 1px #a97937; }
 .answer-options button:hover { background: #ffe9a8; }
+.answer-options button:disabled { opacity: .55; cursor: default; }
 .answer-options button.is-wrong { color: #9a352a; background: #ffe3cf; border-color: #ff927e; box-shadow: 0 5px #b96852; }
 .answer-options button.is-wrong span { position: absolute; top: -7px; right: -7px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #b74332; color: white; font-size: 22px; }
 .side-actions { position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: flex; gap: 5px; }
@@ -129,7 +130,6 @@ button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--gol
 .cell.counted .tile-base { fill: #ffdc84; fill-opacity: .17; stroke: #ffe4a6; stroke-opacity: .9; }
 .cell.newcomer .tile-base { stroke: #ffe4a2; stroke-opacity: .82; stroke-width: 2.7; }
 .cell.departed .tile-base { fill: #f5b97c; fill-opacity: .1; stroke: #fbd69a; stroke-opacity: .65; stroke-dasharray: 5 5; }
-.departure-mark { font-size: 26px; text-anchor: middle; opacity: .68; pointer-events: none; filter: drop-shadow(0 2px 3px #3e3d27ab); }
 .addition-mark { pointer-events: none; filter: drop-shadow(0 2px 3px #284a3599); }
 .addition-mark circle { fill: #ffdf83; stroke: #946432; stroke-width: 1.7; }
 .addition-mark text { fill: #574821; font-size: 22px; font-weight: 1000; text-anchor: middle; }
@@ -159,11 +159,28 @@ button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--gol
 .cell.responding[data-greeting=hop]:not(.entering):not(.landing):not(.departing) .tile-image { animation-name: dinoHelloHop; }
 .cell.responding[data-greeting=flutter]:not(.entering):not(.landing):not(.departing) .tile-image { animation-name: dinoHelloFlutter; }
 .cell.responding[data-greeting=hop] .ground-shadow, .cell.responding[data-greeting=flutter] .ground-shadow { opacity: .62; }
+.cell.responding.idle-acting:not(.entering):not(.landing):not(.departing) .tile-image { animation: dinoHelloNod .9s ease-in-out both; }
+.cell.idle-acting[data-idle-action=hop]:not(.entering):not(.landing):not(.departing) .tile-image { animation-name: dinoHelloHop; }
+.cell.idle-acting[data-idle-action=look]:not(.entering):not(.landing):not(.departing) .tile-image { animation-name: dinoIdleLook; }
+.cell.idle-acting[data-idle-action=graze]:not(.entering):not(.landing):not(.departing) .tile-image { animation-name: dinoIdleGraze; }
+.cell.responding.idle-acting .ground-shadow { opacity: 1; }
+.cell.idle-acting[data-idle-action=hop] .ground-shadow { opacity: .62; }
 .greeting-ripple { fill: none; stroke: #ffe6a1; stroke-width: 2; opacity: 0; pointer-events: none; transform-box: fill-box; transform-origin: center; }
 .cell.responding .greeting-ripple { animation: greetingRipple .62s ease-out both; }
+.cell.idle-acting .greeting-ripple { animation: none; }
+.cell.math-dino.landing .dino-actor { animation: dinoIslandArrival .78s cubic-bezier(.18,.7,.28,1) both; }
+.landing-dust { pointer-events: none; }
+.landing-dust > g { fill: #e1cb91; opacity: 0; transform-box: fill-box; transform-origin: center; animation: dinoLandingDust .33s ease-out .52s both; }
+.cell.thinking .tile-image { animation: dinoWonder .62s ease-in-out both; }
+.cell.celebrating .tile-image { animation: dinoCelebrate .46s ease-in-out var(--celebration-delay, 0ms) both; }
+.cell.celebrating .ground-shadow { animation: dinoCelebrateShadow .46s ease-in-out var(--celebration-delay, 0ms) both; }
+.celebration-stars { pointer-events: none; }
+.celebration-stars text { fill: #ffe393; stroke: #8e6127; stroke-width: .9px; paint-order: stroke; font-size: 14px; text-anchor: middle; opacity: 0; animation: dinoStarLift .45s ease-out var(--celebration-delay, 0ms) both; }
 .piece .tile-image { transform-box: fill-box; transform-origin: var(--foot-x,50%) var(--foot-y,98%); animation: dinoIdle 2.8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .cell .dino-actor, .cell .tile-image, .piece .tile-image { animation: none !important; }
+  .cell .dino-actor, .cell .tile-image, .piece .tile-image,
+  .cell .ground-shadow, .cell .greeting-ripple, .landing-dust > g, .celebration-stars text { animation: none !important; }
+  .landing-dust, .celebration-stars { display: none; }
   .ground-shadow { transition: none; }
   .cell.responding .ground-shadow { opacity: 1; }
 }
@@ -241,7 +258,12 @@ button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--gol
 .collection-grid .bonus { color: #a66a3b; background: #fff2d5ed; }
 
 @keyframes hintPulse { to { filter: brightness(1.3); } }
-@keyframes dinoIdle { 0%,100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.006,1.012) rotate(-.25deg); } }
+/* Breathe around the foot anchor: the back/head rise visibly while the planted
+   feet stay on their tile. Small opposing lean keeps the herd from looking rigid. */
+@keyframes dinoIdle {
+  0%,100% { transform: translateX(-.2%) scale(1) rotate(.12deg); }
+  50% { transform: translateX(.2%) scale(1.006,1.018) rotate(-.12deg); }
+}
 @keyframes dinoHelloNod {
   0%,100% { transform: translateY(0) rotate(0); }
   28% { transform: translateY(2px) rotate(3deg) scaleY(.97); }
@@ -260,6 +282,15 @@ button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--gol
   48% { transform: translateY(-8px) rotate(3deg); }
   74% { transform: translateY(-4px) rotate(-2deg); }
 }
+@keyframes dinoIdleLook {
+  0%,18%,82%,100% { transform: scaleX(1) rotate(0); }
+  34%,66% { transform: scaleX(-1) rotate(-1deg); }
+}
+@keyframes dinoIdleGraze {
+  0%,100% { transform: translateX(0) rotate(0) scaleY(1); }
+  32%,68% { transform: translateX(2%) rotate(8deg) scaleY(.95); }
+  48% { transform: translateX(2.5%) rotate(9deg) scaleY(.94); }
+}
 @keyframes greetingRipple {
   0% { opacity: 0; transform: scale(.75); }
   22% { opacity: .8; }
@@ -273,6 +304,37 @@ button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--gol
   60% { transform: translateX(-18px) scale(1.04); }
   82% { transform: translateX(-4px) scale(1); }
   100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes dinoIslandArrival {
+  0% { transform: translateX(var(--entry-x)) scale(.9); opacity: 0; }
+  12% { opacity: 1; }
+  76% { transform: translateX(0) scale(1.02,.98); }
+  88% { transform: translateX(0) scale(.99,1.01); }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes dinoLandingDust {
+  0% { transform: scale(.35,.6); opacity: 0; }
+  25% { opacity: .55; }
+  100% { transform: translateY(-3px) scale(1.65,1.2); opacity: 0; }
+}
+@keyframes dinoWonder {
+  0%,100% { transform: rotate(0) scale(1); }
+  40%,65% { transform: rotate(2.5deg) scale(1.025,1.015); }
+}
+@keyframes dinoCelebrate {
+  0%,100% { transform: translateY(0) scale(1); }
+  18% { transform: translateY(1px) scale(1.02,.96); }
+  48% { transform: translateY(-9px) scale(.99,1.02); }
+  76% { transform: translateY(0) scale(1.02,.98); }
+}
+@keyframes dinoCelebrateShadow {
+  0%,100% { opacity: 1; }
+  48% { opacity: .5; }
+}
+@keyframes dinoStarLift {
+  0% { transform: translate(0,0) scale(.5); opacity: 0; }
+  18%,55% { opacity: 1; }
+  100% { transform: translate(var(--star-x),-24px) scale(1.05); opacity: 0; }
 }
 @keyframes dinoRunOut {
   0% { transform: translateX(0) scale(1); opacity: 1; }

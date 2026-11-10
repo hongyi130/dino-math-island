@@ -43,7 +43,7 @@
     yuty: ['theropod', 1.08],
     galli: ['small', 1.115]
   };
-  window.createIslandAudio = ({ enabled = true } = {}) => {
+  window.createIslandAudio = ({ enabled = true, assetBase = './assets/sfx/' } = {}) => {
     let unlocked = false;
     let visible = !document.hidden;
     let narrating = false;
@@ -59,7 +59,7 @@
     const create = (file) => {
       const audio = new Audio();
       audio.preload = 'none';
-      audio.src = './assets/sfx/' + file + '.wav' + version;
+      audio.src = assetBase + file + '.wav' + version;
       document.querySelector?.('#soundscape')?.appendChild?.(audio);
       all.push(audio);
       return audio;
@@ -180,6 +180,25 @@
       const naturalRate = Math.max(.92, Math.min(1.12, rate)) * (.99 + Math.random() * .02);
       playEffect(voice, action === 'touch' ? .62 : .70, naturalRate);
     };
+    // Optional prototype foley uses the same speech, visibility and mute gates.
+    // Existing callers keep their original creature paths and behavior.
+    const foleyTimes = new Map();
+    let fossilCall;
+    const foley = (name) => {
+      if (!allowed() || narrating) return;
+      const spec = { 'leaf-rustle': [rustle, .18, 900], 'footstep-grass': [steps[0], .18, 200] };
+      if (name === 'call-sauropod') {
+        if (!fossilCall) {
+          fossilCall = create('call-sauropod');
+          ['ended', 'error'].forEach(event => fossilCall.addEventListener(event, () => effects.delete(fossilCall)));
+        }
+        spec[name] = [fossilCall, .42, 1100];
+      }
+      const entry = spec[name], now = Date.now();
+      if (!entry || now - (foleyTimes.get(name) ?? -Infinity) < entry[2]) return;
+      foleyTimes.set(name, now);
+      playEffect(entry[0], entry[1]);
+    };
     const onGesture = (event) => {
       if (event.type === 'keydown' && !['Enter', ' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) return;
       unlock();
@@ -209,6 +228,6 @@
       window.removeEventListener?.('pagehide', suspend);
       window.removeEventListener?.('pageshow', onPageShow);
     };
-    return { unlock, setEnabled, setNarrating, creature, reset, dispose };
+    return { unlock, setEnabled, setNarrating, creature, foley, reset, dispose };
   };
 })();

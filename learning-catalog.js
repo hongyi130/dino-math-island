@@ -1,7 +1,7 @@
 /* Parent-facing topics. IDs stay stable so saved practice routes survive updates. */
 (() => {
   const modules = [
-    ['arithmetic','＋−','加减与数量','接来、送走、补齐、分合与比较'],
+    ['arithmetic','＋−','加减与数量','来了、跑掉、补齐、分合与比较'],
     ['multiplication','×÷','乘法与除法','等量分组、平均分和余数'],
     ['numbers','123','数与位值','计数单位、组成数和负数'],
     ['shapes','△','图形与角','辨认图形、认识角'],

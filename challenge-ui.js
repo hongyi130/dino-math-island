@@ -22,7 +22,7 @@
       return `<div class="jump-journey">
         <div class="jump-instruction" id="jumpInstruction">
           <div class="jump-route-order"><span class="jump-origin-label">从 <strong>${l.a}</strong> 出发</span><b class="jump-direction" aria-hidden="true">${step>0?'→':'←'}</b><span class="jump-distance">跳 <strong>${total}</strong> 步</span></div>
-          <div class="jump-progress" aria-label="已跳${taken}步，共${total}步">${Array.from({length:total},(_,i)=>`<span class="jump-paw ${i<taken?'done':''}" aria-hidden="true">${i<taken?'✓':'🐾'}</span>`).join('')}<span class="jump-progress-count">${taken}<small> / ${total}</small></span></div>
+          <div class="jump-progress" aria-label="已跳${taken}步，共${total}步">${Array.from({length:total},(_,i)=>`<span class="jump-paw ${i<taken?'done':''}" aria-hidden="true">${i<taken?'✓':'✦'}</span>`).join('')}<span class="jump-progress-count">${taken}<small> / ${total}</small></span></div>
         </div>
         <div class="jump-viewport" tabindex="0" role="region" aria-label="零到十的石头数轴，可左右滑动" aria-describedby="jumpInstruction">
           <div class="jump-track" style="--jump-position:${s.position}">
@@ -31,7 +31,7 @@
             <div class="jump-hero ${step<0?'faces-left':''}" style="left:${center(s.position)}" aria-hidden="true"><span class="jump-contact-shadow"></span><span class="jump-creature">${image(l.factKind)}</span></div>
             <div class="stone-path jump-stones">${Array.from({length:11},(_,i)=>{
               const current=s.position===i,visited=s.jumps.includes(i),upNext=!done&&i===next;
-              return `<button type="button" class="number-stone ${current?'current':''} ${visited?'visited':''} ${i===l.a?'origin':''} ${upNext?'up-next':''}" data-ch-action="jump" data-value="${i}" aria-label="${i}号石头${current?'，恐龙在这里':i===l.a?'，出发的起点':''}${upNext?'，向'+(step>0?'右':'左')+'跳一步':''}" ${current?'aria-current="step"':''}><b>${i}</b>${i===l.a?'<small class="stone-origin">起点</small>':current?'<small class="stone-here">在这里</small>':''}${upNext?'<span class="stone-next-cue" aria-hidden="true">'+(step>0?'→':'←')+'</span>':''}</button>`;
+              return `<span class="number-stone ${current?'current':''} ${visited?'visited':''} ${i===l.a?'origin':''} ${upNext?'up-next':''}"  aria-label="${i}号石头${current?'，恐龙在这里':i===l.a?'，出发的起点':''}${upNext?'，向'+(step>0?'右':'左')+'跳一步':''}" ${current?'aria-current="step"':''}><b>${i}</b>${i===l.a?'<small class="stone-origin">起点</small>':current?'<small class="stone-here">在这里</small>':''}${upNext?'<span class="stone-next-cue" aria-hidden="true">'+(step>0?'→':'←')+'</span>':''}</span>`;
             }).join('')}</div>
           </div>
         </div>
@@ -42,7 +42,7 @@
       const l=s.level,kind=l.factKind;
       if(l.challengeType==='fill') return `<div class="fill-nest" aria-label="凑成${l.b}只伙伴">${Array.from({length:l.b},(_,i)=>{
         const has=s.placed.includes(i),fixed=i<l.a;
-        return `<button type="button" class="nest-place ${has?'occupied':'waiting'} ${fixed?'original':''}" data-ch-action="fill" data-value="${i}" ${fixed?'disabled':''} aria-label="${fixed?'原来的伙伴':has?'请这只伙伴回来':'空脚印，接来一只伙伴'}">${has?image(kind):'<span class="footprint">🐾</span><b>＋</b>'}${has&&!fixed?'<small>＋1</small>':''}</button>`;
+        return `<button type="button" class="nest-place ${has?'occupied':'waiting'} ${fixed?'original':''}" data-ch-action="fill" data-value="${i}" ${fixed?'disabled':''} aria-label="${fixed?'原来的伙伴':has?'请这只伙伴回来':'空位，来了一只伙伴'}">${has?image(kind):'<span class="footprint">✦</span><b>＋</b>'}${has&&!fixed?'<small>＋1</small>':''}</button>`;
       }).join('')}</div><div class="challenge-equation" aria-label="运算过程"><span>${l.a}</span><b>＋</b><span class="moving-number">${s.placed.length-l.a}</span><b>＝</b><span>${s.placed.length}</span><small>目标 ${l.b} 只</small></div>`;
       if(l.challengeType==='split') return `<div class="waiting-partners" aria-label="等待分队的伙伴">${s.camps.map((camp,i)=>camp===null?`<span class="waiting-dino">${image(kind)}</span>`:'').join('')||'<span class="all-sorted">✓ 都进营地啦</span>'}</div><div class="camp-layout">${['left','right'].map(side=>{
         const n=s.camps.filter(x=>x===side).length;
@@ -54,12 +54,26 @@
       }).join('')}</div><div class="compare-pick" aria-label="选择哪边更多"><button type="button" class="sun ${s.choice==='left'?'selected':''}" data-ch-action="choose" data-value="left" aria-pressed="${s.choice==='left'}" aria-label="太阳队更多">🌞<strong>更多</strong></button><button type="button" class="equal ${s.choice==='equal'?'selected':''}" data-ch-action="choose" data-value="equal" aria-pressed="${s.choice==='equal'}" aria-label="两队一样多"><b>＝</b><strong>一样多</strong></button><button type="button" class="moon ${s.choice==='right'?'selected':''}" data-ch-action="choose" data-value="right" aria-pressed="${s.choice==='right'}" aria-label="月亮队更多">🌙<strong>更多</strong></button></div>`;
       return jumpContent(s);
     }
+    // These counters describe visible actions, not the unknown answer.
+    function footerModel(s) {
+      const l=s.level,type=l.challengeType;
+      if(type==='fill') return {title:`凑成 ${l.b} 只伙伴`,done:s.placed.length,total:l.b,unit:'只',summary:`已站 ${s.placed.length} 只 · 目标 ${l.b} 只`};
+      if(type==='split') return {title:'把伙伴送进两个营地',done:s.camps.filter(x=>x!==null).length,total:l.a,unit:'只'};
+      if(type==='compare') {
+        const total=Math.min(l.a,l.b),choosing=s.paired.length===total;
+        return {title:choosing?'哪边伙伴更多？':'让伙伴一对一牵手',done:s.paired.length,total,unit:'对',choosing};
+      }
+      return {title:`向${l.b>0?'右':'左'}跳 ${Math.abs(l.b)} 步`,done:s.jumps.length,total:Math.abs(l.b),unit:'步'};
+    }
     function render(s) {
       root.hidden=!s;
       if(!s) return;
       root.dataset.type=s.level.challengeType;
       root.classList.toggle('challenge-error',s.error);
-      root.innerHTML=`<div class="challenge-hands">${content(s)}</div><div class="challenge-footer"><p class="challenge-feedback" role="status" aria-live="polite">${s.error?'<b aria-hidden="true">✕</b> ':''}${s.feedback}</p><div class="challenge-controls"><button type="button" class="challenge-undo" data-ch-action="undo" ${!s.history.length||s.complete?'disabled':''} aria-label="撤回一步">↶</button><button type="button" class="challenge-check" data-ch-action="check" ${s.complete?'disabled':''} aria-label="检查摆放结果"><span aria-hidden="true">✓</span> 摆好啦</button><button type="button" class="challenge-restart" data-ch-action="restart" aria-label="重玩本关">↻</button></div></div>`;
+      const footer=footerModel(s),phase=s.error?'wrong':footer.choosing?'answer':'play';
+      const progress=footer.choosing?'':window.DinoBottomBar?.progress(s.level.factKind,footer)||'';
+      const jumpInputs=s.level.challengeType==='jump'?`<div class="v3-inputs jump-inputs" aria-label="控制恐龙一步一步跳">${[-1,1].map(d=>`<button type="button" data-ch-action="jump" data-value="${s.position+d}" ${s.position+d<0||s.position+d>10?'disabled':''} aria-label="向${d<0?'左':'右'}跳一步">${d<0?'←':'→'} 跳一步</button>`).join('')}</div>`:'';
+      root.innerHTML=`<div class="challenge-hands">${content(s)}</div><footer class="challenge-footer v3-bar" data-phase="${phase}">${jumpInputs}<div class="v3-main"><div class="v3-heading"><h2>${s.error?s.feedback:footer.title}</h2><p class="challenge-feedback" role="status" aria-live="polite">${s.error?footer.title:s.feedback}</p></div>${progress?`<div class="v3-progress-wrap">${progress}</div>`:''}</div><div class="v3-utility challenge-controls"><button type="button" class="challenge-check v3-check" data-ch-action="check" ${s.complete?'disabled':''} aria-label="检查摆放结果"><span aria-hidden="true">✓</span> ${footer.choosing?'选好啦':'摆好啦'}</button><div class="v3-tools"><button type="button" class="challenge-undo" data-ch-action="undo" ${!s.history.length||s.complete?'disabled':''} aria-label="撤回一步"><span aria-hidden="true">↶</span><small>撤回</small></button><button type="button" class="challenge-restart" data-ch-action="restart" aria-label="重玩本关"><span aria-hidden="true">↻</span><small>重玩</small></button></div></div></footer>`;
       if(s.level.challengeType==='jump') {
         const viewport=root.querySelector?.('.jump-viewport'),track=root.querySelector?.('.jump-track');
         const current=root.querySelector?.('.number-stone.current'),hero=root.querySelector?.('.jump-hero');

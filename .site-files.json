@@ -1,18 +1,8 @@
 [
   {
-    "path": "assets/allo-3d.png",
-    "bytes": 554079,
-    "sha256": "833cb9565d15bbbb1e89cb482631f3ec5e8dd202afd2f4b9ffbe236005035ea4"
-  },
-  {
     "path": "assets/allo-3d.webp",
     "bytes": 93808,
     "sha256": "b4e4e5acb85f3d9c40e2838115e6b83ab3f67336c41bfdd77f8944de568e1824"
-  },
-  {
-    "path": "assets/amarga-3d.png",
-    "bytes": 1361813,
-    "sha256": "b70804dbe006848ff6eb236c306b6542b0c709740675f532e6d5a3660d562304"
   },
   {
     "path": "assets/amarga-3d.webp",
@@ -20,19 +10,9 @@
     "sha256": "b15f90c1edc75dee71de1056893a9d02dc0b1d541ab0db01a28bdb8c5b14c6e2"
   },
   {
-    "path": "assets/anky-3d.png",
-    "bytes": 749321,
-    "sha256": "66bb3ef29f56138d538edac5acf9268be04fd45983accb0f4b3c6ce98675779e"
-  },
-  {
     "path": "assets/anky-3d.webp",
     "bytes": 119832,
     "sha256": "51032797f06793477bce7427887dd401da24234cc7c82f1cf8e00192131d99e4"
-  },
-  {
-    "path": "assets/bary-3d-v3.png",
-    "bytes": 1391813,
-    "sha256": "65d1291cdab89679f4b5ded7698dd42d9c8640b2905d4b95f79760c85d11ee44"
   },
   {
     "path": "assets/bary-3d-v3.webp",
@@ -40,19 +20,9 @@
     "sha256": "fdadee91b7a50dc4cfbfbe9edea501e8f5a659d0143f6cd3d14a25a37def5fcb"
   },
   {
-    "path": "assets/brachio-3d.png",
-    "bytes": 546163,
-    "sha256": "fe9925b310abdb71caa99a7b75ac3c50830bdf71069193629ec6f21c6ded31b4"
-  },
-  {
     "path": "assets/brachio-3d.webp",
     "bytes": 80950,
     "sha256": "ec32b77275206a3377b2c32c1325f57b29ff03cea33174f8fa806178ca9f5250"
-  },
-  {
-    "path": "assets/carno-3d.png",
-    "bytes": 934346,
-    "sha256": "367625fd9db51bebac3acc7ca84ec45c2862d68df48c303c03019eee7177409d"
   },
   {
     "path": "assets/carno-3d.webp",
@@ -60,19 +30,9 @@
     "sha256": "3b6969e6eb66db9f0425da9f9a6525ca72ab5e8f33f7061a6e6a4b95bb010454"
   },
   {
-    "path": "assets/cerato-3d-v2.png",
-    "bytes": 1275471,
-    "sha256": "62a1f8b28b845b125b76f02da83a24ee2d46add8d7035a54b524c3ecfee645d3"
-  },
-  {
     "path": "assets/cerato-3d-v2.webp",
     "bytes": 167932,
     "sha256": "14b7213271d5dae5e91a2afe4ec8a8bfe26121d8c1e150c2dfbd4dab1f99de8b"
-  },
-  {
-    "path": "assets/compso-3d.png",
-    "bytes": 847320,
-    "sha256": "5cebbfd1f9980e90c91cdc41c4a864931de5f0c420b462aa3712792ea7f60023"
   },
   {
     "path": "assets/compso-3d.webp",
@@ -80,19 +40,9 @@
     "sha256": "8a9a3320e3b6ef3f2ebd311de3f1d1470faf4e43048e9dde478db4c07fcac69e"
   },
   {
-    "path": "assets/dilo-3d.png",
-    "bytes": 493674,
-    "sha256": "d8647ca71d87b05fc0c47c413d5af76c6fd6d5e1611c3cefc0221698be246fce"
-  },
-  {
     "path": "assets/dilo-3d.webp",
     "bytes": 89012,
     "sha256": "af40e4d63fcf18197d0439af23d79bef133f9d4c258b4271dd405cae1c190e07"
-  },
-  {
-    "path": "assets/diplo-3d.png",
-    "bytes": 279549,
-    "sha256": "d1f46a2b823ef6e3fcb61bbf6ece4f06c4af5b4cc7c73ea5cd9056fccff902ee"
   },
   {
     "path": "assets/diplo-3d.webp",
@@ -100,19 +50,29 @@
     "sha256": "8c0aab1020c68f609e4d7094ae17e3ac6fe2532cb1c0b4cd0f649b5b93530439"
   },
   {
-    "path": "assets/egg-3d.png",
-    "bytes": 1844494,
-    "sha256": "724911844a89fc3822e609dd85d5ddab00f3ad91500ce0f72055db693a42729a"
-  },
-  {
     "path": "assets/egg-3d.webp",
     "bytes": 296736,
     "sha256": "98ec916eb18326e1027847f1af0e20b75141e6180d4939d9cc916d5650725660"
   },
   {
-    "path": "assets/iguano-3d.png",
-    "bytes": 584827,
-    "sha256": "083967f0d926bb38ab929400906b7b43f82c172c3b83084aebf747ffbc6aad2b"
+    "path": "assets/icons/apple-touch-icon.png",
+    "bytes": 27111,
+    "sha256": "89fe84981a4039fb048cc88a9422920fdb8f35757eb40c9f1f5664f4b12f1184"
+  },
+  {
+    "path": "assets/icons/icon-192.png",
+    "bytes": 27495,
+    "sha256": "afd798003c4acd2376d6905064b5f8de314285983c93172653e15b1e32611b08"
+  },
+  {
+    "path": "assets/icons/icon-512.png",
+    "bytes": 173027,
+    "sha256": "caea0797c8e3ca4df72beed8f115665428e8671d6f65caf2b7511319dc9f45fc"
+  },
+  {
+    "path": "assets/icons/icon-maskable-512.png",
+    "bytes": 113457,
+    "sha256": "994278b6989119e90fe9cfff1af3414dc138b13d7874a7d332ee9eddb9cd6afd"
   },
   {
     "path": "assets/iguano-3d.webp",
@@ -120,19 +80,9 @@
     "sha256": "1f07c121ab6a66a0f0082cfbd5c39c36b0005404d4125e70aa63c83e54318890"
   },
   {
-    "path": "assets/kentro-3d.png",
-    "bytes": 1504040,
-    "sha256": "77c67710b6c78c90b3a17894222fd3d081a69ef32bc59ae66dc1f5bfa773a1ce"
-  },
-  {
     "path": "assets/kentro-3d.webp",
     "bytes": 251958,
     "sha256": "f5c86091e9d60a0c75a5cc311487043578906278bf82085a417386836036fb55"
-  },
-  {
-    "path": "assets/lambeo-3d-v2.png",
-    "bytes": 1347360,
-    "sha256": "e3ef8f18b023dab8270ec0cb00483880f4457ab78c3ee73304f845a2c0aff707"
   },
   {
     "path": "assets/lambeo-3d-v2.webp",
@@ -140,19 +90,9 @@
     "sha256": "18e46810d92c867e079444c5ff148387693c0cea153d32458d9828b83a16019c"
   },
   {
-    "path": "assets/new30-alamo.png",
-    "bytes": 1978867,
-    "sha256": "595b08b1219c74bb3e628f1a5a32f5535872a8d75be4713f46b0c8bbbd9cfda5"
-  },
-  {
     "path": "assets/new30-alamo.webp",
     "bytes": 169512,
     "sha256": "419a76a8bb2070cbf31209c580eedc996e2c7c35353022c4cf8e12fb100ab132"
-  },
-  {
-    "path": "assets/new30-apato.png",
-    "bytes": 1445566,
-    "sha256": "abaefa96b66c423e32eea9248ffb29b8160ac036d0f1d6c609f1cebefa6a05b9"
   },
   {
     "path": "assets/new30-apato.webp",
@@ -160,19 +100,9 @@
     "sha256": "ad11ced67fb9b411b5ea61f9dbf2ab46316ac05725242d604541bc57807cea0b"
   },
   {
-    "path": "assets/new30-argentino.png",
-    "bytes": 2185134,
-    "sha256": "0a1f7458d6cc8e498eae4c0e2dd9ad56884c54f44cf8c30d6960259195f022b6"
-  },
-  {
     "path": "assets/new30-argentino.webp",
     "bytes": 225898,
     "sha256": "ab978f2ea6943794e981e0b434f0f23a3c2983ff23a3a81307d514c0776b37ef"
-  },
-  {
-    "path": "assets/new30-camara.png",
-    "bytes": 2054124,
-    "sha256": "0ec365e933773f74136eecfe9ef84cb25257e895857f4272be25bc3f001f4773"
   },
   {
     "path": "assets/new30-camara.webp",
@@ -180,19 +110,9 @@
     "sha256": "3b18d2534f5b78efd268ceb8724bb97473be509db985eab648d066f8a9456cd3"
   },
   {
-    "path": "assets/new30-centro.png",
-    "bytes": 2061890,
-    "sha256": "cccdf5986e5bc963e0c8b48284a360871e4f6b4bb0008c0853984328e85f69cf"
-  },
-  {
     "path": "assets/new30-centro.webp",
     "bytes": 288844,
     "sha256": "b6f4bd2aa497ba7b2e6c4446925aac57a188f7a7de9eba54e312903e511ab686"
-  },
-  {
-    "path": "assets/new30-chasmo.png",
-    "bytes": 2180393,
-    "sha256": "080e84729c193fe93c0dfd614c07fe9670c32ade5ca3e54f10b232ef5e1e9361"
   },
   {
     "path": "assets/new30-chasmo.webp",
@@ -200,19 +120,9 @@
     "sha256": "917230c22113a3dee386bb2d8f7c2afd031e2531f9fef95dab9d9bfa65cb4f5f"
   },
   {
-    "path": "assets/new30-corytho.png",
-    "bytes": 1403918,
-    "sha256": "5adbd3e08f0fe3ec79532b592b6bb2940a227647cc5090d3bb9c572837a29f28"
-  },
-  {
     "path": "assets/new30-corytho.webp",
     "bytes": 219626,
     "sha256": "34d33a628cf219b4f4f5c42f00c7de93b5322a982a015d5c2ab9b410b1787b95"
-  },
-  {
-    "path": "assets/new30-deinonych.png",
-    "bytes": 1374820,
-    "sha256": "8b082c11fc00f020652dcb9532df011bba1eea21006d1408d97dc606d8a8f29e"
   },
   {
     "path": "assets/new30-deinonych.webp",
@@ -220,19 +130,9 @@
     "sha256": "5f682c0a876de478b387030ac48254494ad14ed848e8487cd05579588a47d0aa"
   },
   {
-    "path": "assets/new30-dicraeo.png",
-    "bytes": 2082792,
-    "sha256": "18980f9cd78caeb303bf44e198319372a2368b497d13805f91d4cad21866226c"
-  },
-  {
     "path": "assets/new30-dicraeo.webp",
     "bytes": 193828,
     "sha256": "20388ff5b1d64d6800ec10463a95007716e574fa2082fff6c256679f0544de10"
-  },
-  {
-    "path": "assets/new30-edmonto.png",
-    "bytes": 1354448,
-    "sha256": "0ecf7067059325482740ff395ca462aacfb83d294446f5f4c142a45ad42b568b"
   },
   {
     "path": "assets/new30-edmonto.webp",
@@ -240,19 +140,9 @@
     "sha256": "3c40083db4542a892adefe26a6104df934ce9b2fd1060032d51e25fa1e0a8388"
   },
   {
-    "path": "assets/new30-euoplo.png",
-    "bytes": 1699796,
-    "sha256": "85e3b432bce40e668e4e45957fd2e11dddb01983f0dcfa8f0d4a4feb06b47c5c"
-  },
-  {
     "path": "assets/new30-euoplo.webp",
     "bytes": 231144,
     "sha256": "8183a57c721e7156971fd9b51521ec08e24e871e20df1efb319a662c2804a938"
-  },
-  {
-    "path": "assets/new30-europa.png",
-    "bytes": 1809369,
-    "sha256": "34192c1f888ac1ea8c5cf80803b86e4a77a3953d9bd436975aaa9a11a2d67bc5"
   },
   {
     "path": "assets/new30-europa.webp",
@@ -260,19 +150,9 @@
     "sha256": "7582f2ede4491854b147988d16ec32be76ac9e294a61f5fc9e939aa61711b69f"
   },
   {
-    "path": "assets/new30-galli.png",
-    "bytes": 1174477,
-    "sha256": "afb39b8e75cec7515a5db5fc06dac64169b1f042f211c0e4d0e98579b2fb7937"
-  },
-  {
     "path": "assets/new30-galli.webp",
     "bytes": 209418,
     "sha256": "78de69d127e14a0d8c24da013cbf0793446d84829236607924c2753fc5a2d910"
-  },
-  {
-    "path": "assets/new30-huayang.png",
-    "bytes": 2028937,
-    "sha256": "0ba463d00c62d8253cd3d3d048dae8139add3213a041d6be624162eb1886e940"
   },
   {
     "path": "assets/new30-huayang.webp",
@@ -280,19 +160,9 @@
     "sha256": "5b01dfedd16a28b6b7c9178ceb7264b34c49b94f954a58b82121da50ae2d0b73"
   },
   {
-    "path": "assets/new30-maia.png",
-    "bytes": 1488601,
-    "sha256": "121b2bcbe0fe4c4b7f9102590aca23e5c13512e7e273093380974072883fa4be"
-  },
-  {
     "path": "assets/new30-maia.webp",
     "bytes": 225930,
     "sha256": "69776e6728fd43aa2d1c6848387247b2024185ed1b76243834764ba4449c6a21"
-  },
-  {
-    "path": "assets/new30-mamenshi.png",
-    "bytes": 1838227,
-    "sha256": "df822cb1cb7afffc06f0d1408081127b4c17317be8b693624d5f958e2fc8ff1e"
   },
   {
     "path": "assets/new30-mamenshi.webp",
@@ -300,19 +170,9 @@
     "sha256": "5f28f32386755f210eb967651e58586f789c9442e131bdfe2a01b67e6576e8a8"
   },
   {
-    "path": "assets/new30-micro.png",
-    "bytes": 1482339,
-    "sha256": "9da4ab85df3bfb8967335fd7afca1bc995755e05d018bbdaef8abb0d4afead06"
-  },
-  {
     "path": "assets/new30-micro.webp",
     "bytes": 243216,
     "sha256": "69d5c73fd4b91138694e0bf147b87d9e873da5e0bebb6ae425239b63beae6777"
-  },
-  {
-    "path": "assets/new30-nasuto.png",
-    "bytes": 2037012,
-    "sha256": "5c90cfd455468e01f14909632b988eeb6e50aeb07e9aa74cbdd5817eaf1bfcff"
   },
   {
     "path": "assets/new30-nasuto.webp",
@@ -320,19 +180,9 @@
     "sha256": "5f405a0a34acef43df175dcb0078b68cf6a5f943f4a27e7df785e14e7c7a72f2"
   },
   {
-    "path": "assets/new30-niger.png",
-    "bytes": 2194276,
-    "sha256": "c9af5fb3e51b5946e5196e6a0026602422d9c3b047a5d544f28a8c6066ec5577"
-  },
-  {
     "path": "assets/new30-niger.webp",
     "bytes": 200372,
     "sha256": "0ab95b6d379db8aa00800d5034b7636c33872ef7d4eeef06628dc67307076831"
-  },
-  {
-    "path": "assets/new30-ourano.png",
-    "bytes": 1319975,
-    "sha256": "c441255fe789606f664f19623fe6bd45938df9f5d6a4689e0a722a6d1c169be5"
   },
   {
     "path": "assets/new30-ourano.webp",
@@ -340,19 +190,9 @@
     "sha256": "9ead8327f17deeab84a7263c6853967bb6b729bbe9e3b07c6eea14cf67716027"
   },
   {
-    "path": "assets/new30-pachyrhino.png",
-    "bytes": 2091056,
-    "sha256": "d751a13225d155b3249973e7ef417d2094c3c252201e76c34989b1e14acad3d9"
-  },
-  {
     "path": "assets/new30-pachyrhino.webp",
     "bytes": 296426,
     "sha256": "98c1cdd80ab17d4159050b0937855f731cf7a9f45aa16187fb4d6071cdfc8a03"
-  },
-  {
-    "path": "assets/new30-pentacera.png",
-    "bytes": 2061167,
-    "sha256": "57125ac920b929ced2d18718da807d2bc5b34fd3312e0c037af2d3ce9995be00"
   },
   {
     "path": "assets/new30-pentacera.webp",
@@ -360,19 +200,9 @@
     "sha256": "8a4eb73307b5deeb6891187f10913f8f0e0355d4c7e6b801b8cc9aef505e4eb3"
   },
   {
-    "path": "assets/new30-saurolo.png",
-    "bytes": 1481092,
-    "sha256": "0fc197839597f9e11831fd4428ac4b92deab3b8d9fbfbbb58e961aa9b2d57491"
-  },
-  {
     "path": "assets/new30-saurolo.webp",
     "bytes": 215756,
     "sha256": "462be5f7d769dc71f840f9a3db7cc25dbd5043a8a5aa30af4d69873b9d6ac8ed"
-  },
-  {
-    "path": "assets/new30-sauropelta.png",
-    "bytes": 2368881,
-    "sha256": "db15c1bca13e19e32543fc7bf9d5eca534c39548ad304c79b1fe88eb8b5e971c"
   },
   {
     "path": "assets/new30-sauropelta.webp",
@@ -380,19 +210,9 @@
     "sha256": "61a2a586a0d7d76209cf731251c5708942b5b642cd5105bfb9bbad59d7cb7391"
   },
   {
-    "path": "assets/new30-shuno.png",
-    "bytes": 2129018,
-    "sha256": "1bc5b64b98b7e1cc806abaadd264f5c935082227e098e065bb7b2adf6a252046"
-  },
-  {
     "path": "assets/new30-shuno.webp",
     "bytes": 180122,
     "sha256": "a18d69f5bb21ae0ec79dce8f14399102374e6eac3289700c4831220ac77909cc"
-  },
-  {
-    "path": "assets/new30-sino.png",
-    "bytes": 1306826,
-    "sha256": "a60a45d417b14278e09492ba42acdbd452f4b4b558ca451a84f8164970f39c35"
   },
   {
     "path": "assets/new30-sino.webp",
@@ -400,19 +220,9 @@
     "sha256": "f469b39579d6efb0b03aa1333fd99f71ab6c04fb4e34810860d69e1898a266e1"
   },
   {
-    "path": "assets/new30-tsintao.png",
-    "bytes": 1335901,
-    "sha256": "814a8f5b169d357d3b0d06f96849d80638cc7d100a5dcad44d7e230a1ed21054"
-  },
-  {
     "path": "assets/new30-tsintao.webp",
     "bytes": 204162,
     "sha256": "c632cb5dc6aeb76d977e9b034c71cdc6c8af5b61a2828d3abab5b50ad6b31c86"
-  },
-  {
-    "path": "assets/new30-tuojiang.png",
-    "bytes": 2414481,
-    "sha256": "26d16b88e872ece121af9edfb49f6c153cc95316b7e410324a2707dc91fd6391"
   },
   {
     "path": "assets/new30-tuojiang.webp",
@@ -420,19 +230,9 @@
     "sha256": "3b3b5b69650fcd52cc87e2da10b63c5d73e46ba094d7470eb32efd6222adbe29"
   },
   {
-    "path": "assets/new30-utah.png",
-    "bytes": 1558779,
-    "sha256": "e4b11e2b05be686e78b228688d7a1d2c2b6c9d2090ca57641ed9726c47674545"
-  },
-  {
     "path": "assets/new30-utah.webp",
     "bytes": 240158,
     "sha256": "cf4ad1b1517d0ca483e7a8921485b3150baa4d83a8447b8b53be35a37d4f03d1"
-  },
-  {
-    "path": "assets/new30-yuty.png",
-    "bytes": 1714466,
-    "sha256": "59fa5160a4ca8f7a7247f3d9945cfd5fbc7a7f8fad4e9b4908f9fb4d7d7b17d1"
   },
   {
     "path": "assets/new30-yuty.webp",
@@ -440,19 +240,9 @@
     "sha256": "0e0b1e11830fca775f259f32ae99d128a5ef8feaf6eab48b100eb5371ccd51ca"
   },
   {
-    "path": "assets/nodo-3d.png",
-    "bytes": 1801456,
-    "sha256": "56e86a082c65dc20ad9af2076560a6dd6f77822a978b8e821f2928cffc4480df"
-  },
-  {
     "path": "assets/nodo-3d.webp",
     "bytes": 273028,
     "sha256": "d6ab659ea82462bd2fa482a8a892953ca17bde87bef1a968216ec8968f76638b"
-  },
-  {
-    "path": "assets/oviraptor-3d.png",
-    "bytes": 837861,
-    "sha256": "835bee8819cf4c0cc28b25f05833ead9ad9a84f966a70d21d5ccf4b1948052aa"
   },
   {
     "path": "assets/oviraptor-3d.webp",
@@ -460,19 +250,9 @@
     "sha256": "34cee973ef05b406e6e3c312dd2f18c8ca7c3faa1e48548fa4cf120b7bedc439"
   },
   {
-    "path": "assets/pachy-3d.png",
-    "bytes": 921392,
-    "sha256": "73a597a30d32baa39b942cb88c02b780d7d80f3e6388cc86dd4a3aa7ed173e3e"
-  },
-  {
     "path": "assets/pachy-3d.webp",
     "bytes": 147404,
     "sha256": "d1c8cf1cc73d628f6641333065e1ae3651e7bfcaf74525d948d1c629da1ef360"
-  },
-  {
-    "path": "assets/parasaur-3d.png",
-    "bytes": 849225,
-    "sha256": "fccb802b9dea713f996f79a2f20eb71e967d761479c0a3221113d119cab7e18a"
   },
   {
     "path": "assets/parasaur-3d.webp",
@@ -480,19 +260,9 @@
     "sha256": "5f7f8f51e4945402fe211108d3ff49b43f2972eb317600415e4e7b1599ad1f7a"
   },
   {
-    "path": "assets/proto-3d.png",
-    "bytes": 1764433,
-    "sha256": "1c2f82446ffb07e9e52d2d3370b6447fa192905526c316e9539e4eb7de08f6ab"
-  },
-  {
     "path": "assets/proto-3d.webp",
     "bytes": 243626,
     "sha256": "76ac9471fa32b9a8eb4c245c9ed92f6b630228b5d0224c9127e8a60dfbdc86f6"
-  },
-  {
-    "path": "assets/psittaco-3d.png",
-    "bytes": 1401271,
-    "sha256": "9f7ca149e42e78c3403e6284b80979943152ded45feed80d74a2337167608ece"
   },
   {
     "path": "assets/psittaco-3d.webp",
@@ -500,19 +270,9 @@
     "sha256": "344d6630785371e959051c08d711173abb6b4e2ab2a30add9de470911362011a"
   },
   {
-    "path": "assets/ptero-3d.png",
-    "bytes": 1107361,
-    "sha256": "56a4a7532d1e8c44e00c5e083691c73e1eeea55f9fa3e410e50458e4efcd3111"
-  },
-  {
     "path": "assets/ptero-3d.webp",
     "bytes": 160412,
     "sha256": "8be65195575997847066e2822e26a57bf84093094488ccfc5bd31a8616b40679"
-  },
-  {
-    "path": "assets/raptor-3d.png",
-    "bytes": 1112478,
-    "sha256": "26c18efd7ec299381ee98e107d625e9562156703ad2f5468caae62fa2da3750d"
   },
   {
     "path": "assets/raptor-3d.webp",
@@ -520,9 +280,39 @@
     "sha256": "068fb7e3b54bc359645290e4349c5f938981bf1b6165925e30952abaa6ffc8ea"
   },
   {
-    "path": "assets/scenes-v2/scene-01.png",
-    "bytes": 3343795,
-    "sha256": "3dccbeb41b85b90d2a9a7b32fe54b6dd83ab1ab4084276af970bc3a3fd9a79d1"
+    "path": "assets/scenes-ground-preview/scene-02.webp",
+    "bytes": 562814,
+    "sha256": "490848af5ac7d24aa72591f6a4ed6bd288d8634349d468c7256bca2691a44715"
+  },
+  {
+    "path": "assets/scenes-ground-preview/scene-07-ground.webp",
+    "bytes": 384960,
+    "sha256": "a6832ca04d0a0b63dbb0eaaf7706aa32a4eb53a9733ef8b82c0193fdb1097298"
+  },
+  {
+    "path": "assets/scenes-ground-preview/scene-07-landscape-pair.webp",
+    "bytes": 677980,
+    "sha256": "fa6242557dbb76fde87b1d5d9cbaafeb051a86b56b2711689ae5f8686864e17b"
+  },
+  {
+    "path": "assets/scenes-ground-preview/scene-07-portrait-clear.webp",
+    "bytes": 712094,
+    "sha256": "0b8278d1ccd404dff45a23d1a2d7e09cd88f7ead608d9f33c375f77b9c302fcd"
+  },
+  {
+    "path": "assets/scenes-ground-preview/scene-11-sand-detail.webp",
+    "bytes": 412602,
+    "sha256": "6d64bf76e0f1977e24e98bcf0e0a72ac27122e864b4d14226e23e0b2022de5df"
+  },
+  {
+    "path": "assets/scenes-ground-preview/scene-16-ground.webp",
+    "bytes": 166204,
+    "sha256": "deb7b0945e4e90db248d42d09ec9f6f313c33eb15209d4e4a0e1d12be45ae5ef"
+  },
+  {
+    "path": "assets/scenes-ground-preview/scene-20-contrast.webp",
+    "bytes": 525726,
+    "sha256": "831d7417fe69ef0e9adb72b929afcb344930fa74f15d4686bc6ca4c59335b0c9"
   },
   {
     "path": "assets/scenes-v2/scene-01.webp",
@@ -530,19 +320,9 @@
     "sha256": "a9c94c2d3ae4acf9e0e65a33204d91d9c2201f491cd79345115a43eb3504e074"
   },
   {
-    "path": "assets/scenes-v2/scene-02.png",
-    "bytes": 3347064,
-    "sha256": "93e0b1dfc7cdcedbcf16e0cfbf64f59d41ee34cfb4464fb50c5686ebd7b395f0"
-  },
-  {
     "path": "assets/scenes-v2/scene-02.webp",
     "bytes": 480040,
     "sha256": "fd6d0eddc42cc2c1656cfad6daa8de4450ccdfc7abf93bae557884421fc90693"
-  },
-  {
-    "path": "assets/scenes-v2/scene-03.png",
-    "bytes": 3282458,
-    "sha256": "b31ff2ef4ee29c5d27d7879eae609c74666094c99033c72b05ba0703e21b060f"
   },
   {
     "path": "assets/scenes-v2/scene-03.webp",
@@ -550,19 +330,9 @@
     "sha256": "6e0fb6afbb264353c8be62b83515f7b42b50ecec7db7121e58cae7476a5e915e"
   },
   {
-    "path": "assets/scenes-v2/scene-04.png",
-    "bytes": 3356835,
-    "sha256": "3c07087dc646ba90c5b84f5875c728e9553b824dd24562dedfb5ccaa49a9ee13"
-  },
-  {
     "path": "assets/scenes-v2/scene-04.webp",
     "bytes": 490084,
     "sha256": "80b3bd4caaaf39bf0621ea4b297af183560c8aec4450ef7bb339d7d75dc68a50"
-  },
-  {
-    "path": "assets/scenes-v2/scene-05.png",
-    "bytes": 3241274,
-    "sha256": "bd54667639fe6d81a8b730dd878ccf441979b3c1a7e2c2d7122e3b4fdc25556e"
   },
   {
     "path": "assets/scenes-v2/scene-05.webp",
@@ -570,19 +340,9 @@
     "sha256": "fad9e371e58549a7f97fed559a071bbd82bde787630d43a4843b9dce61ceddda"
   },
   {
-    "path": "assets/scenes-v2/scene-06.png",
-    "bytes": 3312654,
-    "sha256": "2c119f00b85c92bc743911d928f45ce9204f4b7c954f03023d4e471ebbe9a590"
-  },
-  {
     "path": "assets/scenes-v2/scene-06.webp",
     "bytes": 458866,
     "sha256": "56faadffe9ddfbd71d982dee9de47495d06d4e3d3ac4385606c4de2e97182dfa"
-  },
-  {
-    "path": "assets/scenes-v2/scene-07.png",
-    "bytes": 3346270,
-    "sha256": "8cb802d868596825cba95f2fe152be620c6313e27395da9d3f7067c4b693c8ad"
   },
   {
     "path": "assets/scenes-v2/scene-07.webp",
@@ -590,19 +350,9 @@
     "sha256": "2a470876c34fe3f791a7559c53741a8a8dc957b1f36b5423d26602951d67565a"
   },
   {
-    "path": "assets/scenes-v2/scene-08.png",
-    "bytes": 3336274,
-    "sha256": "d3da1d8889eab6cd9d4aa2c86d93c5ae4c34da05eaa2be2a1afdcaccc5f6e06d"
-  },
-  {
     "path": "assets/scenes-v2/scene-08.webp",
     "bytes": 486422,
     "sha256": "d70b4c58e378e1d819c2e87c262fc29e849259ed479f07467ce4934da979c9ce"
-  },
-  {
-    "path": "assets/scenes-v2/scene-09.png",
-    "bytes": 3326288,
-    "sha256": "7842362f76ab7ff224ef7a5ea71ad64654fbf6aa82843b84c4b1f16931b85f69"
   },
   {
     "path": "assets/scenes-v2/scene-09.webp",
@@ -610,19 +360,9 @@
     "sha256": "156375dc5387909d79e8c6d5d79205f82e2ddd189f96a89c3036c8738abbb7c3"
   },
   {
-    "path": "assets/scenes-v2/scene-10.png",
-    "bytes": 3334444,
-    "sha256": "4514f7c8a2b973f5ec414562a60b02b05fbe2f347b8f2623008bde43d6a2f6f4"
-  },
-  {
     "path": "assets/scenes-v2/scene-10.webp",
     "bytes": 491270,
     "sha256": "e959e917895e4d94781d5c595b735a9e6338b59466c270ac22f1459414612a2e"
-  },
-  {
-    "path": "assets/scenes-v3/scene-11.png",
-    "bytes": 3780136,
-    "sha256": "2870ffb9d9bd4e35f214af5506b6e1390f9cd63d47261f4e95eb25415d0784ec"
   },
   {
     "path": "assets/scenes-v3/scene-11.webp",
@@ -630,19 +370,9 @@
     "sha256": "212ff679be29e56c08b413aab80e96c656344dab21e235da5ca6c9598008e9d3"
   },
   {
-    "path": "assets/scenes-v3/scene-12.png",
-    "bytes": 3548154,
-    "sha256": "b748bb586fa8cc2ddb5d83409f10708aa57106823201431453d53c32abbe9c15"
-  },
-  {
     "path": "assets/scenes-v3/scene-12.webp",
     "bytes": 423142,
     "sha256": "163786e4e7d4ddc6452395ad63f14d40c2118c41ae63f2aa8105283f2cf0a745"
-  },
-  {
-    "path": "assets/scenes-v3/scene-13.png",
-    "bytes": 3314533,
-    "sha256": "4fe276e25481a22ac7af1cf268911c7e58798d89f93489d672e40648c687880d"
   },
   {
     "path": "assets/scenes-v3/scene-13.webp",
@@ -650,19 +380,9 @@
     "sha256": "c2d707a1fefb6c074a4cddadbc990f85c4e3a9e64956327e784a9855b5959637"
   },
   {
-    "path": "assets/scenes-v3/scene-14.png",
-    "bytes": 3918637,
-    "sha256": "f1d71927ebb3e1cc6d49eb72fc44c8047ba966a183916735a033267a243464f3"
-  },
-  {
     "path": "assets/scenes-v3/scene-14.webp",
     "bytes": 515382,
     "sha256": "205124128afd453ba035c8e898f65ebc90bde9d36123746d8720a45ff16c253a"
-  },
-  {
-    "path": "assets/scenes-v3/scene-15.png",
-    "bytes": 3345083,
-    "sha256": "9e6e11cb4226d6474a01db8c2c26d4179b67a765446565a1da5c8b8913335242"
   },
   {
     "path": "assets/scenes-v3/scene-15.webp",
@@ -670,14 +390,124 @@
     "sha256": "cd29691aadc39eb216b5dd890d18aa9ec3becbb3216ad72bf9266c9846855199"
   },
   {
-    "path": "assets/scenes-v3/scene-16.png",
-    "bytes": 3179487,
-    "sha256": "6ca0cfd2c310fa8cbb1d9253127945945fc3850562c8fd78873d12135c6999ac"
-  },
-  {
     "path": "assets/scenes-v3/scene-16.webp",
     "bytes": 341424,
     "sha256": "1e031b10e0d9c7648a39910c87f35e97d596bb79a649871f66b26c296e740609"
+  },
+  {
+    "path": "assets/scenes-v4/scene-01.webp",
+    "bytes": 137352,
+    "sha256": "03183accc393c0013f7617e02ff9b5843f4709919a1c05ad95c91f9950270f20"
+  },
+  {
+    "path": "assets/scenes-v4/scene-02.webp",
+    "bytes": 325570,
+    "sha256": "6911edecb22194d6af222f3513c77a5e305b07684ac3be66530d2ba12f4f131c"
+  },
+  {
+    "path": "assets/scenes-v4/scene-03.webp",
+    "bytes": 323744,
+    "sha256": "5a02c506f285ff2947e419fc5f181f88390a423fb2c6d62bbe107080b4ad593c"
+  },
+  {
+    "path": "assets/scenes-v4/scene-04.webp",
+    "bytes": 285744,
+    "sha256": "242a96f64137afac536a51ba6ca9c1cd2dff6a85a559ea333b30a7f1360021c1"
+  },
+  {
+    "path": "assets/scenes-v4/scene-05.webp",
+    "bytes": 308244,
+    "sha256": "f4924fc41622e0d8f826e14fd88f0f1fa04e11bb68c134fd9c36fbb321331b19"
+  },
+  {
+    "path": "assets/scenes-v4/scene-06.webp",
+    "bytes": 309568,
+    "sha256": "ec0c45373753421b8ba5e08c50c8033933722fb3534f7f4a3a48be4faa82349a"
+  },
+  {
+    "path": "assets/scenes-v4/scene-07.webp",
+    "bytes": 321686,
+    "sha256": "5d15e2bd4a3653252bba014a71f2e03715f5803bdec1855f28d08b95051255c1"
+  },
+  {
+    "path": "assets/scenes-v4/scene-08.webp",
+    "bytes": 322068,
+    "sha256": "9a51dd7811e33227cbb7589d8d7fe93f1c9aeac261430328ad660b947be85447"
+  },
+  {
+    "path": "assets/scenes-v4/scene-09.webp",
+    "bytes": 322566,
+    "sha256": "c166b84856d278a508542610571484be844be0e39c51086f8ff569967819220a"
+  },
+  {
+    "path": "assets/scenes-v4/scene-10.webp",
+    "bytes": 319800,
+    "sha256": "92d6e308bf14366d8dc3dea558f58b5fc2e86dea4aaf6a98262814ed3a7529d4"
+  },
+  {
+    "path": "assets/scenes-v4/scene-11.webp",
+    "bytes": 211938,
+    "sha256": "9b6d7020069d6a9100da1deaa37a0677e375bdfa407ae8b3b31d6a3c4e3c6137"
+  },
+  {
+    "path": "assets/scenes-v4/scene-12.webp",
+    "bytes": 110878,
+    "sha256": "c7beefd651f8992f1c1eb0e1ff691d8b18ef90aa0c22dba4cda0233dacaaf00c"
+  },
+  {
+    "path": "assets/scenes-v4/scene-13.webp",
+    "bytes": 313798,
+    "sha256": "2f2541bec1aac5c4d9b200153f68c4b7bd23eb5f97cae637a28f77a4e131eb5f"
+  },
+  {
+    "path": "assets/scenes-v4/scene-14.webp",
+    "bytes": 320182,
+    "sha256": "9ebc2164907e78345329c7c9445850276653f5d1072151dab446da72d616e623"
+  },
+  {
+    "path": "assets/scenes-v4/scene-15.webp",
+    "bytes": 317564,
+    "sha256": "aa58f108ca4dadb2f4ea81f3f336cb24142cebb17aec4ea340bb4c562254567c"
+  },
+  {
+    "path": "assets/scenes-v4/scene-16.webp",
+    "bytes": 181052,
+    "sha256": "caa3e5f805a58646935cd4fa77d8a12d382581e3c1164bb99ef0a30f20d5abbe"
+  },
+  {
+    "path": "assets/scenes-v4/scene-17.webp",
+    "bytes": 250988,
+    "sha256": "bd1fbfecdaf56469499fd923540d84dd67065d20417bec7e897dc20e37e27999"
+  },
+  {
+    "path": "assets/scenes-v4/scene-18.webp",
+    "bytes": 241312,
+    "sha256": "291ab316cc7062d788b77df57a382b369b9c0da569e9c96ab811117e31abea1c"
+  },
+  {
+    "path": "assets/scenes-v4/scene-19.webp",
+    "bytes": 315090,
+    "sha256": "2749e3240e0a4eae90e5bbba73e81422bfa052a326eac91c9787da0b4b2d454e"
+  },
+  {
+    "path": "assets/scenes-v4/scene-20.webp",
+    "bytes": 326738,
+    "sha256": "8edf5fdbffcdfad4dce554bee55be919d17b3b8c79b36448b86b0f7004ad0316"
+  },
+  {
+    "path": "assets/sfx/call-sauropod.wav",
+    "bytes": 72808,
+    "sha256": "70731a55377a7eb1db77729db3a183e4a2d5e9bfd223dc08453941d471b2322b"
+  },
+  {
+    "path": "assets/sfx/call-small.wav",
+    "bytes": 36648,
+    "sha256": "20a5948f92e978df50dd2d252aa945a9173586c174268bea7ebe2a46020622c7"
+  },
+  {
+    "path": "assets/sfx/call-theropod.wav",
+    "bytes": 54288,
+    "sha256": "41fb0a1c138100e93ad4af1229bcf4b7c9bb538789266acb494221c34aad4c96"
   },
   {
     "path": "assets/sfx/footstep-grass.wav",
@@ -730,19 +560,9 @@
     "sha256": "b798b2c0d8d2729f7e87d21138a8d81f46aea792c6908c09d456aeb4d1b17402"
   },
   {
-    "path": "assets/spino-3d.png",
-    "bytes": 700623,
-    "sha256": "a21a928df51f267e09a0460256fc41173b2d87bf451db7f439e8c327e1e0b201"
-  },
-  {
-    "path": "assets/spino-3d.webp",
-    "bytes": 118068,
-    "sha256": "dab571c3ea87a69bd194d92da860ecdfd2e3413cb851e526a8d8e3c986daa5ad"
-  },
-  {
-    "path": "assets/stego-3d.png",
-    "bytes": 2455031,
-    "sha256": "5f1da2227cd1d44064ab3ac2fa119a5847e1e2f75c0edf0a0cffd839c1607cad"
+    "path": "assets/spino-reference-v1.webp",
+    "bytes": 293384,
+    "sha256": "d61517a1914744e12c0dbfba269bc0e2de37bdd3e4fd80e560a3e46eb8971a29"
   },
   {
     "path": "assets/stego-3d.webp",
@@ -750,19 +570,9 @@
     "sha256": "024ed557a15ad48fd8fdcc2fb1e13041dc2a173a08c328e60a263d25e6c3ab46"
   },
   {
-    "path": "assets/struthio-3d-v3.png",
-    "bytes": 921784,
-    "sha256": "0195ec863a5560d488bd64f805c24c8814ea69cb9dc55031ac73a97894fb4d4b"
-  },
-  {
     "path": "assets/struthio-3d-v3.webp",
     "bytes": 142168,
     "sha256": "5b20c16541449e7b828ef29b89c80c5b2fdba32aa7cffdb0321c5561fd6bf469"
-  },
-  {
-    "path": "assets/styraco-3d.png",
-    "bytes": 1954724,
-    "sha256": "2319526154e06505130ac2124f0cd6afade3852a767d33a7415bc1ad9030b0ce"
   },
   {
     "path": "assets/styraco-3d.webp",
@@ -770,19 +580,9 @@
     "sha256": "a3602dd2733232b0521ce747e17367ced085f5712070cde74cf9258109da0738"
   },
   {
-    "path": "assets/therizino-3d-v2.png",
-    "bytes": 1215376,
-    "sha256": "2eafb38f96742bda1e60161cde6b60bb40fb70b16967f72eb5a2439670e5f702"
-  },
-  {
     "path": "assets/therizino-3d-v2.webp",
     "bytes": 170524,
     "sha256": "b56b8a4f992f072b53988b9e5a59c78b6f02f929536a6605bc1e2859d3523778"
-  },
-  {
-    "path": "assets/trex-3d.png",
-    "bytes": 545060,
-    "sha256": "78fbf60b8cb0a6c5ea520905e8f8e3900b0f10338fb06c655d80cb65ad849c25"
   },
   {
     "path": "assets/trex-3d.webp",
@@ -790,14 +590,9 @@
     "sha256": "d76cc81bd29400a3bfb6d914bd41ff70ba5c7eaae859be59ffa2a41a1585996b"
   },
   {
-    "path": "assets/trike-3d.png",
-    "bytes": 1782755,
-    "sha256": "564d8ea204276b6db223271a191e4c686ce52911bc9b9b646c9a6b2ec2d7da02"
-  },
-  {
     "path": "assets/trike-3d.webp",
-    "bytes": 271014,
-    "sha256": "16bf15d5a2dde660d5583ea31929a3fea983f98bfb3c68ad729d5b28c72a8943"
+    "bytes": 90298,
+    "sha256": "ec7baf2e8bd2c2ecb50615f8c7d0c0798541174abeb52b2c53d392bd64a94b24"
   },
   {
     "path": "assets/voice/chapter-complete.m4a",
@@ -806,28 +601,28 @@
   },
   {
     "path": "assets/voice/chapter2-51.m4a",
-    "bytes": 85713,
-    "sha256": "b49ae0274ab00ca0da45a7bd0a2fa829f7a45c9e8a16715e45cc7280257070dd"
+    "bytes": 88932,
+    "sha256": "be7b54edf495b9aae3e63bf2d7d29abe1cf88d32f680d91114723802a5d9f840"
   },
   {
     "path": "assets/voice/chapter2-52.m4a",
-    "bytes": 83805,
-    "sha256": "6e2f33a7a1b4bf9e70fa46299314f08d81e1e602cfadbdcb5b0cac0fa9800bf7"
+    "bytes": 87623,
+    "sha256": "784faf0f9194d5b6da2503fe4aa7f43cbe407ccda7b6ddfb24a992de7ddba2ca"
   },
   {
     "path": "assets/voice/chapter2-53.m4a",
-    "bytes": 84717,
-    "sha256": "cbc2deebf26c103f55395bb1474fc364d685de8105f77ba05b3817d5eb62fd1c"
+    "bytes": 88942,
+    "sha256": "c367dc8470ac8a8bf5f2e265cf4584bcd4f5f2039768f74e65fb33385bcb1cda"
   },
   {
     "path": "assets/voice/chapter2-54.m4a",
-    "bytes": 84687,
-    "sha256": "46b8f824161cff3f572925d940ea4268367d8f9339b280f0b84309e9d894d105"
+    "bytes": 87982,
+    "sha256": "6bec87cae68bcc7d103223079b3d0605f9dc72399da927318173ad91eba4088b"
   },
   {
     "path": "assets/voice/chapter2-55.m4a",
-    "bytes": 85541,
-    "sha256": "ac0ab0750edaac6dedb2f70d642ec8025987ef8a24ef0fc5f947f0c8d59538ee"
+    "bytes": 88950,
+    "sha256": "ef68109b6b53b14b6bd60cc236ff89efbbd02160e4fb44210abc49e69239d3ba"
   },
   {
     "path": "assets/voice/chapter2-56.m4a",
@@ -908,6 +703,11 @@
     "path": "assets/voice/chapter2-complete.m4a",
     "bytes": 195761,
     "sha256": "7c7ded9ce8cbe33aaf75686b689410e931b7f7a49c610e34b017579a8bf22a44"
+  },
+  {
+    "path": "assets/voice/fossil-unlock.m4a",
+    "bytes": 57858,
+    "sha256": "9c14e4a9b1e9b3b4b00e767428c3dff5c2294846ca175667d2d31d7168256c09"
   },
   {
     "path": "assets/voice/gallery-alamo.m4a",
@@ -1256,43 +1056,43 @@
   },
   {
     "path": "assets/voice/grade2-71.m4a",
-    "bytes": 102760,
-    "sha256": "248b8129480970dcdb0e57535dfb44ac704be260700ad4e2101bcf1b895744a6"
+    "bytes": 103595,
+    "sha256": "e2dc66b24d069752afae402f05f40ce16ab4bd4e78bf19133dcb9c11000755f9"
   },
   {
     "path": "assets/voice/grade2-72.m4a",
-    "bytes": 100462,
-    "sha256": "0716b99725d5dcb52bf888ca6e52242fe5e1ea03117ec6be4cdc50919d3a0b83"
+    "bytes": 101665,
+    "sha256": "ba62dfbc3195c692b8c05e89ccdfe3098406e7b6392e5984c20b774d9e40f157"
   },
   {
     "path": "assets/voice/grade2-73.m4a",
-    "bytes": 103383,
-    "sha256": "0d302c82471170506e9631f35e7814de71fc6c9eff34967afba977f419c4fb2d"
+    "bytes": 103580,
+    "sha256": "1a4e4cc4416b7057fea34d52743879208d112e9ea3411fd590785a9a1ba5de7a"
   },
   {
     "path": "assets/voice/grade2-74.m4a",
-    "bytes": 106328,
-    "sha256": "93247d422e61b48496ab19c20d81be62224bb5341bfdcff3518fc14542baffa6"
+    "bytes": 104428,
+    "sha256": "4ce6f8cd573456fc5eed0fc4eab6c810b34a722b23d8999f5a63153ec5e64c6a"
   },
   {
     "path": "assets/voice/grade2-75.m4a",
-    "bytes": 104106,
-    "sha256": "7e62a3a11363bea47dd2865ec512e74cea34a7cf7834be8e2328713626d0493f"
+    "bytes": 103041,
+    "sha256": "54b9c1d8fc3d97c568ebc0fcf6fec7e1f7b4d2e0b39a5166a9e28cd24988074b"
   },
   {
     "path": "assets/voice/grade2-76.m4a",
-    "bytes": 103454,
-    "sha256": "6454673ac5237b42e83ea512d784ce57c50a3b134d1ba1c386750054347b406a"
+    "bytes": 103770,
+    "sha256": "dc275b46be87c5a6c26db05a93dbc2dbd493ebe9ce6e182f0efe2998ec91f069"
   },
   {
     "path": "assets/voice/grade2-77.m4a",
-    "bytes": 102699,
-    "sha256": "5dbbdcb1a15730e0eadf094cbc59a43188d060bc5af6565858cd9ebef3e38967"
+    "bytes": 103592,
+    "sha256": "bb57b94dbcd9577b355617ffebf4738ea954be7c28357518d9d40f3dbf158334"
   },
   {
     "path": "assets/voice/grade2-78.m4a",
-    "bytes": 102662,
-    "sha256": "22219155f938ed291d70d2fe59f63ad74d5947281fe06d8b174519693a270cf0"
+    "bytes": 103389,
+    "sha256": "245fa3a0ef0bf798c8403a957d529db1f86f204424a3fb7d25b24c93df5b8153"
   },
   {
     "path": "assets/voice/grade2-79.m4a",
@@ -1356,33 +1156,33 @@
   },
   {
     "path": "assets/voice/grade2-91.m4a",
-    "bytes": 102217,
-    "sha256": "ab8b2e76c5b6480f3bb5cf919e779da8d48884d14836e30c4397fa8f5a42cdcb"
+    "bytes": 103680,
+    "sha256": "e655173ee676e3789131a7d577298dc6af7f86f3dbb93c856d38ced08be02c44"
   },
   {
     "path": "assets/voice/grade2-92.m4a",
-    "bytes": 102972,
-    "sha256": "3f5fe92f1217fb65c296d63fafc4e2b5f4e3ffec98ebc878c12d84d0afeea7f7"
+    "bytes": 103368,
+    "sha256": "21fda70aaf370ec053d546c4579bb4dd267378352285a479c35b4fb8acc15ff3"
   },
   {
     "path": "assets/voice/grade2-93.m4a",
-    "bytes": 109080,
-    "sha256": "99679bba3c57dc34b98d709fb09ac87c456dc9cd95dbbc9d0d437a8e5c6a3055"
+    "bytes": 107869,
+    "sha256": "28a29b12ed32114a628d9edad2ffbb0d1516b2fefeeac9a7241caa02fcad0381"
   },
   {
     "path": "assets/voice/grade2-94.m4a",
-    "bytes": 107183,
-    "sha256": "f96fbc4f0bebc883929a7c4e3aed1738041ca7b87cf5db6bfc41dac5df0a20d3"
+    "bytes": 105291,
+    "sha256": "95479624a0b54a1ef8072791686a8ebaabbc5ae37f4da0fa9493dc200eb86216"
   },
   {
     "path": "assets/voice/grade2-95.m4a",
-    "bytes": 103750,
-    "sha256": "8a203765b613830b24b928ac009b699815c4443fa156da605117aef44165a9e2"
+    "bytes": 103672,
+    "sha256": "8782f9fd01a4b9d2d998783fb39b4f5a70b3e8a816efd4093192302159f7c2ac"
   },
   {
     "path": "assets/voice/grade2-96.m4a",
-    "bytes": 103570,
-    "sha256": "b38357b0c10f280a30ecaeff46d7426d309a3e0a59ab749a4890e2d4c4421619"
+    "bytes": 103804,
+    "sha256": "97538697a3681c639cd0ff68188a18d34e4d89060bb976b657a53cbfce5183fe"
   },
   {
     "path": "assets/voice/grade2-97.m4a",
@@ -1421,8 +1221,8 @@
   },
   {
     "path": "assets/voice/grade2-complete.m4a",
-    "bytes": 181543,
-    "sha256": "717f951918430d0d6f7ff65eb4ed5c969dc063acc969de23890040c3315768c5"
+    "bytes": 179681,
+    "sha256": "b10892e008fd36ea4b5a6b7a1640ae21b14ee28e96e123cd5fcfa2e57f923e6d"
   },
   {
     "path": "assets/voice/grade2-wrong.m4a",
@@ -2290,29 +2090,219 @@
     "sha256": "d8379754de91cb118789a6b7ede71648453c78f3cc90bf79807d53be662b983e"
   },
   {
+    "path": "assets/voice/prompt-add-first-1.m4a",
+    "bytes": 23943,
+    "sha256": "a912a4992f8538367fefa4de099bf85cffac4d18a49993f3783999033f8076ce"
+  },
+  {
+    "path": "assets/voice/prompt-add-first-2.m4a",
+    "bytes": 24444,
+    "sha256": "5f81562bdbce967f11f6a789e48fadddeca8939a6099ef94bd50a246ea27668d"
+  },
+  {
+    "path": "assets/voice/prompt-add-first-3.m4a",
+    "bytes": 24687,
+    "sha256": "41aac15fe4cda329f91e157d50aba8bc8f083a94f13f7f89d5c972359831d40f"
+  },
+  {
+    "path": "assets/voice/prompt-add-first-4.m4a",
+    "bytes": 24858,
+    "sha256": "4042c33a4b06a26deebde2bd895404ea5f0fac0aef3ba9c961772858087583f3"
+  },
+  {
+    "path": "assets/voice/prompt-add-first-5.m4a",
+    "bytes": 24031,
+    "sha256": "1a36857edfb6dd224da70345e8f7977a3c385c614730ef952ebd457f6d807715"
+  },
+  {
+    "path": "assets/voice/prompt-add-more-1.m4a",
+    "bytes": 26437,
+    "sha256": "5e15e05f9b1f427f82dcd3e72515ae9b503d126295b352885c4510e560d3795f"
+  },
+  {
+    "path": "assets/voice/prompt-add-more-2.m4a",
+    "bytes": 29335,
+    "sha256": "e6a480842722e74652e010b056f80430b2caa2ea9362fc3f19b9b289feb5da09"
+  },
+  {
+    "path": "assets/voice/prompt-add-more-3.m4a",
+    "bytes": 27779,
+    "sha256": "357ebf8fa23d4c668e21bafc42c492ac978383bb126ae081c7d070774442375e"
+  },
+  {
+    "path": "assets/voice/prompt-add-more-4.m4a",
+    "bytes": 29968,
+    "sha256": "a96b14ac570e2052925215591118b905b04a4ba18f5d2f04363b3099ec97fa8f"
+  },
+  {
+    "path": "assets/voice/prompt-sub-first.m4a",
+    "bytes": 25567,
+    "sha256": "21461bae3274f80708cd1e2a4398bfc122e8073e586b81f710ff12a4ea2b299d"
+  },
+  {
+    "path": "assets/voice/prompt-sub-more-1.m4a",
+    "bytes": 25277,
+    "sha256": "550efba4c590ee2db9b2d7dc1c57266d8d52340fd1a6b5a7c3a2989d2b2c133a"
+  },
+  {
+    "path": "assets/voice/prompt-sub-more-2.m4a",
+    "bytes": 26707,
+    "sha256": "927251697ad03e6be1cbeb593277c15f0c2fb3caf0afe89815ff657a53b7e255"
+  },
+  {
+    "path": "assets/voice/prompt-sub-more-3.m4a",
+    "bytes": 28612,
+    "sha256": "6b30704b9c470673f7aa175ce648316d630810a2156fe74fe50b66eea84056f5"
+  },
+  {
+    "path": "assets/voice/prompt-sub-more-4.m4a",
+    "bytes": 28465,
+    "sha256": "69166faca5269a47dda5e5ca35eb86de5065b9bf497cd90fa5e9892a7fba619e"
+  },
+  {
+    "path": "assets/voice/story-back-0.m4a",
+    "bytes": 56860,
+    "sha256": "6ef3e8522706661739a87a6e405cd4ba9f1bfafe40a5c8f6b15e27b3ce6e46bf"
+  },
+  {
+    "path": "assets/voice/story-back-1.m4a",
+    "bytes": 63904,
+    "sha256": "25737324b82a7082b9f1a5ff3e6a675238e1913bd90de0a68e21f704bc757713"
+  },
+  {
+    "path": "assets/voice/story-back-10.m4a",
+    "bytes": 68880,
+    "sha256": "b579b00c7ae7ab63a771d82d35805830154680009fa44f93643b229af397b307"
+  },
+  {
+    "path": "assets/voice/story-back-2.m4a",
+    "bytes": 65326,
+    "sha256": "2f9f441d5d38ed19a0caf47998dc3f81e25e472e124bbec92f6d85f194ce7e23"
+  },
+  {
+    "path": "assets/voice/story-back-3.m4a",
+    "bytes": 67167,
+    "sha256": "597e8edbd863b7738a6b1db5c519c9707535f3f22035461ec2cacbb8cb91a875"
+  },
+  {
+    "path": "assets/voice/story-back-4.m4a",
+    "bytes": 68489,
+    "sha256": "c75ba73a9630c559e6d7e6af5dd6b72142d1d1188f90953190921b91c557332d"
+  },
+  {
+    "path": "assets/voice/story-back-5.m4a",
+    "bytes": 68301,
+    "sha256": "7622cae4d9e4d7fbe870874ab53a2e3641ab39687be63aab6823e55b283e04ab"
+  },
+  {
+    "path": "assets/voice/story-back-6.m4a",
+    "bytes": 67358,
+    "sha256": "aea78391c52f8c58de9846641b18837d9bab6dd8b7ddc06d43f4d7e5fb64cff5"
+  },
+  {
+    "path": "assets/voice/story-back-7.m4a",
+    "bytes": 68345,
+    "sha256": "f8959c9ca4259129ffeb400702f9b43e39d0457a81f87c911d15581cc2513a46"
+  },
+  {
+    "path": "assets/voice/story-back-8.m4a",
+    "bytes": 63896,
+    "sha256": "66b8b7d3e4e9d966e7e09e1815f2d4156afbb301a0205f56821a294f1ddfc04d"
+  },
+  {
+    "path": "assets/voice/story-back-9.m4a",
+    "bytes": 67709,
+    "sha256": "b0329ce42a32c1a330039447eb4cf22a260e75a9418979b01f5ac471e4c75577"
+  },
+  {
+    "path": "assets/voice/story-home-1.m4a",
+    "bytes": 79380,
+    "sha256": "bb13ee6b88adb040fa139743f41e9721efb1e81107261dc3656558c3ab97b9d5"
+  },
+  {
+    "path": "assets/voice/story-home-10.m4a",
+    "bytes": 143623,
+    "sha256": "666c0b04e836a494142eab091bac7e9239e3dce71845a888c465952eefc0367a"
+  },
+  {
+    "path": "assets/voice/story-home-2.m4a",
+    "bytes": 100912,
+    "sha256": "47132f321706577e03340e1eddc6afc7e3f18911e02ea404cacfd48067c68f78"
+  },
+  {
+    "path": "assets/voice/story-home-3.m4a",
+    "bytes": 108134,
+    "sha256": "b3f9bcbb0e99e9a0b623c5e4d2da81c9f835e84c55802bd32d8e6acb2f84154c"
+  },
+  {
+    "path": "assets/voice/story-home-4.m4a",
+    "bytes": 105030,
+    "sha256": "1c785f7e25173d564d6a1e8aa6475eeeadab28794a830ad745426df67ecfd495"
+  },
+  {
+    "path": "assets/voice/story-home-5.m4a",
+    "bytes": 76393,
+    "sha256": "4850e75c00a8493941430fc10aa179b8d6e1f1e93878c3189ecbbfb6db2d0f18"
+  },
+  {
+    "path": "assets/voice/story-home-6.m4a",
+    "bytes": 103739,
+    "sha256": "cb7a296f280b256af5ef9019d0b3f46c9836872e17cd71ba53fc156d15603417"
+  },
+  {
+    "path": "assets/voice/story-home-7.m4a",
+    "bytes": 94175,
+    "sha256": "93a6da686ead3105a66c29a9236e9941da1ac3c79ba82f9b650e492a3a9fab65"
+  },
+  {
+    "path": "assets/voice/story-home-8.m4a",
+    "bytes": 64579,
+    "sha256": "b8edf60266d81d050b6d0eb3ff17e9c4ba8f24e6eb312c41ee513905495519c7"
+  },
+  {
+    "path": "assets/voice/story-home-9.m4a",
+    "bytes": 82905,
+    "sha256": "cdfb9c80e422db500efcdf27726ec4a4cfc712615c33df3ef6f05c5784223c73"
+  },
+  {
+    "path": "assets/voice/story-prologue.m4a",
+    "bytes": 195087,
+    "sha256": "9177ece371ce5711a1db0a4874ee0c284e9fcb1915d203303d2ca13f07bad29d"
+  },
+  {
+    "path": "assets/voice/story-secret.m4a",
+    "bytes": 124314,
+    "sha256": "e1a9320aee5a91650d386371c0e077e53a67a89159f3e95c8172f4c8a242ee3e"
+  },
+  {
+    "path": "assets/voice/story-waiting.m4a",
+    "bytes": 61323,
+    "sha256": "9a37a4c88f62c7d1bd4fadbaed95e2636346e1fdfb7e21ab2d7a34ffaa9f8cc1"
+  },
+  {
     "path": "assets/voice/task-01.m4a",
-    "bytes": 59748,
-    "sha256": "d505dba8cd909f333fbbc0ef7453d953aea485c886547ce824d46ccc25efb2bb"
+    "bytes": 68697,
+    "sha256": "72c1b48520c2a21122bdfe857b275450128b2721e2c86e6a5ade001f0bb9a5b6"
   },
   {
     "path": "assets/voice/task-02.m4a",
-    "bytes": 58522,
-    "sha256": "f2a72bf817aa12e71763b1ec3b10a188e46a27fd06a12348eab257c51bf7d308"
+    "bytes": 69524,
+    "sha256": "1cec27a5a576ef6af49c59731885e037c158efbc0f74fb7fb84159d329e00db6"
   },
   {
     "path": "assets/voice/task-03.m4a",
-    "bytes": 58685,
-    "sha256": "7da2bdfe1b1cdfe141730a193b8d4fae3b35e89fd778ec0c4916c2639d91cc33"
+    "bytes": 70171,
+    "sha256": "5d3122b9f4bc4706d9a4b3b1b613e2fa6a55b9983a326f2f3d10905034e8baf3"
   },
   {
     "path": "assets/voice/task-04.m4a",
-    "bytes": 61908,
-    "sha256": "69819b578f222941ea6c7adf6dd8911377b3633e97e5bb08452f0b86d040d691"
+    "bytes": 67878,
+    "sha256": "300570b7e6e1ee3045fdcaed90245ec5d3aafdb7806eb72adc750a0a2d1504c4"
   },
   {
     "path": "assets/voice/task-05.m4a",
-    "bytes": 62241,
-    "sha256": "1bb396b8d3d48b01994c19ebd6ef26235cf9a0104ea85c4d643f7b8d8adf21ec"
+    "bytes": 67437,
+    "sha256": "9f28cd5a5f6be16531e656ceb926a6a7e5135070465b57d071add1c281e4b833"
   },
   {
     "path": "assets/voice/task-06.m4a",
@@ -2341,53 +2331,53 @@
   },
   {
     "path": "assets/voice/task-11.m4a",
-    "bytes": 65580,
-    "sha256": "f0c5817cd160967527bb8396bc04f9ee1360398bb3e86a8f9f19a598ae8efff8"
+    "bytes": 67342,
+    "sha256": "6fd77eedf9e2d0cd319a924d4601e379153cab77302efbb1fed0cd432f6d2d94"
   },
   {
     "path": "assets/voice/task-12.m4a",
-    "bytes": 62141,
-    "sha256": "83541ccd4b2f6e833177de5f21eebdbc16686f6ca631594bda47e25a50042c4a"
+    "bytes": 67429,
+    "sha256": "70dd7207ddc6bad2a7c19876813b50565a6debbb85adda55054991cd73ddeb2d"
   },
   {
     "path": "assets/voice/task-13.m4a",
-    "bytes": 62890,
-    "sha256": "547f0c813008e9cd030b5584b91b872f03cbfc9a224242d6d3a5c47dc0353c87"
+    "bytes": 66897,
+    "sha256": "bca38724aaa0a199e0780325bbb00d14253a445a9bbc5cfee2060717a7b4cae2"
   },
   {
     "path": "assets/voice/task-14.m4a",
-    "bytes": 59626,
-    "sha256": "a12d443cbd7d46721794f7806bfecd5c1fabdb15773c91636976e36ecbe5160d"
+    "bytes": 69415,
+    "sha256": "d700de792880cb8b07f4c265920035ea661464e1dd377bc4c03700c883223553"
   },
   {
     "path": "assets/voice/task-15.m4a",
-    "bytes": 62930,
-    "sha256": "844c8453707262512476c6b6f38cdf1a3b147fdc974b8c4f4e250d3a917cf892"
+    "bytes": 67616,
+    "sha256": "8f673bf5e7f38dea6707696e1ef03c6ebe3438e68f3401e93bfd9599e7a09564"
   },
   {
     "path": "assets/voice/task-16.m4a",
-    "bytes": 60750,
-    "sha256": "49d0f9626773ac70d9663150bd5d73e68e9720af717523aadc4a6dd194a632f3"
+    "bytes": 69396,
+    "sha256": "f043282c43c27cbd8df0d8ffe37131d9f71279b18c8efb951f488e9822ffec1f"
   },
   {
     "path": "assets/voice/task-17.m4a",
-    "bytes": 60708,
-    "sha256": "96937e5329eacae5e0ee0da7e8500030f5a1f4a149dd52412cab7926c41e1d10"
+    "bytes": 69771,
+    "sha256": "efa3127fa9830f080e45dc96d02368eacc9bca2dc95d4776579d11d67298f647"
   },
   {
     "path": "assets/voice/task-18.m4a",
-    "bytes": 61891,
-    "sha256": "675a030a79af8103f60fb8ad350e3cb4df7bf5b9389d1f50a2f9f65532781530"
+    "bytes": 67668,
+    "sha256": "da258065131b918885c9c3a99986e8018e14d9c1ea8cfa930afc903250bed553"
   },
   {
     "path": "assets/voice/task-19.m4a",
-    "bytes": 63684,
-    "sha256": "c8b58127bbf16def2c2a166cc08d71e11fbc60692e49906ba3efdd4bb597f38f"
+    "bytes": 67037,
+    "sha256": "1599b8c14ff600612b46e2d879433c9334a25c2031c79bf9ae3427be387ba799"
   },
   {
     "path": "assets/voice/task-20.m4a",
-    "bytes": 62573,
-    "sha256": "c7f7cae4f75692528d9b727054eb861b3714ad0f0f30150fcacdf5bcb401573c"
+    "bytes": 67499,
+    "sha256": "b6a558ec11f2ca13a7cf6b6e410b4b1eadea891ecf3735dba3d3d72b1c322315"
   },
   {
     "path": "assets/voice/task-21.m4a",
@@ -2446,8 +2436,8 @@
   },
   {
     "path": "assets/voice/task-32.m4a",
-    "bytes": 58824,
-    "sha256": "8b468d2c5e3a698667d7542623b3327785cd95c550b09325cded6ca51a2964bd"
+    "bytes": 70588,
+    "sha256": "6b3fbc7bad2f3dbf3e656fff19879ceaf4eef4af44c1e1ff8122b37274e1d745"
   },
   {
     "path": "assets/voice/task-33.m4a",
@@ -2466,28 +2456,28 @@
   },
   {
     "path": "assets/voice/task-36.m4a",
-    "bytes": 62745,
-    "sha256": "b8eee643695d455df685a595296ae85b5e2f065cb978be10e866f8ea2d8e54b0"
+    "bytes": 68023,
+    "sha256": "7d9736adc2ab6857325b976592a6b146ed50ed36dd8c3476c185dfbc8a716e41"
   },
   {
     "path": "assets/voice/task-37.m4a",
-    "bytes": 62447,
-    "sha256": "c536dc247ebb99206751ac4bc4a5a9b7ece630403504dcff7f8fef023ec0a89e"
+    "bytes": 67485,
+    "sha256": "64ae02516858458d8482c3ce194cb7aa0339c5c23e7c22b8e88649ffa4d8b373"
   },
   {
     "path": "assets/voice/task-38.m4a",
-    "bytes": 60249,
-    "sha256": "fc07528c216c0d268882dff14a82ec79cce4d4839982a7c3ece26ec725fafbaa"
+    "bytes": 69934,
+    "sha256": "270b98ccf0adac6cb82dad0552c9ebcbe420e07cd1484d0b3274105286aaff17"
   },
   {
     "path": "assets/voice/task-39.m4a",
-    "bytes": 61931,
-    "sha256": "ff4425f8e4f5d539e7aca2fcde4dfb817cf1eb1391a3b2c75c0e7c1c8a91292f"
+    "bytes": 68313,
+    "sha256": "57e5e28995964da90496348daddf6580b06a27cf41e75867b0b97a11f14edc7a"
   },
   {
     "path": "assets/voice/task-40.m4a",
-    "bytes": 59123,
-    "sha256": "97436592f8bae62d5f3aa1e6033cd89075937649daafbde4faa88b3a90ac3e5b"
+    "bytes": 69326,
+    "sha256": "33e8f3c019c36c00147fa6a155dc4faaf2396d48333b3e54478620785bfa8ddf"
   },
   {
     "path": "assets/voice/task-41.m4a",
@@ -2516,13 +2506,13 @@
   },
   {
     "path": "assets/voice/task-46.m4a",
-    "bytes": 64054,
-    "sha256": "0e6971f0017582973129b3d6658957a09403f8e6961bbc061dc4e714c5da2d05"
+    "bytes": 67144,
+    "sha256": "b3fac8dbbae1a2914a5d98af5f1df2957be60d5530cb058bb1f8141538776a57"
   },
   {
     "path": "assets/voice/task-47.m4a",
-    "bytes": 65881,
-    "sha256": "bed51a7c3e88e847f9a73e2c7c0433d34c93c676c62016feae318fe37b79fc07"
+    "bytes": 67404,
+    "sha256": "f2b93c4918f06072947568f222407f0339cf6199f423044de669b45f703b2302"
   },
   {
     "path": "assets/voice/task-48.m4a",
@@ -2545,24 +2535,299 @@
     "sha256": "0e6d660f4fe34a353079da2f0f46db76862369be51cf3cb1b61096e050fc6e2d"
   },
   {
+    "path": "assets/voice/task-place-51.m4a",
+    "bytes": 86417,
+    "sha256": "929146c2442485face0f80023f96378ecd8d2540b723deb439388ceaa256c610"
+  },
+  {
+    "path": "assets/voice/task-place-52.m4a",
+    "bytes": 84502,
+    "sha256": "85f215518c29a8d6774ffb9c747736a3f416eccfbd8c746f70afd985d78d1b57"
+  },
+  {
+    "path": "assets/voice/task-place-53.m4a",
+    "bytes": 81370,
+    "sha256": "c6550d0f95216566cc3262a64e5f18151dd6ac1ff1dc9371a73a0f76b3ee9e50"
+  },
+  {
+    "path": "assets/voice/task-place-54.m4a",
+    "bytes": 84765,
+    "sha256": "7190223a036b08e310bf5a2a0506559e9b8216d9147c7543972734fa28ca5c0d"
+  },
+  {
+    "path": "assets/voice/task-place-55.m4a",
+    "bytes": 86178,
+    "sha256": "d8beeea392438729d54f18bd9747c0366b617b10499428caea6b8aa1d8fbf930"
+  },
+  {
+    "path": "assets/voice/task-run-06.m4a",
+    "bytes": 53682,
+    "sha256": "3ad785cd7c910365c5e3f99011b2fe072d942489439b8f6c9fa57d4718f5ef1f"
+  },
+  {
+    "path": "assets/voice/task-run-07.m4a",
+    "bytes": 53835,
+    "sha256": "357e5c73343d46e9aa64769d1ac015e9495b9f72de0daac8235159f224f02b9d"
+  },
+  {
+    "path": "assets/voice/task-run-08.m4a",
+    "bytes": 54783,
+    "sha256": "99a84c598b13d75d6af2077c142a34e490c60fa71603e1ef42c78cedcf118a41"
+  },
+  {
+    "path": "assets/voice/task-run-09.m4a",
+    "bytes": 53963,
+    "sha256": "589df0a821cfee40bc97076c75d8b58a86868463c10d81888a0dc4ef3142cd3f"
+  },
+  {
+    "path": "assets/voice/task-run-10.m4a",
+    "bytes": 54848,
+    "sha256": "015bb8466fc71358cac00644cb338af18f6bba8d1df6b92c2c84ab514d1a9be8"
+  },
+  {
+    "path": "assets/voice/task-run-21.m4a",
+    "bytes": 54833,
+    "sha256": "ce1a8df0af0f7e8be43fc6744d1ff29d754ae8a4b58933e1b5c680115ed7ec79"
+  },
+  {
+    "path": "assets/voice/task-run-22.m4a",
+    "bytes": 58009,
+    "sha256": "3deea72422d656bf89c9937ec44b02f3cba84fd68aa54bbe0a2c38f63f23e1c1"
+  },
+  {
+    "path": "assets/voice/task-run-23.m4a",
+    "bytes": 55109,
+    "sha256": "d1621023d7df39100278bef46ba02de3b3855a2ca7f50c083da6d5b7045abc36"
+  },
+  {
+    "path": "assets/voice/task-run-24.m4a",
+    "bytes": 55215,
+    "sha256": "91d5ecc119d02ca2ec7c9cdbdf5a6ee3fbece6c4fec6974045aaebf4e1ba6409"
+  },
+  {
+    "path": "assets/voice/task-run-25.m4a",
+    "bytes": 56002,
+    "sha256": "e9c31504f0bb19e2e4809b8287b36d03b9c630deb65a07e855b7ed8a5693dd33"
+  },
+  {
+    "path": "assets/voice/task-run-26.m4a",
+    "bytes": 55737,
+    "sha256": "96e99aefe8fa47984338c8bb98be13e7eec09a44d357916e79e0a37b5881a447"
+  },
+  {
+    "path": "assets/voice/task-run-27.m4a",
+    "bytes": 55424,
+    "sha256": "47b9e90ae30697ba81fd476b93e8fcbc5d267964f1ee22346b221dbfd4122105"
+  },
+  {
+    "path": "assets/voice/task-run-28.m4a",
+    "bytes": 55463,
+    "sha256": "452e39c5d243facaa4b6143800ade7805f27fca42c0c63eb632e91a9f364d054"
+  },
+  {
+    "path": "assets/voice/task-run-29.m4a",
+    "bytes": 55079,
+    "sha256": "435582573a2f7ccd9ca388eafe16c993b19f4a05552387921abf369124129ff5"
+  },
+  {
+    "path": "assets/voice/task-run-30.m4a",
+    "bytes": 55097,
+    "sha256": "d54b63bc6a5e111a14bfb5f619dd5c0c482b8bbf3cc3237075868c577dacc931"
+  },
+  {
+    "path": "assets/voice/task-run-34.m4a",
+    "bytes": 54623,
+    "sha256": "6ba6719ce816f4c1313cd07ef5670a4e8855065197508806c2eb3c698e620f1b"
+  },
+  {
+    "path": "assets/voice/task-run-41.m4a",
+    "bytes": 53938,
+    "sha256": "a3453413858b69d9dbaa0af3a608526b7ef5945bbebdd1186b26d57dd35fc52b"
+  },
+  {
+    "path": "assets/voice/task-run-42.m4a",
+    "bytes": 54708,
+    "sha256": "e1f2c78a4c5dd0cfbcab1ee501fe84b2d11a0670dcc7a990e86087338cea64a3"
+  },
+  {
+    "path": "assets/voice/task-run-43.m4a",
+    "bytes": 56935,
+    "sha256": "d34e16be0bf1a17e91ddbfa68aabdcc01295834434d4497f6f1c7aeaef80fef6"
+  },
+  {
+    "path": "assets/voice/task-run-44.m4a",
+    "bytes": 55716,
+    "sha256": "2fe7ecd49319378042ed71518c9ff24457c3f2a2638904c5208b687875925a93"
+  },
+  {
+    "path": "assets/voice/task-run-45.m4a",
+    "bytes": 56117,
+    "sha256": "ef994d63b73d9ddb5bd43a0eca0b3f34e66436f6f5844f020e09dd1802b87a56"
+  },
+  {
+    "path": "assets/voice/task-run-48.m4a",
+    "bytes": 54957,
+    "sha256": "67c9997c78c5dbde4148c8e029b30c4b3d5f3e3c56d5456d6e0cff60cdc01e35"
+  },
+  {
+    "path": "assets/voice/task-run-49.m4a",
+    "bytes": 54017,
+    "sha256": "10bc18fa0cbf58f6f2a48a2c48d8f5124e2ef28c2af16da4c726abbd934ad2e2"
+  },
+  {
+    "path": "assets/voice/task-run-50.m4a",
+    "bytes": 54868,
+    "sha256": "05024f39e9e390f81857e2c6c8e3e0fde8ce7d5ee055bfaab62799d7ef2858da"
+  },
+  {
+    "path": "assets/voice/warmup-demo-add-1.m4a",
+    "bytes": 24892,
+    "sha256": "0c9f33401a1ebc2ee9f17d18fc3b82114faa0908382d07de2a77e4f30fe52a12"
+  },
+  {
+    "path": "assets/voice/warmup-demo-add-2.m4a",
+    "bytes": 23940,
+    "sha256": "b6f158d9f3b2601b7aa9feac66bc0f21b76f24810e85415632e954643da5bf22"
+  },
+  {
+    "path": "assets/voice/warmup-demo-add-3.m4a",
+    "bytes": 73596,
+    "sha256": "75c7319af6a5062b6f43fc6c2fbbb85c2f14cb1248da8f189c3631a68ae3e60c"
+  },
+  {
+    "path": "assets/voice/warmup-demo-sub-1.m4a",
+    "bytes": 24332,
+    "sha256": "11e60572fe63cb99468269417c220bd6d28a8ff223fede8c1dea2d946a336f04"
+  },
+  {
+    "path": "assets/voice/warmup-demo-sub-2.m4a",
+    "bytes": 23918,
+    "sha256": "310929f11abdaa2c5d1763e8d199190256c1bf93fed50d0ca6a64d2bd4142cd9"
+  },
+  {
+    "path": "assets/voice/warmup-demo-sub-3.m4a",
+    "bytes": 76072,
+    "sha256": "2b4a7dd2c2d771ec5f1104d50e485ef004063f8dd973203de5011d5195f38665"
+  },
+  {
+    "path": "assets/voice/warmup-find-minus.m4a",
+    "bytes": 24869,
+    "sha256": "eb08706ab39080bfc0ba67efdeb5e661f200c81ae4c3bffc71b57d6827072828"
+  },
+  {
+    "path": "assets/voice/warmup-find-plus.m4a",
+    "bytes": 25126,
+    "sha256": "a9631a0d04efbbc530713831e60fc3466adc2ba5318f7327796a757347b9021b"
+  },
+  {
+    "path": "assets/voice/warmup-guess-come.m4a",
+    "bytes": 40196,
+    "sha256": "ae8c86d079d6e5f8f5c6a7a7d6e9bfe5669a929f013c11bcdcc2af632d5410e7"
+  },
+  {
+    "path": "assets/voice/warmup-guess-leave.m4a",
+    "bytes": 40331,
+    "sha256": "4c426c29f84bf45a5e9c68794c89334fe40c8131ff9b998f79070dae65c3231c"
+  },
+  {
+    "path": "assets/voice/warmup-is-minus.m4a",
+    "bytes": 27703,
+    "sha256": "3ec81eba5db168a7b54cd77e4e9052264fae1737404bd93dbdd411806b88d27b"
+  },
+  {
+    "path": "assets/voice/warmup-is-plus.m4a",
+    "bytes": 26773,
+    "sha256": "a539ca73ae5c0fbe7affd82273bee18dba7e58f453bfb146908fcbac422334bc"
+  },
+  {
+    "path": "assets/voice/warmup-less.m4a",
+    "bytes": 26941,
+    "sha256": "eae210254673df2fc0420040c7ac90fb4c66d04e6f22e9d8155bcd8b43caffcd"
+  },
+  {
+    "path": "assets/voice/warmup-make-less.m4a",
+    "bytes": 24455,
+    "sha256": "ace67685d9fd988dbce45d9b1e19db04888f203aa86a8cbc51b6810ba75bd84c"
+  },
+  {
+    "path": "assets/voice/warmup-make-more.m4a",
+    "bytes": 24375,
+    "sha256": "9d5933b55c2df2c50f0ebfbcd8aa5a8d21f0e67b30d8f848df0cac951044e527"
+  },
+  {
+    "path": "assets/voice/warmup-more.m4a",
+    "bytes": 26490,
+    "sha256": "35275322b1880751efde60835b6b3d3cb8c17c379225610abbf3a6b11721d79d"
+  },
+  {
+    "path": "assets/voice/warmup-pick-come.m4a",
+    "bytes": 30195,
+    "sha256": "a0b2e2a2fbf141bc99d2d17a3cc21979cb9052833300fdfb392a0d652d4858cb"
+  },
+  {
+    "path": "assets/voice/warmup-pick-leave.m4a",
+    "bytes": 30437,
+    "sha256": "c7d69f1375f4669ff94a1d4f5b50d9ee489d11b83e5cf8defe68b118cd693506"
+  },
+  {
+    "path": "assets/voice/warmup-ready.m4a",
+    "bytes": 26868,
+    "sha256": "50aa969d509e173bfe690ddf538532fe8fb68e32641e7b0508719274bbee227f"
+  },
+  {
+    "path": "assets/voice/warmup-right-minus.m4a",
+    "bytes": 24106,
+    "sha256": "d94db4faf174ea698185a582e7abb3851557a85c3110b11b8f3c76808c6ae675"
+  },
+  {
+    "path": "assets/voice/warmup-right-plus.m4a",
+    "bytes": 24390,
+    "sha256": "78d20bdcc2f9205d9ce21c12c52ec468fd40068992f1d1ca65f7069d39d8d9c0"
+  },
+  {
+    "path": "assets/voice/warmup-sym-memory.m4a",
+    "bytes": 70494,
+    "sha256": "54b3f88c8ca04ef07e5a70934b138f048078c4010147e44558bced2e5392eb8d"
+  },
+  {
+    "path": "assets/voice/warmup-sym-minus.m4a",
+    "bytes": 43114,
+    "sha256": "a615263f4f5a83b7fe0373e9a648d15bcd84ff55b2e64396f458bd3d7ec2aedb"
+  },
+  {
+    "path": "assets/voice/warmup-sym-plus.m4a",
+    "bytes": 43003,
+    "sha256": "95018c4859963175022d2f3038673db77002517d2ad663d86365cb7920dfa02c"
+  },
+  {
     "path": "assets/voice/wrong-answer.m4a",
     "bytes": 77356,
     "sha256": "b3a6f84442da4ebb0754bb4572ac6bccc337f14800f0174560404a71ad0b2446"
   },
   {
     "path": "boot.js",
-    "bytes": 9346,
-    "sha256": "9ef9ceee42fe9260a04680f9e8beb54ebdcceb5b17e91566c8c48d90a6309e1a"
+    "bytes": 9772,
+    "sha256": "9712d0508a66db0464445e8a0875d20558a6ee1aa6cb1ec846eef24c33ad1bab"
+  },
+  {
+    "path": "bottom-bar.css",
+    "bytes": 23227,
+    "sha256": "b87576ca3c39068940a0e51e966e4da149e79641ca8b8b739a6c5bf971134bc0"
+  },
+  {
+    "path": "bottom-bar.js",
+    "bytes": 3318,
+    "sha256": "e4aa98b99784a986c1edeed34212809e71379b4b4a7e4ba42b9b8df9576a84e3"
   },
   {
     "path": "challenge-engine.js",
-    "bytes": 5279,
-    "sha256": "f7590457d3648d44c7e36f0a00c6ed1fc85681ddbc1f65cc098206de3e03f092"
+    "bytes": 5273,
+    "sha256": "f62e1aa60372a94ff7d9bace18cd5bc1203397699d89fddf95c4bfe0c246c5b4"
   },
   {
     "path": "challenge-levels.js",
-    "bytes": 2499,
-    "sha256": "10782d2adf2629142ab25f9aeb722110fa298c9ce334b028a8090d268f79d583"
+    "bytes": 2525,
+    "sha256": "560a82eb22a955e53624e1c83927fa947b53d518cb9dae2c828a7921510ecb62"
   },
   {
     "path": "challenge-ui.css",
@@ -2571,23 +2836,48 @@
   },
   {
     "path": "challenge-ui.js",
-    "bytes": 9386,
-    "sha256": "d93d85acf02a2c5dc4bf6741283e2bfd1ce3aededb9dcfd85ee874f99bff1a32"
+    "bytes": 11079,
+    "sha256": "e2f1844f1641f24f696a237cf10e01d9fd81b0911fddf5bd023c4ca01db415fb"
   },
   {
     "path": "characters-data.js",
-    "bytes": 69727,
-    "sha256": "7ca6b0124e8bcb86730ccc426b823da25ac3d09961600d789c975b94df3424e8"
+    "bytes": 69801,
+    "sha256": "d92508da795e1204d039c5e4150a5634f252505981f2f93a5d28018bbf4b135b"
+  },
+  {
+    "path": "dino-ground-data.js",
+    "bytes": 8644,
+    "sha256": "38d5a3112e1fc5f7d2d900d1a38545ff9a8eb0f05307dc74973f0ca19bffe542"
+  },
+  {
+    "path": "equation-ui.css",
+    "bytes": 4852,
+    "sha256": "5630901ba290a56525e71697563716732e5b40c28ad1f17713f4aa524e074ca5"
   },
   {
     "path": "expedition-ui.css",
-    "bytes": 11610,
-    "sha256": "6e833aad31d969a518b330645c4eba9a347628d61b50175b8ead85e28060a341"
+    "bytes": 11375,
+    "sha256": "04c125f3f90cc30ddef96770703ae2fce9789f43d87c84dbc64cc27e14a3eab5"
+  },
+  {
+    "path": "fossil-mark.css",
+    "bytes": 1880,
+    "sha256": "2230461fb090f960f8785e572437430c131fef4bcf8253a7cdea70e82a672650"
+  },
+  {
+    "path": "fossil-mark.js",
+    "bytes": 996,
+    "sha256": "2133b6cbf823a067af408bcb8ee86423e4662a68f50646296f1375967757655f"
+  },
+  {
+    "path": "fossil-unlock.js",
+    "bytes": 1164,
+    "sha256": "f363f5f8290aa87971f17e1351d4b0b3dca25e9f4d97e35d4d9b117a9827718a"
   },
   {
     "path": "game.js",
-    "bytes": 83621,
-    "sha256": "4e4085252f42bb37e7a8f39ded40b4fb692a5eb820d85112f286d2b13a286d6d"
+    "bytes": 108956,
+    "sha256": "4c8c4561bd08f9eb3ff6bcf8ab3738b66c363fe1c34f53faa7d93ed4c083a064"
   },
   {
     "path": "grade2-engine.js",
@@ -2596,8 +2886,8 @@
   },
   {
     "path": "grade2-levels.js",
-    "bytes": 3276,
-    "sha256": "997e0f6d61c1a209284a331b51d018b827082fd83f10c8f7676c94d1400f20ba"
+    "bytes": 3273,
+    "sha256": "722ac65cc775639a0fbf1bc853df41bce7b1866061f7a84d79812ca0716bcf2d"
   },
   {
     "path": "grade2-ui.css",
@@ -2606,18 +2896,28 @@
   },
   {
     "path": "grade2-ui.js",
-    "bytes": 10879,
-    "sha256": "51724ea22e86ef712c0c67ea2294e1553de0e854639b3f9d4cc663084ba0e902"
+    "bytes": 12724,
+    "sha256": "182debc044acfdcc5df18f1f71034d534234ed78a9c5d4c805cb536b2e5254ce"
+  },
+  {
+    "path": "immersion.css",
+    "bytes": 5674,
+    "sha256": "636e3594a91576719c023430021937ac9345f9a320814d38e48b54b3b91d8a3d"
+  },
+  {
+    "path": "immersion.js",
+    "bytes": 7295,
+    "sha256": "ccbdf96cc643eb64aa5e218f76d7d3201c940ef690a2d7a7e2846abc1d825060"
   },
   {
     "path": "index.html",
-    "bytes": 21772,
-    "sha256": "85a80950d1cb7098249c6d570ea6ad9510e5be052f3a7d140344e8f7a1a8f301"
+    "bytes": 23379,
+    "sha256": "7aa265740f86a1d03ad39559d7cc7796c5f03616b3876d237e9d06aa8db94d60"
   },
   {
     "path": "island-audio.js",
-    "bytes": 9169,
-    "sha256": "b9e52d347d57cf0c9ff9332b40d45caba51ba4847eb161241a05c7c6de5ab850"
+    "bytes": 10082,
+    "sha256": "1e666c4014461412e80bda29fb702c73bbc9157ced952fe4b7623490a7b5dedf"
   },
   {
     "path": "jump-ui.css",
@@ -2641,62 +2941,1622 @@
   },
   {
     "path": "knowledge-ui.js",
-    "bytes": 24596,
-    "sha256": "ad17ad02f27795a980f3e64497a579cc15aaeec850a44b261708244ebf884680"
+    "bytes": 26906,
+    "sha256": "4932cc1631462d886e36304f3cf4b006ae13af82338ff2798af34b60a146961e"
   },
   {
     "path": "learning-catalog.js",
     "bytes": 1409,
-    "sha256": "722d76d4a2bd1d65fc86a63bb1638f3b628a31ac5e94a66b34f16c1e69724cd9"
+    "sha256": "1e2435bec6cb629fdf980c6bbb4693cb0640859d1101bd643cfa3005ea87a7dc"
   },
   {
     "path": "level-picker.css",
-    "bytes": 9375,
-    "sha256": "c808f730b3496f4a355a0e89fa57c0082becf600d5dbfbd5c9845151a91bb584"
+    "bytes": 9920,
+    "sha256": "f03fd1919145564b2d4eebf65580950b78e6129083320530d4b3c8afbc4a691a"
   },
   {
     "path": "level-picker.js",
-    "bytes": 8693,
-    "sha256": "0c271ae4d6c774f1a4570dd8a24d80e0819827948f06144538610e5d004d5caf"
+    "bytes": 8691,
+    "sha256": "c38d800c412840dee6def7d5491703ab8a3772e79d3bf8fa4b6894415212736b"
   },
   {
     "path": "levels-data.js",
-    "bytes": 57797,
-    "sha256": "3a6fc4570177ae8f3c99628dbc674b7ab7114ffa875477e60bfb5a09abe6300a"
+    "bytes": 57725,
+    "sha256": "7a91751e06d28a5da1cdd744e7aa39ffc0b34bafe8222666b32ca0d51adbe22a"
   },
   {
-    "path": "runtime.88106516cf8e.js",
-    "bytes": 402650,
-    "sha256": "88106516cf8e4db61a8e7852472975703e36b64183391d900b2c97c4906e035d"
+    "path": "manifest.webmanifest",
+    "bytes": 652,
+    "sha256": "1dd5671f58428afbeec4a8c55da4d0e58c5cbe6df82c593c3bf29c2b22858ccf"
+  },
+  {
+    "path": "prototypes/fossil-dig/app.js",
+    "bytes": 41364,
+    "sha256": "9b4c61ee9c29fb7b7c40bb463315e95648c37824fa21321cbb500207a523e67b"
+  },
+  {
+    "path": "prototypes/fossil-dig/archaeology.html",
+    "bytes": 5071,
+    "sha256": "a82619d7d0c068add2969cb32214b0f3502738ff3a1fbf1f72f32e30015ee9bd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/bone-body.webp",
+    "bytes": 56120,
+    "sha256": "e224c15759c24841c21aa250fa57a7adc6cfa024d9ca72891179fd87a53cd149"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/bone-head.webp",
+    "bytes": 8238,
+    "sha256": "1bebe8b81cfd277bf7202c3a14462751f7359ad4a738fc93e13c0e7d98b39e01"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/bone-legs.webp",
+    "bytes": 70240,
+    "sha256": "1944020a33de8f7a0c32c7f4812dfd6b7e5935b6c8116453e9e7cffeb08e23bf"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/bone-neck.webp",
+    "bytes": 33084,
+    "sha256": "8cfdf8aa2a6bdca5172710cf95371a1da8e92c82681963a8a2f63184d3f3cc7c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/bone-tail.webp",
+    "bytes": 37550,
+    "sha256": "d3eae454a99132f4e85ae71ba92eea9dab589b25e19462c3d88a309b8bccb5d9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/brachio-skeleton.webp",
+    "bytes": 208794,
+    "sha256": "4ff546b0c85d5fbdadf02bec2f8e60b800126910a7a4638c0714874d2117f6b1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/cobble/rock-stage-1.webp",
+    "bytes": 213316,
+    "sha256": "d45c7f646a77b6a6b985d54d8df88af52b56cba4985a54714bd8161d37ab4fe7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/cobble/rock-stage-2.webp",
+    "bytes": 221072,
+    "sha256": "d63cbb91852d6d524ee7259324a745efde10ed3485971f2b251d984d774363c0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/cobble/rock-stage-3.webp",
+    "bytes": 250778,
+    "sha256": "0e447f4a284a7108ca64294ae820e28450a4db42bab207e5eebdfd5a22cb5e1a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/cobble/rock-stage-4.webp",
+    "bytes": 243970,
+    "sha256": "b33e293c41eb41d2aefd5f298acc2d28bdd9be275098b1e6ecca0068764f8446"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/curled-body.webp",
+    "bytes": 67902,
+    "sha256": "7d5385378ec461cdb6e332ffdb2396052a86bcae5741ecafc62676a63988ea67"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/curled-brachio.webp",
+    "bytes": 204706,
+    "sha256": "5adb23e493cb240a5c5819f2c7250529e80f7573672029c2d67d9aa10764b838"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/curled-head.webp",
+    "bytes": 11436,
+    "sha256": "efc2c63e3e7c81cc7c5128965a9195d2c1f8dc9c65fd714ac19b78d5e02ecdcb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/curled-legs.webp",
+    "bytes": 50220,
+    "sha256": "4064237293641664a71087f2c73068729e73ae9434ac909b86ce4d9b9217def6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/curled-neck.webp",
+    "bytes": 47750,
+    "sha256": "bfec89887b696892a0e6c6a4b1dfe74dd0db916ad9617f74b980f05342db7abb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/curled-tail.webp",
+    "bytes": 39288,
+    "sha256": "0f35c92c58b7e16330442c98256dbf24a0c3f1af3b4e3c71ad7e790ffeb5cd83"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/egg-bowl.webp",
+    "bytes": 217700,
+    "sha256": "306f6c7390fe60cf7f0c1a742943f283f1b20394362e7118fa1f1931ffbcbf64"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/egg-core.webp",
+    "bytes": 307074,
+    "sha256": "7cbe90aa292c3e74e32ed387ce5cd6b3af7ecbb4fd0da98d890700296641108e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/egg-parts.js",
+    "bytes": 902,
+    "sha256": "717c24614b9d898dda62762be9f56d1458469de6ef193b48d4483847823035ae"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/egg-sand.webp",
+    "bytes": 243892,
+    "sha256": "b09a5a5cc008d945973c857d948f822fe97f74008c1f7b3d6b5e3970aaa82a58"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossil-egg.webp",
+    "bytes": 273886,
+    "sha256": "8f2dd593a96dbe285d315fa7a60cb814f78154d1d56d8ae4fbb3d4ae5110781b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/allo/bone-body.webp",
+    "bytes": 119048,
+    "sha256": "0ad990d34dd9b4700a55ec0cb400d1c4c52f76f133820fdeb8b3c49f0fef3b54"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/allo/bone-head.webp",
+    "bytes": 49926,
+    "sha256": "3dff122ff28976cf06749f97c2b8bed016112b6c7848b37ede51a718e4b9c268"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/allo/bone-legs.webp",
+    "bytes": 59888,
+    "sha256": "1e66a46ecff18e5e33cf110bd3be8ef365b2bb988bed3ad389ebfa565e83669a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/allo/bone-neck.webp",
+    "bytes": 35406,
+    "sha256": "2315a69b59f23f91ba5711b94aedfd9addf03d8c2f78846ba5018342a818c105"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/allo/bone-tail.webp",
+    "bytes": 63096,
+    "sha256": "db70c810b1c710d656c75e14d55ae68ba83ad0e5cd43f268b550eb5d7f77489b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/allo/skeleton.webp",
+    "bytes": 313010,
+    "sha256": "e7b4700cb21ca7c5ab6e95948275d607ea8a8db30c07760e349fc0b6fb8d2b0a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/bone-body.webp",
+    "bytes": 172028,
+    "sha256": "d311f28f75c52984aaacef8fd7c456e322501cc3d32fa4dd9d1858a7934163d0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/bone-club.webp",
+    "bytes": 12738,
+    "sha256": "591ee18ef16292b610a457204b22f31b46a28884c2f097150077ab5ed0035e32"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/bone-forelegs.webp",
+    "bytes": 42898,
+    "sha256": "79d46b50f3c75cbde54444e6fa58c214ac323f03b0177a19daec4ffd863aba02"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/bone-head.webp",
+    "bytes": 32034,
+    "sha256": "5807f000979e026f1bc5a49feee7b13b474e605a545404fd1e522059f75e0bab"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/bone-hindlegs.webp",
+    "bytes": 50906,
+    "sha256": "3383deb6700d901c131d1441c1b4026195778299cad8fec1e9895c0263f29b24"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/bone-tail.webp",
+    "bytes": 45916,
+    "sha256": "35425e52970bd9fd3c8b5e5a69cf962f20f83c605ad8a80e4d4186b73b84e2b6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/anky/skeleton.webp",
+    "bytes": 343424,
+    "sha256": "0eaaa8ecf889fae0f2ac1da541423888a1978e4997aed7b840f3d7f9bbd49940"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/compso/bone-body.webp",
+    "bytes": 149270,
+    "sha256": "9d7ce92cfb45f7baaea8d9836d4f3dfddf18fb3a2c720ea6501c25e1cc3b7e21"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/compso/bone-head.webp",
+    "bytes": 46814,
+    "sha256": "6cda29b2fa778a832fa6a0610ccf74d369483ed564a4ee38bdd031edc317db86"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/compso/bone-tail.webp",
+    "bytes": 53336,
+    "sha256": "c245189926973f1a6c6135260d660a0a863825023ea3f4ac7e456beb37674f07"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/compso/skeleton.webp",
+    "bytes": 245112,
+    "sha256": "33686917fb37dcad83c045e99dfb6ae4cf471137cfd791519080539ffa0922f8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/mamenshi/bone-body.webp",
+    "bytes": 93138,
+    "sha256": "3246bb98037109cc091824115a2868d4da5d587bcd0fb00a5787f5acc6b274d2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/mamenshi/bone-head.webp",
+    "bytes": 9042,
+    "sha256": "20c4a0c3ca36333902140635049eb903ab4ab21fd99513ad6fcb4bce60687bd0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/mamenshi/bone-legs.webp",
+    "bytes": 59536,
+    "sha256": "0faac07369d87d1bf9759180f68bfc84a0bbf51446099958ccc5f46968e755ee"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/mamenshi/bone-neck.webp",
+    "bytes": 61936,
+    "sha256": "a12c1e2b28e42302f0340b94263a3f4ef02f90a46f33cb87dd0658590e32e3e4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/mamenshi/bone-tail.webp",
+    "bytes": 46826,
+    "sha256": "a3c30d3111d9762944248a4ee94b2614247513883d3e8354949d2816d59275db"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/mamenshi/skeleton.webp",
+    "bytes": 257120,
+    "sha256": "06d980bc7a892b6d0e17691f2f1eddcc6fd7a11e328f79a0bc9fc54d78867815"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/parasaur/bone-body.webp",
+    "bytes": 117964,
+    "sha256": "e26ab21584f368371ec7da9103c29d237aa274c9c2fe42ceb8c51a930c78581a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/parasaur/bone-head.webp",
+    "bytes": 37804,
+    "sha256": "a17cf44df66f09605282a28b6f9af4f3447b1fb6d4b44158a547d0e19a3ca615"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/parasaur/bone-legs.webp",
+    "bytes": 89522,
+    "sha256": "d676faecb1e1aeb6f9086868e5cf342f923dfd7732542066de8ee6d7d386c173"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/parasaur/bone-neck.webp",
+    "bytes": 20216,
+    "sha256": "477f4a873f39f40deebfc462bd195bb0ae306f0e9e8aa2e753121281c7e1144f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/parasaur/bone-tail.webp",
+    "bytes": 34348,
+    "sha256": "c5e2bac1e3c5edd2592d29d238457c17fea85de63543ed52bba4916694911d71"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/parasaur/skeleton.webp",
+    "bytes": 288620,
+    "sha256": "8ae25b2047950fc107e915b7efac5897c1c222bee0116b0c390ba7976a7d774c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/ptero/bone-body.webp",
+    "bytes": 58540,
+    "sha256": "eaa0f6b479cdb8ee485d92fae0b8f116048991a5fb3eea8bbbbf3cad4d89e0ca"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/ptero/bone-head.webp",
+    "bytes": 24696,
+    "sha256": "47fbbff51204e38f4995be269f24e9c13b541f7a80361233aca65779d21009fb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/ptero/bone-wingL.webp",
+    "bytes": 34856,
+    "sha256": "82483aece46d7273845a2af7ac2311e0288d66ad96b49cf58f063f7334b32385"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/ptero/bone-wingR.webp",
+    "bytes": 32966,
+    "sha256": "1f07f24976f3a55f3c6cc2ac36298b2da43faa471fbeb43cf9695a3e19737b1d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/ptero/skeleton.webp",
+    "bytes": 146524,
+    "sha256": "58eeab50c0ac913cbc2b11d6dea5056ad053b5116f681f05db1f11ee5e0a8235"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/bone-body.webp",
+    "bytes": 146210,
+    "sha256": "cc1bb93f4fc8a5f61251a798029eee014e8cd74098f09b2affeff228ae7ebdf3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/bone-forelegs.webp",
+    "bytes": 41504,
+    "sha256": "24cd01bec0ad613da0aa0fcd45a9b2996f5f6e9bfd83e0aec1b7b4e490c0eca7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/bone-head.webp",
+    "bytes": 9672,
+    "sha256": "25edd368232f2f7ad23b886f9d8ad1b77cef103dcfc3521dc49ba752027240c7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/bone-hindlegs.webp",
+    "bytes": 41312,
+    "sha256": "376ce282469a3a37b2965373758bf49cbe14899ce0274f66047be01a812bdef7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/bone-plates.webp",
+    "bytes": 86776,
+    "sha256": "fe3e8a142c395fba491a855dc113f26dd14cbd68909c76424b3bf6954ba053cd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/bone-tail.webp",
+    "bytes": 45984,
+    "sha256": "d180c03deefd88194fbaffb7a3329d1ffb0f869c8f9cffb74a41f609a9105eb1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/stego/skeleton.webp",
+    "bytes": 349418,
+    "sha256": "f7c77e505a7022a2012ed39c9f20a35c1b8155ed2b96c6db4a18ff6123ef5ed8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/trike/bone-body.webp",
+    "bytes": 140192,
+    "sha256": "dd1d6a65699f0557850a440ceae7e8377dff76046264be116dba90c4a4d3d618"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/trike/bone-forelegs.webp",
+    "bytes": 43842,
+    "sha256": "efa4d9cb491cbe6e67db812e9080174160fbba4e9ff742c7ba4ae573cb43e4ee"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/trike/bone-head.webp",
+    "bytes": 93804,
+    "sha256": "26b5e23b1e75ef46bdf18edb7987d35a2eab8e425862d05780debaae855aa340"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/trike/bone-hindlegs.webp",
+    "bytes": 58254,
+    "sha256": "9bbf92e1a0d2c451b9231928a4de6aeb981c27d3669256ab96aa8a4ab3534186"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/trike/bone-tail.webp",
+    "bytes": 36930,
+    "sha256": "5ecd60cd07ad89c92ade76ab9d860e398f686d92f626e468f8eecdb924d25012"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/fossils/trike/skeleton.webp",
+    "bytes": 360260,
+    "sha256": "b9745b75ffb6a0a3f723c66299796ab5f96d9cbb2887881a03d85dab1cf3fbc3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/mud/rock-stage-1.webp",
+    "bytes": 172874,
+    "sha256": "81a152e0a75fcce6f49aad7bee327ed7fac3f5d90cd63930a3525bf93b4f4241"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/mud/rock-stage-2.webp",
+    "bytes": 181002,
+    "sha256": "82695ccbae04c452f59f6cd2fd589955e509b8f1fb137cc809343e91216499ce"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/mud/rock-stage-3.webp",
+    "bytes": 179448,
+    "sha256": "4b74d6ffa8f275983afd61a96f6f2e04f4ee0bea5d8b8726c535b22e7558879d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/mud/rock-stage-4.webp",
+    "bytes": 172414,
+    "sha256": "0e17149148bc8cff94c8c2dd07df524b61ba4df69b16ae52ce564b7b83db62d8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/museum-wall.webp",
+    "bytes": 87328,
+    "sha256": "b0b8cacc2c2f4da17f991de59689f24b548632b0353fc035b8ffc33dca73a4fd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/bone-body.webp",
+    "bytes": 75176,
+    "sha256": "2601690367987314729e1e34bb9267d1d9d2794e828ac1ca1540688bfa01b018"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/bone-front.webp",
+    "bytes": 18576,
+    "sha256": "0527318ea3e295a0e664b11b512bbe43a7728fba34f3d970433dc09e4d1901ef"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/bone-head.webp",
+    "bytes": 33278,
+    "sha256": "2c0d467ebce7f17ff8ff915f71d4c1d298a02bbbd85e7cdf92d6ad35f8b697d7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/bone-rear.webp",
+    "bytes": 57550,
+    "sha256": "83265d6af4818d5199b6f56abd207cc26a8e35de28ef062390a5339e92d34382"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/bone-tail.webp",
+    "bytes": 49048,
+    "sha256": "692a0e4babedff693843a94b233e86c006b7e71163415b40f36d42072343e856"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/clean-fossil.webp",
+    "bytes": 297204,
+    "sha256": "e5518a8d7345a627bf9eb5328ae96db8b90665ee69b6d93548366e0b58f62803"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/grooves.webp",
+    "bytes": 216260,
+    "sha256": "f6232185894261d3f7588d061af3fa98a9fb93727a77ae07525b1519df9aa7ea"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/skeleton.webp",
+    "bytes": 181132,
+    "sha256": "63331346877d87d0f09c23d23fc2d1d12bccad5d75ddabea2f699baafc91d6a5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/stage-1.webp",
+    "bytes": 179176,
+    "sha256": "7506c3f0a13983d955abdf652f66ff0322c36c7bee05ded4e705f4721e884362"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/stage-2.webp",
+    "bytes": 242272,
+    "sha256": "29c2b4af5879fe0f9b5c1c80f76be98ae7010e69230e65d2f344fa63292caed5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/stage-3.webp",
+    "bytes": 204868,
+    "sha256": "7a832f5115398efd60e8c7b134ec767b62f765523cd0a091df2d3496c3dafa9b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/mosasaur/stage-4.webp",
+    "bytes": 249906,
+    "sha256": "1efc4307d3f9272164de92758766f317bc08df86d40ae11fd924664fdc4f317e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/bone-arms.webp",
+    "bytes": 36094,
+    "sha256": "32d7f19a8f8a178fee2f27401541ad4444e96639bf7149f24070f1338db5c3aa"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/bone-body.webp",
+    "bytes": 60476,
+    "sha256": "fa670c165ff0b56ee13b2ed608569f3f6a83bab34b86dba2dc1c0f171a2a6317"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/bone-head.webp",
+    "bytes": 22956,
+    "sha256": "787342c5bb69124ee62250657bdfecc1de0da2c4b65a4d01448f34211920ee99"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/bone-legs.webp",
+    "bytes": 46956,
+    "sha256": "7be83a3ebc484fbed0f2631019fafa403cce92d8870fb0ee6fc4eee159a12b29"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/bone-tail.webp",
+    "bytes": 34416,
+    "sha256": "286c74b1d87a45adde3f815004624a7541791d48da9c028a4e9faf9f4e3ea1cb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/clean-fossil.webp",
+    "bytes": 280906,
+    "sha256": "28fdd3ccb3655a2d24ed19d77af831172f4907701a70c5f7c71705c0e3cb2353"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/grooves.webp",
+    "bytes": 228060,
+    "sha256": "7c9bfa39c05faecad1c45cdb0de051e6c74d931524e5bb9e1c1cf8e827d841c2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/skeleton.webp",
+    "bytes": 166578,
+    "sha256": "a6f4ab6c5140fc87722ad4e9127247018f352bb44d9b4d9a57a39c7b43dcb4cf"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/stage-1.webp",
+    "bytes": 159344,
+    "sha256": "92363978cd01b532a9118b35268f51e78e5f9417223f9b3e762d5a3b6198cf62"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/stage-2.webp",
+    "bytes": 214646,
+    "sha256": "cda4dac07bf11de652e52e6685af6785e6cd119524b2b551cc8286c6f43ec362"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/stage-3.webp",
+    "bytes": 251240,
+    "sha256": "bac952afab3ab3cec182a8001bb2ba856d5af3f3763bfa3c9d9932dd242158be"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/raptor/stage-4.webp",
+    "bytes": 225300,
+    "sha256": "5f41aca25524dd534f5b5114dc352afa51bb9b53576d4986af89c7ef5641b30d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/bone-arms.webp",
+    "bytes": 17514,
+    "sha256": "f8af22ec2817b306318509822e5e0c894866d95ffffd6a21d09d0311d87cd619"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/bone-body.webp",
+    "bytes": 64926,
+    "sha256": "71e9e9136796e7fb979d12c3bf59679eea7691c16d832ac187771abd46d63411"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/bone-head.webp",
+    "bytes": 29082,
+    "sha256": "6f7ce1ca16fafd31101acb4245fd880a6e881cfdf0aee1fc9adb522d325c659a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/bone-legs.webp",
+    "bytes": 35282,
+    "sha256": "817d41aefd55c423e7d87f563b935cc39dacef1a9bfae6a333f65911aec8ab30"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/bone-tail.webp",
+    "bytes": 25592,
+    "sha256": "4cd330e8fcfa2ddc11e0a011c15cdb1a3c09d4ed6b8024abc76598696c398b4b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/clean-fossil.webp",
+    "bytes": 323614,
+    "sha256": "58bbe7ea7a9d5fe636c9866956d696101b13a9750ea05dbf4964b45cf744d3e6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/grooves.webp",
+    "bytes": 250742,
+    "sha256": "f23244bc481cde70ecd5700353520214ccf8651b0860573c7beefb6613d801e0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/skeleton.webp",
+    "bytes": 136062,
+    "sha256": "0b6a2e7310816e8908053ec70084c0d20abf3c971473821d48e87c130059030d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/stage-1.webp",
+    "bytes": 208220,
+    "sha256": "9fe1a2533675b8e11c73389bd9f3e7f7705970bd92d160d87f29d507184516e3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/stage-2.webp",
+    "bytes": 232016,
+    "sha256": "68ed248ef2c45a5511213a151640006affc05b57427a9c121da7190d629b1c8d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/stage-3.webp",
+    "bytes": 267072,
+    "sha256": "bf0364cb89940f1802dd68ccb8b6864b67572013c1f8babf58edafef9a4d233d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r1/trex/stage-4.webp",
+    "bytes": 311906,
+    "sha256": "30b73712d2d9aa8754aff0c55bb89dcf508d5d8cf198cde3ab3a38ed0bb249c2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/bone-body.webp",
+    "bytes": 52106,
+    "sha256": "c25d878d8c29243b15d3b26179dcde89f126482ee83754565987885b18240943"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/bone-head.webp",
+    "bytes": 30918,
+    "sha256": "6dc2f0203345f26c0ee674098ef13d5a13806979a7e233528ea0b6008d0debf5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/bone-legs.webp",
+    "bytes": 53688,
+    "sha256": "6232ba5ba769f11fab598ba9da2ed203b7856f3ddd0951e62ce37a8b6e33e324"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/bone-neck.webp",
+    "bytes": 16868,
+    "sha256": "fd84c739e2466223519d5c25280eff57808059f95bd20b6f8ad87d54d880867d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/bone-tail.webp",
+    "bytes": 31144,
+    "sha256": "ab7a150385da1c009ba1e55ce09d4c9e744ec2e23fbc209c53a5b120ebed2286"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/clean-fossil.webp",
+    "bytes": 323602,
+    "sha256": "9b137ac54ee656938ccabeb64e1cc21ae230656ada94a8be6b51818bbd870b0d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/grooves.webp",
+    "bytes": 197646,
+    "sha256": "251da19fbf6fc62308d7cc07f1856854e78adb63ad68ac28f41b31ec37bb7659"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/skeleton.webp",
+    "bytes": 146910,
+    "sha256": "1760cf97b59c927d2b404984ecce5805cca67aef5c4bab93bd8dc2e58b707867"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/stage-1.webp",
+    "bytes": 185408,
+    "sha256": "ffe35097ccbd6f89fb28db9259c595b155687dcf16fe03d5d7ccbca836bbb025"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/stage-2.webp",
+    "bytes": 180942,
+    "sha256": "2959bf33505637a1e91f3021fbd6b1089b6513f8bc1993b46ac73c5cdd6cacf7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/stage-3.webp",
+    "bytes": 193060,
+    "sha256": "a96a126a1686e6fed21514ba1216b011526699dda3e081554ed8fe2c4a70aa5f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/allo/stage-4.webp",
+    "bytes": 198576,
+    "sha256": "e073eabf69929a2f2a1271bb07766167cfcfed0f84af2fcdbc2260e7cedabd81"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/bone-body.webp",
+    "bytes": 65954,
+    "sha256": "3046095550f347d1d9bab030600a52d80b13ea98236530760b9f578d2e2b0a63"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/bone-club.webp",
+    "bytes": 9708,
+    "sha256": "baf015918cf086e4b198901ee8fc7f8ed32c4c0e05aa1a7a8d956e726edd2bfe"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/bone-forelegs.webp",
+    "bytes": 16394,
+    "sha256": "eddb76b61f102e9da0a76b1cc6e5665acb5797bb6a7596a74fff93d45dc91288"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/bone-head.webp",
+    "bytes": 14984,
+    "sha256": "51d64d70eb613f613b4870b1cd18a102ed90ca2ea5179b24509d86707635639d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/bone-hindlegs.webp",
+    "bytes": 30596,
+    "sha256": "b9c514dfc842979469dd7ad74f5d5eea979faaadf03dae08c688a178152f9a2d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/bone-tail.webp",
+    "bytes": 21796,
+    "sha256": "eeff48df2140dd8144b5fe206c70f16c4dd9f4b8eec7bc93e39f28c5c594fe0f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/clean-fossil.webp",
+    "bytes": 217952,
+    "sha256": "c2f437544ff08ba03e9ad660d2b4cf891de1ffefff373b1cc9724fe864b4d10f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/grooves.webp",
+    "bytes": 163496,
+    "sha256": "448e19ac76466fabaa005875109d435bc889e7926fcfd37ae4392505e395123c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/skeleton.webp",
+    "bytes": 121700,
+    "sha256": "6b2daca3094a596fbc021a81e1720e84081ed5c2ba6ae69f5bcbd453b0f7efc9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/stage-1.webp",
+    "bytes": 149540,
+    "sha256": "3aa81c8d595fce2c5322a86c9b1f267a500f6a4b20b895629313e9881f232fa6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/stage-2.webp",
+    "bytes": 155974,
+    "sha256": "d8c62179e17148e542dd16321bbb1a58397003e24867d0577e489b23802f028b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/stage-3.webp",
+    "bytes": 169420,
+    "sha256": "2316dad47b8e3b22b9b85498ea4d8f5e2c41e83bc2865fd6526a606466dda645"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/anky/stage-4.webp",
+    "bytes": 217598,
+    "sha256": "b2446fa28bd915527973e2a9999039c5209f91c62db81872d926c1f0a71b562d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/bone-body.webp",
+    "bytes": 123252,
+    "sha256": "d5f3c19f770f0c832aef7bda7cebbb629e771cd04e4717911336ae6e6a572af5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/bone-head.webp",
+    "bytes": 13414,
+    "sha256": "0f9cee680069e17a42dea948379ab3089affcf568bd56eea8b0809a0bbc0d239"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/bone-tail.webp",
+    "bytes": 30022,
+    "sha256": "fcd5ed425ace841ba1386e5e9a1306d200a0d3655bb3aa327d32c783ed59f047"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/clean-fossil.webp",
+    "bytes": 170570,
+    "sha256": "556b81499dd4bb3e336ca4db1ad6754b24ca7c196c7ee96e631bcfd86463a0c9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/grooves.webp",
+    "bytes": 165736,
+    "sha256": "b2c6667468d23f0c3b1210c3f14bb4747a38e5097a438789e49006d76d6159f2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/skeleton.webp",
+    "bytes": 139894,
+    "sha256": "5b040b81264b8c9a51a90b1b1c3794cbc16f639afe8d03696703357a214e5d24"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/stage-1.webp",
+    "bytes": 135286,
+    "sha256": "0ffa3721f96599c5224d4238535a83ee6ee5461d682eba9cc023a84e8dc93e97"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/stage-2.webp",
+    "bytes": 170932,
+    "sha256": "60f5a98ab00ebe4dbb8d472129dc352eb30cea258816195541bab7ded94d8d59"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/stage-3.webp",
+    "bytes": 164876,
+    "sha256": "7ce421d272c781cc5965457405ea230b447a5badd68fc224420c69d37cb78c4e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/compso/stage-4.webp",
+    "bytes": 154902,
+    "sha256": "6c9fb379124b44bd0369bab71ad87fe8886dd46d65fbf27f1aa704d5fd6ddf9b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/bone-body.webp",
+    "bytes": 22934,
+    "sha256": "d08888411b769d6c3ce30e759df752b6402d587d70205c286e754fe183d137d0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/bone-head.webp",
+    "bytes": 4968,
+    "sha256": "58a949dc8761497923d11185314658358d7b93e4caa7a362b0e749ab96024fbb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/bone-legs.webp",
+    "bytes": 43966,
+    "sha256": "55132d72f869400f207718b3513140d93bb1b28a6f5c9c09500653de514efa79"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/bone-neck.webp",
+    "bytes": 23420,
+    "sha256": "35970a3420b7d7ddd1b9fb4edf4195f06d0adc85b53757c9941a04b98331436e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/bone-tail.webp",
+    "bytes": 20044,
+    "sha256": "3c780c057944bb76bd938369733db58cb58e7cc6bd98f308e330cb39ce02d98a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/clean-fossil.webp",
+    "bytes": 224218,
+    "sha256": "1b1a54dd88f5e21e02c017d40b9e9a71cbe261351bdefec04a1fef566c9fc76f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/grooves.webp",
+    "bytes": 223208,
+    "sha256": "5756e365c9e26517750305ccf6f8e780d4c6c4f7a103440b6262f0dd33d42da8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/skeleton.webp",
+    "bytes": 87836,
+    "sha256": "4381e75f7873d66977f1110254ab5899545543d2f88a3337dbc6296088d3e16d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/stage-1.webp",
+    "bytes": 335464,
+    "sha256": "9515236f9a7b09b5d89be76c3ade214dfd8e44b42564e175da6384a7d9fa2015"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/stage-2.webp",
+    "bytes": 262638,
+    "sha256": "bea01e52c4dfc57ab69884044f9c77b63ff6145d88980899aae350fdf5c64e55"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/stage-3.webp",
+    "bytes": 260000,
+    "sha256": "52caea6498f1380367a8bc1742ae60966039a0c9038f9536c36ebc123d02345a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/mamenshi/stage-4.webp",
+    "bytes": 247570,
+    "sha256": "1c0e617dab918e815dc66cc6c337462802fb2faed034701184fd771269fef1f7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/bone-body.webp",
+    "bytes": 62648,
+    "sha256": "2dcaa2074ca73bcf5f6b88d14ebcdb2d87fd22c7842202113e8c0d74df140eab"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/bone-head.webp",
+    "bytes": 28074,
+    "sha256": "7275c0c05a990c26dac23f4e33c8a4ce9073a545f9e174b1adfbd1fc0613e037"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/bone-legs.webp",
+    "bytes": 62984,
+    "sha256": "b8509a64f952c5908e3d15365edff5a6b2362bab44d0ec336bd3e5dc8db3f577"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/bone-neck.webp",
+    "bytes": 17540,
+    "sha256": "74e878cad1520c9f2981c974c508e1a387b50632d0d1ed29fbd707c05404f48e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/bone-tail.webp",
+    "bytes": 28784,
+    "sha256": "be415d871719d81ceaceb6b382ae73f853fc370342f501d4e5ce638d206d60d5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/clean-fossil.webp",
+    "bytes": 273414,
+    "sha256": "e4af9ac1e7232f733fe0b9739d4c6acff3e3d602eb06bbd445dab2362f0156b6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/grooves.webp",
+    "bytes": 181240,
+    "sha256": "ec65e3c7a31ee9bbdbdb9d5dda9a49f07214b280ca743f2e9aa60aece85abecc"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/skeleton.webp",
+    "bytes": 158824,
+    "sha256": "09543d1aabd60625935ec83f6480942f01ef2617de6a9cfbe144bf7e04f571ac"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/stage-1.webp",
+    "bytes": 140070,
+    "sha256": "5183e0d6401fa7abbec104e39454b300bba5c67188a58e9d149b24074ade95d4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/stage-2.webp",
+    "bytes": 135812,
+    "sha256": "87776df5eb7c0b20321fa2e667878b8023644807e29aaa65fc81775a673fe8e0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/stage-3.webp",
+    "bytes": 218760,
+    "sha256": "002bf6aa6fee2e0dbf90527d1f15fb57070b8cb01178117e451516be31a9afc2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/parasaur/stage-4.webp",
+    "bytes": 217486,
+    "sha256": "23425158361df08f013384c99f389cd36eb7c90db241f3b600413796d95b75f3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/bone-body.webp",
+    "bytes": 41862,
+    "sha256": "7ba2222673f6b590c1895d881c3189d690fc7fd98de453d3f4b421b6d6ba91ba"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/bone-head.webp",
+    "bytes": 32110,
+    "sha256": "0aa6a3bdb26334946995e5956a992cc329b8edde31ec6f072eb6f7d88baf5d6d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/bone-wingL.webp",
+    "bytes": 39066,
+    "sha256": "23fbdd8c69d1a0a6b821882770a4a417997885f8a8bdd48953c0dadc4676a2fe"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/bone-wingR.webp",
+    "bytes": 37220,
+    "sha256": "396cb83ed9eb29c48dcca09f18f72ba7646fa47a9cc92e97e05f2a324d59b4af"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/clean-fossil.webp",
+    "bytes": 321674,
+    "sha256": "5e36882a344b2b4d437361435927bb8a31baa2e89dba90adaba2b28871dbefaf"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/grooves.webp",
+    "bytes": 203442,
+    "sha256": "3e8d9e554eb6436321b96659fadf7cd3195ed111ecbadcb3cf2218739e4a77aa"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/skeleton.webp",
+    "bytes": 121106,
+    "sha256": "17c6fc12fb94fe7e6fdee14e3fcfe37144462030f4dc82160f5c5191930b714f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/stage-1.webp",
+    "bytes": 160296,
+    "sha256": "69051280d6229a7fa7f6c2737043fe3bd2d5bb5467ce8d9707825628b94aa51e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/stage-2.webp",
+    "bytes": 188214,
+    "sha256": "6f94e56394c3bd4c7d7aac298785a4f1c5c4e024cc08d9c21aa021866f220b0e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/stage-3.webp",
+    "bytes": 184144,
+    "sha256": "b4fd27763e40c9f1f52b7d61d8169a72bae64741ba3d883070010ab79a5171ef"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/ptero/stage-4.webp",
+    "bytes": 249040,
+    "sha256": "8e3ca715e920ef0952f3c582a2b36b646a3fd74cbb466e24bcdf44f3c1cb0c0c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/bone-body.webp",
+    "bytes": 62828,
+    "sha256": "92ae97a45663236689f3f3bbed52d6f0b77102d07ed98dea62118b6f9fd2fa2c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/bone-forelegs.webp",
+    "bytes": 30426,
+    "sha256": "a8e223fd2c6dafb97dbb5efee4700e928d81a95096e78ece1dcfa5c4fa3a0c9e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/bone-head.webp",
+    "bytes": 7530,
+    "sha256": "14447c07554ee8952ef3bd66793638afd62fccec8b17c97f03d7888810a98e09"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/bone-hindlegs.webp",
+    "bytes": 38788,
+    "sha256": "ffc1d6962175982ca0de6b61596c388bfca9e820771b735ee21c4a62abb75ea4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/bone-plates.webp",
+    "bytes": 69062,
+    "sha256": "77d456e3fba56c3e4f37af24d82a89e413ecaa7bef4664d19e4513bf7c5c1f26"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/bone-tail.webp",
+    "bytes": 38866,
+    "sha256": "7fe520b7f4223636d6771ec1d9ebe7ad54800d182a91ab513453d105d74274cb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/clean-fossil.webp",
+    "bytes": 183028,
+    "sha256": "d5a9c0514034850fc5a13fc3b7d38d0dd978286a138b2ce5bb49f55f3779598a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/grooves.webp",
+    "bytes": 151172,
+    "sha256": "a1d150b899932d160d28d9266560c476f14c7ad7e91d610f4d4ae67d1bc4083f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/skeleton.webp",
+    "bytes": 184948,
+    "sha256": "e4911f5c63258cd9f46f10185e364ca169e3853468dd214e54f1b220ddb2f454"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/stage-1.webp",
+    "bytes": 167196,
+    "sha256": "ebdacecd53f31e5be298af51b1f38509fc8d38402300fe22e17c1262580de5a5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/stage-2.webp",
+    "bytes": 183708,
+    "sha256": "118ce31bf60b461e4bf146ba552118fe19aa5d1bc6fc71b0a333c2a55f0d6247"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/stage-3.webp",
+    "bytes": 189546,
+    "sha256": "0a5393a43a85a21e8cefd46a12e2f41add0480b0e2e29584efe4c2898eed7e63"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/stego/stage-4.webp",
+    "bytes": 241776,
+    "sha256": "151216541346d41b1d2e7c29be0fb89dab41a2f6cfaa4443b07f8f1a10af4628"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/bone-body.webp",
+    "bytes": 59672,
+    "sha256": "7b5d8838767fede5648e600cdd763043f4f03be4b1aeba7a4d725fe7b3e0e8ed"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/bone-forelegs.webp",
+    "bytes": 30638,
+    "sha256": "dd2e38e10e6f07faf0fff2c11208779d4307084ed4dd7515953ae1a67e3bdebc"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/bone-head.webp",
+    "bytes": 62380,
+    "sha256": "984f5ebce030cc94e879bc79eeacee1cbd8a8e7c4fc44c5dcf19980c3393ccd8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/bone-hindlegs.webp",
+    "bytes": 43598,
+    "sha256": "9ab9f13fba0d2da22067d098300cc25ba2423b3595bb19a6247aba81b1604c88"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/bone-tail.webp",
+    "bytes": 23100,
+    "sha256": "d494b6b36887ef3b926e110a3d04694483bc6c70256f1c205844690802a378ee"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/clean-fossil.webp",
+    "bytes": 246056,
+    "sha256": "55b5167ce4f66461bdfa2fd4ae9bb5ef8828a2efa1e513166469d055f0c6d862"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/grooves.webp",
+    "bytes": 159396,
+    "sha256": "651c04698002b6438c9236b837435769ae7703e338b87493bfe5133f8d8f44af"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/skeleton.webp",
+    "bytes": 161906,
+    "sha256": "a71c1ef58dc0df2ecef1fdca1185fef0930b05ca8625882890768d4ef8c0a5ff"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/stage-1.webp",
+    "bytes": 155376,
+    "sha256": "2b353cfa3655f3a95056a824a1df0dc7cf251bcd1f2d509091bb033018d05fe3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/stage-2.webp",
+    "bytes": 167908,
+    "sha256": "b1b8735ac4bc7f112e29f6fae674daac9c6bbc542105edd897a95e4de888a862"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/stage-3.webp",
+    "bytes": 206556,
+    "sha256": "06c352658728cac6e04f9fc1505064e62e03b4472b290b3e30d513b2098f7382"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/natural-r3/trike/stage-4.webp",
+    "bytes": 214114,
+    "sha256": "ed7e08043441091cdc96b56d4e9ae6dcc77bd5bbdd3ecfb3bfa8b514ea676718"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/parts.js",
+    "bytes": 2814,
+    "sha256": "37fa8bf3026b755fa3360bf013bc149202347d181dc693c8c02c5418a24e13e6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-bone-body.webp",
+    "bytes": 11492,
+    "sha256": "93e3b443e05d46a16c4cd0a7df2bf8eb006acdfc7646f2d18c4bda8b160bea7b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-bone-head.webp",
+    "bytes": 1956,
+    "sha256": "ad291ae2d300a56157fa1809689d1f6d6f0821b59a27ca11a1e4d7d15ad9b8a3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-bone-legs.webp",
+    "bytes": 16248,
+    "sha256": "d43f31b0acffb098a5c2a093579182afc103583305c4fe2925774517ad9f15a1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-bone-neck.webp",
+    "bytes": 6418,
+    "sha256": "61407ad60ea254e8136efa5e685629f13c1fd99e6c67e97860f60722a4ef2a4e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-bone-tail.webp",
+    "bytes": 8776,
+    "sha256": "2d496915f7ddd50c024900650c23c713ef1ce3c4867622bef1be9d5aadc00cd9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-fossil.webp",
+    "bytes": 272620,
+    "sha256": "be24258639cf93d7a1eaadb96d30687e37f947073a1457f180694962966290a6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-grooves.webp",
+    "bytes": 225818,
+    "sha256": "c478daa6e01860058e706024cbb85951ad2fbd30ef4bffe6c78946df6b520f73"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-parts.js",
+    "bytes": 2025,
+    "sha256": "d7abc0cd11f5fa747a776c4a7c135c37ebd9ef0441d0d850aa95a73474f84dce"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-sand.webp",
+    "bytes": 268984,
+    "sha256": "e1b0e9567a93121e9707704e1120abe2659e5f32f8c65a1f52f992690ac9883c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-stage-1.webp",
+    "bytes": 164550,
+    "sha256": "c2f54511fdbc47eaf9479858c0e63ce4b685523fd62aba6140d389f1034534c3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-stage-2.webp",
+    "bytes": 248070,
+    "sha256": "6c962e8f8b3f86b75cb264fdbd907e6a2ff9d9494588db49c3bfd0d76444b3b9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-stage-3-plain.webp",
+    "bytes": 356564,
+    "sha256": "fb37c986b8c53315243029468aba3be3541e55918480e8b4089180454b9f48bd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-stage-3.webp",
+    "bytes": 323418,
+    "sha256": "5d19d708fb265b826597a79314ae5b4c1aa31dfa1893eae92db888c418a07871"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-stage-4-plain.webp",
+    "bytes": 350836,
+    "sha256": "a3ac28b11acc0602f4e498e464ff121f72ebf1ec984bc14d08c0884172409457"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/rock-stage-4.webp",
+    "bytes": 315028,
+    "sha256": "5af0e1a890b901976910c64bb0a2d1517fbd519053bdf0165f27e4bf11a43683"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/sandstone.webp",
+    "bytes": 400966,
+    "sha256": "1ab638c8eac7d405b0c09b62d31a376b55bad9e738390e99c420facd46c60e13"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/shell-1.webp",
+    "bytes": 35564,
+    "sha256": "1e89969fb38f6e811f8b5cbd377adec33788847c4a394576ff4f1514b9e76c61"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/shell-2.webp",
+    "bytes": 42824,
+    "sha256": "bc39bb39fee9f16975f4d4210560d6795bf5e0a87989f3fb03007d89ce418167"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/shell-3.webp",
+    "bytes": 46022,
+    "sha256": "0006e31a14af3e6eab7214ec5bd8b513dfdb70e5c2479923a8dcbef7d66aeea9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/shell-4.webp",
+    "bytes": 50796,
+    "sha256": "a86a2a58d99aa9aa3fe65c2159e2311aa92bda1935c498477557e849cdeda108"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/shell-5.webp",
+    "bytes": 52920,
+    "sha256": "e48af156dccc3c4c766aaf7edac520eb397024210d3a1a762254c73ea0f68170"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/shell-6.webp",
+    "bytes": 70020,
+    "sha256": "339888ed6b71128b4890e0a4c38239c7fa3c841ddb6cdfdb952c3b6e1a918b6b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/allo.webp",
+    "bytes": 23482,
+    "sha256": "74cbcb837a9b6d840d162668396cb6a3e2e6f95f06537c8d46e706394bc240fe"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/anky.webp",
+    "bytes": 20776,
+    "sha256": "1fd9b6aeca0b25862f542901a68d6fc99104b663840ab431a51620be8949dbf5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/brachio.webp",
+    "bytes": 24628,
+    "sha256": "58c7fb57a49f66635c96431b1b53627773874785bfe5ecfbbe1bcc453843e5e6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/compso.webp",
+    "bytes": 18722,
+    "sha256": "bbbb4a5a94689781404cce703b0e03a33104371929d0044d68fcb038cf7f6262"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/mamenshi.webp",
+    "bytes": 34662,
+    "sha256": "5089421b3a02d833721027f160585150f315cfc844ef1939a5e7e2bb6024b2f5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/mosasaur.webp",
+    "bytes": 20136,
+    "sha256": "9e6a055adac85373ce6cbf1cfeda891562a28e0dbd7e7f0c2565a2a8be4bf556"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/parasaur.webp",
+    "bytes": 22512,
+    "sha256": "6e24300f507fc5b1c0a5566c59d6ff3c630342d1536afe875056f5a5ac1f0789"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/ptero.webp",
+    "bytes": 22088,
+    "sha256": "42294abab23480542662032d073cbe027c9958e5a12cea6818b8fe75e1b7b137"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/raptor.webp",
+    "bytes": 20562,
+    "sha256": "750ef2eb26218f1140257e0edbe428ea83bd3aa701a425d6b6858e2d3bd3531d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/stego.webp",
+    "bytes": 23034,
+    "sha256": "4a10dd415688863716e6a4fae9d870028e0f6d0b5bc9b0c67df464b5e8bb227b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/trex.webp",
+    "bytes": 25616,
+    "sha256": "f620222b8383554cece5a9454cde816a6925b5ca5809b138ab962f92a93fa9ef"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/trike.webp",
+    "bytes": 24042,
+    "sha256": "9c8c35b488d65e4f5cae439bd6d828e519c7453cfe5081cace44c4192ad6b263"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/solid-rock.webp",
+    "bytes": 329298,
+    "sha256": "153b40f8ec07ebd5ba9739475f3179d4f55efd61aab87e166cfabe3106e224e3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/allo-buried.webp",
+    "bytes": 288728,
+    "sha256": "05de4894cf097a2597490e214d167d44e240be293748f1c09c36ba8ace81253f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/anky-buried.webp",
+    "bytes": 282018,
+    "sha256": "1b089fa179b623a2bbece68ae083ed2cde026d274d23b537bfd6dfeca4be7af7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/cobble.webp",
+    "bytes": 380038,
+    "sha256": "831f4ec5f1105a5bbbbeea8ca1516511f2f41dfa5beac832693943da85bcef6b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/compso-buried.webp",
+    "bytes": 278510,
+    "sha256": "dd8c9b3397c67094e1b4b5ecdd0a6609f54289ff1b950f10a8b2fbb9ddeeee78"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/mamenshi-buried.webp",
+    "bytes": 323988,
+    "sha256": "4e34856444e958682f6ba60a02f680dd530db8263fae67065d86be394bbca1bc"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/mud.webp",
+    "bytes": 240068,
+    "sha256": "ddf7514781356f1cd93d2a124b148ea65c1cefd5b9969655285f1e3b844a84e6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/parasaur-buried.webp",
+    "bytes": 304414,
+    "sha256": "ac314ba1633f6c0a2a8848d93a2d29ae0df1287752b1ebe57014dc9f890a2c4a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/ptero-buried.webp",
+    "bytes": 310786,
+    "sha256": "4a74fe72389df08a65baaf6310beee2a99dab2626a39c2013b65a3dc2319c312"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/sandstone.webp",
+    "bytes": 271154,
+    "sha256": "b946ad3d07dfdaa863ab215a175febc87740a582a7982fff934491a338c871a0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/stego-buried.webp",
+    "bytes": 305870,
+    "sha256": "f8a900f7cffa2a2a8a5a75b175f3a8666a366544b4b265f8070fbca55b8afe3c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/wide-face/trike-buried.webp",
+    "bytes": 293304,
+    "sha256": "fd1d5235068f2a950b9a3565f5953fd4a378c9661e32a23861e97d2d51d0714d"
+  },
+  {
+    "path": "prototypes/fossil-dig/bone-area.js",
+    "bytes": 10033,
+    "sha256": "c5ae8b50c813f0b268179da0281373192ac809cbf8d8c215f4f739062bae02b1"
+  },
+  {
+    "path": "prototypes/fossil-dig/egg-progress.css",
+    "bytes": 1308,
+    "sha256": "98e4fef37accdff4156f2825c3fe2d5cc91a33023c7193924cefa67c591bb19b"
+  },
+  {
+    "path": "prototypes/fossil-dig/egg-progress.js",
+    "bytes": 1977,
+    "sha256": "0a6a388c833f9f6df4e28f78a72b4b910c88f4a6230f0250979b34e2d7b01c9d"
+  },
+  {
+    "path": "prototypes/fossil-dig/fossil-audio.js",
+    "bytes": 5713,
+    "sha256": "bd900e0899f75bcea97410edb6e1dbaa8c2fa2b1343683bcbedc01a29cff1352"
+  },
+  {
+    "path": "prototypes/fossil-dig/fossil-effects.js",
+    "bytes": 5072,
+    "sha256": "813e82beb460203697320396aafe731c5e6ac92925fc01bed8acac4d7acc2818"
+  },
+  {
+    "path": "prototypes/fossil-dig/fossil-store.js",
+    "bytes": 9084,
+    "sha256": "e803dcb9ffc290f7109064cc26f6283c5dea8dc6f9addae74c863efff1d201f6"
+  },
+  {
+    "path": "prototypes/fossil-dig/fossils.js",
+    "bytes": 90572,
+    "sha256": "3daf7a45b35b8b933d57cb2c1d88f7326fa83843050725c2e0a59c753506a464"
+  },
+  {
+    "path": "prototypes/fossil-dig/index.html",
+    "bytes": 6394,
+    "sha256": "a1e301b70c4f9de81be23589b0c18b19acb357a0be6b479613a5f6b61ec056d2"
+  },
+  {
+    "path": "prototypes/fossil-dig/journey-fossils.js",
+    "bytes": 586,
+    "sha256": "117b26261d42158c55eeaaf5d19e593a0dbab96ec0539bb5688a3a08790133de"
+  },
+  {
+    "path": "prototypes/fossil-dig/natural-fossils.js",
+    "bytes": 27369,
+    "sha256": "631571337ff08cbb5de786672ea0b1396082a2b9fc4dc29542fd5f8c42421b5e"
+  },
+  {
+    "path": "prototypes/fossil-dig/r3-rebuilt-fossils.js",
+    "bytes": 17587,
+    "sha256": "3b0b0b7647e87f1dc3d298a707aaede22c9026ff13c410a0c6ad5fb06a847a96"
+  },
+  {
+    "path": "prototypes/fossil-dig/style.css",
+    "bytes": 28192,
+    "sha256": "e58a3aa6298faad4614130ad14c15e56459c4d925356e51307e52f7881ca40fc"
+  },
+  {
+    "path": "prototypes/g2-multiply/backgrounds.js",
+    "bytes": 566,
+    "sha256": "ccb43bad256eefb40a52244720cac911f5928952f06b668a5184b84b1b912150"
+  },
+  {
+    "path": "prototypes/g2-multiply/backgrounds/volcano-landscape.webp",
+    "bytes": 551896,
+    "sha256": "029c757a45c8392cb89f522b18290d8b8bf9a67ea411ada9242598988f1da817"
+  },
+  {
+    "path": "prototypes/g2-multiply/backgrounds/volcano-portrait.webp",
+    "bytes": 549652,
+    "sha256": "215faedbcb63c53cf925e243f4a905022d4b425f3c6c6ddaf0df376f2fa677d8"
+  },
+  {
+    "path": "prototypes/g2-multiply/backgrounds/volcano-round2-landscape.webp",
+    "bytes": 274060,
+    "sha256": "e6ca987da57b78e4cf03c515f5180dc664da823180e07a4d07fa7f8b3ba564b5"
+  },
+  {
+    "path": "prototypes/g2-multiply/backgrounds/volcano-round2-portrait.webp",
+    "bytes": 260898,
+    "sha256": "84a5d5229f1f51d708a5d1d0417504faa886f7cd8f22bb51257e6867a0798d6c"
+  },
+  {
+    "path": "prototypes/g2-multiply/index.html",
+    "bytes": 34265,
+    "sha256": "70b6cf3223eb8e5c51a4e1805dd17bf6e24a6a124afc017d4fafb6de1a8c4e0c"
+  },
+  {
+    "path": "prototypes/g2-multiply/journey-play.css",
+    "bytes": 1738,
+    "sha256": "3e792bc30cf2e63f460f21e77754e7f1359c7b2aa9433c7fec6a5d800780a0df"
+  },
+  {
+    "path": "prototypes/g2-multiply/speech.js",
+    "bytes": 8340,
+    "sha256": "c675b5b6d3097a3026862e8ae561e62b1a43594beb53fdd2ad73a522ff5191fb"
+  },
+  {
+    "path": "prototypes/g2-share/app.js",
+    "bytes": 15260,
+    "sha256": "1955f9a10a5d2f47426f9ab12d392299d29e83ad8aca2ced4ae65985578539ca"
+  },
+  {
+    "path": "prototypes/g2-share/backgrounds.js",
+    "bytes": 519,
+    "sha256": "d79ca512eb1e23821169df5b5ae7f85b4409556616b0a54e0c1e6045c46bc314"
+  },
+  {
+    "path": "prototypes/g2-share/index.html",
+    "bytes": 2475,
+    "sha256": "88b616bcf60d86f78027078a0897c79ba800c3c2ed8b697ec40dfc886669d155"
+  },
+  {
+    "path": "prototypes/g2-share/speech.js",
+    "bytes": 8834,
+    "sha256": "699f6ae86570586d8036ea69b1dd5429f4a35177440e274d806708941edca1be"
+  },
+  {
+    "path": "prototypes/g2-share/style.css",
+    "bytes": 7775,
+    "sha256": "b89269960803f56c98bc7747b62bd4edb07d19da3f402371bf78c25dc95618fd"
+  },
+  {
+    "path": "prototypes/island-journey.html",
+    "bytes": 8344,
+    "sha256": "33663eb5264a39e7a6ccdbd5c75d2e04505cd8fec65d1a0da1468d6cfe787257"
+  },
+  {
+    "path": "prototypes/island-journey/character-eras.json",
+    "bytes": 43466,
+    "sha256": "51facb43d30216e85557328eebbc4d312a78228ee67805b5928a5223bfda351f"
+  },
+  {
+    "path": "prototypes/island-journey/journey-store.js",
+    "bytes": 8286,
+    "sha256": "487729593ec6f82710c427d9b376b381c04989c4b92c5c974e51d7569e12d81b"
+  },
+  {
+    "path": "prototypes/island-journey/journey.css",
+    "bytes": 19292,
+    "sha256": "8c0b3322c9c20f42ebd68106d5276f784ccd6710b8e85e37a2547876a2f57d71"
+  },
+  {
+    "path": "prototypes/island-journey/journey.js",
+    "bytes": 19928,
+    "sha256": "8dfd02b4be1bc89b719933c99c00866f35405688afdeb353376b17e5c3917650"
+  },
+  {
+    "path": "prototypes/island-journey/jurassic-map.webp",
+    "bytes": 526294,
+    "sha256": "d838f0e5159c3f017b986f45fc0bda8e1b625c5b63af727c0e36a7c21267b8eb"
+  },
+  {
+    "path": "prototypes/island-journey/props.js",
+    "bytes": 21529,
+    "sha256": "e1eb88dd24615279786c2d8b4970e08269a1d1abccf723c7f1dd0220dbb96651"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/cones-twigs.webp",
+    "bytes": 43490,
+    "sha256": "cb4de0034b4e6affd00abf3501b31e0e0dfb9f1420bd725f421605b9d66c20ae"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/conifer.webp",
+    "bytes": 49262,
+    "sha256": "15a8ed7c3a4818f84520f6b50db4860b886014841238dbbba4fa4e9fea275ec8"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/cycad.webp",
+    "bytes": 56728,
+    "sha256": "b1a5459b9ee3bc59b735ea3d3afd6c52ee2b6d918dc013c091206c088a0c98ae"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/fern-upright.webp",
+    "bytes": 55038,
+    "sha256": "c13875f571efc39a92472e15d73388c22d41a21a4338b37f6cde8c2efa5603fb"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/fern-wide.webp",
+    "bytes": 59294,
+    "sha256": "3f715f15658c3938e75141d6c207ef07744cc5669130c3b0264abd5b9aa1955f"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/log.webp",
+    "bytes": 38274,
+    "sha256": "17523554650e64750cc4f296264fcf0b4207d4d44a39cd13033ec6e8fd2ef89b"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/moss-rock-tall.webp",
+    "bytes": 47740,
+    "sha256": "1dd2749e464a16d2c0fa4a4db14dab73b05007c2f3552fe2daff8038435572c8"
+  },
+  {
+    "path": "prototypes/island-journey/props/cedar/moss-rock-wide.webp",
+    "bytes": 46712,
+    "sha256": "0803522db47859ae595c83058d6be15fd3a9a4671f6fd6f8187a046f39656b32"
+  },
+  {
+    "path": "prototypes/island-journey/props/footprints.json",
+    "bytes": 15979,
+    "sha256": "46646c3d528e86803990584ab8340db3017b3da0d4bc56939e6c418b4e39c163"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/fern-tall.webp",
+    "bytes": 38094,
+    "sha256": "2f477f9fd31384087ccbd308a6dbd61fa4d6208e75fc311a0a141c32db574d46"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/fern.webp",
+    "bytes": 56846,
+    "sha256": "d3edf81667d1bc4519820af3f347bbd5b02803e8763841e44a0d26cedcd287fb"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/horsetail.webp",
+    "bytes": 59662,
+    "sha256": "eb2fb16168a22f5f43dbbf8d4bf00d7b792a21e6a1b097f27c27d23add8a4606"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/moss-rock.webp",
+    "bytes": 49084,
+    "sha256": "95e60a622c0f3ad2f0f4f3cad11b21fe30966496c6492d771da7786aa7de07b7"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/puddle.webp",
+    "bytes": 27306,
+    "sha256": "cd37ad7e56cdd7563754129d04ecb26055521f934fe75ad8afd7121dc39cb994"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/wet-rock-flat.webp",
+    "bytes": 36748,
+    "sha256": "95f30e383f7de717d92765752266ce6ce1fd10f56ee8c63f109f9c06c1818861"
+  },
+  {
+    "path": "prototypes/island-journey/props/waterfall/wet-rock-tall.webp",
+    "bytes": 45234,
+    "sha256": "4abf62d21668ca518527c1b6e1162729174ac1e9cfcd290b67d8efa23558b4ad"
+  },
+  {
+    "path": "runtime.f1a9f068a295.js",
+    "bytes": 514482,
+    "sha256": "f1a9f068a2952879526b0b7c99c46cd56192eb518b50ec02dbc7d8818e5b4ced"
   },
   {
     "path": "scene-data.js",
-    "bytes": 961,
-    "sha256": "e4401c626a218751ab9203453b5a7a59c42c6fb9b09e7d4f5a56b2cdead8f84c"
+    "bytes": 8044,
+    "sha256": "bb30619052b222ec5587b70766c69b1594c39266dd763074ab7ba194184097dc"
+  },
+  {
+    "path": "scene-detail-preview.js",
+    "bytes": 913,
+    "sha256": "d55bdf6caa459f54ec88c70e03fc5e0de28c334d97d9b75720e08b4f85b85cb1"
+  },
+  {
+    "path": "scene-ground.css",
+    "bytes": 173,
+    "sha256": "e45258a7c18745abfc6d4c0acbbab789d9a6f9d7f3fdf5a3ad6a3ada35df63aa"
+  },
+  {
+    "path": "scene-ground.js",
+    "bytes": 8417,
+    "sha256": "83a38f6e58fc65fbe4318223b7a2cbebf18499e2de1cc0e7de36c6064ebe40cd"
+  },
+  {
+    "path": "scene-pair-preview.js",
+    "bytes": 4126,
+    "sha256": "a20d6152151b5a78abd28c01c8b4c398e7d760913ca1e738fb1e4f60e3459813"
+  },
+  {
+    "path": "scene-preview.css",
+    "bytes": 517,
+    "sha256": "636b1844ebb19e38364b9e31524805c3ad672c399d77387ea27245aef1bb85c6"
+  },
+  {
+    "path": "scene-preview.js",
+    "bytes": 2256,
+    "sha256": "306f2bfa4e5e2fe63f76ada42fe93b428694ae18dd12f707a2276c41d47d09b5"
   },
   {
     "path": "story-player.js",
-    "bytes": 3979,
-    "sha256": "736368ae4d303029c40f7f9431c3342f70d405b81dd1c529cf22c1145539d059"
+    "bytes": 7088,
+    "sha256": "339fc717baf3802d01b645785a8dfa742d9f317f6edf32f0b8cc75e440b87943"
   },
   {
     "path": "story-ui.css",
-    "bytes": 9432,
-    "sha256": "1e3e9701fff67f1ce3b24febd059be232c428f23dbc9c5206bc2b1f073b85c49"
+    "bytes": 9271,
+    "sha256": "217c1b93b95bf456be2bb709a29bc3a0e7619b1edf702343b59443bbc4f6944f"
+  },
+  {
+    "path": "story.js",
+    "bytes": 5946,
+    "sha256": "8d38f261ba74a88db193ac2babb34fb9ff95c82e64b65d7dd2e66281b4067dce"
   },
   {
     "path": "style.css",
-    "bytes": 41806,
-    "sha256": "d5785d9734b4111fd44e4b870cc3ee17b25a6d8d708cef3944ed22a9c056a650"
+    "bytes": 45145,
+    "sha256": "a43e5617e77d5e1469188636545eb3e9012c00efc856c1860aba675d7ae3de1c"
   },
   {
-    "path": "styles.d6ebac6c6067.css",
-    "bytes": 137240,
-    "sha256": "d6ebac6c606774a84d19dd4db5200b3b64b249a8339aeb8031ee7f214b4f78ac"
+    "path": "styles.7d3edad5cbd2.css",
+    "bytes": 184055,
+    "sha256": "7d3edad5cbd258ea2cdc905eb1f16398bd01e38262d3c7b19559ca2601315e28"
+  },
+  {
+    "path": "task-guidance-cues.js",
+    "bytes": 13606,
+    "sha256": "a90dc41c2516ef9e19ffe3584f7e543ee28de506c91a1bf5ac42d2eaf3d4ecbf"
   },
   {
     "path": "voice-cues.js",
     "bytes": 73946,
     "sha256": "e2eeaf5efae629aaaa0b8d002b2ebb0f4a553d28a2ba9bba8aef75f6b49bb34e"
+  },
+  {
+    "path": "warmup.css",
+    "bytes": 6834,
+    "sha256": "607567b0edd558b345c15d156e4f2578cfa36e57410088fefe2e7ea5a912e55b"
+  },
+  {
+    "path": "warmup.js",
+    "bytes": 12539,
+    "sha256": "b4dfcdaf35e5b459c6b377f13a5e965092519b293244a8b7345412e82822a8d7"
   }
 ]

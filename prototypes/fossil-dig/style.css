@@ -1,0 +1,180 @@
+:root{--ink:#49351f;--green:#285c49;--cream:#fff6df;--gold:#e8bf68;--line:#aa8150;font-family:-apple-system,'PingFang SC',sans-serif;color:var(--ink);background:#eee0c5}*{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(ellipse at 50% 32%,#fff6df,#e6d3b0)}[hidden]{display:none!important}button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}button{font:inherit;cursor:pointer}button,a.primary,a.secondary,header a{min-height:48px;min-width:48px}button:focus-visible,a:focus-visible{outline:3px solid #175b82;outline-offset:3px}header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:8px max(14px,env(safe-area-inset-left));gap:8px;max-width:1200px;margin:auto}header a,header button{display:grid;place-items:center;background:#fff6dfdb;border:1px solid #b39972;border-radius:24px;color:var(--ink);font-weight:750;padding:8px 14px;text-decoration:none}header span{font-size:13px;font-weight:700}main{max-width:1080px;margin:auto;padding:0 20px 16px;text-align:center}.heading h1{font-family:Georgia,'Songti SC',serif;font-size:32px;letter-spacing:2px;margin:3px 0 8px}.eyebrow{font-size:11px;letter-spacing:2px;color:#8a653b;margin:3px 0}#instruction{font-size:15px;margin:0;min-height:22px}.steps{list-style:none;display:flex;justify-content:center;gap:12px;padding:0;margin:14px auto 16px;font-size:12px}.steps li{padding:5px 16px;border-radius:20px;color:#8b795e;background:#dbc8a7}.steps li.active{background:var(--green);color:#fff6df}.steps li.done{background:#b6c9a0;color:#304d2e}#workspace{display:flex;align-items:center;justify-content:center;gap:24px}#board{position:relative;flex:none;width:min(55vh,510px);height:min(55vh,510px);isolation:isolate;touch-action:none}#stone,#slab,#sand,#grooves,#targets,#reveal{position:absolute;inset:0;width:100%;height:100%}#stone,#slab{pointer-events:none;user-select:none}#sand{z-index:5;touch-action:none;cursor:crosshair;border-radius:8%;}#egg{position:absolute;inset:2%;width:96%;height:96%;padding:0;border:0;background:none;touch-action:manipulation}#eggSilhouette{position:absolute;inset:18%;width:64%;height:64%;object-fit:contain;opacity:.33;filter:sepia(.5)}#shells{position:absolute;inset:0}#shells img{position:absolute;pointer-events:none;user-select:none}.peel{animation:peel .48s ease-out both}.shake{animation:shake .18s ease-out}#tray{display:grid;grid-template-columns:repeat(2,90px);gap:12px;width:192px;align-content:center}.bone-choice{position:relative;width:90px;height:104px;border:1px solid #b89660;background:linear-gradient(#fff9e5,#e3c694);border-radius:18px;box-shadow:0 3px 0 #b58b54;touch-action:none;padding:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;user-select:none}.bone-choice img{height:64px;max-width:72px;object-fit:contain;pointer-events:none}.bone-choice span{font-size:12px;font-weight:750}.bone-choice.placed{opacity:.52;box-shadow:none;background:#d4dfbb;border-color:#93ad76}.bone-choice.placed:after{content:'✓';position:absolute;top:4px;right:7px;color:#3c714e}.bone-choice.selected{outline:3px solid #a87422}.groove,.placed-bone{position:absolute;pointer-events:none;object-fit:fill}.groove{filter:brightness(0) sepia(1);opacity:.23}.placed-bone{filter:drop-shadow(0 1px 1px #5c3b2360)}.target{position:absolute;border:0;background:transparent;border-radius:50%;padding:0;min-width:48px;min-height:48px;opacity:0}.target.active{opacity:1;outline:2px dashed #fff4c0;background:#fff1ab44}.target:focus-visible{opacity:1;outline:3px solid #155977}.drag-ghost{position:fixed;z-index:90;pointer-events:none;object-fit:fill;filter:drop-shadow(0 6px 4px #4e361c66)}.drag-ghost.returning{transition:left .22s ease,top .22s ease,opacity .22s ease;opacity:.1}#reveal{display:grid;place-items:center;z-index:7;pointer-events:none}#reveal img{max-width:88%;max-height:88%;object-fit:contain}#living{height:92%}#reveal.glow{animation:glow 1s ease-out}#knowledge{margin:15px auto 0;max-width:500px;padding:14px 22px;border-radius:20px;background:#fff9e8e8;border:1px solid #b7a176}#knowledge h2{font-size:23px;margin:7px 0 15px}
+#knowledgeText{margin:-6px 0 14px;font-size:16px;line-height:1.5;color:#5a4426}
+#knowledgeText:empty{display:none}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:15px;background:var(--green);color:#fff6dc;padding:12px 24px;text-decoration:none;font-weight:800;font-size:16px;box-shadow:0 3px 0 #173f32}.secondary{background:#fff5d9;color:#634b2d;border:1px solid #b9a17d;box-shadow:none}#status{font-size:14px;min-height:26px;margin:12px 0 0;color:#73562f}#storageWarning{color:#813d1c;background:#ffecce;border:1px solid #a57242;border-radius:10px;padding:10px;font-size:13px}#wake{margin-top:12px}#locked{max-width:450px;margin:10px auto}#locked img{width:180px;height:220px;object-fit:contain}#locked p{line-height:1.7}.museum-mode{background:#e5c795 url('./art/museum-wall.webp') center/cover fixed}.museum-mode .heading{margin-top:8px}.museum-mode .heading h1{color:#51351b}.museum-mode .steps{display:none}#exhibits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:24px auto} .exhibit{height:225px;border-radius:65px 65px 18px 18px;background:linear-gradient(#65472fc9,#b48b5bad);border:3px solid #f4d999;box-shadow:inset 0 3px 16px #3f2d2b55,0 6px 0 #936c3e;color:#fff2ce;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px}.exhibit :is(img,.exhibit-skeleton){height:155px;width:100%;object-fit:contain;filter:drop-shadow(2px 3px 2px #31211466)}.exhibit strong{font-size:16px}.exhibit .unknown{font-size:60px;opacity:.65}.exhibit small{font-size:12px;opacity:.75}.museum-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}dialog{background:#fff6df;color:var(--ink);border:2px solid #af8b52;border-radius:25px;padding:32px 24px;text-align:center;width:min(430px,calc(100% - 28px))}dialog::backdrop{background:#342b23a8}dialog img{height:230px;max-width:100%;object-fit:contain}dialog h2{font-size:22px}#closeFact{position:absolute;right:8px;top:8px;border:0;background:#e8d5ac;border-radius:50%;font-size:26px}
+@keyframes peel{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rotation));opacity:0}}@keyframes shake{25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}@keyframes glow{50%{filter:drop-shadow(0 0 24px #fff9a9);background:radial-gradient(ellipse,#fff4b088,transparent 65%)}}
+@media(max-width:700px){main{padding:0 14px 12px}header{height:64px;padding:6px 12px}header span{font-size:11px}header a,header button{font-size:13px;padding:6px 12px}.heading h1{font-size:27px;margin-bottom:6px}#instruction{font-size:13px}.steps{margin:10px auto 12px}#workspace{flex-direction:column;gap:14px}#board{width:min(calc(100vw - 32px),calc(100dvh - 340px));height:min(calc(100vw - 32px),calc(100dvh - 340px))}#tray{width:100%;grid-template-columns:repeat(5,minmax(48px,1fr));gap:7px}.bone-choice{width:100%;height:97px;border-radius:13px;padding:4px}.bone-choice img{height:59px;max-width:100%}.bone-choice span{font-size:11px}#knowledge{margin-top:8px;padding:10px 12px}#knowledge h2{font-size:19px;margin:4px 0 10px}#exhibits{grid-template-columns:repeat(2,1fr);gap:12px;margin:20px auto}.exhibit{height:157px;border-radius:42px 42px 12px 12px;padding:10px}.exhibit :is(img,.exhibit-skeleton){height:106px}.exhibit .unknown{font-size:43px}.exhibit strong{font-size:13px}.museum-actions{gap:9px}.museum-actions .primary,.museum-actions .secondary{font-size:14px;padding:10px 15px}#status{font-size:13px;margin-top:10px}}
+@media(min-width:701px) and (max-height:600px){header{height:54px;max-width:none;padding:3px 16px}.heading{position:absolute;left:18px;top:77px;width:190px;text-align:left}.heading h1{font-size:25px}.heading #instruction{font-size:14px;line-height:1.6}.steps{flex-direction:column;align-items:flex-start;gap:8px}.steps li{min-width:70px}main{padding-left:220px;padding-right:16px}#workspace{gap:16px}#board{width:calc(100dvh - 82px);height:calc(100dvh - 82px)}#tray{grid-template-columns:repeat(2,72px);width:154px;gap:8px}.bone-choice{width:72px;height:85px;padding:5px}.bone-choice img{height:48px;max-width:60px}#status{margin:4px 0;font-size:12px}#knowledge{position:absolute;right:20px;top:115px;width:190px;margin:0;padding:12px}#knowledge h2{font-size:18px}#knowledge .primary{font-size:13px;padding:8px 12px}.reveal-mode #workspace{justify-content:flex-start}#wake{position:absolute;right:22px;top:180px;width:180px}.museum-mode main{padding-left:220px}#exhibits{grid-template-columns:repeat(3,1fr);gap:10px;margin:4px auto 12px}.exhibit{height:116px;border-radius:30px 30px 10px 10px;padding:8px}.exhibit :is(img,.exhibit-skeleton){height:75px}.exhibit strong{font-size:12px}.exhibit .unknown{font-size:35px}.exhibit small{font-size:10px}.museum-actions .primary,.museum-actions .secondary{font-size:13px;padding:8px 12px}#locked{margin:0 auto}#locked img{width:110px;height:110px}#locked h2{font-size:20px;margin:6px}#locked p{font-size:13px;margin:5px}.museum-mode #status{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Explicit image bounds avoid intrinsic image overflow in the reveal grid. */
+#reveal img{position:absolute;inset:6%;width:88%;height:88%;max-width:none;max-height:none;object-fit:contain}
+@media(min-width:701px) and (max-height:600px){#board{width:calc(100dvh - 110px);height:calc(100dvh - 110px)}.heading{top:70px}#knowledge{top:100px}}
+/* R2: solid excavation mass and matching sculpted fossil relief. */
+.filter-library{position:absolute;pointer-events:none;overflow:hidden}
+#stone{filter:drop-shadow(1px 3px 0 #a27843) drop-shadow(3px 7px 3px #4d311b45)}
+#board.knock-stage #stone{visibility:hidden}
+#egg::before{content:'';position:absolute;left:20%;right:13%;height:7%;bottom:0;border-radius:50%;background:radial-gradient(ellipse,#4d311b70,transparent 70%);filter:blur(3px);pointer-events:none}
+#eggWhole,#eggCore{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+#eggCore{filter:drop-shadow(1px 3px 2px #50331830)}
+#shells{pointer-events:none;perspective:900px}
+.shell-chunk{position:absolute;transform-style:preserve-3d;filter:drop-shadow(2px 5px 2px #5b371a55)}
+#shells .shell-chunk img{inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.shell-back{transform:translate(5px,8px);filter:brightness(.51) saturate(.75)}
+.shell-middle{transform:translate(3px,4px);filter:brightness(.73) saturate(.85)}
+.shell-face{transform:translateZ(1px)}
+.shell-chunk.peel{transform-origin:50% 90%;animation:chunk-drop .5s cubic-bezier(.4,0,.8,.4) both}
+@keyframes chunk-drop{20%{transform:translate(-2px,-3px) rotateX(-12deg) rotateY(12deg);opacity:1}70%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rotation)) rotateX(38deg) scale(.9);opacity:0}}
+#slab .relief-bones{position:absolute;inset:6.379585%;width:87.24083%;height:87.24083%;object-fit:contain;filter:drop-shadow(1px 2px 0 #91683e) drop-shadow(2px 4px 1.7px #4d301b88);pointer-events:none}
+.groove{filter:url('#fossil-groove');opacity:1}
+.placed-bone{filter:drop-shadow(1px 2px 0 #997043) drop-shadow(1.5px 3px 1px #4d301b88)}
+.bone-choice img{filter:drop-shadow(1px 2px 1px #65451d70)}
+.drag-ghost{filter:drop-shadow(1px 2px 0 #997043) drop-shadow(3px 8px 3px #4e361c88)}
+#reviveSkeleton{filter:drop-shadow(1px 2px 0 #997043) drop-shadow(2px 4px 2px #4d301b88)}
+@media(prefers-reduced-motion:reduce){.shell-chunk.peel{animation:none!important}}
+#eggSurface{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.shell-chunk{display:none}
+.shell-chunk.peel{display:block}
+/* R3: the covered fossil is the same canvas at both ends of this 800ms transition. */
+#excavateTransition{position:absolute;inset:0;z-index:20;pointer-events:none;overflow:visible}
+#excavateTransition canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#transitionFind{transform:scale(.36);opacity:0;filter:drop-shadow(2px 5px 3px #4e301577)}
+#halfLeft{clip-path:polygon(0 0,51% 0,48% 18%,53% 34%,48% 50%,52% 72%,49% 100%,0 100%);transform-origin:30% 90%}
+#halfRight{clip-path:polygon(51% 0,100% 0,100% 100%,49% 100%,52% 72%,48% 50%,53% 34%,48% 18%);transform-origin:70% 90%}
+.opening #halfLeft{animation:split-left .8s ease-in both}.opening #halfRight{animation:split-right .8s ease-in both}.opening #transitionFind{animation:find-zoom .8s ease-in-out both}
+@keyframes split-left{0%{transform:none;opacity:1}45%{transform:translate(-22%,12%) rotate(-27deg);opacity:1}85%,100%{transform:translate(-40%,25%) rotate(-47deg);opacity:0}}
+@keyframes split-right{0%{transform:none;opacity:1}45%{transform:translate(22%,12%) rotate(27deg);opacity:1}85%,100%{transform:translate(40%,25%) rotate(47deg);opacity:0}}
+@keyframes find-zoom{0%{transform:scale(.36);opacity:0}20%,38%{transform:scale(.36);opacity:1}100%{transform:scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.opening canvas{animation:none!important}}
+/* R5: one registered square rock face through brush and puzzle. */
+#eggContents{position:absolute;inset:0;transform-origin:0 100%;pointer-events:none}
+#bowl{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:drop-shadow(1px 5px 3px #55381b40)}
+#eggContents #sand,#eggContents #targets{pointer-events:auto}
+#eggContents #slab .relief-bones{left:0;top:0;right:auto;bottom:auto;width:100%;height:100%;filter:none}
+#egg{inset:0;width:100%;height:100%;z-index:8}
+#eggSurface{inset:0;width:100%;height:100%;filter:drop-shadow(1px 2px 1px #50331730)}
+#egg::before{display:none}
+#sand{border-radius:0;z-index:5}
+#effects,#boneHighlights{position:absolute;inset:0;pointer-events:none;z-index:12}
+#boneHighlights{z-index:4}
+#demoHand{position:absolute;font-size:42px;line-height:1;z-index:30;pointer-events:none;filter:drop-shadow(0 2px 3px #38240b80)}
+.brush-demo{left:42%;top:43%;animation:brush-demo 1s ease-in-out both}
+.puzzle-demo{left:60%;top:93%;animation:puzzle-demo 1s ease-in-out both}
+@keyframes brush-demo{0%,100%{opacity:0;transform:translateX(-28px) rotate(-15deg)}20%,60%{opacity:1;transform:translateX(35px) rotate(8deg)}40%,80%{opacity:1;transform:translateX(-28px) rotate(-15deg)}}
+@keyframes puzzle-demo{0%{opacity:0;transform:translate(0,0)}20%{opacity:1;transform:translate(0,0)}85%{opacity:1;transform:translate(-28px,-120px)}100%{opacity:0;transform:translate(-28px,-120px)}}
+.knock-impact{position:absolute;width:1px;height:1px;pointer-events:none}
+.hammer{position:absolute;left:-17px;top:-62px;width:65px;height:65px;transform-origin:80% 90%;animation:hammer-strike .7s ease-out both}
+.hammer svg{width:100%;height:100%}
+@keyframes hammer-strike{0%{transform:rotate(-70deg);opacity:0}18%{opacity:1}40%{transform:rotate(16deg)}65%{transform:rotate(-9deg);opacity:1}100%{transform:rotate(-35deg);opacity:0}}
+.impact-cracks{position:absolute;left:-60px;top:-60px;width:120px;height:120px;overflow:visible}
+.impact-cracks path{fill:none;stroke:#644425;stroke-width:2;stroke-linecap:round;stroke-dasharray:180;animation:crack-spread 1s ease-out both}
+@keyframes crack-spread{0%,15%{stroke-dashoffset:180;opacity:0}25%{opacity:1}80%{stroke-dashoffset:0;opacity:.9}100%{stroke-dashoffset:0;opacity:0}}
+.dust{position:absolute;left:-18px;top:-18px;width:36px;height:36px;border-radius:50%;background:radial-gradient(ellipse,#d2b784b0,transparent 70%);box-shadow:12px -4px 9px #ddc69977,-14px 7px 8px #c1a16b66;animation:impact-dust .85s ease-out both}
+@keyframes impact-dust{0%,20%{transform:scale(.2);opacity:0}45%{opacity:.8}100%{transform:translateY(-19px) scale(2.1);opacity:0}}
+.knock-piece{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:drop-shadow(2px 5px 1px #80552c99);animation:chunk-bounce 1s ease-in both}
+@keyframes chunk-bounce{0%,20%{transform:none;opacity:1}60%{transform:translate(var(--drop-x),42px) rotate(7deg)}78%{transform:translate(var(--drop-x),25px) rotate(-5deg);opacity:1}100%{transform:translate(var(--drop-x),70px) rotate(14deg);opacity:0}}
+.top-away{animation:top-away .65s ease-in both}
+@keyframes top-away{from{transform:none;opacity:1}to{transform:translate(-12%,-13%) rotate(-16deg);opacity:0}}
+.sand-away{animation:sand-away .65s ease-out both}
+@keyframes sand-away{from{opacity:1;transform:none}to{opacity:0;transform:translate(32px,-10px)}}
+.bone-flash{position:absolute;pointer-events:none;animation:bone-flash .22s ease-in-out both}
+@keyframes bone-flash{0%,100%{opacity:0}50%{opacity:1;filter:brightness(1.5) drop-shadow(0 0 4px #ffe1a0)}}
+.title-in{animation:title-in .35s ease-out both}
+@keyframes title-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.flight-bone{position:fixed;z-index:35;pointer-events:none;object-fit:fill;transform-origin:0 0;filter:drop-shadow(1px 4px 2px #5c391a55)}
+.bone-choice.receiving img{opacity:0}
+.fossil-glow{animation:egg-glow .6s ease-in-out both}
+@keyframes egg-glow{50%{filter:drop-shadow(0 0 13px #fff2a3)}}
+.revival-stage #eggContents{transform:translateY(3%) scale(.62);transition:transform .7s ease-in-out}
+#reveal #living{inset:auto;left:48%;top:32%;width:49%;height:58%;object-fit:contain;object-position:center bottom;max-width:none;max-height:none;filter:drop-shadow(0 3px 2px #5d3a2345)}
+#living.walk-out{animation:walk-out .9s ease-in-out both;transform-origin:50% 95%}
+@keyframes walk-out{0%{transform:translate(-28%,1%) scale(.44);opacity:0}25%{opacity:1;transform:translate(-22%,-7%) scale(.72)}45%{transform:translate(-14%,-4%) scale(.86)}65%{transform:translate(-9%,-7%) scale(.94)}82%{transform:translate(-4%,-2%) scale(.98)}100%{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){#eggContents{transition:none!important}#demoHand{opacity:1;animation:none!important}.flight-bone,.knock-impact,.knock-piece,.bone-flash{display:none!important}.title-in{opacity:1;transform:none}}
+/* Reserve the bowl's position when the tray appears; portrait/tablet tray sits below it. */
+@media(min-width:701px) and (min-height:601px){#workspace,.reveal-mode #workspace{flex-direction:column;justify-content:center;gap:14px}#tray{width:min(100%,510px);grid-template-columns:repeat(5,minmax(48px,1fr));gap:9px}.bone-choice{width:100%;height:93px}.bone-choice img{height:56px;max-width:100%}}
+@media(min-width:701px) and (max-height:600px){#workspace,.reveal-mode #workspace{display:grid;grid-template-columns:calc(100dvh - 110px) 154px;justify-content:start;align-items:center;gap:16px}}
+
+/* Contact shading is baked into the selected relief; avoid a floating double shadow. */
+#grooves .placed-bone{filter:none}
+/* R7: reserve a fixed space for the rock and a standing companion. */
+#rockStage{position:absolute;left:0;top:8%;width:82%;height:82%;touch-action:none}
+#rockStage #eggContents{mask:none;transform:none;transition:none}
+#cleanFace{position:absolute;left:5%;top:8%;width:90%;height:90%;mask:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254"%3E%3Cdefs%3E%3Cfilter id="b"%3E%3CfeGaussianBlur stdDeviation="10"/%3E%3C/filter%3E%3C/defs%3E%3Cpath fill="white" filter="url(%23b)" d="M40 554 556 66 1201 400 1213 502 885 882 615 858 263 740Z"/%3E%3C/svg%3E') center/100% 100% no-repeat}
+.assembled-bone{position:absolute;object-fit:fill;pointer-events:none}
+.sand-grain{position:absolute;width:3px;height:2px;background:#9b794c;border-radius:30%;box-shadow:0 1px 1px #5a3e2866;pointer-events:none}
+.brush-dust{position:absolute;width:30px;height:20px;margin:-10px -15px;border-radius:50%;background:radial-gradient(ellipse,#c4a478c9,#b2916470 35%,transparent 72%);filter:blur(2px);pointer-events:none}
+#brushCursor{position:absolute;width:43px;height:50px;pointer-events:none;z-index:20;filter:drop-shadow(1px 2px 1px #51361e66);transform-origin:50% 85%}#brushCursor svg{width:100%;height:100%}
+#reveal #living{left:61%;top:23%;width:38%;height:68%;opacity:1;transform-origin:50% 95%}
+#knowledge.pending{visibility:hidden;pointer-events:none}#knowledge.card-in{animation:knowledge-up .25s ease-out both}
+#skipRevival{position:absolute;right:max(16px,calc((100vw - 1080px)/2));top:128px;border:1px solid #b39972;border-radius:22px;background:#fff6df;font-size:12px;padding:8px 14px;z-index:40}
+@keyframes knowledge-up{from{transform:translateY(18px)}to{transform:none}}
+@media(max-width:700px){#skipRevival{position:absolute;top:205px;right:14px;margin:0}}
+@media(min-width:701px) and (max-height:600px){#skipRevival{top:282px;right:32px}#knowledge{right:16px;width:154px}}
+@media(prefers-reduced-motion:reduce){.sand-grain,.brush-dust{display:none!important}}
+/* Short tablets need room for the full knowledge card beneath the fixed stage. */
+@media(min-width:701px) and (min-height:601px) and (max-height:850px){#board{width:min(55vh,calc(100dvh - 410px));height:min(55vh,calc(100dvh - 410px))}}
+/* R8: each tray piece is interactive as soon as its flight has landed. */
+.bone-choice.receiving{visibility:hidden}
+.sand-atmosphere{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sand-grain{border-radius:0;box-shadow:0 1px 1px #65452045}
+.brush-dust{margin:0;background:radial-gradient(ellipse,#c1a47bd0,#b99b724f 48%,transparent 74%);filter:blur(2px)}
+/* The lifted fossil is independent of the retreating stone. */
+#floatingSkeleton{position:absolute;left:0;top:8%;width:82%;height:82%;z-index:15;pointer-events:none;transform-origin:52% 45%}
+/* Use the full reserved board for the larger cut fossils; the lifted copy
+   shares this exact frame so revival cannot jump to the old smaller frame. */
+.wide-fossil #rockStage,.wide-fossil #floatingSkeleton{left:0;top:0;width:100%;height:100%}
+#rockStage.rock-retreated{transform:translate(11%,-10%) scale(.6);transform-origin:50% 0}
+.hero-mode #reveal #living{left:50%;top:auto;bottom:0;width:auto;height:min(72.4vw,92%);aspect-ratio:666/1000;translate:-50% 0;object-fit:contain;transform-origin:50% 100%;filter:drop-shadow(0 4px 3px #62482150)}
+#speechBubble{position:absolute;z-index:9;margin:0;padding:12px 14px;border:1px solid #b39463;border-radius:20px;background:#fff9e9;color:#4d4027;font-size:14px;line-height:1.55;text-align:left;box-shadow:0 3px 10px #7659341c;pointer-events:none}
+#speechBubble::after{content:'';position:absolute;right:-8px;top:22px;width:14px;height:14px;background:#fff9e9;border-right:1px solid #b39463;border-top:1px solid #b39463;transform:rotate(45deg)}
+.hero-mode #knowledge{position:relative;margin:8px auto 0;max-width:500px}
+.hero-mode #skipRevival{top:196px;border:0;background:#fff5dd80;color:#806e52;font-size:11px;box-shadow:none;opacity:.72}
+#skipRevival.skip-in{animation:skip-in .3s ease-out both}
+@keyframes skip-in{from{opacity:0}to{opacity:.72}}
+@keyframes knowledge-up{from{transform:translateY(28px)}to{transform:none}}
+@media(min-width:701px) and (max-height:600px){
+ .hero-mode #board{position:fixed;left:calc(50% - (100dvh - 110px)/2);top:54px}
+ .hero-mode #reveal #living{height:80%;bottom:20%}
+ .hero-mode #knowledge{position:fixed;left:50%;translate:-50% 0;top:calc(54px + (100dvh - 110px)*.8 + 10px);right:auto;bottom:auto;width:340px;max-width:calc(100vw - 32px);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0}
+ .hero-mode #knowledge .eyebrow{display:none}.hero-mode #knowledge h2{font-size:17px;margin:0;text-align:left}
+ .hero-mode #knowledge .primary{flex:none;font-size:12px;padding:8px 12px}
+ .hero-mode #skipRevival{position:fixed;right:12px;top:auto;bottom:14px}
+ #speechBubble{font-size:12px;line-height:1.4;padding:9px 11px}
+}
+@media(prefers-reduced-motion:reduce){#floatingSkeleton{display:none!important}}
+#egg:disabled{pointer-events:none}
+/* F2: wide dinosaurs and museum halls. */
+.hero-mode #reveal #living{aspect-ratio:var(--living-r,.666);max-width:100%;object-position:50% 100%}
+#hallTabs{display:flex;justify-content:center;gap:10px;margin:6px auto}
+.hall-tab,#pager button{min-height:48px;min-width:48px;padding:6px 16px;border-radius:24px;border:2px solid #f4d999;background:#7a5a3a;color:#fff2ce;font-weight:700}
+.hall-tab[aria-pressed=true]{background:#e8bf68;color:#49351f}
+#pager{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 10px}
+#pager button:disabled{opacity:.4;cursor:default}
+#pageInfo{min-width:150px;text-align:center;font-size:14px;font-weight:700;color:#51351b}
+.exhibit small{text-align:center;line-height:1.4}
+@media(max-width:700px){.hall-tab,#pager button{padding:6px 12px;font-size:13px}#pageInfo{min-width:96px;font-size:12px}#pager{gap:6px}}
+@media(min-width:701px) and (max-height:600px){#hallTabs{margin:0 auto 6px}#pager{margin:0 auto 6px}}
+/* F2: six-piece skeletons (armored / plated) keep the tray on one row */
+@media(max-width:700px){#tray[data-n="6"]{grid-template-columns:repeat(6,minmax(48px,1fr));gap:5px}}
+@media(min-width:701px) and (min-height:601px){#tray[data-n="6"]{grid-template-columns:repeat(6,minmax(48px,1fr));gap:7px}}
+/* F2: museum walls with pager must fit tablet and landscape screens */
+@media(min-width:701px) and (min-height:601px) and (max-height:860px){.exhibit{height:176px;padding:10px}.exhibit :is(img,.exhibit-skeleton){height:116px}.exhibit .unknown{font-size:44px}}
+@media(min-width:701px) and (max-height:600px){.exhibit{height:98px;padding:5px;border-radius:26px 26px 8px 8px}.exhibit :is(img,.exhibit-skeleton){height:60px}.exhibit .unknown{font-size:30px}.exhibit small{font-size:11px;line-height:1.2}.exhibit strong{font-size:12px}}
+
+/* F2 R2: the stage-four rock stays underneath all brushing and assembly. */
+#cutGrooves{position:absolute;inset:0;pointer-events:none}
+#cutGrooves img{position:absolute;pointer-events:none}
+
+#cutGrooves .groove{filter:url("#fossil-bone-groove")}
+/* Short landscape: when a card line is shown, title and line stack on the left, museum button on the right. Brachio keeps the R9 row. */
+@media(min-width:701px) and (max-height:600px){.hero-mode #knowledge:has(#knowledgeText:not(:empty)){display:grid;grid-template-columns:1fr auto;column-gap:14px;row-gap:2px;align-items:center;width:560px}.hero-mode #knowledge:has(#knowledgeText:not(:empty)) h2{grid-column:1;white-space:nowrap}.hero-mode #knowledgeText{grid-column:1;margin:0;font-size:13px;line-height:1.4;text-align:left}.hero-mode #knowledge:has(#knowledgeText:not(:empty)) .primary{grid-column:2;grid-row:1 / span 2}}
+
+/* Native full-canvas fossil slabs: no legacy Brachiosaurus crop/mask. */
+.natural-fossil #cleanFace{left:0;top:0;width:100%;height:100%;mask:none}
+
+.fossil-discoveries{width:min(100%,620px);margin:8px auto 14px}.fossil-discoveries summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 14px;border:1px solid #b4935b;border-radius:15px;background:#fff1d5;color:#604929;font-weight:800;list-style:none}.fossil-discoveries summary::-webkit-details-marker{display:none}.fossil-discoveries summary::after{content:'⌄'}.fossil-discoveries[open] summary::after{content:'⌃'}.fossil-discoveries summary:focus-visible{outline:3px solid #315f47;outline-offset:2px}.fossil-discoveries #naturalDiscoveries{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px;margin-top:10px}.fossil-discoveries #naturalDiscoveries a{display:flex;align-items:center;justify-content:center;min-height:44px;text-align:center;font-size:13px}
+#speechBubble.above::after{right:30px;top:auto;bottom:-8px;transform:rotate(135deg)}
+/* ST1: the museum roof's star map. Static; a newly lit star glows once. */
+#storySky .story-sky{display:block;width:min(100%,560px,calc(26vh * 2.857));height:auto;margin:2px auto 8px;border-radius:18px;background:linear-gradient(#1b2847,#2f4268)}
+.story-star{fill:#77809f}.story-star.lit{fill:#ffe58a}.story-links line{stroke:#ffe58a88;stroke-width:.6;stroke-linecap:round}
+.story-star.fresh{animation:story-star-glow .9s ease-out both}
+@keyframes story-star-glow{0%{r:1.6;fill:#fff}50%{r:4;fill:#fff7cf}100%{r:2.4;fill:#ffe58a}}
+@media(prefers-reduced-motion:reduce){.story-star.fresh{animation:none}}

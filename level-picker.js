@@ -1,12 +1,12 @@
 /* A picture-led field guide. Choosing a level never awards a completion star. */
 (() => {
   const groups = [
-    {key:'all',icon:'🗺️',name:'全部'}, {key:'plus',icon:'＋',name:'接来伙伴'},
-    {key:'minus',icon:'−',name:'送去营地'}, {key:'fill',icon:'🐾',name:'补齐伙伴'},
+    {key:'all',icon:'🗺️',name:'全部'}, {key:'plus',icon:'＋',name:'来了伙伴'},
+    {key:'minus',icon:'−',name:'跑掉几只'}, {key:'fill',icon:'✦',name:'补齐伙伴'},
     {key:'split',icon:'🏕️',name:'分成两队'}, {key:'compare',icon:'🤝',name:'比比多少'},
     {key:'jump',icon:'↔',name:'跳石头'},
     {key:'multiply',icon:'×',name:'乘法分组'}, {key:'share',icon:'÷',name:'平均分'},
-    {key:'group',icon:'🐾',name:'每几个一组'}, {key:'remainder',icon:'…',name:'找余数'},
+    {key:'group',icon:'✦',name:'每几个一组'}, {key:'remainder',icon:'…',name:'找余数'},
     ...Object.entries({place:'位值搭数',shape:'寻找图形',pattern:'补全规律',clock:'拨动时钟',money:'配出零钱',measure:'测量长度',fraction:'分食物',area:'铺出面积',perimeter:'围出周长',decimal:'表示小数',angle:'转动角度',symmetry:'补全对称',chart:'制作统计图',coordinate:'寻找坐标',volume:'积木体积',balance:'天平等式',ratio:'按比调配',percent:'表示百分数',negative:'认识负数'}).map(([key,name])=>({key,icon:'✦',name}))
   ];
   window.createLevelPicker = ({levels,characters,onChoose,onOpen,onClose,completed,current}) => {

@@ -4,7 +4,7 @@
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const json=value=>esc(JSON.stringify(value));
   const names={circle:'圆形',triangle:'三角形',square:'正方形',rectangle:'长方形',cube:'正方体',sphere:'球',cylinder:'圆柱',cone:'圆锥'};
-  const symbols={leaf:'🌿',egg:'🥚',paw:'🐾'};
+  const symbols={leaf:'🌿',egg:'🥚',paw:'⭐'};
   const money=n=>{const yuan=Math.floor(n/100),jiao=Math.floor(n%100/10),fen=n%10;return [yuan?`${yuan}元`:'',jiao?`${jiao}角`:'',fen?`${fen}分`:''].join('')||'0元';};
   const frac=(n,d)=>`<span class="k-fraction-value" aria-label="${d}分之${n}"><b>${n}</b><b>${d}</b></span>`;
   const button=(action,value,body,label,extra='',pressed)=>`<button type="button" class="${extra}" data-k-action="${action}" ${value===undefined?'':`data-k-value="${json(value)}"`} data-k-key="${esc(action+':'+(value===undefined?'':JSON.stringify(value)))}" aria-label="${esc(label)}" ${pressed===undefined?'':`aria-pressed="${pressed}"`}>${body}</button>`;
@@ -104,7 +104,7 @@
         case 'shape':return target(`找到所有 <b>${esc(c.targetLabel)}</b>`)+`<div class="k-shape-field">${c.items.map((item,i)=>button('toggle',i,shape(item),`第${i+1}块，${names[item]||item}`,`k-shape-stone ${sel.has(i)?'selected':''}`,sel.has(i))).join('')}</div>`+note(`已点亮 ${sel.size} 个 · 再点一次可取消`);
         case 'pattern':{
           const blanks=new Map(c.blanks.map((pos,i)=>[pos,i]));activeSlot=Math.min(activeSlot,c.blanks.length-1);
-          return target(`把小路接下去 <small>${esc(c.label)}</small>`)+`<div class="k-pattern-trail">${c.sequence.map((item,pos)=>{const slot=blanks.get(pos);return slot===undefined?`<span class="k-pattern-piece">${symbol(item)}</span>`:button('slot',slot,v[slot]===null||v[slot]===undefined?'?':symbol(v[slot]),`第${slot+1}个空位`,`k-pattern-piece gap ${activeSlot===slot?'selected':''}`,activeSlot===slot);}).join('')}</div>`+note(`先点空位，再选图案 · 正在填第 ${activeSlot+1} 个空位`)+`<div class="k-choices">${c.options.map(item=>button('set',{index:activeSlot,value:item},symbol(item),`在第${activeSlot+1}个空位放${symbols[item]?({leaf:'树叶',egg:'蛋',paw:'脚印'}[item]):item}`,`k-choice ${v[activeSlot]===item?'selected':''}`,v[activeSlot]===item)).join('')}</div>`;
+          return target(`把小路接下去 <small>${esc(c.label)}</small>`)+`<div class="k-pattern-trail">${c.sequence.map((item,pos)=>{const slot=blanks.get(pos);return slot===undefined?`<span class="k-pattern-piece">${symbol(item)}</span>`:button('slot',slot,v[slot]===null||v[slot]===undefined?'?':symbol(v[slot]),`第${slot+1}个空位`,`k-pattern-piece gap ${activeSlot===slot?'selected':''}`,activeSlot===slot);}).join('')}</div>`+note(`先点空位，再选图案 · 正在填第 ${activeSlot+1} 个空位`)+`<div class="k-choices">${c.options.map(item=>button('set',{index:activeSlot,value:item},symbol(item),`在第${activeSlot+1}个空位放${symbols[item]?({leaf:'树叶',egg:'蛋',paw:'星星'}[item]):item}`,`k-choice ${v[activeSlot]===item?'selected':''}`,v[activeSlot]===item)).join('')}</div>`;
         }
         case 'clock':{
           const min=v[1]*c.minuteStep,time=`${v[0]}:${String(min).padStart(2,'0')}`;
@@ -154,13 +154,29 @@
         default:return target('继续观察，动手试试看。');
       }
     }
+    function footerModel(s){
+      const c=s.level.config,f=s.level.family;
+      const titles={place:'把珠子搭成目标数',shape:`找出所有${c.targetLabel||'目标图形'}`,pattern:'按规律补齐空位',clock:'拨一拨，让时间对上',money:'凑出需要的钱',measure:'把游标对准树枝末端',fraction:'把点心涂成指定份数',decimal:'用小格表示小数',percent:'用百格表示百分数',area:'铺满每一块营地',perimeter:'沿营地四条边走一圈',angle:'转动指针，摆出目标角',symmetry:'补出对称的另一半',chart:'按观察记录搭柱子',coordinate:'沿着格子找到营地',volume:`搭出 ${c.layers||''} 层积木`,balance:'让天平两边一样重',ratio:'按比例配好两种食物',negative:'调到目标温度'};
+      let progress=null;
+      if(f==='pattern')progress={done:s.values.filter(v=>v!==null&&v!==undefined).length,total:c.blanks.length,unit:'处'};
+      if(f==='perimeter')progress={done:s.selected.length,total:4,unit:'边'};
+      // Explicit task quantities are safe to show. Never derive a target from
+      // correct() (e.g. the answer to a shape count, decimal or area task).
+      if(f==='fraction'&&s.selected.length<=c.numerator)progress={done:s.selected.length,total:c.numerator,unit:'份'};
+      if(f==='volume'&&s.values[0]<=c.layers)progress={done:s.values[0],total:c.layers,unit:'层'};
+      if(f==='area')progress={done:s.selected.length,total:c.rows*c.cols,unit:'格',summary:`已铺 ${s.selected.length} 格`,capacity:true};
+      if(f==='decimal'||f==='percent')progress={done:s.selected.length,total:c.denominator,unit:'格',summary:`已涂 ${s.selected.length} 格`,capacity:true};
+      return {title:titles[f]||'动手试一试',progress};
+    }
     function render(s){
       root.hidden=!s;currentState=s;if(!s){previousId=null;return;}
       const same=previousId===s.level.id;if(!same)activeSlot=0;
       const stageScroll=same?(root.querySelector?.('.k-stage')?.scrollTop||0):0;
       const focused=root.contains?.(document.activeElement)?document.activeElement?.dataset?.kKey:null;
       root.dataset.family=s.level.family;root.dataset.pieces=String(s.level.config.denominator||0);root.classList.toggle('challenge-error',!!s.error);
-      root.innerHTML=`<div class="k-stage"><div class="k-expedition"><figure class="k-companion">${picture(s.level.factKind)}<figcaption>${esc(characters[s.level.factKind]?.name||'恐龙伙伴')}陪你探险</figcaption></figure><div class="k-instrument">${tool(s)}</div></div></div><footer class="challenge-footer k-footer"><p class="challenge-feedback" role="status" aria-live="polite">${s.error?'<b aria-hidden="true">✕</b> ':''}${esc(s.feedback)}</p><div class="challenge-controls">${button('undo',undefined,'↶','撤回一步','k-undo')}${button('check',undefined,'✓ 检查一下','检查我的操作','challenge-check')}${button('restart',undefined,'↻','重玩本关')}</div></footer>`;
+      const footer=footerModel(s),progress=footer.progress?(window.DinoBottomBar?.progress(s.level.factKind,footer.progress)||''):'';
+      root.innerHTML=`<div class="k-stage"><div class="k-expedition"><figure class="k-companion">${picture(s.level.factKind)}<figcaption>${esc(characters[s.level.factKind]?.name||'恐龙伙伴')}陪你探险</figcaption></figure><div class="k-instrument">${tool(s)}</div></div></div><footer class="challenge-footer k-footer v3-bar" data-phase="${s.error?'wrong':'play'}"><div class="v3-main"><div class="v3-heading"><h2>${esc(s.error?s.feedback:footer.title)}</h2><p class="challenge-feedback" role="status" aria-live="polite">${esc(s.error?footer.title:s.feedback)}</p></div>${progress?`<div class="v3-progress-wrap">${progress}</div>`:''}</div><div class="v3-utility challenge-controls">${button('check',undefined,'<span aria-hidden="true">✓</span> 检查一下','检查我的操作','challenge-check v3-check')}<div class="v3-tools">${button('undo',undefined,'<span aria-hidden="true">↶</span><small>撤回</small>','撤回一步','k-undo')}${button('restart',undefined,'<span aria-hidden="true">↻</span><small>重玩</small>','重玩本关')}</div></div></footer>`;
+      window.DinoBottomBar?.dockControls(root);
       const undo=root.querySelector?.('.k-undo');if(undo)undo.disabled=!s.history?.length;
       const stage=root.querySelector?.('.k-stage');if(stage)stage.scrollTop=stageScroll;
       if(focused){const next=Array.from(root.querySelectorAll?.('[data-k-key]')||[]).find(el=>el.dataset.kKey===focused);next?.focus?.({preventScroll:true});}

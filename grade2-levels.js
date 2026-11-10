@@ -20,11 +20,11 @@
     const remainder=type==='remainder'?a%b:0;
     const goal=type==='multiply'?total:type==='share'?perGroup:type==='remainder'?remainder:groups;
     const name=window.DINO_CHARACTERS?.[kind]?.name||'恐龙';
-    const task=type==='multiply'?`每队有${a}只${name}，要接来${b}队。点发光脚印，每次来一队。排好后，数数一共有几只。`
+    const task=type==='multiply'?`每队有${a}只${name}，要来${b}队。点发光脚印，每次来一队。排好后，数数一共有几只。`
       :type==='share'?`这里有${a}只${name}，要住进${b}个营地。点营地的脚印，一只一只分，让每个营地一样多。分好后，数数每个营地有几只。`
       :type==='group'?`这里有${a}只${name}，每${b}只一队。点发光脚印，一只一只送过去，凑齐一队再排下一队。分完后，数数分成了几队。`
       :`这里有${a}只${name}，每${b}只一队。点发光脚印，一只一只排队，凑齐一队再排下一队。不够一队的留在草地。分好后，数数还剩几只。`;
-    const guidance=type==='multiply'?`点脚印 · 每队 ${a} 只 · 接来 ${b} 队`:type==='share'?`${a} 只 · 分到 ${b} 个营地 · 每边一样多`:`点脚印来一只 · 每 ${b} 只一队`;
+    const guidance=type==='multiply'?`点脚印 · 每队 ${a} 只 · 来了 ${b} 队`:type==='share'?`${a} 只 · 分到 ${b} 个营地 · 每边一样多`:`点脚印来一只 · 每 ${b} 只一队`;
     const title=type==='multiply'?`${a} × ${b} = ?`:type==='remainder'?`${a} ÷ ${b} = ? 余 ?`:`${a} ÷ ${b} = ?`;
     const cheer=type==='multiply'?'每组一样多，你用乘法找到了总数！':type==='share'?'每个营地一样多，你会平均分啦！':type==='group'?'一组一组分，你找到了能分成几组！':'剩下的比每组只数少，你找到余数啦！';
     return {id,grade:2,mode:'challenge',challengeType:type,a,b,total,groups,perGroup,remainder,goal,

@@ -96,6 +96,10 @@
   }
   let state;
   let roundToken = 0;
+  let idleTimer, reactionTimer, finishTimer, entryTimer, countTimer, skipWarmupOnce = false, storyTold = false, storyTimer;
+  const answerRecords = new Map();
+  const greetingTokens = new Map();
+  let greetingSequence = 0;
   let toastTimer;
   let dragStart = null;
   let dragGhost = null;
@@ -112,10 +116,14 @@
   galleryNarration.preload = 'none';
   const taskNarration = new Audio();
   taskNarration.preload = 'metadata';
+  const guidanceNarration = new Audio();
+  guidanceNarration.preload = 'metadata';
+  let guidancePending = null, guidancePlayback = null, guidanceEndTimer;
+  let guidancePlayToken = 0, guidanceRound = -1, guidancePhase = '';
   let taskPlayToken = 0;
   let chapterPlayToken = 0;
   let wrongPlayToken = 0;
-  const voiceVersion = '?v=20261018-curriculum-r3';
+  const voiceVersion = '?v=20261110-st1-r1';
   const wrongNarration = new Audio();
   wrongNarration.preload = 'none';
   wrongNarration.src = './assets/voice/wrong-answer.m4a' + voiceVersion;
@@ -125,7 +133,10 @@
   let gallerySelected = 'styraco';
   let galleryAudioKind = '';
   let galleryPlayToken = 0;
-  const voicePlayers = [narration, galleryNarration, taskNarration, wrongNarration, chapterNarration];
+  const fossilNarration = new Audio();
+  fossilNarration.preload = 'none';
+  let fossilCuePending = false;
+  const voicePlayers = [narration, galleryNarration, taskNarration, wrongNarration, chapterNarration, guidanceNarration, fossilNarration];
   voicePlayers.forEach((audio) => $('#soundscape').appendChild(audio));
   const syncVoiceMix = () => islandAudio?.setNarrating(voicePlayers.some((audio) => !audio.paused && !audio.ended));
   voicePlayers.forEach((audio) => {
@@ -135,6 +146,7 @@
     if (keep !== narration) stopNarration();
     if (keep !== galleryNarration) stopGalleryNarration();
     if (keep !== taskNarration) stopTaskNarration();
+    if (keep !== guidanceNarration) stopGuidanceNarration();
     if (keep !== chapterNarration) stopChapterNarration();
     if (keep !== wrongNarration) { wrongPlayToken++; wrongNarration.pause(); }
     syncVoiceMix();
@@ -148,6 +160,9 @@
     $('#soundButton').title = soundOn ? '关闭恐龙音效和语音' : '开启恐龙音效和语音';
     islandAudio?.setEnabled(soundOn);
     if (!soundOn) { stopOtherVoices(); audioContext?.suspend(); }
+    $('#guidance').dataset.muted = String(!soundOn);
+    $('#guidance').setAttribute('aria-label', $('#guidance').textContent + (soundOn ? '，点按重听当前提示' : '，声音已关闭'));
+    $('#guidance').title = soundOn ? '点按重听当前提示' : '声音已关闭';
   }
 
   function key(q, r) { return q + ',' + r; }
@@ -185,7 +200,56 @@
   }
   const mathSeedOrder = ['0,0', '1,0', '0,1', '-1,1', '-1,0', '0,-1', '1,-1', '2,-1', '1,1', '-2,1'];
   const mathSpreadOrder = ['0,0', '-2,0', '2,0', '-1,0', '1,0', '-2,2', '0,2', '-1,2', '0,-2', '2,-2'];
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let reducedMotion = motionPreference.matches;
+  const idleActions = ['nod', 'hop', 'look', 'graze'];
+  function stopIdleReaction() {
+    if (!state?.idleKey) return;
+    state.reacting.delete(state.idleKey);
+    greetingTokens.delete(state.idleKey);
+    board.querySelectorAll('[data-key="' + state.idleKey + '"]').forEach(node => {
+      node.classList.remove('responding', 'idle-acting');
+      delete node.dataset.idleAction;
+    });
+    state.idleKey = null;
+    state.idleAction = null;
+  }
+  function clearBoardReactions() {
+    clearTimeout(idleTimer);
+    clearTimeout(reactionTimer);
+    clearTimeout(finishTimer);
+    clearTimeout(entryTimer);
+    clearTimeout(countTimer);
+    if (!state) return;
+    state.countingTogether = false;
+    stopIdleReaction();
+    state.thinking = false;
+    state.celebrating = false;
+    state.reacting.clear();
+    greetingTokens.clear();
+  }
+  function scheduleIdleReaction() {
+    clearTimeout(idleTimer);
+    if (reducedMotion || !state || state.complete || currentLevel().mode !== 'math' || document.hidden) return;
+    const token = roundToken;
+    idleTimer = setTimeout(() => {
+      if (token !== roundToken) return;
+      const busy = reducedMotion || state.phase !== 'play' || state.error ||
+        state.animating || state.thinking || state.celebrating || state.entering.size ||
+        state.landing.size || state.departing.size || state.reacting.size || dragging || dragStart ||
+        voicePlayers.some(audio => !audio.paused && !audio.ended) ||
+        levelPicker?.visible || !$('#collectionOverlay').hidden ||
+        (window.DinoBoot && !$('#bootCover').hidden);
+      if (!busy && !document.hidden && !state.complete && state.tiles.size) {
+        const keys = [...state.tiles.keys()];
+        const cellKey = keys[Math.floor(Math.random() * keys.length)];
+        greetDino(cellKey, true, idleActions[Math.floor(Math.random() * idleActions.length)]);
+      }
+      scheduleIdleReaction();
+    }, 5000 + Math.floor(Math.random() * 4001));
+  }
+  // An autonomous greeting never competes with a spoken task or story.
+  voicePlayers.forEach(audio => audio.addEventListener('play', stopIdleReaction));
   const rewardStory = window.createDinoStory({
     audio: narration, caption: $('#dinoFact'), steps: $('#factStorySteps'), portrait: $('#factHello'), nickname: $('#factNickname'),
     onListen: (part) => { setSound(true); playNarration(false, part); },
@@ -203,7 +267,7 @@
   const knowledgeView=window.createKnowledgeView?.({mount:$('.playfield'),characters:species,onAction:challengeAction});
   const levelPicker = window.createLevelPicker?.({
     levels: levels.slice(0,adventureCount), characters: species, completed: completedLevels, current: () => state.level,
-    onOpen: () => { stopOtherVoices(); islandAudio?.reset(); $('#collectionOverlay').hidden = true; $('.app').inert = true; },
+    onOpen: () => { stopIdleReaction(); stopOtherVoices(); islandAudio?.reset(); $('#collectionOverlay').hidden = true; $('.app').inert = true; },
     onClose: () => { $('.app').inert = false; },
     onChoose: (index,route) => { setPractice(route); start(index, true, false); $('#taskSpeakButton').focus(); }
   });
@@ -234,19 +298,32 @@
   function rewardVoiceFile(level = currentLevel()) {
     return level.mode === 'challenge' ? 'gallery-' + level.factKind + '.m4a' : 'level-' + String(state.level + 1).padStart(2, '0') + '.m4a';
   }
-  const arrivalMs = reducedMotion ? 0 : 900;
+  const arrivalMs = () => reducedMotion ? 0 : 900;
   function mathSeed(level) { return (Math.max(level.start, level.goal) <= 5 ? mathSeedOrder : mathSpreadOrder).slice(0, level.start).map((cellKey) => [cellKey, level.factKind]); }
+  // Before the child acts the words ask for the action; only after it are they told what happened.
+  function actionPrompt(level, remaining) {
+    if (level.op === '+') return state.pieceIndex ? '再点 ' + remaining + ' 下，还有 ' + remaining + ' 只要来' : '点一下，让 ' + remaining + ' 只恐龙来';
+    return state.pieceIndex ? '再点 ' + remaining + ' 只，让' + (remaining > 1 ? '它们' : '它') + '跑掉' : '点一只恐龙，让它跑掉';
+  }
+  function answerPrompt(level) {
+    if (!level.change) return level.op === '+' ? '现在一共有几只？' : '现在还剩几只？';
+    return level.op === '+' ? '来了 ' + level.change + ' 只！现在一共有几只？' : '跑掉了 ' + level.change + ' 只！还剩几只？';
+  }
   function mathGuidance(level) {
     const name = species[level.factKind].name;
-    return level.op === '+' ? '岛上有 ' + level.start + ' 只' + name + '。一只一只接来 ' + level.change + ' 只。'
-      : '岛上有 ' + level.start + ' 只' + name + '。一只一只送走 ' + level.change + ' 只。';
+    return level.op === '+' ? '岛上有 ' + level.start + ' 只' + name + '。一只一只来 ' + level.change + ' 只。'
+      : '岛上有 ' + level.start + ' 只' + name + '。一只一只让它们跑掉 ' + level.change + ' 只。';
   }
   function mathEquation(level, reveal = false) { return level.start + ' ' + level.op + ' ' + level.change + ' = ' + (reveal ? level.goal : '?'); }
   function pictureEquation(level) {
     const image = './assets/' + species[level.factKind].image;
-    const group = (number, incoming = false) => '<span class="operand ' + (incoming ? 'change-operand' : '') + '"><b>' + number + '</b><span class="operand-pictures" aria-hidden="true">' +
-      (number === 0 ? '<span class="zero-picture">○</span>' : Array.from({ length: number }, () => '<img src="' + image + '" alt="">').join('')) + '</span></span>';
-    return group(level.start) + '<span class="equation-symbol">' + level.op + '</span>' + group(level.change, true) + '<span class="equation-symbol">=</span><span class="answer-blank">' + (state.complete ? level.goal : '?') + '</span>';
+    // Digits and pictures are separate rows, so a wide group of pictures cannot
+    // open a gap between a number and its sign or move the answer box.
+    const group = number => '<span class="operand-pictures" style="--picture-columns:' + Math.max(1, Math.min(5, number)) + '" aria-hidden="true">' +
+      (number === 0 ? '<span class="zero-picture">○</span>' : Array.from({ length: number }, () => '<img src="' + image + '" alt="">').join('')) + '</span>';
+    // Drawn bars, so plus, minus and equals share one width and weight in every font.
+    const sign = (name, label) => '<span class="equation-symbol equation-sign ' + name + '" role="img" aria-label="' + label + '"><i></i>' + (name === 'minus' ? '' : '<i></i>') + '</span>';
+    return '<span class="picture-equation"><span class="equation-row"><b>' + level.start + '</b>' + (level.op === '+' ? sign('plus', '加') : sign('minus', '减')) + '<b>' + level.change + '</b>' + sign('equals', '等于') + '<span class="answer-blank">' + (state.complete ? level.goal : '?') + '</span></span><span class="equation-pictures">' + group(level.start) + '<span class="change-operand">' + group(level.change) + '</span></span></span>';
   }
   function readyToAnswer() {
     const level = currentLevel();
@@ -254,7 +331,7 @@
     state.phase = 'answer';
     state.hover = null;
     state.hint = [];
-    state.feedback = level.op === '+' ? '合在一起，现在有几只？' : '送走以后，还剩几只？';
+    state.feedback = '数一数棋盘，再点数字。';
     state.error = false;
   }
   function currentLevel() { return levels[state.level]; }
@@ -268,11 +345,11 @@
     return pairs[index % pairs.length];
   }
   function shadowDefs(prefix) {
-    return '<defs><filter id="' + prefix + '-ground-cast" x="-18%" y="-80%" width="136%" height="260%" color-interpolation-filters="sRGB">' +
-      '<feColorMatrix type="matrix" values="0 0 0 0 .055  0 0 0 0 .075  0 0 0 0 .035  0 0 0 .24 0"/>' +
-      '<feGaussianBlur stdDeviation="1.15"/></filter>' +
-      '<radialGradient id="' + prefix + '-foot-contact"><stop offset="0" stop-color="#16200f" stop-opacity=".49"/>' +
-      '<stop offset=".42" stop-color="#1b2912" stop-opacity=".31"/><stop offset="1" stop-color="#26371a" stop-opacity="0"/></radialGradient></defs>';
+    return '<defs><radialGradient id="' + prefix + '-foot-contact">' +
+      '<stop offset="0" stop-color="#172018" stop-opacity=".68"/>' +
+      '<stop offset=".32" stop-color="#172018" stop-opacity=".43"/>' +
+      '<stop offset=".72" stop-color="#172018" stop-opacity=".12"/>' +
+      '<stop offset="1" stop-color="#172018" stop-opacity="0"/></radialGradient></defs>';
   }
   function figure(kind, x, y, scale = 1, prefix = 'board') {
     const data = kind === 'egg' ? eggImage : kind === 'hatch' ? species.brachio : species[kind];
@@ -285,7 +362,7 @@
     const ground = {
       trike: [.5328,.9755,.1718], stego: [.6545,.9688,.1348], brachio: [.7521,.98,.1547],
       raptor: [.3828,.9664,.0911], trex: [.4423,.982,.168], anky: [.6839,.9459,.134],
-      parasaur: [.642,.98,.1537], spino: [.6357,.9745,.418], pachy: [.4634,.988,.2157],
+      parasaur: [.642,.98,.1537], spino: [.5001,.9312,.0485], pachy: [.4634,.988,.2157],
       iguano: [.4661,.9865,.126], carno: [.3326,.992,.2508], allo: [.4029,.982,.09],
       dilo: [.4791,.9805,.088], diplo: [.5663,.878,.163], oviraptor: [.6175,.97,.4373],
       ptero: [.4889,.8777,.0247], styraco: [.5951,.9872,.1938], proto: [.5869,.9668,.1659],
@@ -296,17 +373,19 @@
     }[kind === 'hatch' ? 'brachio' : kind] || data.ground || [.5,.98,.16];
     const left = x - width / 2;
     const top = bottom - height * (data.ground ? ground[1] : 1);
-    const footX = left + width * ground[0];
-    const footY = top + height * ground[1];
-    // Sun from upper right: heights above the foot project left and down.
-    // Filtering the parent after projection keeps the penumbra soft on phones.
-    const shadowA = .86, shadowC = .40, shadowD = -.17;
-    const matrix = [shadowA,0,shadowC,shadowD,(1-shadowA)*footX-shadowC*footY,(1-shadowD)*footY].map((n) => n.toFixed(3)).join(' ');
     const imageBox = ' href="./assets/' + data.image + '" x="' + left.toFixed(1) + '" y="' + top.toFixed(1) + '" width="' + width.toFixed(1) + '" height="' + height.toFixed(1) + '"';
-    const contactRadius = Math.max(3 * scale, Math.min(width * ground[2] * .48, height * .19));
+    // Each visible supporting sole has its own measured contact. A single
+    // central ellipse left the other feet floating, while the compressed
+    // whole-body projection extended far beyond where the feet touch.
+    const contacts = window.DINO_GROUND_DATA?.[kind === 'hatch' ? 'brachio' : kind]?.contacts || (kind === 'ptero' ? [] : [ground]);
+    const contactShadows = contacts.map(([cx, cy, soleWidth], index) => {
+      const footWidth = width * soleWidth;
+      const radiusX = footWidth * .63 + .45 * scale;
+      const radiusY = Math.max(1.2 * scale, Math.min(footWidth * .16, 2.5 * scale));
+      return '<ellipse class="foot-contact" data-foot-index="' + index + '" pointer-events="none" cx="' + (left + width * cx).toFixed(2) + '" cy="' + (top + height * cy - .15 * scale).toFixed(2) + '" rx="' + radiusX.toFixed(2) + '" ry="' + radiusY.toFixed(2) + '" fill="url(#' + prefix + '-foot-contact)"/>';
+    }).join('');
     return '<g class="dino-actor"><g class="ground-shadow" aria-hidden="true" pointer-events="none">' +
-      '<g class="figure-shadow" filter="url(#' + prefix + '-ground-cast)"><image class="shadow-silhouette"' + imageBox + ' transform="matrix(' + matrix + ')"/></g>' +
-      (kind === 'ptero' ? '' : '<ellipse class="foot-contact" cx="' + footX.toFixed(1) + '" cy="' + (footY + .5 * scale).toFixed(1) + '" rx="' + contactRadius.toFixed(1) + '" ry="' + (2.4 * scale).toFixed(1) + '" fill="url(#' + prefix + '-foot-contact)"/>') + '</g>' +
+      contactShadows + '</g>' +
       '<image class="tile-image"' + imageBox + ' style="--foot-x:' + (ground[0]*100).toFixed(2) + '%;--foot-y:' + (ground[1]*100).toFixed(2) + '%"/></g>';
   }
   function boardTile(kind, cell, className, dataKey = '') {
@@ -314,20 +393,62 @@
     const vertices = boardVertices(cell);
     const fill = (species[kind] || (kind ? eggImage : null))?.color;
     const counted = state.countOrder?.indexOf(cell.key) ?? -1;
-    const label = kind === 'egg' ? '恐龙蛋' : kind === 'hatch' ? '刚孵出的恐龙宝宝' : kind ? (counted >= 0 ? '第 ' + (counted + 1) + ' 只' : '') + species[kind].name + (currentLevel().mode === 'math' ? state.phase === 'answer' ? '，数一数' : currentLevel().op === '-' ? '，送走一只' : '，打个招呼' : '，打个招呼') : className.includes('departed') ? '恐龙离开的脚印' : '空格';
+    const label = kind === 'egg' ? '恐龙蛋' : kind === 'hatch' ? '刚孵出的恐龙宝宝' : kind ? (counted >= 0 ? '第 ' + (counted + 1) + ' 只' : '') + species[kind].name + (currentLevel().mode === 'math' ? state.phase === 'answer' ? '，数一数' : currentLevel().op === '-' ? '，让它跑掉' : '，打个招呼' : '，打个招呼') : '空格';
     const mathPopulation = Math.max(currentLevel().start || 0, currentLevel().goal || 0, state.progress || 0);
-    const mathSize = (smallBoard() ? .99 : Math.max(1.06, 1.18 - (mathPopulation - 6) * .018)) * (!smallBoard() && cell.r < 0 ? .82 : 1);
+    const mathSize = .8 * (smallBoard() ? .99 : Math.max(1.06, 1.18 - (mathPopulation - 6) * .018)) * (!smallBoard() && cell.r < 0 ? .82 : 1);
+    const figureScale = scale * (currentLevel().mode === 'math' ? mathSize : 1);
     const entryIndex = state.landing.has(cell.key) ? [...state.landing].indexOf(cell.key) : state.entering.has(cell.key) ? [...state.entering].indexOf(cell.key) : 0;
-    const idleOffset = Math.abs(cell.q * 7 + cell.r * 11) % 5;
+    const idleOffset = Math.max(0, cells.findIndex(other => other.key === cell.key));
     const greeting = species[kind]?.greeting || 'nod';
-    return '<g class="' + className + '" data-greeting="' + greeting + '" style="--entry-delay:' + (entryIndex * 65) + 'ms;--idle-delay:-' + (idleOffset * .52).toFixed(2) + 's"' + (dataKey ? ' data-key="' + dataKey + '" role="button" tabindex="0" aria-label="' + label + '"' : '') + '>' +
+    const idleAction = state.idleKey === cell.key ? state.idleAction : null;
+    // Start the incoming animal beyond the nearest SVG board edge.
+    const entryX = (x <= 300 ? (smallBoard() ? 10 : -100) : (smallBoard() ? 590 : 700)) - x;
+    const celebrationIndex = Math.max(0, [...state.tiles.keys()].indexOf(cell.key));
+    const celebrationDelay = Math.min(180, celebrationIndex * 20);
+    const dust = '<g class="landing-dust" aria-hidden="true" pointer-events="none" transform="translate(' + x.toFixed(1) + ' ' + (y + 10 * scale).toFixed(1) + ')">' +
+      '<g><ellipse cx="-13" cy="0" rx="12" ry="4"/><ellipse cx="5" cy="-2" rx="15" ry="5"/><ellipse cx="24" cy="1" rx="9" ry="3"/></g></g>';
+    const stars = state.celebrating && kind ? '<g class="celebration-stars" aria-hidden="true" pointer-events="none" transform="translate(' + x.toFixed(1) + ' ' + (y - species[kind].height * scale * mathSize - 2).toFixed(1) + ')">' +
+      [-1, 0, 1].map((direction) => '<text x="' + (direction * 18) + '" y="0" style="--star-x:' + (direction * 14) + 'px">✦</text>').join('') + '</g>' : '';
+    return '<g class="' + className + '" data-greeting="' + greeting + '"' + (idleAction ? ' data-idle-action="' + idleAction + '"' : '') + ' style="--entry-x:' + entryX.toFixed(1) + 'px;--celebration-delay:' + celebrationDelay + 'ms;--entry-delay:' + (entryIndex * 65) + 'ms;--idle-delay:-' + (idleOffset * .163).toFixed(3) + 's"' + (dataKey ? ' data-key="' + dataKey + '" role="button" tabindex="0" aria-label="' + label + '"' : '') + '>' +
       '<polygon class="tile-base" points="' + vertexString(vertices) + '"' + (fill ? ' style="fill:' + fill + ';fill-opacity:' + (className.includes('newcomer') ? '.22' : '.08') + '"' : '') + '/>' +
       '<polygon class="tile-outline" points="' + vertexString(vertices) + '"/>' +
-      (className.includes('departed') ? '<text class="departure-mark" x="' + x.toFixed(1) + '" y="' + (y + 17 * scale).toFixed(1) + '">🐾</text>' : '') +
-      (kind ? figure(kind, x, y, scale * (currentLevel().mode === 'math' ? mathSize : 1)) : '') +
+      (kind && className.includes('math-dino') && className.includes('landing') ? dust : '') +
+      (kind ? figure(kind, x, y, figureScale) : '') +
+      stars +
       (kind ? '<ellipse class="greeting-ripple" cx="' + x.toFixed(1) + '" cy="' + (y + 10 * scale).toFixed(1) + '" rx="' + (28 * scale).toFixed(1) + '" ry="' + (8 * scale).toFixed(1) + '"/>' : '') +
-      (className.includes('newcomer') ? '<g class="addition-mark"><circle cx="' + (x - 37 * scale).toFixed(1) + '" cy="' + (y + 25 * scale).toFixed(1) + '" r="' + (13 * scale).toFixed(1) + '"/><text x="' + (x - 37 * scale).toFixed(1) + '" y="' + (y + 31 * scale).toFixed(1) + '">+</text></g>' : '') +
+      // The foot anchor follows mathSize; the symbol can grow independently
+      // when its screen radius would be too small to read on a phone.
+      (className.includes('newcomer') ? '<g class="addition-mark" data-x="' + x + '" data-y="' + y + '" data-figure-scale="' + figureScale + '" transform="translate(' + (x - 20 * figureScale).toFixed(3) + ' ' + (y + 7 * figureScale).toFixed(3) + ') scale(' + figureScale.toFixed(6) + ')"><circle cx="0" cy="0" r="11"/><text x="0" y="6">+</text></g>' : '') +
       (counted >= 0 ? '<g class="count-badge"><circle cx="' + (x + 31 * scale).toFixed(1) + '" cy="' + (y - 32 * scale).toFixed(1) + '" r="' + (18 * scale).toFixed(1) + '"/><text x="' + (x + 31 * scale).toFixed(1) + '" y="' + (y - 26 * scale).toFixed(1) + '">' + (counted + 1) + '</text></g>' : '') + '</g>';
+  }
+  function fitAdditionMarks() {
+    const matrix = board.getScreenCTM?.();
+    if (!matrix) return;
+    const pixelsPerUnit = Math.min(Math.hypot(matrix.a, matrix.b), Math.hypot(matrix.c, matrix.d));
+    if (!(pixelsPerUnit > 0)) return;
+    board.querySelectorAll('.addition-mark').forEach((mark) => {
+      const x = Number(mark.dataset.x), y = Number(mark.dataset.y);
+      const figureScale = Number(mark.dataset.figureScale);
+      // A small rounding margin keeps getBoundingClientRect's radius >= 9px.
+      const symbolScale = Math.max(figureScale, 9.05 / (11 * pixelsPerUnit));
+      const dx = -20 * figureScale, dy = 7 * figureScale;
+      const polygon = mark.parentNode.querySelector('.tile-base').points;
+      const stroke = parseFloat(getComputedStyle(mark.querySelector('circle')).strokeWidth) || 0;
+      const outerRadius = (11 + stroke / 2) * symbolScale + .25 / pixelsPerUnit;
+      // Keep as much of the existing foot offset as fits. Only an enlarged
+      // symbol moves inward, toward its own cell center, never toward a neighbor.
+      let offset = 1;
+      for (let i = 0; i < polygon.length; i++) {
+        const a = polygon[i], b = polygon[(i + 1) % polygon.length];
+        const length = Math.hypot(b.x - a.x, b.y - a.y);
+        const nx = -(b.y - a.y) / length, ny = (b.x - a.x) / length;
+        const distance = (x - a.x) * nx + (y - a.y) * ny;
+        const outward = dx * nx + dy * ny;
+        if (outward < 0) offset = Math.min(offset, (distance - outerRadius) / -outward);
+      }
+      offset = Math.max(0, offset);
+      mark.setAttribute('transform', 'translate(' + (x + dx * offset).toFixed(6) + ' ' + (y + dy * offset).toFixed(6) + ') scale(' + symbolScale.toFixed(6) + ')');
+    });
   }
   function pieceTile(kind, x, y, radius, prefix) {
     const fill = species[kind].color;
@@ -472,6 +593,7 @@
   function setScene(levelIndex) {
     const scene = scenes[Math.min(levelIndex, scenes.length - 1)];
     $('#sceneLabel').textContent = scene.name;
+    window.dinoAmbient?.setScene(scene, levelIndex < 50);
     const visible = document.querySelector('.scene-backdrop.is-visible');
     if (visible?.dataset.scene === scene.image) return;
     const incoming = visible?.id === 'sceneA' ? $('#sceneB') : $('#sceneA');
@@ -485,10 +607,15 @@
   }
   function start(levelIndex, announce = false, showChapterChoice = true) {
     if (!Number.isInteger(levelIndex) || levelIndex < 0 || levelIndex >= levels.length) return;
+    clearBoardReactions();
     levelPicker?.close(false);
+    window.DinoWarmup?.close();
+    const skipWarmup = skipWarmupOnce;
+    skipWarmupOnce = false;
     stopNarration();
     stopGalleryNarration();
     stopTaskNarration();
+    stopGuidanceNarration();
     stopChapterNarration();
     wrongNarration.pause();
     islandAudio?.reset();
@@ -507,10 +634,11 @@
     state = {
       level: levelIndex, tiles: new Map(seed), pieceIndex: 0, orientation: 0,
       progress: level.mode === 'math' ? level.start : level.mode === 'egg' ? ring.filter((cellKey) => level.seed.some(([seedKey]) => seedKey === cellKey)).length : level.mode === 'parallel' ? 1 : 0, rescued: 0, hover: null,
-      hint: [], animating: false, complete: false, courseJustCompleted: false, bursting: new Set(), landing: new Set(), departing: new Set(), reacting: new Set(), entering: new Set(seed.map(([cellKey]) => cellKey)),
-      undo: null, history: [], phase: level.mode === 'math' && level.change === 0 ? 'answer' : 'play', wrongAnswer: null, countOrder: [], initialKeys: new Set(seed.map(([cellKey]) => cellKey)),
-      feedback: level.mode === 'math' ? (level.change === 0 ? '不用移动，选一个数字。' : level.op === '+' ? '点发光的空格，接来恐龙。' : '点恐龙，送它去新营地。') : level.guidance,
+      hint: [], animating: false, complete: false, courseJustCompleted: false, bursting: new Set(), landing: new Set(), departing: new Set(), reacting: new Set(), entering: new Set(),
+      undo: null, history: [], phase: level.mode === 'math' && level.change === 0 ? 'answer' : 'play', wrongAnswer: null, wrongTries: 0, wrongTypes: [], countingTogether: false, countOrder: [], initialKeys: new Set(seed.map(([cellKey]) => cellKey)),
+      feedback: level.mode === 'math' ? (level.change === 0 ? '不用移动，选一个数字。' : level.op === '+' ? '恐龙就来了。' : '它就跑掉了。') : level.guidance,
       error: false, selectedSpecies: 'trike',
+      thinking: false, celebrating: false, idleKey: null, idleAction: null,
       challenge: level.mode === 'challenge' ? window.DinoChallengeEngine.create(level) : null
     };
     $('#finish').hidden = true;
@@ -519,14 +647,43 @@
     $('#boardToast').classList.remove('show');
     $('#boardToast').textContent = '';
     render();
-    if (seed.length || level.mode === 'challenge') islandAudio?.creature(level.factKind || seed[0][1], 'entrance');
     const introToken = roundToken;
-    setTimeout(() => {
+    // The boot cover can wait for a slow image or for the child's first tap.
+    // Start the visual entrance only after that cover has actually gone away.
+    // Keep this callback synchronous so task audio retains the tap gesture.
+    const enterLevel = (fromGesture = false) => {
       if (introToken !== roundToken) return;
-      state.entering.clear();
-      board.querySelectorAll('.entering').forEach((element) => element.classList.remove('entering'));
-    }, reducedMotion ? 0 : 1350);
-    taskNarration.src = './assets/voice/' + (level.taskFile || (level.mode === 'free' ? 'task-free' : 'task-' + String(levelIndex + 1).padStart(2, '0')) + '.m4a') + voiceVersion;
+      if (fromGesture) setSound(true);
+      if (window.DinoWarmup && levelIndex === 0 && !practiceRoute && !skipWarmup) {
+        window.DinoWarmup.open({
+          scene: './assets/' + (window.DINO_SCENES?.[11] || scenes[0]).image, image: './assets/' + species[level.factKind].image, soundOn: () => soundOn,
+          onDone: () => { if (introToken === roundToken) beginLevel(true); }
+        });
+        return;
+      }
+      beginLevel(fromGesture);
+    };
+    const beginLevel = (fromGesture) => {
+      if (!reducedMotion && seed.length) {
+        state.entering = new Set(seed.map(([cellKey]) => cellKey));
+        renderBoard();
+        entryTimer = setTimeout(() => {
+          if (introToken !== roundToken) return;
+          state.entering.clear();
+          board.querySelectorAll('.entering').forEach(element => element.classList.remove('entering'));
+        }, 1350);
+      }
+      scheduleIdleReaction();
+      if (seed.length || level.mode === 'challenge') islandAudio?.creature(level.factKind || seed[0][1], 'entrance');
+      if (soundOn && (announce || fromGesture)) {
+        const story = fromGesture && !storyTold && $('#chapterGate').hidden ? window.DinoStory?.opening() : null;
+        if (fromGesture) storyTold = true;
+        if (!$('#chapterGate').hidden) playChapterNarration();
+        else if (story) playStoryThenTask(story);
+        else playTaskNarration();
+      }
+    };
+    taskNarration.src = './assets/voice/' + (level.mode === 'math' && level.op === '-' && level.change > 0 ? 'task-run-' + String(level.id).padStart(2, '0') + '.m4a' : level.taskFile || (level.mode === 'free' ? 'task-free' : 'task-' + String(levelIndex + 1).padStart(2, '0')) + '.m4a') + voiceVersion;
     taskNarration.load();
     $('#taskSpeakButton').classList.add('needs-tap');
     if (window.DinoBoot) {
@@ -537,19 +694,8 @@
         const path = node.getAttribute(node.tagName.toLowerCase() === 'image' ? 'href' : 'src');
         if (path) assets.push(path);
       });
-      window.DinoBoot.prepareLevel(assets, fromGesture => {
-        if (introToken !== roundToken) return;
-        if (fromGesture) setSound(true);
-        if (soundOn && (announce || fromGesture)) {
-          if (!$('#chapterGate').hidden) playChapterNarration();
-          else playTaskNarration();
-        }
-      });
-    }
-    if (!window.DinoBoot && announce && soundOn) {
-      if (!$('#chapterGate').hidden) playChapterNarration();
-      else playTaskNarration();
-    }
+      window.DinoBoot.prepareLevel(assets, enterLevel);
+    } else enterLevel();
   }
   function renderBoard() {
     const mode = currentLevel().mode;
@@ -560,6 +706,9 @@
     let content = paintOrder.map((cell) => {
       const kind = state.tiles.get(cell.key);
       const classes = ['cell', kind ? 'filled' : 'empty'];
+      if (mode === 'math' && kind) classes.push('math-dino');
+      if (mode === 'math' && kind && state.thinking) classes.push('thinking');
+      if (mode === 'math' && kind && state.celebrating) classes.push('celebrating');
       if (kind === 'egg' || kind === 'hatch') classes.push('egg');
       if (mode === 'math' && currentLevel().op === '+' && kind && !state.initialKeys.has(cell.key)) classes.push('newcomer');
       if (mode === 'math' && currentLevel().op === '-' && !kind && state.initialKeys.has(cell.key)) classes.push('departed');
@@ -572,6 +721,7 @@
       if (state.departing.has(cell.key)) classes.push('departing');
       if (state.entering.has(cell.key)) classes.push('entering');
       if (state.reacting.has(cell.key)) classes.push('responding');
+      if (state.idleKey === cell.key) classes.push('idle-acting');
       if (state.hover && mode === 'math' && currentLevel().op === '-' && canPlace(state.hover) && footprint(state.hover).includes(cell.key)) classes.push('take-hover');
       else if (state.hover === cell.key && !kind) classes.push('hover');
       return boardTile(kind, cell, classes.join(' '), cell.key);
@@ -608,24 +758,42 @@
       });
       const spot = spots.find((point) => !overlap(point)) || spots[0];
       // Put the landing control above sprites so a big tail cannot block it.
-      target = '<g class="placement-target" data-key="' + suggestion + '" role="button" tabindex="0" aria-label="接来一只恐龙">' +
+      target = '<g class="placement-target" data-key="' + suggestion + '" role="button" tabindex="0" aria-label="来了一只恐龙">' +
         '<polygon class="target-hit" points="' + vertexString(boardVertices(cell)) + '"/>' +
         '<circle class="target-hit" cx="' + spot.x.toFixed(1) + '" cy="' + spot.y.toFixed(1) + '" r="' + (30*scale).toFixed(1) + '"/>' +
         '<circle cx="' + spot.x.toFixed(1) + '" cy="' + spot.y.toFixed(1) + '" r="' + (12*scale).toFixed(1) + '"/>' +
         '<text x="' + spot.x.toFixed(1) + '" y="' + (spot.y+6*scale).toFixed(1) + '">+</text></g>';
     }
     board.innerHTML = shadowDefs('board') + guides + content + axis + target;
+    fitAdditionMarks();
     $('#emptyIsland').hidden = mode !== 'math' || state.tiles.size !== 0 || state.phase !== 'answer';
-    $('#emptyIslandLabel').textContent = currentLevel().op === '-' ? '都去新营地啦' : '岛上还没有恐龙';
+    $('#emptyIslandLabel').textContent = currentLevel().op === '-' ? '都跑掉啦' : '岛上还没有恐龙';
   }
+  function reversedResult(level) { return level.op === '+' ? level.start - level.change : level.start + level.change; }
+  function wrongAnswerType(level, number) { return number === level.start ? 'no-operation' : number === reversedResult(level) ? 'reversed-operation' : 'other'; }
+  // Wrong choices come from real slips (not operating, using the opposite sign).
+  // A fixed per-level hash keeps each level stable without a guessable size or screen pattern.
   function answerChoices(goal, levelIndex) {
-    const choices = goal === 10 ? [8, 9, 10] : goal <= 1 ? [0, 1, 2] : [goal - 1, goal, goal + 1];
-    const shift = levelIndex % choices.length;
-    return choices.slice(shift).concat(choices.slice(0, shift));
+    const level = levels[levelIndex];
+    const usable = number => number >= 0 && number <= 12 && number !== goal;
+    const slips = [level.start, reversedResult(level)].filter(usable);
+    const pool = [...new Set([...slips, ...[1, -1, 2, -2, 3, -3].map(step => goal + step).filter(usable)])];
+    const hash = Math.imul(levelIndex + 1, 2654435761) >>> 0;
+    const wantedRank = (hash >>> 8) % 3;
+    let best = null;
+    pool.forEach((first, index) => pool.slice(index + 1).forEach((second) => {
+      const rank = [first, second].filter(number => number < goal).length;
+      const score = (rank === wantedRank ? 10 : 0) + [first, second].filter(number => slips.includes(number)).length * 3 - (Math.abs(first - goal) + Math.abs(second - goal)) * .1;
+      if (!best || score > best.score) best = { score, numbers: [first, second, goal].sort((a, b) => a - b) };
+    }));
+    const shift = (hash >>> 16) % 3;
+    return best.numbers.slice(shift).concat(best.numbers.slice(0, shift));
   }
   function render() {
+    if (state.idleKey && (state.phase !== 'play' || state.error || state.animating || state.thinking || state.celebrating)) stopIdleReaction();
     const level = currentLevel();
     const math = level.mode === 'math';
+    window.DinoSceneGround?.schedule(scenes[state.level], math);
     const challenge = level.mode === 'challenge';
     $('.app').classList.toggle('challenge-mode', challenge);
     const knowledge=level.challengeType==='knowledge';
@@ -646,14 +814,15 @@
     if (challenge) {
       $('#missionTitle').textContent = window.DinoChallengeEngine.equation(state.challenge, state.complete);
       $('#missionTitle').setAttribute('aria-label', $('#missionTitle').textContent);
-      $('#guidance').textContent = level.guidance;
+      renderGuidance(level.guidance);
       $('#nextButton').disabled = !state.complete || state.error;
       $('#emptyIsland').hidden = true;
       return;
     }
     $('#goalCount').textContent = math ? (state.complete ? state.progress + ' 只' : '? 只') : level.mode === 'free' ? state.progress + ' 队' : state.progress + ' / ' + level.goal;
     $('#goalLabel').textContent = math ? '数一数岛上有' : level.goalLabel;
-    $('#guidance').textContent = math ? state.phase === 'answer' ? (level.op === '+' ? '现在一共有几只？' : '现在还剩几只？') : (level.op === '+' ? '接来 ' : '送走 ') + level.change + ' 只恐龙' : '同种恐龙连成三只，就能救出一队。';
+    const remaining = math ? Math.max(0, level.change - state.pieceIndex) : 0;
+    renderGuidance(math ? state.phase === 'answer' ? answerPrompt(level) : actionPrompt(level, remaining) : '同种恐龙连成三只，就能救出一队。');
     $('#chapterDots').innerHTML = regions.map((_, i) => '<i class="' + (i < Math.floor(state.level / 5) ? 'done' : i === Math.floor(state.level / 5) ? 'current' : '') + '"></i>').join('');
     $('#chapterDots').setAttribute('aria-label', '关卡进度，第 ' + Math.min(state.level + 1, adventureCount) + ' / ' + adventureCount + ' 关');
     if (math || $('#ruleArt').dataset.level !== String(state.level)) {
@@ -665,21 +834,23 @@
     $('.interaction-bar').classList.toggle('has-error', state.error);
     $('.interaction-bar').dataset.phase = math ? state.phase : 'free';
     $('#nextButton').disabled = !state.complete || state.error;
-    $('#actionTrack').hidden = !math;
+    $('#actionTrack').hidden = !math || state.phase !== 'play';
+    $('.interaction-bar').dataset.footerPhase = state.error ? 'wrong' : math ? state.phase : 'free';
+    $('#v3TaskTitle').textContent = !math ? '' : state.error ? '再数一数，还差一点' : state.phase === 'answer' ? (level.op === '+' ? '现在一共有几只？' : '现在还剩几只？') : (level.op === '+' ? '点发光的空格' : '点棋盘上的恐龙');
+    $('#v3FooterCue').textContent = !math ? '点棋盘放下伙伴' : state.phase === 'answer' ? '点一个数字' : level.op === '+' ? '点棋盘上的发光空格' : '点棋盘上的恐龙';
     if (math) {
       const moved = state.pieceIndex;
       const slots = level.change;
-      $('#actionTrack').innerHTML = '<span class="action-symbol" aria-hidden="true">' + (level.op === '+' ? '＋' : '−') + '</span>' +
-        (slots === 0 ? '<span class="zero-step">0</span>' : Array.from({ length: slots }, (_, index) => '<span class="action-step ' + (index < moved ? 'done ' : '') + (level.op === '-' ? 'subtract' : '') + '" aria-hidden="true"><img src="./assets/' + species[level.factKind].image + '" alt=""><b>' + (index < moved ? '✓' : '') + '</b></span>').join(''));
+      $('#actionTrack').innerHTML = window.DinoBottomBar?.progress(level.factKind, {done:moved,total:slots,unit:'只',reverse:level.op==='-',left:'还要点',leftUnit:level.op==='+'?'下':'只'}) || '';
       $('#actionTrack').setAttribute('aria-label', '需要移动 ' + level.change + ' 只，已经移动 ' + moved + ' 只');
     }
     $('#checkButton').hidden = true;
     $('#checkButton').disabled = state.animating;
     $('#answerChallenge').hidden = !math || state.phase === 'play' || state.complete;
     if (math && state.phase !== 'play') {
-      $('#countPrompt').textContent = state.error ? '再看一看，选一个数字' : (level.op === '+' ? '一共有几只？' : '还剩几只？');
+      $('#countPrompt').textContent = state.countingTogether ? '一起数一数' : state.error ? '再看一看，选一个数字' : (level.op === '+' ? '一共有几只？' : '还剩几只？');
       $('#answerOptions').hidden = false;
-      $('#answerOptions').innerHTML = answerChoices(level.goal, state.level).map((number) => '<button type="button" data-answer="' + number + '" class="' + (state.wrongAnswer === number ? 'is-wrong' : '') + '" aria-label="' + number + ' 只恐龙">' + number + (state.wrongAnswer === number ? '<span aria-hidden="true">×</span>' : '') + '</button>').join('');
+      $('#answerOptions').innerHTML = answerChoices(level.goal, state.level).map((number) => '<button type="button" data-answer="' + number + '" class="' + (state.wrongAnswer === number ? 'is-wrong' : '') + '"' + (state.countingTogether ? ' disabled' : '') + ' aria-label="' + number + ' 只恐龙">' + number + (state.wrongAnswer === number ? '<span aria-hidden="true">×</span>' : '') + '</button>').join('');
     }
     $('#rescuedCount').textContent = math ? Math.abs(state.progress - level.start) : state.rescued;
     const pair = pairAt(state.pieceIndex);
@@ -687,14 +858,16 @@
     const [nextFirst, nextSecond] = pairAt(state.pieceIndex + 1);
     $('#pairNames').textContent = math ? species[first].name + ' × 1' : species[first].name + ' + ' + species[second].name;
     $('#nextPair').textContent = math ? '已移动 ' + state.pieceIndex + ' 只' : level.mode === 'free' ? '由你来选' : species[nextFirst].name + ' + ' + species[nextSecond].name;
-    $('#dockLabel').textContent = math ? (level.op === '+' ? '来岛上玩' : '去新营地') : '这一对';
+    $('#dockLabel').textContent = math ? (level.op === '+' ? '来岛上玩' : '跑掉啦') : '这一对';
     $('#dockInstruction').textContent = math ? level.op === '+' ? '👆 点发光的空格' : '👆 点一只恐龙' : '点格子放下，或拖到棋盘';
-    $('#piece').setAttribute('aria-label', math ? (level.op === '+' ? '加入' : '送走') + '一只' + species[first].name : '当前的一对恐龙');
+    $('#piece').setAttribute('aria-label', math ? (level.op === '+' ? '加入一只' + species[first].name : '让一只' + species[first].name + '跑掉') : '当前的一对恐龙');
     $('#piece').innerHTML = pieceSvg('dockpiece');
     $('#chooseButton').hidden = level.mode !== 'free';
     $('#replayButton').hidden = level.mode !== 'free';
     $('#replayButton').textContent = '学数学';
-    $('#restartButton').textContent = '↻';
+    $('#restartButton').innerHTML = '<span aria-hidden="true">↻</span><small>重玩</small>';
+    $('#hintButton').innerHTML = '<span aria-hidden="true">☀</span><small>提示</small>';
+    $('#undoButton').innerHTML = '<span aria-hidden="true">↶</span><small>撤回</small>';
     $('#undoButton').disabled = (math ? !state.history.length : !state.undo) || state.animating || state.complete;
     $('#hintButton').disabled = state.animating || state.complete;
     $('#rotateButton').hidden = math && pair.length === 1;
@@ -730,6 +903,105 @@
         oscillator.stop(when + .23);
       });
     } catch (_) {}
+  }
+  function currentGuidanceCue() {
+    if (!state || currentLevel().mode !== 'math' || state.complete) return null;
+    const level = currentLevel();
+    const remaining = Math.max(0, level.change - state.pieceIndex);
+    const answer = state.phase === 'answer';
+    // Short recordings ask for the next tap, matching actionPrompt().
+    if (!answer) {
+      const cue = window.DINO_ACTION_PROMPT_CUES?.[level.op + (state.pieceIndex ? 'more-' + remaining : level.op === '+' ? 'first-' + remaining : 'first')];
+      return cue ? { ...cue, key: roundToken + ':' + state.phase + ':' + remaining } : null;
+    }
+    const filename = 'task-' + String(level.id).padStart(2, '0') + '.m4a';
+    const cue = window.DINO_TASK_GUIDANCE_CUES?.[filename]?.answer;
+    if (!cue) return null;
+    return { ...cue, filename, key: roundToken + ':' + state.phase + ':' + remaining };
+  }
+  function stopGuidanceNarration(cancelPending = true) {
+    guidancePlayToken++;
+    clearTimeout(guidanceEndTimer);
+    guidancePlayback = null;
+    if (cancelPending) guidancePending = null;
+    guidanceNarration.pause();
+    guidanceNarration.currentTime = 0;
+    $('#guidance').classList.remove('is-speaking');
+  }
+  function guidanceCanPlay(allowError = false) {
+    return state && !state.complete && (allowError || !state.error) && !state.animating && soundOn && !document.hidden &&
+      !levelPicker?.visible && $('#collectionOverlay').hidden && $('#finish').hidden && $('#chapterGate').hidden &&
+      (!window.DinoBoot || $('#bootCover').hidden) && !window.DinoWarmup?.isOpen();
+  }
+  function tryPendingGuidance() {
+    if (!guidancePending || !guidanceCanPlay(guidancePending.manual)) return;
+    const current = currentGuidanceCue();
+    if (!current || current.key !== guidancePending.key) { guidancePending = null; return; }
+    // Task, story and encouragement speech finish first. A late cue is dropped
+    // whenever its round, quantity or phase no longer matches the visible sign.
+    if (voicePlayers.some(audio => audio !== guidanceNarration && !audio.paused && !audio.ended)) return;
+    const cue = guidancePending;
+    guidancePending = null;
+    stopGuidanceNarration(false);
+    const token = ++guidancePlayToken;
+    const source = './assets/voice/' + cue.filename + voiceVersion;
+    guidancePlayback = { ...cue, token };
+    if (!guidanceNarration.src.endsWith(source.slice(1))) {
+      guidanceNarration.src = source;
+      guidanceNarration.load();
+    }
+    try { guidanceNarration.currentTime = cue.start; } catch (_) {}
+    playVoiceAudio(guidanceNarration).then(() => {
+      if (token !== guidancePlayToken || !guidancePlayback || guidanceNarration.paused) return;
+      $('#guidance').classList.add('is-speaking');
+    }).catch(error => {
+      if (token !== guidancePlayToken || error?.name === 'AbortError') return;
+      stopGuidanceNarration();
+      $('#guidance').title = '点一下，重听当前提示';
+    });
+  }
+  function finishGuidanceSegment() {
+    if (!guidancePlayback || guidanceNarration.currentTime < guidancePlayback.end - .015) return;
+    stopGuidanceNarration(false);
+  }
+  function scheduleGuidanceEnd() {
+    clearTimeout(guidanceEndTimer);
+    if (!guidancePlayback || guidanceNarration.paused) return;
+    guidanceEndTimer = setTimeout(finishGuidanceSegment, Math.max(0, guidancePlayback.end - guidanceNarration.currentTime) * 1000);
+  }
+  guidanceNarration.addEventListener('loadedmetadata', () => {
+    if (guidancePlayback) guidanceNarration.currentTime = guidancePlayback.start;
+  });
+  guidanceNarration.addEventListener('playing', scheduleGuidanceEnd);
+  guidanceNarration.addEventListener('waiting', () => clearTimeout(guidanceEndTimer));
+  guidanceNarration.addEventListener('timeupdate', finishGuidanceSegment);
+  guidanceNarration.addEventListener('ended', () => stopGuidanceNarration(false));
+  guidanceNarration.addEventListener('error', () => stopGuidanceNarration());
+  voicePlayers.forEach(audio => audio.addEventListener('ended', tryPendingGuidance));
+  function renderGuidance(text) {
+    const button = $('#guidance');
+    button.textContent = text;
+    button.setAttribute('aria-label', text + (soundOn ? '，点按重听当前提示' : '，声音已关闭'));
+    button.title = soundOn ? '点按重听当前提示' : '声音已关闭';
+    const cue = currentGuidanceCue();
+    const changedToAnswer = guidanceRound === roundToken && guidancePhase === 'play' && state.phase === 'answer';
+    guidanceRound = roundToken;
+    guidancePhase = state.phase;
+    if (guidancePlayback && (!cue || cue.key !== guidancePlayback.key || (state.error && !guidancePlayback.manual) || state.complete)) stopGuidanceNarration();
+    if (guidancePending && (!cue || cue.key !== guidancePending.key || (state.error && !guidancePending.manual) || state.complete)) guidancePending = null;
+    // The initial full task already includes the zero-change question. Only a
+    // transition after actual manipulation gets one automatic short question.
+    // If the full task is still speaking, its own final sentence will ask this
+    // question. Do not queue a second copy behind it; explicit replay still works.
+    const taskWillAsk = !taskNarration.paused && !taskNarration.ended;
+    if (changedToAnswer && cue && soundOn && !state.error && !taskWillAsk) guidancePending = cue;
+    tryPendingGuidance();
+  }
+  function repeatGuidance() {
+    if (!guidanceCanPlay(true)) return;
+    const cue = currentGuidanceCue();
+    if (cue) { guidancePending = { ...cue, manual: true }; tryPendingGuidance(); }
+    else if (!voicePlayers.some(audio => !audio.paused && !audio.ended)) playTaskNarration();
   }
   function playVoiceAudio(audio, restart = false) {
     // Keep play() inside the user's gesture, including a retry after MediaError.
@@ -806,6 +1078,26 @@
   chapterNarration.addEventListener('error', () => {
     if (chapterNarration.error && soundOn && !$('#chapterGate').hidden) $('#chapterSpeak').textContent = '↻ 声音没加载好，点此重试';
   });
+  // S1: the first tap of a visit tells where the fossil story stands, then the task follows. Both use the task
+  // element, because iOS lets only the element started by the tap keep playing.
+  function playStoryThenTask(story) {
+    const task = taskNarration.src, token = roundToken;
+    let done = false;
+    const next = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(storyTimer);
+      if (token !== roundToken || taskNarration.src === task) return;
+      taskNarration.src = task;
+      playTaskNarration();
+    };
+    taskNarration.addEventListener('ended', next);
+    taskNarration.addEventListener('error', next);
+    // Longer than the longest line (the 15 s prologue), in case 'ended' never arrives.
+    storyTimer = setTimeout(next, 20000);
+    taskNarration.src = './assets/voice/' + story.file + voiceVersion;
+    playTaskNarration();
+  }
   function playTaskNarration() {
     if (!soundOn || document.hidden || !taskNarration.src) return;
     stopOtherVoices(taskNarration);
@@ -850,6 +1142,11 @@
   narration.addEventListener('ended', () => {
     $('#listenButton').classList.remove('is-playing');
     $('#listenButton').textContent = '↻ 再听一次';
+    // A newly opened fossil is announced once, after the dinosaur has finished its story.
+    if (!fossilCuePending || !soundOn || document.hidden || $('#finish').hidden) return;
+    fossilCuePending = false;
+    fossilNarration.src = './assets/voice/fossil-unlock.m4a' + voiceVersion;
+    playVoiceAudio(fossilNarration).catch(() => {});
   });
   narration.addEventListener('pause', () => { narrationPlayToken++; });
   function isCurrentVoiceError(audio, filename) {
@@ -908,7 +1205,7 @@
       const visibleKinds = galleryFilter === 'new' ? newKinds : collectionKinds;
       $('#collectionGrid').innerHTML = visibleKinds.map((kind) => {
         const data = species[kind];
-        return '<button type="button" data-species="' + kind + '" aria-pressed="false"><img src="./assets/' + data.image + '" alt="" loading="lazy"><span>' + data.name + '</span>' + (kind === 'ptero' ? '<small class="bonus">不是恐龙</small>' : data.isNew ? '<small class="new-partner">新伙伴</small>' : '') + '</button>';
+        return '<button type="button" data-species="' + kind + '" aria-pressed="false"><img src="./assets/' + data.image + '" alt="" loading="lazy"><span>' + data.name + '</span>' + (kind === 'ptero' ? '<small class="bonus">不是恐龙</small>' : data.isNew ? '<small class="new-partner">新伙伴</small>' : '') + (window.DinoFossilMark?.has(kind) ? '<small class="fossil-found">化石已挖到</small>' : '') + '</button>';
       }).join('');
       $('#collectionNew').textContent = '✨ 新伙伴 ' + newKinds.length;
       $('#collectionNew').hidden = !newKinds.length;
@@ -924,6 +1221,7 @@
     $('#collectionGrid').scrollTop = 0;
   }
   function openCollection() {
+    stopIdleReaction();
     stopOtherVoices();
     const visibleKinds = renderCollectionGrid();
     $('#collectionHelp').textContent = currentLevel().mode === 'free' ? '点图片认识伙伴，再选一只放到棋盘。' : '点图片听故事。选关里的自由探险，可以让它上场。';
@@ -957,13 +1255,39 @@
       setTimeout(() => element.remove(), 1100);
     });
   }
+  // F7: the finish card shows how close the next fossil is, or links to one that is waiting to be dug.
+  // Returns how many fossils levels 1-50 have opened, so finish() can tell when one has just opened.
+  function renderFossilProgress() {
+    const unlock = window.DinoFossilUnlock, status = unlock && state.level < unlock.LEVELS ? unlock.status() : null;
+    const waiting = status?.unlocked.find(id => !window.DinoFossilMark?.has(id));
+    $('#fossilProgress').hidden = !status || (!waiting && !status.next);
+    $('#fossilButton').hidden = !waiting;
+    if (!status) return 0;
+    if (waiting) {
+      $('#fossilProgress').innerHTML = '<span class="fossil-pebbles" aria-hidden="true">🦴</span>化石挖掘开放啦！';
+      $('#fossilButton').textContent = '🦴 去挖' + species[waiting].name + '化石 →';
+      $('#fossilButton').href = './prototypes/fossil-dig/index.html?fossil=' + waiting + '&from=game&v=20261109-f7-r1';
+    } else if (status.next) {
+      const lit = unlock.PER - status.left;
+      $('#fossilProgress').innerHTML = '<span class="fossil-pebbles" aria-hidden="true">' + Array.from({ length: unlock.PER }, (_, i) => '<i class="' + (i < lit ? 'lit' : '') + '"></i>').join('') + '</span><span class="fossil-chapter">第 ' + (status.unlocked.length + 1) + ' 章 · </span>再过 ' + status.left + ' 关，找回' + species[status.next].name + '骨架';
+    }
+    return status.unlocked.length;
+  }
   function finish() {
+    if (state.complete) return;
+    clearBoardReactions();
     stopTaskNarration();
     state.complete = true;
     const level = currentLevel();
+    // Progress is committed once; only presentation waits for the short wave.
+    state.entering.clear();
+    state.landing.clear();
+    state.celebrating = level.mode === 'math' && !reducedMotion && state.tiles.size > 0;
     const free = level.mode === 'free';
     const courseWasCompleted = courseCompleted();
+    const fossilsBefore = window.DinoFossilUnlock?.status().unlocked.length ?? 0;
     if (!free) { markCompleted(state.level); saveProgress(state.level + 1); }
+    fossilCuePending = !free && renderFossilProgress() > fossilsBefore;
     state.courseJustCompleted = !free && !courseWasCompleted && courseCompleted();
     const lastCompleted = state.courseJustCompleted || (state.level === adventureCount - 1 && courseCompleted());
     $('#finishLabel').textContent = free ? '本次自由救援' : lastCompleted ? adventureCount + ' / ' + adventureCount + ' 关全部完成！' : level.mode === 'math' ? '你算出来啦' : '发现新规律';
@@ -982,8 +1306,17 @@
     $('#nextButton').textContent = practicePosition()>=0 ? (practicePosition()===practiceRoute.indices.length-1?'换个板块 →':'继续本板块 →') : free ? '再玩自由探险 ↻' : lastCompleted ? '看看下一站 →' : state.level === adventureCount - 1 ? '选择下一关 →' : '下一关 →';
     $('#repeatCourseButton').hidden = free || !lastCompleted;
     $('#repeatCourseButton').textContent = '↺ 重玩 ' + adventureCount + ' 关';
-    $('#finish').hidden = false;
+    $('#finish').hidden = state.celebrating;
     render();
+    if (state.celebrating) {
+      const token = roundToken;
+      finishTimer = setTimeout(() => {
+        if (token !== roundToken) return;
+        state.celebrating = false;
+        renderBoard();
+        $('#finish').hidden = false;
+      }, 650);
+    }
     tone([523, 659, 784, 1047]);
     islandAudio?.creature(level.factKind || state.selectedSpecies, 'happy');
     if (!free && soundOn) narrationTimer = setTimeout(playNarration, 650);
@@ -992,6 +1325,7 @@
     return !cells.some((cell) => directions.some((_, index) => canPlace(cell.key, index)));
   }
   function placeMath(anchor) {
+    stopIdleReaction();
     const level = currentLevel();
     const keys = footprint(anchor);
     state.history.push({ tiles: new Map(state.tiles), pieceIndex: state.pieceIndex, progress: state.progress,
@@ -1008,23 +1342,23 @@
       state.rescued += keys.length;
       state.pieceIndex++;
       state.landing = new Set(keys);
-      state.feedback = '新伙伴跑来了。看脚印，再想想还要接来几只。';
+      state.feedback = '来了 1 只！';
       render();
       spark(keys);
-      toast('来了 1 只 🐾');
+      toast('来了 1 只');
       islandAudio?.creature(level.factKind, 'arrive', { durationMs: reducedMotion ? 0 : 780, lightSteps: ['raptor', 'oviraptor', 'psittaco', 'struthio', 'compso'].includes(level.factKind) });
       setTimeout(() => {
         if (token !== roundToken) return;
         state.animating = false;
         state.landing.clear();
         readyToAnswer();
-        if (state.phase === 'play') state.feedback = '还要接来 ' + (level.change - state.pieceIndex) + ' 只。';
+        if (state.phase === 'play') state.feedback = '来了 1 只！';
         render();
-      }, arrivalMs);
+      }, arrivalMs());
       return;
     }
     state.departing = new Set(keys);
-    state.feedback = '一只恐龙跑去新营地了。继续看脚印。';
+    state.feedback = '跑掉了 1 只！';
     render();
     islandAudio?.creature(level.factKind, 'depart', { durationMs: reducedMotion ? 0 : 680, lightSteps: ['raptor', 'oviraptor', 'psittaco', 'struthio', 'compso'].includes(level.factKind) });
     setTimeout(() => {
@@ -1034,13 +1368,13 @@
       state.progress -= keys.length;
       state.rescued += keys.length;
       state.pieceIndex++;
-      state.feedback = '送走了 1 只。摆好后自己数数还剩几只。';
+      state.feedback = '跑掉了 1 只。摆好后自己数数还剩几只。';
       state.animating = false;
       readyToAnswer();
-      if (state.phase === 'play') state.feedback = '还要送走 ' + (level.change - state.pieceIndex) + ' 只。';
+      if (state.phase === 'play') state.feedback = '跑掉了 1 只！';
       render();
       spark(keys);
-      toast('送走 1 只 🐾');
+      toast('跑掉了 1 只');
     }, reducedMotion ? 0 : 720);
   }
   function checkWork() {
@@ -1048,8 +1382,8 @@
     const difference = currentLevel().change - state.pieceIndex;
     if (difference !== 0) {
       state.error = true;
-      state.feedback = difference > 0 ? '脚印还差 ' + difference + ' 个。再移动恐龙试试。' : '脚印多了 ' + -difference + ' 个。点“撤回”再试。';
-      toast(difference > 0 ? '还差 ' + difference + ' 个脚印' : '多了 ' + -difference + ' 个脚印');
+      state.feedback = difference > 0 ? '还差 ' + difference + ' 个。再移动恐龙试试。' : '多了 ' + -difference + ' 个。点“撤回”再试。';
+      toast(difference > 0 ? '还差 ' + difference + ' 只' : '多了 ' + -difference + ' 只');
       tone([235]);
       render();
       return;
@@ -1077,24 +1411,38 @@
     }
     greetDino(cellKey);
   }
-  function greetDino(cellKey) {
+  function greetDino(cellKey, silent = false, idleAction = null) {
+    if (!silent) stopIdleReaction();
     const kind = state.tiles.get(cellKey);
     if (!species[kind] || state.animating || state.complete || state.reacting.has(cellKey)) return;
+    if (silent && (reducedMotion || state.idleKey)) return;
+    if (silent) { state.idleKey = cellKey; state.idleAction = idleAction || 'nod'; }
     state.reacting.add(cellKey);
+    const greeting = ++greetingSequence;
+    greetingTokens.set(cellKey, greeting);
     // Animate only this animal; the board and the child's count stay put.
-    board.querySelectorAll('[data-key="' + cellKey + '"]').forEach((element) => element.classList.add('responding'));
-    islandAudio?.creature(kind, 'touch');
+    board.querySelectorAll('[data-key="' + cellKey + '"]').forEach(element => {
+      element.classList.add('responding');
+      if (silent) { element.classList.add('idle-acting'); element.dataset.idleAction = state.idleAction; }
+    });
+    if (!silent) islandAudio?.creature(kind, 'touch');
     const token = roundToken;
     setTimeout(() => {
-      if (token !== roundToken) return;
+      if (token !== roundToken || greetingTokens.get(cellKey) !== greeting) return;
+      greetingTokens.delete(cellKey);
       state.reacting.delete(cellKey);
-      board.querySelectorAll('[data-key="' + cellKey + '"]').forEach((element) => element.classList.remove('responding'));
-    }, reducedMotion ? 200 : 650);
+      if (state.idleKey === cellKey) { state.idleKey = null; state.idleAction = null; }
+      board.querySelectorAll('[data-key="' + cellKey + '"]').forEach(element => {
+        element.classList.remove('responding', 'idle-acting');
+        delete element.dataset.idleAction;
+      });
+    }, reducedMotion ? 200 : silent ? 900 : 650);
   }
   function activateCell(cellKey) {
     if (!state || state.animating || state.complete) return;
     const level = currentLevel();
     if (level.mode === 'math' && state.phase === 'answer') {
+      if (state.countingTogether) return;
       if (state.countOrder.includes(cellKey)) greetDino(cellKey);
       else countDino(cellKey);
     } else if (state.tiles.has(cellKey) && (level.mode === 'free' || (level.mode === 'math' && level.op === '+'))) {
@@ -1102,10 +1450,11 @@
     } else place(cellKey);
   }
   function chooseAnswer(number) {
-    if (currentLevel().mode !== 'math' || state.phase !== 'answer' || state.complete) return;
+    if (currentLevel().mode !== 'math' || state.phase !== 'answer' || state.complete || state.countingTogether) return;
     const level = currentLevel();
     if (state.animating || state.pieceIndex !== level.change || state.tiles.size !== level.goal) return;
     if (number === currentLevel().goal) {
+      answerRecords.set(level.id, { tries: state.wrongTries + 1, wrongTypes: [...state.wrongTypes] });
       state.error = false;
       state.wrongAnswer = null;
       wrongNarration.pause();
@@ -1113,23 +1462,72 @@
       finish();
       return;
     }
+    if (number !== state.wrongAnswer) {
+      state.wrongTries++;
+      state.wrongTypes.push(wrongAnswerType(level, number));
+    }
     state.countOrder = [];
     state.wrongAnswer = number;
     state.error = true;
     state.feedback = '✕ 这个数字还不对。数一数，再试一次！';
+    stopIdleReaction();
+    clearTimeout(reactionTimer);
+    state.reacting.clear();
+    state.thinking = !reducedMotion;
     stopOtherVoices(wrongNarration);
     tone([294, 247]);
     render();
+    if (state.thinking) {
+      const token = roundToken;
+      reactionTimer = setTimeout(() => {
+        if (token !== roundToken) return;
+        state.thinking = false;
+        board.querySelectorAll('.thinking').forEach(node => node.classList.remove('thinking'));
+      }, 620);
+    }
     $('.interaction-bar').classList.remove('shake');
     requestAnimationFrame(() => $('.interaction-bar').classList.add('shake'));
     playWrongNarration();
+    if (state.wrongTries >= 2) startCountingTogether();
+  }
+  // After a second miss the board counts for the child before another choice.
+  function startCountingTogether() {
+    // Left to right, so a child can follow; dinosaurs that came later are counted last.
+    const spot = key => position(cells.find(cell => cell.key === key));
+    const order = [...state.tiles.keys()].sort((a, b) => state.initialKeys.has(b) - state.initialKeys.has(a) || spot(a).x - spot(b).x || spot(a).y - spot(b).y);
+    state.countingTogether = true;
+    const finishCounting = () => {
+      state.countingTogether = false;
+      state.feedback = order.length ? '数完啦，现在选一个数字。' : '棋盘上一只也没有，现在选一个数字。';
+      render();
+    };
+    if (reducedMotion) {
+      state.countOrder = order;
+      state.error = false;
+      finishCounting();
+      return;
+    }
+    const countNext = () => {
+      if (reducedMotion) state.countOrder = order;
+      if (state.countOrder.length >= order.length) { finishCounting(); return; }
+      state.countOrder.push(order[state.countOrder.length]);
+      state.feedback = '一起数：' + state.countOrder.length;
+      if (wrongNarration.paused) tone([440 + state.countOrder.length * 30]);
+      render();
+      countTimer = setTimeout(countNext, 700);
+    };
+    render();
+    countTimer = setTimeout(() => {
+      state.error = false;
+      countNext();
+    }, 620);
   }
   function place(anchor) {
     if (!state || state.animating || state.complete) return;
     if (currentLevel().mode === 'math' && state.phase !== 'play') return;
     if (!canPlace(anchor)) {
       const mode = currentLevel().mode;
-      state.feedback = mode === 'math' ? currentLevel().op === '+' ? '这里已经有恐龙啦，点带“＋”的空格。' : '点一只恐龙，送它去新营地。'
+      state.feedback = mode === 'math' ? currentLevel().op === '+' ? '这里已经有恐龙啦，点带“＋”的空格。' : '点一只恐龙，让它跑掉。'
         : mode === 'egg' ? '这一对要放在蛋旁边的两个空格里。试试旋转。'
         : mode === 'mirror' ? '让两只恐龙分站亮线两边，而且离亮线一样远。'
         : mode === 'parallel' ? '沿着上下两条小路继续向右放，试试旋转。'
@@ -1173,13 +1571,13 @@
         state.landing.clear();
         if (done) { state.animating = false; finish(); }
         else renderBoard();
-      }, arrivalMs);
+      }, arrivalMs());
       return;
     }
     if (level.mode === 'egg') {
       state.landing = new Set(placedKeys);
       const landingToken = roundToken;
-      setTimeout(() => { if (landingToken === roundToken) { state.landing.clear(); renderBoard(); } }, arrivalMs);
+      setTimeout(() => { if (landingToken === roundToken) { state.landing.clear(); renderBoard(); } }, arrivalMs());
       state.progress = ring.filter((cellKey) => state.tiles.has(cellKey)).length;
       state.feedback = state.progress === 6 ? '围好了！恐龙蛋要孵化了！' : '又围住两个位置，再找剩下的空格。';
       render();
@@ -1204,7 +1602,7 @@
     if (!groups.length) {
       state.landing = new Set(placedKeys);
       const landingToken = roundToken;
-      setTimeout(() => { if (landingToken === roundToken) { state.landing.clear(); renderBoard(); } }, arrivalMs);
+      setTimeout(() => { if (landingToken === roundToken) { state.landing.clear(); renderBoard(); } }, arrivalMs());
       state.feedback = level.mode === 'line' ? '恐龙放下了！找找能连成直线的位置。' : '恐龙放下了！继续把同种恐龙连成三只。';
       if (noRoom()) {
         state.feedback = '棋盘放满了，再来一局试试。';
@@ -1235,7 +1633,7 @@
     }, 520);
   }
   function hint() {
-    if (state.animating || state.complete) return;
+    if (state.animating || state.complete || state.countingTogether) return;
     const level = currentLevel();
     if (level.mode === 'math' && state.phase === 'answer') {
       state.countOrder = [];
@@ -1259,7 +1657,7 @@
         }
         state.orientation = orientation;
         state.hint = keys;
-        state.feedback = level.mode === 'math' ? level.op === '+' ? '把新来的恐龙放到发亮的格子。' : '点发亮的恐龙，送它们去新营地。' : '亮起来的两个格子可以试一试。';
+        state.feedback = level.mode === 'math' ? level.op === '+' ? '把新来的恐龙放到发亮的格子。' : '点发亮的恐龙，让它们跑掉。' : '亮起来的两个格子可以试一试。';
         state.error = false;
         render();
         return;
@@ -1272,6 +1670,7 @@
   function undo() {
     const math = currentLevel().mode === 'math';
     if ((math ? !state.history.length : !state.undo) || state.animating || state.complete) return;
+    clearBoardReactions();
     const previous = math ? state.history.pop() : state.undo;
     state.tiles = new Map(previous.tiles);
     state.landing.clear();
@@ -1287,9 +1686,10 @@
     state.countOrder = [];
     state.hover = null;
     state.hint = [];
-    state.feedback = math ? '撤回啦，还要' + (currentLevel().op === '+' ? '接来 ' : '送走 ') + (currentLevel().change - state.pieceIndex) + ' 只。' : '拿回来了，换个方向或位置再试。';
+    state.feedback = math ? (currentLevel().op === '+' ? '恐龙回去了，再点一下。' : '恐龙回来了，再点一只。') : '拿回来了，换个方向或位置再试。';
     state.error = false;
     render();
+    scheduleIdleReaction();
   }
   function rotate() {
     if (currentLevel().mode === 'challenge') return;
@@ -1344,6 +1744,7 @@
   $('#piece').addEventListener('pointerdown', (event) => {
     if (state.animating || state.complete || (currentLevel().mode === 'math' && state.phase !== 'play')) return;
     if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    stopIdleReaction();
     event.preventDefault();
     try { $('#piece').setPointerCapture(event.pointerId); } catch (_) {}
     dragStart = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
@@ -1383,6 +1784,7 @@
   });
   $('#rotateButton').addEventListener('click', rotate);
   $('#taskSpeakButton').addEventListener('click', () => { setSound(true); playTaskNarration(); });
+  $('#guidance').addEventListener('click', repeatGuidance);
   $('#checkButton').addEventListener('click', checkWork);
   $('#answerOptions').addEventListener('click', (event) => {
     const option = event.target.closest('[data-answer]');
@@ -1398,7 +1800,7 @@
   });
   $('#hintButton').addEventListener('click', hint);
   $('#undoButton').addEventListener('click', undo);
-  $('#restartButton').addEventListener('click', () => start(state.level, true, currentLevel().mode !== 'free'));
+  $('#restartButton').addEventListener('click', () => { skipWarmupOnce = true; start(state.level, true, currentLevel().mode !== 'free'); });
   $('#replayButton').addEventListener('click', () => {setPractice(null);start(0,true);});
   $('#nextButton').addEventListener('click', () => {
     if (!state.complete || state.error) return;
@@ -1491,9 +1893,36 @@
     if (event.key.toLowerCase() === 'r' && !event.repeat) rotate();
   });
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) { stopOtherVoices(); audioContext?.suspend(); }
+    if (document.hidden) { clearTimeout(idleTimer); stopIdleReaction(); stopOtherVoices(); audioContext?.suspend(); }
+    else scheduleIdleReaction();
   });
-  window.addEventListener?.('pagehide', () => { stopOtherVoices(); audioContext?.suspend(); });
+  window.addEventListener?.('pagehide', () => { clearTimeout(idleTimer); stopIdleReaction(); stopOtherVoices(); audioContext?.suspend(); });
+  window.addEventListener?.('pageshow', scheduleIdleReaction);
+  function updateMotionPreference(event) {
+    reducedMotion = event.matches;
+    if (!reducedMotion) { scheduleIdleReaction(); return; }
+    clearTimeout(idleTimer);
+    clearTimeout(entryTimer);
+    stopIdleReaction();
+    if (!state) return;
+    state.entering.clear();
+    state.reacting.clear();
+    greetingTokens.clear();
+    state.thinking = false;
+    if (state.celebrating) {
+      state.celebrating = false;
+      clearTimeout(finishTimer);
+      if (state.complete) $('#finish').hidden = false;
+    }
+    board.querySelectorAll('.entering, .responding, .thinking, .celebrating').forEach(element => {
+      element.classList.remove('entering', 'responding', 'thinking', 'celebrating', 'idle-acting');
+      delete element.dataset.idleAction;
+    });
+  }
+  if (motionPreference.addEventListener) motionPreference.addEventListener('change', updateMotionPreference);
+  else motionPreference.addListener?.(updateMotionPreference);
+  if (window.ResizeObserver) new window.ResizeObserver(fitAdditionMarks).observe(board);
+  else window.addEventListener?.('resize', fitAdditionMarks);
   $('#chapterGateTitle').textContent = adventureCount + ' 关全部完成！';
   $('#chapterReplay').textContent = '↺ 重玩 ' + adventureCount + ' 关';
   const dinosaurCount = Object.values(species).filter(data => data.isDinosaur).length;
@@ -1502,5 +1931,17 @@
   $('#collectionButton').setAttribute('aria-label', '打开恐龙图鉴，' + dinosaurCount + '种恐龙和1位翼龙伙伴');
   completedLevels();
   setSound(soundOn);
-  start(resumeLevel());
+  // The map's parent entry selects an existing lesson, without changing its data
+  // or inferring that earlier lessons have been completed.
+  const entryParams = typeof URLSearchParams === 'function' ? new URLSearchParams(location.search) : null;
+  const entryId = entryParams?.get('parentPractice') === '1' && /^\d+$/.test(entryParams.get('level') || '') ? Number(entryParams.get('level')) : null;
+  const entryIndex = entryId === null ? -1 : levels.slice(0, adventureCount).findIndex(level => level.id === entryId);
+  if (entryIndex >= 0) {
+    const grade = levels[entryIndex].grade || 1;
+    const moduleId = window.DinoLearningCatalog?.moduleFor(levels[entryIndex]);
+    const indices = levels.slice(0, adventureCount).flatMap((level,index) =>
+      (level.grade || 1) === grade && window.DinoLearningCatalog?.moduleFor(level) === moduleId ? [index] : []);
+    setPractice({indices,grade,moduleId,topic:'all',label:grade+'年级 · 专项练习'});
+  }
+  start(entryIndex >= 0 ? entryIndex : resumeLevel());
 })();

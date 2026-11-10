@@ -1,0 +1,11 @@
+/* Navigation is scoped to the playable journey; equation/board sizing stays intact. */
+.journey-play header { padding-top:max(4px,env(safe-area-inset-top)); gap:10px; }
+#journeyBack { display:flex; align-items:center; justify-content:center; min-width:70px; min-height:44px; padding:7px 12px; border:1px solid #ffefb877; border-radius:22px; background:#1f3a2fe6; color:var(--paper); text-decoration:none; font-size:14px; white-space:nowrap; text-shadow:none; }
+.journey-play header .tag { font-size:11px; white-space:nowrap; }
+.journey-again { min-height:44px; padding:8px 12px; border:1px solid #dac99088; border-radius:11px; background:transparent; color:var(--paper); font-weight:700; cursor:pointer; }
+.journey-play #bar #journeyContinue { font-weight:850; }
+#journeyStorageWarning { position:absolute; top:54px; left:50%; transform:translateX(-50%); z-index:12; margin:0; padding:7px 12px; max-width:calc(100% - 24px); background:#fff1cceF; color:#683c18; border:1px solid #c39146; border-radius:9px; font-size:12px; text-align:center; }
+.journey-play #voiceToggle,.journey-play #restart { min-width:44px; min-height:44px; }
+.journey-play button:focus-visible,.journey-play a:focus-visible { outline:3px solid #fff0b2; outline-offset:3px; }
+@media(orientation:landscape) and (max-height:600px){.journey-play header{padding-top:0}#journeyBack{padding:5px 10px;font-size:12px}.journey-play #bar #journeyContinue{min-height:44px;font-size:14px}.journey-again{font-size:12px;padding:6px 10px}.journey-play #bar h2{margin-left:44px;margin-right:44px}}
+@media(prefers-reduced-motion:reduce){.journey-play *,.journey-play *::before,.journey-play *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#123d4c">
+  <meta name="theme-color" content="#1d4033">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="恐龙拼拼岛">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png">
   <title>恐龙拼拼岛</title>
-  <link rel="preload" as="script" href="./runtime.88106516cf8e.js">
-  <link rel="stylesheet" href="./styles.d6ebac6c6067.css">
+  <link rel="preload" as="script" href="./runtime.f1a9f068a295.js">
+  <link rel="stylesheet" href="./styles.7d3edad5cbd2.css">
+  
+  
+  
+  
   
   
   
@@ -15,10 +26,13 @@
   
   
   <style>#bootCover[hidden], #bootAction[hidden] { display:none !important; }</style>
+  
+  
+  
 </head>
 <body>
   <section id="bootCover" role="dialog" aria-modal="true" aria-labelledby="bootTitle" aria-busy="true" style="position:fixed;inset:0;z-index:10000;display:grid;place-content:center;justify-items:center;gap:18px;padding:24px;background:linear-gradient(160deg,#123d36f5,#264e34eb);color:#fff5d7;text-align:center;font-family:system-ui,sans-serif">
-    <span aria-hidden="true" style="font-size:56px">🐾</span>
+    <span id="bootMark" aria-hidden="true" style="display:grid;justify-items:center;gap:4px;font-size:56px;line-height:1">✦</span>
     <h2 id="bootTitle" style="margin:0;font-size:clamp(24px,5vw,40px)">恐龙岛准备中…</h2>
     <p id="bootDetail" role="status" aria-live="polite" style="margin:0;max-width:32em;line-height:1.7">第一次来，正在接恐龙伙伴到岛上。</p>
     <button id="bootAction" type="button" hidden style="min-height:56px;padding:14px 28px;border:0;border-radius:24px;background:#ffe297;color:#244a3c;font-size:22px;font-weight:800;cursor:pointer">重新加载游戏</button>
@@ -49,12 +63,12 @@
         <div class="mission-strip">
           <p class="eyebrow" id="missionTag">5 以内 · 加法</p>
           <div class="question-row"><h1 id="missionTitle">1 + 1 = ?</h1><button id="taskSpeakButton" class="task-speak" type="button" aria-label="播放本关任务语音"><span>🔊</span><small>听一听</small></button></div>
-          <p id="guidance" class="guidance">接来 1 只恐龙</p>
+          <button type="button" id="guidance" class="guidance">点一下，让 1 只恐龙来</button>
           <div class="goal" hidden><strong id="goalCount">? 只</strong><small id="goalLabel">数一数岛上有</small></div>
         </div>
         <div class="playfield">
           <svg id="board" viewBox="0 125 600 285" role="group" aria-label="六边形恐龙棋盘"></svg>
-          <div id="emptyIsland" class="empty-island" hidden><span>🐾</span><strong id="emptyIslandLabel">都去新营地啦</strong></div>
+          <div id="emptyIsland" class="empty-island" hidden><span>✦</span><strong id="emptyIslandLabel">都跑掉啦</strong></div>
           <div id="effects" class="effects" aria-hidden="true"></div>
           <div id="boardToast" class="board-toast" role="status" aria-live="polite"></div>
           <div id="finish" class="finish" hidden>
@@ -66,7 +80,7 @@
               <p id="encouragement" class="encouragement"></p>
               </div>
               <div id="factCard" class="fact-card story-card">
-                <button id="factHello" class="fact-portrait story-portrait" type="button" aria-label="和恐龙打招呼"><img id="factPortrait" src="./assets/trike-3d.webp" alt="" loading="lazy"><span class="portrait-touch" aria-hidden="true">👋</span></button>
+                <button id="factHello" class="fact-portrait story-portrait" type="button" aria-label="和恐龙打招呼"><img id="factPortrait" src="./assets/trike-3d.webp" alt="" loading="lazy"></button>
                 <div class="fact-copy story-copy">
                   <div class="story-heading"><small>我来陪你探险啦</small><strong id="factName"></strong><span id="factNickname" class="story-nickname"></span></div>
                   <p id="dinoFact" class="story-caption"></p>
@@ -74,6 +88,8 @@
                 </div>
               </div>
               <div class="finish-actions">
+                <p id="fossilProgress" class="fossil-progress" hidden></p>
+                <a id="fossilButton" class="fossil-dig-button" href="./prototypes/fossil-dig/index.html?v=20261109-f7-r1" hidden>🦴 去挖化石 →</a>
                 <button id="nextButton" type="button">下一关 →</button>
                 <button id="repeatCourseButton" type="button" hidden>↺ 重玩 230 关</button>
               </div>
@@ -99,25 +115,30 @@
           </div>
         </div>
       </section>
-      <div class="interaction-bar">
+      <div class="interaction-bar v3-bar">
         <div class="dock">
           <div class="dock-copy"><span id="dockLabel" class="dock-label">➕ 加入 1 只</span><strong id="pairNames">三角龙 × 1</strong><small id="dockInstruction">点空格放入，或拖到棋盘</small></div>
           <div id="piece" class="piece" role="img" aria-label="当前的一对恐龙"></div>
           <button id="rotateButton" type="button" class="rotate-button" aria-label="旋转这一对恐龙"><span>↻</span><small>旋转</small></button>
         </div>
       <aside class="side-panel">
+        <div class="v3-main">
+        <div class="v3-heading"><h2 id="v3TaskTitle"></h2><p id="feedback" class="feedback" role="status" aria-live="polite">恐龙就来了。</p></div>
         <div class="side-top"><span class="chapter">探险任务</span><span class="chapter-dots" id="chapterDots" aria-label="关卡进度"></span></div>
         <div id="ruleArt" class="rule-art" aria-hidden="true" hidden></div>
         <div id="actionTrack" class="action-track" aria-label="已移动的恐龙数量"></div>
-        <p id="feedback" class="feedback" role="status" aria-live="polite">点空格，先接来第 1 只。</p>
         <button id="checkButton" class="check-button" type="button" hidden>选结果</button>
         <div id="answerChallenge" class="answer-challenge" hidden>
           <div id="countPrompt" class="count-prompt">现在有几只？</div>
           <div id="answerOptions" class="answer-options" hidden></div>
           <button id="backToBoard" class="back-to-board" type="button" hidden>再摆一次</button>
         </div>
+        </div>
+        <div class="v3-utility">
+        <span id="v3FooterCue" class="v3-cue">点棋盘上的发光空格</span>
         <div class="stats"><div><small>已救出</small><strong id="rescuedCount">0</strong><span>只恐龙</span></div><div><small>下一对</small><strong id="nextPair">—</strong></div></div>
-        <div class="side-actions"><button id="hintButton" type="button" aria-label="看提示">💡</button><button id="undoButton" type="button" aria-label="撤回一只恐龙">↶</button><button id="chooseButton" type="button" hidden>🦕 换恐龙</button><button id="restartButton" type="button" aria-label="重玩本关">↻</button><button id="replayButton" type="button" hidden>↺ 重玩 230 关</button></div>
+        <div class="side-actions v3-tools"><button id="hintButton" type="button" aria-label="看提示">💡</button><button id="undoButton" type="button" aria-label="撤回一只恐龙">↶</button><button id="chooseButton" type="button" hidden>🦕 换恐龙</button><button id="restartButton" type="button" aria-label="重玩本关">↻</button><button id="replayButton" type="button" hidden>↺ 重玩 230 关</button></div>
+        </div>
         <p class="keyboard-note">小技巧：点“旋转”，让两只恐龙换个方向。</p>
       </aside>
       </div>
@@ -130,21 +151,21 @@
         <button id="collectionClose" type="button" aria-label="关闭恐龙图鉴">×</button>
       </div>
       <div class="collection-feature story-card">
-        <button id="collectionHello" class="collection-feature-art story-portrait" type="button" aria-label="和恐龙打招呼"><img id="collectionPortrait" src="./assets/trike-3d.webp" alt="" loading="lazy"><span class="portrait-touch" aria-hidden="true">👋</span></button>
+        <button id="collectionHello" class="collection-feature-art story-portrait" type="button" aria-label="和恐龙打招呼"><img id="collectionPortrait" src="./assets/trike-3d.webp" alt="" loading="lazy"></button>
         <div class="collection-feature-copy story-copy">
           <div class="story-heading"><small id="collectionType">恐龙伙伴</small><h3 id="collectionName">三角龙</h3><span id="collectionNickname" class="story-nickname"></span></div>
           <p id="collectionIntro" class="story-caption"></p>
           <div class="collection-feature-actions story-controls"><button id="collectionListen" type="button">▶ 听它说</button><div id="collectionStorySteps" class="story-steps" aria-label="恐龙故事片段"></div><button id="chooseSpecies" type="button" hidden>选它上场</button></div>
         </div>
       </div>
-      <p id="collectionHelp" class="collection-help">点一张图片，认识新的恐龙伙伴。</p>
+      <p id="collectionHelp" class="collection-help">点一张图片，认识新的恐龙伙伴。</p><a class="fossil-journey-link" href="./prototypes/island-journey.html?v=20261031-f6-r1">🦴 化石挖掘与博物馆 →</a>
       <div class="collection-filter" aria-label="选择恐龙分组"><button id="collectionNew" type="button" aria-pressed="true">新伙伴</button><button id="collectionAll" type="button" aria-pressed="false">全部伙伴</button></div>
       <div id="collectionGrid" class="collection-grid"></div>
     </section>
   </div>
   <div id="levelPicker" class="level-picker-overlay" hidden>
     <section class="level-picker-panel" role="dialog" aria-modal="true" aria-labelledby="levelPickerTitle">
-      <header class="level-picker-heading"><div><small>恐龙岛 · 家长练习地图</small><h2 id="levelPickerTitle">今天探索什么？</h2><p id="levelPickerProgress">已完成 0 / 230 关</p></div><button id="levelPickerClose" class="level-picker-close" type="button" aria-label="关闭选关地图">×</button></header>
+      <header class="level-picker-heading"><div><small>恐龙岛 · 家长练习地图</small><h2 id="levelPickerTitle">今天探索什么？</h2><p id="levelPickerProgress">已完成 0 / 230 关</p></div><a class="fossil-journey-link" href="./prototypes/island-journey.html?v=20261031-f6-r1">🦴 化石探险 →</a><button id="levelPickerClose" class="level-picker-close" type="button" aria-label="关闭选关地图">×</button></header>
       <nav id="gradeFilters" class="grade-filters" aria-label="选择建议年级"></nav>
       <div id="moduleToolbar" class="module-toolbar" hidden>
         <label for="moduleSelect">知识板块<select id="moduleSelect" aria-label="选择知识板块"></select></label>
@@ -157,7 +178,8 @@
     </section>
   </div>
   <div id="soundscape" hidden aria-hidden="true"></div>
-  <script type="application/json" id="runtimeScripts">["./runtime.88106516cf8e.js"]</script>
+  <script type="application/json" id="runtimeScripts">["./runtime.f1a9f068a295.js"]</script>
+
   <script>
 /* Load the game in order; never expose an empty, apparently playable island. */
 (() => {
@@ -191,7 +213,10 @@
     if (!started) {
       // Useful for measuring actual ready-to-play time, independent of audio.
       if (!cover.dataset.readyMs) cover.dataset.readyMs = String(Math.round(performance.now()));
-      show('恐龙伙伴到齐啦！', '点一下出发，听听这次的小任务。', '开始探险 · 听任务');
+      // ST1: the start screen shows the story line that the first tap will read aloud, under a still comet and the stars lit so far.
+      const story = window.DinoStory, lit = story?.stars() || 0;
+      if (story) document.querySelector('#bootMark').innerHTML = story.cometMark() + (lit ? '<small style="font-size:16px;font-weight:700;color:#ffe58a">屋顶亮了 ' + lit + ' 颗星</small>' : '');
+      show('恐龙伙伴到齐啦！', story?.opening()?.text || '点一下出发，听听这次的小任务。', '开始探险 · 听任务');
       action.focus();
     } else {
       dismiss();
@@ -329,7 +354,7 @@
       } else if (['dino-math-island-current-v6', 'dino-math-island-current-v5',
           'dino-math-island-current-v3', 'dino-math-island-unlocked-v3']
           .every(key => localStorage.getItem(key) === null)) {
-        paths = ['./assets/scenes-v2/scene-01.webp', './assets/trike-3d.webp'];
+        paths = ['./assets/scenes-v4/scene-01.webp', './assets/trike-3d.webp'];
       }
     } catch (_) {}
     paths.filter(path => typeof path === 'string' &&

@@ -1,0 +1,12 @@
+/* Candidate scene composition only: lift the complete math board without
+   resizing its creatures or moving the equation and operation panels. */
+html[data-scene-preview="ground-higher"] .app:has(.picture-equation) #board {
+  bottom:calc(var(--board-bottom) + 24px);
+}
+
+/* Short landscape screens keep the existing gap below the equation. */
+@media(orientation:landscape) and (max-height:600px) {
+  html[data-scene-preview="ground-higher"] .app:has(.picture-equation) #board {
+    bottom:var(--board-bottom);
+  }
+}
