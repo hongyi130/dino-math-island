@@ -2911,8 +2911,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 23379,
-    "sha256": "7aa265740f86a1d03ad39559d7cc7796c5f03616b3876d237e9d06aa8db94d60"
+    "bytes": 24276,
+    "sha256": "12b9c1224b043191a1146f724eb80eb66ae81e7e3741eb46c5bd50600450ed8e"
   },
   {
     "path": "island-audio.js",
@@ -2976,8 +2976,8 @@
   },
   {
     "path": "prototypes/fossil-dig/archaeology.html",
-    "bytes": 5349,
-    "sha256": "e88e227bb088cf7c5ef6cf4080de8baea84d732ba0cf318c5796c162e7d04cd3"
+    "bytes": 6279,
+    "sha256": "f75cb7dd15eefbd4d2f7fd65ee021f6828c1f06ffb4b864d1f4e25ec02383c90"
   },
   {
     "path": "prototypes/fossil-dig/art/bone-body.webp",

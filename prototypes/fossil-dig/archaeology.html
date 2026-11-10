@@ -1,5 +1,31 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4ebd7"><title>恐龙考古营地</title><link rel="icon" href="data:,">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": [
+      "VideoGame",
+      "WebApplication"
+    ],
+    "@id": "https://hongyi130.github.io/dino-math-island/prototypes/fossil-dig/archaeology.html#game",
+    "url": "https://hongyi130.github.io/dino-math-island/prototypes/fossil-dig/archaeology.html",
+    "name": "恐龙考古营地",
+    "description": "免费的手机网页考古游戏，可以挖掘、清理、拼装并收藏化石。",
+    "inLanguage": "zh-CN",
+    "applicationCategory": "GameApplication",
+    "gamePlatform": [
+      "Mobile web browser",
+      "Desktop web browser"
+    ],
+    "browserRequirements": "需要启用 JavaScript，支持手机和电脑的现代网页浏览器。",
+    "operatingSystem": "Any operating system with a modern web browser",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": 0
+    }
+  }
+</script>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f4ebd7;color:#382d20;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}a{color:inherit}header,main{max-width:1100px;margin:auto;padding-left:clamp(20px,5vw,56px);padding-right:clamp(20px,5vw,56px)}header{display:flex;justify-content:space-between;align-items:center;padding-top:24px;gap:16px}.brand{font-weight:800;font-size:17px;letter-spacing:.04em}.museum{border:1px solid #bca783;border-radius:100px;padding:10px 17px;text-decoration:none;background:#fff8e9;font-size:14px;font-weight:700;white-space:nowrap}.museum:hover,.museum:focus-visible{background:#ebdbb9}main{padding-top:clamp(38px,7vw,72px);padding-bottom:60px}.intro{max-width:660px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:#956d3c}.intro h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(33px,6vw,56px);line-height:1.16;margin:12px 0}.intro p{line-height:1.8;color:#76664d;margin:0}.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:38px 0 15px}.section-head h2{font-size:20px;margin:0}.section-head span{font-size:13px;color:#806e53}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{display:flex;flex-direction:column;text-decoration:none;background:#fff9eb;border:1px solid #dbcbb0;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px #5b412012;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-3px);box-shadow:0 9px 22px #5b412022}.card:focus-visible,.museum:focus-visible{outline:3px solid #356854;outline-offset:3px}.art{height:185px;background:radial-gradient(ellipse,#ead9b8,#f5ead5 72%);display:grid;place-items:center;overflow:hidden}.art img{width:100%;height:100%;object-fit:contain}.card-content{padding:15px 18px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px}.card h3{font-size:17px;margin:0 0 5px}.sub{font-size:12px;color:#88755b}.action{font-size:13px;font-weight:750;color:#356854;white-space:nowrap}footer{margin-top:32px;font-size:13px;color:#897a65;line-height:1.6}@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.art{height:clamp(125px,36vw,180px)}.card-content{padding:12px;display:block}.card h3{font-size:16px}.action{display:block;margin-top:9px}.section-head{margin-top:30px}}@media(max-width:330px){.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 </style></head><body><header><div class="brand">◈ 恐龙考古营地</div><a class="museum" href="./?archaeology=1&amp;fossil=brachio&amp;view=museum&amp;v=20261101-archaeology-r1">我的化石博物馆 →</a></header><main><div class="intro"><span class="eyebrow">小小古生物学家</span><h1>今天想挖哪块化石？</h1><p>选一处现场，先破开岩石，再清理骨架、拼装并收藏。每一次发现，都可以收藏到博物馆。</p></div><div class="section-head"><h2>选择你的考古现场</h2><span id="count"></span></div><div class="grid" id="sites"></div><footer>挖掘进度与收藏保存在当前设备的浏览器中。</footer></main>
