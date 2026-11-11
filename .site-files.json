@@ -396,103 +396,103 @@
   },
   {
     "path": "assets/scenes-v4/scene-01.webp",
-    "bytes": 137352,
-    "sha256": "03183accc393c0013f7617e02ff9b5843f4709919a1c05ad95c91f9950270f20"
+    "bytes": 119852,
+    "sha256": "01b7e56ca74a9d7d0c0e7772f7e5ed5a935a6e996d40a580de64bd71701f87e6"
   },
   {
     "path": "assets/scenes-v4/scene-02.webp",
-    "bytes": 325570,
-    "sha256": "6911edecb22194d6af222f3513c77a5e305b07684ac3be66530d2ba12f4f131c"
+    "bytes": 159108,
+    "sha256": "4e4837611323f887e697d7c4fbe6731c314180d768f58ac3a72e0f09391ad08f"
   },
   {
     "path": "assets/scenes-v4/scene-03.webp",
-    "bytes": 323744,
-    "sha256": "5a02c506f285ff2947e419fc5f181f88390a423fb2c6d62bbe107080b4ad593c"
+    "bytes": 182146,
+    "sha256": "f310c836c24f4dc7069f41ffb57765ac7ad81b9954d89a6576aab5bfb24c9d4f"
   },
   {
     "path": "assets/scenes-v4/scene-04.webp",
-    "bytes": 285744,
-    "sha256": "242a96f64137afac536a51ba6ca9c1cd2dff6a85a559ea333b30a7f1360021c1"
+    "bytes": 74408,
+    "sha256": "a01fc545a8a6b4d36884260b33b90b58ee0f32b84dfe024f2accc38242fdf455"
   },
   {
     "path": "assets/scenes-v4/scene-05.webp",
-    "bytes": 308244,
-    "sha256": "f4924fc41622e0d8f826e14fd88f0f1fa04e11bb68c134fd9c36fbb321331b19"
+    "bytes": 99930,
+    "sha256": "6bd55c592ca121296c1e44992779e954f9ec79c4b90554420d6b64638cbcd9bc"
   },
   {
     "path": "assets/scenes-v4/scene-06.webp",
-    "bytes": 309568,
-    "sha256": "ec0c45373753421b8ba5e08c50c8033933722fb3534f7f4a3a48be4faa82349a"
+    "bytes": 120466,
+    "sha256": "3c2be6b2def1106ab77848877eab903db2e375c5b49b8bb7603a96224cc52c8e"
   },
   {
     "path": "assets/scenes-v4/scene-07.webp",
-    "bytes": 321686,
-    "sha256": "5d15e2bd4a3653252bba014a71f2e03715f5803bdec1855f28d08b95051255c1"
+    "bytes": 130154,
+    "sha256": "6c4ac642e086d2452f6399bcc2086811fb0cce68fd62044ad5b77b6c6e7f9c91"
   },
   {
     "path": "assets/scenes-v4/scene-08.webp",
-    "bytes": 322068,
-    "sha256": "9a51dd7811e33227cbb7589d8d7fe93f1c9aeac261430328ad660b947be85447"
+    "bytes": 180704,
+    "sha256": "05790374009e0a3dbe8c8074e0d3372bb92ee54d1897a6de1b6fe3ec7a4012de"
   },
   {
     "path": "assets/scenes-v4/scene-09.webp",
-    "bytes": 322566,
-    "sha256": "c166b84856d278a508542610571484be844be0e39c51086f8ff569967819220a"
+    "bytes": 146060,
+    "sha256": "9be1c6134871103d70448828eb666e2261dfccd043137e9f5cedf422ce19f522"
   },
   {
     "path": "assets/scenes-v4/scene-10.webp",
-    "bytes": 319800,
-    "sha256": "92d6e308bf14366d8dc3dea558f58b5fc2e86dea4aaf6a98262814ed3a7529d4"
+    "bytes": 136922,
+    "sha256": "8b239d50d47aa6dc3d7699ba1d8a1f30d112687a73af5e3e4ffa3ecf40027d61"
   },
   {
     "path": "assets/scenes-v4/scene-11.webp",
-    "bytes": 211938,
-    "sha256": "9b6d7020069d6a9100da1deaa37a0677e375bdfa407ae8b3b31d6a3c4e3c6137"
+    "bytes": 58240,
+    "sha256": "ce45275efd68b841d6fe92027d7f5f166e7a13381d436957a4085e12de5ffa72"
   },
   {
     "path": "assets/scenes-v4/scene-12.webp",
-    "bytes": 110878,
-    "sha256": "c7beefd651f8992f1c1eb0e1ff691d8b18ef90aa0c22dba4cda0233dacaaf00c"
+    "bytes": 98656,
+    "sha256": "b7b8ddf2a3feaa0df6a3d4048acbf72b00113102da0893f457a6cd1b1b983f02"
   },
   {
     "path": "assets/scenes-v4/scene-13.webp",
-    "bytes": 313798,
-    "sha256": "2f2541bec1aac5c4d9b200153f68c4b7bd23eb5f97cae637a28f77a4e131eb5f"
+    "bytes": 74354,
+    "sha256": "d7b3c52c7b3cc34f3846b6780674b49ffca5442e35980ab00b67c2a8196c0ee3"
   },
   {
     "path": "assets/scenes-v4/scene-14.webp",
-    "bytes": 320182,
-    "sha256": "9ebc2164907e78345329c7c9445850276653f5d1072151dab446da72d616e623"
+    "bytes": 107576,
+    "sha256": "9c849f5e11d107f3080cb2255e9bdf1bc0aec16c8afa5aad38d8699372691993"
   },
   {
     "path": "assets/scenes-v4/scene-15.webp",
-    "bytes": 317564,
-    "sha256": "aa58f108ca4dadb2f4ea81f3f336cb24142cebb17aec4ea340bb4c562254567c"
+    "bytes": 159236,
+    "sha256": "ef1c0c44beeb56b5d54f70b288a5d01989122ecc23d4ba82b17a70cf534af4c4"
   },
   {
     "path": "assets/scenes-v4/scene-16.webp",
-    "bytes": 181052,
-    "sha256": "caa3e5f805a58646935cd4fa77d8a12d382581e3c1164bb99ef0a30f20d5abbe"
+    "bytes": 45906,
+    "sha256": "35d6234c49d2eda9614269ac4feb315d96806057a62988fb8193b21c1f855b5f"
   },
   {
     "path": "assets/scenes-v4/scene-17.webp",
-    "bytes": 250988,
-    "sha256": "bd1fbfecdaf56469499fd923540d84dd67065d20417bec7e897dc20e37e27999"
+    "bytes": 80196,
+    "sha256": "19c0c73609f94ed1ef83242f384ecf5369256b62c8b4b61d0927da262ff459b7"
   },
   {
     "path": "assets/scenes-v4/scene-18.webp",
-    "bytes": 241312,
-    "sha256": "291ab316cc7062d788b77df57a382b369b9c0da569e9c96ab811117e31abea1c"
+    "bytes": 69578,
+    "sha256": "4e133087175b7eae12a4ee732bf6f8788523d61469d15789bbccc5cf8e09b95e"
   },
   {
     "path": "assets/scenes-v4/scene-19.webp",
-    "bytes": 315090,
-    "sha256": "2749e3240e0a4eae90e5bbba73e81422bfa052a326eac91c9787da0b4b2d454e"
+    "bytes": 93428,
+    "sha256": "71bf46f8602667740f02c8c49641eb7c2376fb3a86b7a6c6a0df65730d4baf8d"
   },
   {
     "path": "assets/scenes-v4/scene-20.webp",
-    "bytes": 326738,
-    "sha256": "8edf5fdbffcdfad4dce554bee55be919d17b3b8c79b36448b86b0f7004ad0316"
+    "bytes": 180050,
+    "sha256": "48455c9c56a209eebeb1d73c837e49e38147cfc89966feaf5ed38b5b07eaa326"
   },
   {
     "path": "assets/sfx/call-sauropod.wav",
@@ -566,8 +566,8 @@
   },
   {
     "path": "assets/stego-3d.webp",
-    "bytes": 233894,
-    "sha256": "024ed557a15ad48fd8fdcc2fb1e13041dc2a173a08c328e60a263d25e6c3ab46"
+    "bytes": 70796,
+    "sha256": "81cc326d6c0bd508375f72d704b8d0e1f5cefafbc4d4d25381eaeff140b2f3b6"
   },
   {
     "path": "assets/struthio-3d-v3.webp",
@@ -591,8 +591,8 @@
   },
   {
     "path": "assets/trike-3d.webp",
-    "bytes": 90298,
-    "sha256": "ec7baf2e8bd2c2ecb50615f8c7d0c0798541174abeb52b2c53d392bd64a94b24"
+    "bytes": 62024,
+    "sha256": "c46f070bc6670d7cc7d27eec65114bc418479ee2551df193751fc785fdeb2a6f"
   },
   {
     "path": "assets/voice/chapter-complete.m4a",
@@ -2806,8 +2806,8 @@
   },
   {
     "path": "boot.js",
-    "bytes": 9772,
-    "sha256": "9712d0508a66db0464445e8a0875d20558a6ee1aa6cb1ec846eef24c33ad1bab"
+    "bytes": 9225,
+    "sha256": "d247e3944e3a0feb2d6e267228d136aba773d719eee7f60f0e1b3d0c2df3982a"
   },
   {
     "path": "bottom-bar.css",
@@ -2876,8 +2876,8 @@
   },
   {
     "path": "game.js",
-    "bytes": 108956,
-    "sha256": "4c8c4561bd08f9eb3ff6bcf8ab3738b66c363fe1c34f53faa7d93ed4c083a064"
+    "bytes": 110380,
+    "sha256": "51487c58fe8588f6c5e1beb7ff21f7f1442d18bb97c19115399915d50cdafead"
   },
   {
     "path": "grade2-engine.js",
@@ -2911,8 +2911,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 24276,
-    "sha256": "12b9c1224b043191a1146f724eb80eb66ae81e7e3741eb46c5bd50600450ed8e"
+    "bytes": 24989,
+    "sha256": "ecadecfd2b605bca6f403dad0ec45ccefffa29574aea3593acd61752024e808c"
   },
   {
     "path": "island-audio.js",
@@ -2976,8 +2976,8 @@
   },
   {
     "path": "prototypes/fossil-dig/archaeology.html",
-    "bytes": 6279,
-    "sha256": "f75cb7dd15eefbd4d2f7fd65ee021f6828c1f06ffb4b864d1f4e25ec02383c90"
+    "bytes": 5838,
+    "sha256": "299bc262c037cfba89c8d5fbc80bb0b8a76d68a219f2da58b88e8e608cb4411c"
   },
   {
     "path": "prototypes/fossil-dig/art/bone-body.webp",
@@ -4770,6 +4770,11 @@
     "sha256": "c5ae8b50c813f0b268179da0281373192ac809cbf8d8c215f4f739062bae02b1"
   },
   {
+    "path": "prototypes/fossil-dig/camp.8215c68ba807.js",
+    "bytes": 216686,
+    "sha256": "8215c68ba8077b0b2f14d6f6d5a817932d1ba579024a96d9761dadd36a28140c"
+  },
+  {
     "path": "prototypes/fossil-dig/egg-progress.css",
     "bytes": 1308,
     "sha256": "98e4fef37accdff4156f2825c3fe2d5cc91a33023c7193924cefa67c591bb19b"
@@ -5030,9 +5035,9 @@
     "sha256": "4abf62d21668ca518527c1b6e1162729174ac1e9cfcd290b67d8efa23558b4ad"
   },
   {
-    "path": "runtime.f1a9f068a295.js",
-    "bytes": 514482,
-    "sha256": "f1a9f068a2952879526b0b7c99c46cd56192eb518b50ec02dbc7d8818e5b4ced"
+    "path": "runtime.e3e62607f6bc.js",
+    "bytes": 517317,
+    "sha256": "e3e62607f6bc2f8cba4c0491672657debf4a721eb0a31a2262f3c259909ff85a"
   },
   {
     "path": "scene-data.js",
@@ -5111,7 +5116,7 @@
   },
   {
     "path": "warmup.js",
-    "bytes": 12539,
-    "sha256": "b4dfcdaf35e5b459c6b377f13a5e965092519b293244a8b7345412e82822a8d7"
+    "bytes": 13950,
+    "sha256": "5839cad97c2c2b9c18e5fd9e69e7ab42a9c98eef849aa7f76933166b91da825d"
   }
 ]

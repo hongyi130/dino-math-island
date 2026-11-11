@@ -82,14 +82,28 @@
     'pick-come': '又来一只，用哪个符号？', 'pick-leave': '跑掉一只，用哪个符号？',
     ready: '练习完啦，我们出发吧！',
   };
-  const MOVE_MS = 650, PAUSE_MS = 500, SILENT_STEP_MS = 2400, VOICE_LIMIT_MS = 9000;
+  const MOVE_MS = 650, PAUSE_MS = 220, SILENT_STEP_MS = 2400, VOICE_LIMIT_MS = 9000;
   const VERSION = '?v=20261104-l0-warmup-r4';
   const motion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
   const audio = typeof Audio === 'function' ? new Audio() : null;
+  const voicePath = name => './assets/voice/warmup-' + name + '.m4a' + VERSION;
+  // A complete small clip can be handed to the same media element immediately,
+  // including on browsers that ignore preload hints on a second element.
+  const clips = new Map();
+  function warmVoice(name) {
+    if (!name || !audio || document.hidden || typeof fetch !== 'function' || clips.has(name)) return;
+    clips.set(name, null);
+    fetch(voicePath(name)).then(response => {
+      if (!response.ok) throw new Error('Voice unavailable');
+      return response.blob();
+    }).then(blob => {
+      clips.set(name, URL.createObjectURL(blob));
+    }).catch(() => clips.delete(name));
+  }
   let root = null, flow = null, options = null, segment = null, segmentDone = false, playToken = 0;
   let sayToken = 0, moveTimer = 0, sayTimer = 0, stepTimer = 0, moving = false, swapped = false;
 
-  function say(names, done) {
+  function say(names, done, following) {
     const token = ++sayToken;
     clearTimeout(sayTimer);
     audio?.pause();
@@ -97,11 +111,28 @@
     const next = index => {
       if (token !== sayToken) return;
       if (index >= names.length) { done?.(); return; }
-      const advance = () => { clearTimeout(sayTimer); audio.onended = audio.onerror = null; next(index + 1); };
-      audio.onended = audio.onerror = advance;
-      audio.src = './assets/voice/warmup-' + names[index] + '.m4a' + VERSION;
-      sayTimer = setTimeout(advance, VOICE_LIMIT_MS);
-      audio.play()?.catch?.(advance);
+      const name = names[index], path = voicePath(name);
+      const playClip = source => {
+        let settled = false;
+        const finish = failed => {
+          if (settled || token !== sayToken) return;
+          settled = true;
+          clearTimeout(sayTimer);
+          audio.onended = audio.onerror = audio.onplaying = null;
+          if (failed && source !== path) {
+            URL.revokeObjectURL(source);
+            clips.delete(name);
+            playClip(path);
+          } else next(index + 1);
+        };
+        audio.onended = () => finish(false);
+        audio.onerror = () => finish(true);
+        audio.onplaying = () => warmVoice(names[index + 1] || following);
+        audio.src = source;
+        sayTimer = setTimeout(() => finish(true), VOICE_LIMIT_MS);
+        audio.play()?.catch?.(() => finish(true));
+      };
+      playClip(clips.get(name) || path);
     };
     next(0);
   }
@@ -147,7 +178,8 @@
       if (step.come) moveSlots(step.come, 'come');
       if (step.leave) moveSlots(step.leave, 'leave');
       if (step.sign) showSign(step.sign);
-      say([step.voice], () => { stepTimer = setTimeout(() => run(index + 1), PAUSE_MS); });
+      const following = steps[index + 1]?.voice || SCRIPTS[ORDER[ORDER.indexOf(name) + 1]]?.[0]?.voice;
+      say([step.voice], () => { stepTimer = setTimeout(() => run(index + 1), PAUSE_MS); }, following);
     };
     run(0);
   }
@@ -268,5 +300,8 @@
     options = null;
     segment = null;
   }
-  window.DinoWarmup = { open, close, isOpen: () => Boolean(root), createFlow, scripts: SCRIPTS };
+  window.DinoWarmup = {
+    open, close, prepare: () => warmVoice(SCRIPTS.add[0].voice),
+    isOpen: () => Boolean(root), createFlow, scripts: SCRIPTS
+  };
 })();

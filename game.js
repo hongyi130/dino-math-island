@@ -86,17 +86,17 @@
     position: 'center center',
     filter: 'brightness(' + (1 + (index % 5) * .008).toFixed(3) + ') saturate(' + (1 + (index % 5) * .012).toFixed(3) + ')'
   }));
-  const scenePreloads = new Map();
+  let scenePreload;
   function preloadScene(levelIndex) {
     const image = scenes[levelIndex]?.image;
-    if (!image || scenePreloads.has(image)) return;
-    const preload = new Image();
-    preload.src = './assets/' + image;
-    scenePreloads.set(image, preload);
+    if (!image || image === scenes[state.level].image || typeof Image !== 'function') return;
+    scenePreload = new Image();
+    scenePreload.fetchPriority = 'low';
+    scenePreload.src = './assets/' + image;
   }
   let state;
   let roundToken = 0;
-  let idleTimer, reactionTimer, finishTimer, entryTimer, countTimer, skipWarmupOnce = false, storyTold = false, storyTimer;
+  let idleTimer, reactionTimer, finishTimer, entryTimer, countTimer, skipWarmupOnce = false, storyTold = false;
   const answerRecords = new Map();
   const greetingTokens = new Map();
   let greetingSequence = 0;
@@ -610,7 +610,7 @@
     clearBoardReactions();
     levelPicker?.close(false);
     window.DinoWarmup?.close();
-    const skipWarmup = skipWarmupOnce;
+    const showWarmup = window.DinoWarmup && levelIndex === 0 && !practiceRoute && !skipWarmupOnce;
     skipWarmupOnce = false;
     stopNarration();
     stopGalleryNarration();
@@ -626,10 +626,11 @@
     dragStart = null;
     dragging = false;
     const level = levels[levelIndex];
+    const warmupScene = './assets/' + (window.DINO_SCENES?.[11] || scenes[0]).image;
     wrongNarration.src = './assets/voice/' + (level.challengeType==='knowledge' ? 'knowledge-wrong.m4a' : level.grade === 2 ? 'grade2-wrong.m4a' : 'wrong-answer.m4a') + voiceVersion;
     const seed = level.mode === 'math' ? mathSeed(level) : level.seed;
     try { localStorage.setItem(currentLevelKey, String(levelIndex)); } catch (_) {}
-    setScene(levelIndex);
+    if (!showWarmup) setScene(levelIndex);
     // On public/mobile connections, give the current island and dinosaur priority.
     state = {
       level: levelIndex, tiles: new Map(seed), pieceIndex: 0, orientation: 0,
@@ -654,11 +655,15 @@
     const enterLevel = (fromGesture = false) => {
       if (introToken !== roundToken) return;
       if (fromGesture) setSound(true);
-      if (window.DinoWarmup && levelIndex === 0 && !practiceRoute && !skipWarmup) {
+      if (showWarmup) {
         window.DinoWarmup.open({
-          scene: './assets/' + (window.DINO_SCENES?.[11] || scenes[0]).image, image: './assets/' + species[level.factKind].image, soundOn: () => soundOn,
+          scene: window.DinoBoot?.imageUrl?.(warmupScene) || warmupScene,
+          image: window.DinoBoot?.imageUrl?.('./assets/' + species[level.factKind].image) || './assets/' + species[level.factKind].image,
+          soundOn: () => soundOn,
           onDone: () => { if (introToken === roundToken) beginLevel(true); }
         });
+        // The level-one board can load behind the warm-up once the player enters.
+        setScene(levelIndex);
         return;
       }
       beginLevel(fromGesture);
@@ -683,18 +688,24 @@
         else playTaskNarration();
       }
     };
+    taskNarration.preload = 'none';
     taskNarration.src = './assets/voice/' + (level.mode === 'math' && level.op === '-' && level.change > 0 ? 'task-run-' + String(level.id).padStart(2, '0') + '.m4a' : level.taskFile || (level.mode === 'free' ? 'task-free' : 'task-' + String(levelIndex + 1).padStart(2, '0')) + '.m4a') + voiceVersion;
-    taskNarration.load();
     $('#taskSpeakButton').classList.add('needs-tap');
     if (window.DinoBoot) {
-      const assets = ['./assets/' + scenes[levelIndex].image];
+      const assets = [showWarmup ? warmupScene : './assets/' + scenes[levelIndex].image];
       if (level.factKind && species[level.factKind]) assets.push('./assets/' + species[level.factKind].image);
       $('.app').querySelectorAll('img, svg image').forEach(node => {
         if (!node.getClientRects().length || node.closest('[hidden]')) return;
         const path = node.getAttribute(node.tagName.toLowerCase() === 'image' ? 'href' : 'src');
         if (path) assets.push(path);
       });
-      window.DinoBoot.prepareLevel(assets, enterLevel);
+      window.DinoBoot.prepareLevel(assets, enterLevel).then(() => {
+        if (introToken !== roundToken || !soundOn || document.hidden) return;
+        if (showWarmup) window.DinoWarmup.prepare();
+        else if (taskNarration.paused && taskNarration.preload === 'none') {
+          taskNarration.preload = 'auto';
+        }
+      });
     } else enterLevel();
   }
   function renderBoard() {
@@ -1049,9 +1060,11 @@
     $('#listenButton').classList.remove('is-playing');
     $('#listenButton').textContent = '▶ 听故事';
   }
+  let cancelStoryHandoff;
   function stopTaskNarration() {
     taskPlayToken++;
     taskNarration.pause();
+    cancelStoryHandoff?.();
     taskNarration.currentTime = 0;
     setTaskAudioStatus('idle');
   }
@@ -1082,19 +1095,32 @@
   // element, because iOS lets only the element started by the tap keep playing.
   function playStoryThenTask(story) {
     const task = taskNarration.src, token = roundToken;
-    let done = false;
-    const next = () => {
-      if (done) return;
-      done = true;
-      clearTimeout(storyTimer);
-      if (token !== roundToken || taskNarration.src === task) return;
+    let timer, bufferedTask;
+    const preloadTask = () => {
+      bufferedTask = new Audio();
+      bufferedTask.preload = 'auto';
+      bufferedTask.src = task;
+    };
+    const restoreTask = () => {
+      clearTimeout(timer);
+      taskNarration.removeEventListener('ended', next);
+      taskNarration.removeEventListener('error', next);
+      taskNarration.removeEventListener('playing', preloadTask);
+      bufferedTask = null;
+      cancelStoryHandoff = null;
       taskNarration.src = task;
+    };
+    const next = () => {
+      if (token !== roundToken || taskNarration.src === task) return;
+      restoreTask();
       playTaskNarration();
     };
+    cancelStoryHandoff = restoreTask;
     taskNarration.addEventListener('ended', next);
     taskNarration.addEventListener('error', next);
+    taskNarration.addEventListener('playing', preloadTask, { once: true });
     // Longer than the longest line (the 15 s prologue), in case 'ended' never arrives.
-    storyTimer = setTimeout(next, 20000);
+    timer = setTimeout(next, 20000);
     taskNarration.src = './assets/voice/' + story.file + voiceVersion;
     playTaskNarration();
   }
@@ -1320,6 +1346,8 @@
     tone([523, 659, 784, 1047]);
     islandAudio?.creature(level.factKind || state.selectedSpecies, 'happy');
     if (!free && soundOn) narrationTimer = setTimeout(playNarration, 650);
+    const upcoming = practicePosition() >= 0 ? practiceRoute.indices[practicePosition() + 1] : state.level + 1;
+    if (!free && !document.hidden && !lastCompleted && upcoming < adventureCount) preloadScene(upcoming);
   }
   function noRoom() {
     return !cells.some((cell) => directions.some((_, index) => canPlace(cell.key, index)));

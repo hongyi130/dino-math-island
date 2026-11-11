@@ -161,23 +161,7 @@
       node.setAttribute(name, target === absolute(path) ? retryUrl(target, 2) : target);
     }).catch(showRetry);
   }, true);
-  window.DinoBoot = { prepareLevel, image };
-  function warmStartupImages() {
-    let paths = [];
-    try {
-      const saved = JSON.parse(localStorage.getItem(startupAssetKey));
-      if (saved && saved.level === localStorage.getItem(currentLevelKey) && Array.isArray(saved.paths)) {
-        paths = saved.paths;
-      } else if (['dino-math-island-current-v6', 'dino-math-island-current-v5',
-          'dino-math-island-current-v3', 'dino-math-island-unlocked-v3']
-          .every(key => localStorage.getItem(key) === null)) {
-        paths = ['./assets/scenes-v4/scene-01.webp', './assets/trike-3d.webp'];
-      }
-    } catch (_) {}
-    paths.filter(path => typeof path === 'string' &&
-      /^\.\/assets\/[\w/-]+\.webp$/.test(path)).slice(0, 12)
-      .forEach(path => image(path).catch(() => {}));
-  }
+  window.DinoBoot = { prepareLevel, image, imageUrl: path => resolved.get(absolute(path)) || path };
   function fail(message) {
     failed = true;
     retry = () => location.reload();
@@ -202,13 +186,15 @@
       // Development uses separate source files; prefetch in parallel but keep
       // execution ordered. The published site has one content-hashed bundle.
       for (const path of scripts) {
+        const absolutePath = absolute(path);
+        if ([...document.querySelectorAll('link[rel="preload"][as="script"]')]
+          .some(link => link.href === absolutePath)) continue;
         const preload = document.createElement('link');
         preload.rel = 'preload';
         preload.as = 'script';
         preload.href = path;
         document.head.appendChild(preload);
       }
-      warmStartupImages();
       for (const path of scripts) {
         if (failed) return;
         await loadScript(path);

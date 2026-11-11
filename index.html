@@ -12,7 +12,30 @@
   <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png">
   <title>恐龙拼拼岛</title>
-  <link rel="preload" as="script" href="./runtime.f1a9f068a295.js">
+  <link rel="preload" as="script" href="./runtime.e3e62607f6bc.js">
+  <script>
+    (() => {
+      try {
+        if (location.protocol === 'file:' || new URLSearchParams(location.search).get('parentPractice') === '1') return;
+        const level = localStorage.getItem('dino-math-island-current-v6');
+        const fresh = level === null && ['dino-math-island-current-v5', 'dino-math-island-current-v3',
+          'dino-math-island-unlocked-v3'].every(key => localStorage.getItem(key) === null);
+        const saved = JSON.parse(localStorage.getItem('dino-island-startup-assets-v1'));
+        const warmupFirst = (fresh || level === '0') && !localStorage.getItem('dino-math-practice-v1');
+        const warmup = './assets/scenes-v4/scene-12.webp?v=20261022-s1-r1';
+        const paths = warmupFirst ? [warmup, './assets/trike-3d.webp'] :
+          saved?.level === level && Array.isArray(saved.paths) ? saved.paths : [];
+        for (const path of new Set(paths.slice(0, 12))) {
+          if (typeof path !== 'string' || !/^\.\/assets\/[\w/-]+\.webp(?:\?v=[\w-]+)?$/.test(path)) continue;
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.href = path;
+          document.head.appendChild(link);
+        }
+      } catch (_) {}
+    })();
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -204,7 +227,7 @@
     </section>
   </div>
   <div id="soundscape" hidden aria-hidden="true"></div>
-  <script type="application/json" id="runtimeScripts">["./runtime.f1a9f068a295.js"]</script>
+  <script type="application/json" id="runtimeScripts">["./runtime.e3e62607f6bc.js"]</script>
 
   <script>
 /* Load the game in order; never expose an empty, apparently playable island. */
@@ -370,23 +393,7 @@
       node.setAttribute(name, target === absolute(path) ? retryUrl(target, 2) : target);
     }).catch(showRetry);
   }, true);
-  window.DinoBoot = { prepareLevel, image };
-  function warmStartupImages() {
-    let paths = [];
-    try {
-      const saved = JSON.parse(localStorage.getItem(startupAssetKey));
-      if (saved && saved.level === localStorage.getItem(currentLevelKey) && Array.isArray(saved.paths)) {
-        paths = saved.paths;
-      } else if (['dino-math-island-current-v6', 'dino-math-island-current-v5',
-          'dino-math-island-current-v3', 'dino-math-island-unlocked-v3']
-          .every(key => localStorage.getItem(key) === null)) {
-        paths = ['./assets/scenes-v4/scene-01.webp', './assets/trike-3d.webp'];
-      }
-    } catch (_) {}
-    paths.filter(path => typeof path === 'string' &&
-      /^\.\/assets\/[\w/-]+\.webp$/.test(path)).slice(0, 12)
-      .forEach(path => image(path).catch(() => {}));
-  }
+  window.DinoBoot = { prepareLevel, image, imageUrl: path => resolved.get(absolute(path)) || path };
   function fail(message) {
     failed = true;
     retry = () => location.reload();
@@ -411,13 +418,15 @@
       // Development uses separate source files; prefetch in parallel but keep
       // execution ordered. The published site has one content-hashed bundle.
       for (const path of scripts) {
+        const absolutePath = absolute(path);
+        if ([...document.querySelectorAll('link[rel="preload"][as="script"]')]
+          .some(link => link.href === absolutePath)) continue;
         const preload = document.createElement('link');
         preload.rel = 'preload';
         preload.as = 'script';
         preload.href = path;
         document.head.appendChild(preload);
       }
-      warmStartupImages();
       for (const path of scripts) {
         if (failed) return;
         await loadScript(path);
