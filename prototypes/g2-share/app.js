@@ -10,7 +10,7 @@
   const journey = params.get('journey') === 'waterfall' ? window.DinoJourneyStore : null;
   const parentAccess = params.get('parent') === '1';
   const mode = journey ? (parentAccess ? 'parent' : 'journey') : 'standalone';
-  const mapURL = new URL('../island-journey.html?v=20261028-f3-r1', location.href).href;
+  const mapURL = new URL('../island-journey.html?v=20261113-f12-r1', location.href).href;
   const character = window.DINO_CHARACTERS[level.factKind];
   const groundData = window.DINO_GROUND_DATA[level.factKind];
   const imageURL = new URL(`../../assets/${character.image}`, location.href).href;
@@ -72,14 +72,14 @@
   function goNext() {
     save();
     if (journey && !journey.storageOK()) return;
-    if (journey?.routeDone('waterfall')) { location.href='../fossil-dig/?fossil=mamenshi&v=20261028-f3-r1'; return; }
+    if (journey?.routeDone('waterfall')) { location.href='../fossil-dig/?fossil=mamenshi&v=20261113-f12-r1'; return; }
     const next = journey ? journey.nextLevel('waterfall') : route[route.indexOf(level.id)+1];
     if (!next || !route.includes(next)) { location.href=mapURL; return; }
     const url = new URL('./',location.href);
     url.searchParams.set('level',String(next));
     if (journey) url.searchParams.set('journey','waterfall');
     if (parentAccess) url.searchParams.set('parent','1');
-    url.searchParams.set('v','20261028-f3-r1');
+    url.searchParams.set('v','20261113-f12-r1');
     location.href=url.href;
   }
   function renderBar() {

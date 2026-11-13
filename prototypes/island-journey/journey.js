@@ -18,11 +18,11 @@
   const fossilFor=name=>Object.values(window.FOSSILS.fossils).find(f=>f.journey?.route===name);
   const fossilOwned=id=>fossils.owned(id);
   const pendingFossil=()=>['cedar','waterfall'].map(fossilFor).find(f=>fossils.eligible(f.id)&&!fossilOwned(f.id))||Object.values(window.FOSSILS.fossils).find(f=>f.journey?.routes&&fossils.eligible(f.id)&&!fossilOwned(f.id));
-  const digUrl=(id='brachio',museum=false)=>`./fossil-dig/?fossil=${id}&${museum?'view=museum&':''}v=20261101-mamenshi-r1`;
+  const digUrl=(id='brachio',museum=false)=>`./fossil-dig/?fossil=${id}&${museum?'view=museum&':''}v=20261113-f12-r1`;
   const museumUrl=digUrl('brachio',true);
   const routeFor = id => Object.keys(routes).find(name=>routes[name].ids.includes(id));
   const recommended = () => doneRoute('cedar') ? 'waterfall' : 'cedar';
-  const playUrl = (id,parent=false) => `./${routeFor(id)==='waterfall'?'g2-share':'g2-multiply'}/?level=${id}&journey=${routeFor(id)}${parent?'&parent=1':''}&v=20261101-mamenshi-r1`;
+  const playUrl = (id,parent=false) => `./${routeFor(id)==='waterfall'?'g2-share':'g2-multiply'}/?level=${id}&journey=${routeFor(id)}${parent?'&parent=1':''}&v=20261113-f12-r1`;
   const parentUrl = id => `../index.html?parentPractice=1&level=${id}`;
   const reviewedFallback = {pachyrhino:'白垩纪',euoplo:'白垩纪',galli:'白垩纪',parasaur:'白垩纪',saurolo:'白垩纪',mamenshi:'侏罗纪'};
   const eraLabel = l => { const e=eraEntries[l.factKind];return e ? e.reviewed===true&&e.status==='reviewed'?e.periodLabel:'年代待核对' : reviewedFallback[l.factKind]||'年代待核对'; };

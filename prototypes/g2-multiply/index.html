@@ -147,7 +147,7 @@
   document.querySelector('header .tag').textContent = `二年级乘法 · 样品（第 ${level.id} 关）`;
   document.title = `第${level.id}关乘法样品 · ${PER} × ${GROUPS}`;
   const journeyLesson = journey && journey.ROUTE.includes(level.id);
-  const mapURL = new URL('../island-journey.html?v=20261028-f3-r1', location.href).href;
+  const mapURL = new URL('../island-journey.html?v=20261113-f12-r1', location.href).href;
   if (journeyLesson) {
     document.body.classList.add('journey-play');
     document.querySelector('header span:first-child').outerHTML = `<a id="journeyBack" href="${mapURL}">← 地图</a>`;
@@ -457,7 +457,7 @@
           persistAttempt(); speech.stop();
           if (!journey.storageOK()) { toast('进度还未保存，请保持页面打开后再试'); return; }
           const latestNext = journey.nextLevel();
-          location.href = latestNext ? `./?journey=cedar&level=${latestNext}&v=20261028-f3-r1` : new URL('../fossil-dig/?v=20261028-f3-r1',location.href).href;
+          location.href = latestNext ? `./?journey=cedar&level=${latestNext}&v=20261113-f12-r1` : new URL('../fossil-dig/?v=20261113-f12-r1',location.href).href;
         };
       } else row.innerHTML = '<button class="primary" id="again" type="button">再玩一次</button>';
       $('#again').onclick = () => reset();

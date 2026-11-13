@@ -1309,7 +1309,7 @@
     if (waiting) {
       $('#fossilProgress').innerHTML = '<span class="fossil-pebbles" aria-hidden="true">🦴</span>化石挖掘开放啦！';
       $('#fossilButton').textContent = '🦴 去挖' + species[waiting].name + '化石 →';
-      $('#fossilButton').href = './prototypes/fossil-dig/index.html?fossil=' + waiting + '&from=game&v=20261109-f7-r1';
+      $('#fossilButton').href = './prototypes/fossil-dig/index.html?fossil=' + waiting + '&from=game&v=20261113-f12-r1';
     } else if (status.next) {
       const lit = unlock.PER - status.left;
       $('#fossilProgress').innerHTML = '<span class="fossil-pebbles" aria-hidden="true">' + Array.from({ length: unlock.PER }, (_, i) => '<i class="' + (i < lit ? 'lit' : '') + '"></i>').join('') + '</span><span class="fossil-chapter">第 ' + (status.unlocked.length + 1) + ' 章 · </span>再过 ' + status.left + ' 关，找回' + species[status.next].name + '骨架';

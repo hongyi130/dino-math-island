@@ -61,7 +61,7 @@
     steps(current.step,['revive','museum'].includes(current.step)?stepOrder.length:undefined);
     if(view==='museum'){museum();return;}
     if(!store.eligible()&&byLevels){const left=unlock.ORDER.indexOf(ID)*unlock.PER+unlock.PER-unlock.status().done;header('一块化石在等你','在闯关里再过 '+left+' 关，就能来挖');$('#lockedImg').src='./'+F.stages[0]+V;$('#locked p').textContent='每闯过 5 关，就能挖出一块化石。';const link=$('#locked a');link.textContent='去闯关';link.href='../../index.html';$('#locked').hidden=false;$('.steps').hidden=true;return;}
-    if(!store.eligible()){header('一块化石在等你',route?'先完成'+route.name+'的'+(route.routes?'六关':'三关'):'这个地点还未开放');$('#lockedImg').src='./'+F.stages[0]+V;$('#locked p').textContent=route?'完成'+route.name+'的 '+(route.routes?6:3)+' 关就能来挖':'这块化石的探险地点还未开放。';const link=$('#locked a');link.textContent=route?'去'+route.name:'返回地图';link.href=route?'../'+route.sample+'/?journey='+route.route+'&level='+route.firstLevel+'&v=20261031-trex-r1':'../island-journey.html?v=20261031-trex-r1';$('#locked').hidden=false;$('.steps').hidden=true;return;}
+    if(!store.eligible()){header('一块化石在等你',route?'先完成'+route.name+'的'+(route.routes?'六关':'三关'):'这个地点还未开放');$('#lockedImg').src='./'+F.stages[0]+V;$('#locked p').textContent=route?'完成'+route.name+'的 '+(route.routes?6:3)+' 关就能来挖':'这块化石的探险地点还未开放。';const link=$('#locked a');link.textContent=route?'去'+route.name:'返回地图';link.href=route?'../'+route.sample+'/?journey='+route.route+'&level='+route.firstLevel+'&v=20261113-f12-r1':'../island-journey.html?v=20261113-f12-r1';$('#locked').hidden=false;$('.steps').hidden=true;return;}
     if(current.step==='museum'){view='museum';museum();return;}
     prepareExcavation();
     if(!knockReady){status('正在准备挖掘现场…');return;}$('#workspace').hidden=false;
@@ -371,7 +371,7 @@
     // S1: a skeleton found through the levels comes "home", and the line names the next one to look for.
     const story=firstTime&&fromGame?window.DinoStory?.home(ID):null;if(story){freshStar=window.DinoStory.ORDER.indexOf(ID);museum();$('#instruction').textContent=story.text;if(audio.enabled){const voice=f=>'../../assets/voice/'+f+'?v=20261110-st1-r1',line=new Audio(voice(story.file));line.play().catch(()=>{});
       // After the last skeleton, Xiaoyu tells her secret on the same element the tap started.
-      if(story.then)line.addEventListener('ended',()=>{$('#instruction').textContent=story.then.text;line.src=voice(story.then.file);line.play().catch(()=>{});},{once:true});}}history.replaceState(null,'','?'+baseQuery+'view=museum&v=20261031-trex-r1');};
+      if(story.then)line.addEventListener('ended',()=>{$('#instruction').textContent=story.then.text;line.src=voice(story.then.file);line.play().catch(()=>{});},{once:true});}}history.replaceState(null,'','?'+baseQuery+'view=museum&v=20261113-f12-r1');};
   const CAT=window.FOSSILS.catalog,HALLS=[['jurassic','侏罗纪厅'],['cretaceous','白垩纪厅']],STANDS=6,skeletonSrc=id=>'./'+window.FOSSILS.fossils[id].art.skeleton.file+V;
   function exhibitSkeleton(id){
     const f=window.FOSSILS.fossils[id];
@@ -390,14 +390,14 @@
     // ST1: the roof's star map, one star per skeleton found through the levels. The archaeology camp keeps its own collection, so it has none.
     const sky=$('#storySky');sky.hidden=store.STANDALONE||!window.DinoStory;if(!sky.hidden)sky.innerHTML=window.DinoStory.skyMap(window.DinoStory.stars(id=>owned.has(id)),freshStar);freshStar=-1;
     header('森林博物馆',collected?(ID==='brachio'?'第一座展台，住进了腕龙骨架':ID==='mamenshi'?'第二座展台，住进了马门溪龙骨架':F.name+'骨架，住进了展台'):'把旅途中的发现，慢慢放进这里','我的发现');
-    const discoveries=$('#naturalDiscoveries');discoveries.replaceChildren();Object.values(window.FOSSILS.fossils).map(f=>f.id).forEach(id=>{const f=fossilOf(id);if(!f)return;const a=document.createElement('a');a.className='secondary';a.href='./?'+(store.PREVIEW?'parent=1&':store.STANDALONE?'archaeology=1&':'')+'fossil='+id+'&v=20261031-trex-r1';a.textContent=f.name+(owned.has(id)?' · 已收藏':store.eligible(id)?' · 去挖掘':unlock?.ORDER.includes(id)?' · 闯关解锁':f.journey?.routes?' · 完成森林6关后开启':' · 完成对应营地后开启');discoveries.append(a);});
-    const list=CAT.filter(c=>c.hall===hall),pages=Math.max(1,Math.ceil(list.length/STANDS));if(page<0){const at=list.findIndex(c=>c.id===ID);page=at<0?0:Math.floor(at/STANDS);}page=Math.max(0,Math.min(page,pages-1));
+    const discoveries=$('#naturalDiscoveries');discoveries.replaceChildren();Object.values(window.FOSSILS.fossils).map(f=>f.id).forEach(id=>{const f=fossilOf(id);if(!f)return;const a=document.createElement('a');a.className='secondary';a.href='./?'+(store.PREVIEW?'parent=1&':store.STANDALONE?'archaeology=1&':'')+'fossil='+id+'&v=20261113-f12-r1';a.textContent=f.name+(owned.has(id)?' · 已收藏':store.eligible(id)?' · 去挖掘':unlock?.ORDER.includes(id)?' · 闯关解锁':f.journey?.routes?' · 完成森林6关后开启':' · 完成对应营地后开启');discoveries.append(a);});
+    const list=CAT.filter(c=>c.hall===hall&&(!store.STANDALONE||fossilOf(c.id))),pages=Math.max(1,Math.ceil(list.length/STANDS));if(page<0){const at=list.findIndex(c=>c.id===ID);page=at<0?0:Math.floor(at/STANDS);}page=Math.max(0,Math.min(page,pages-1));
     const found=list.filter(c=>owned.has(c.id)).length;
     $('#hallTabs').innerHTML=HALLS.map(([id,label])=>`<button type="button" class="hall-tab" data-hall="${id}" aria-pressed="${id===hall}">${label}</button>`).join('');
     $('#exhibits').dataset.hall=hall;
-    $('#exhibits').innerHTML=list.slice(page*STANDS,page*STANDS+STANDS).map(c=>owned.has(c.id)?`<button class="exhibit" data-fossil="${c.id}" type="button">${exhibitSkeleton(c.id)}<strong>${c.name} · ${c.eraLabel}</strong></button>`:`<div class="exhibit" data-empty="${c.id}"><span class="unknown">?</span><small>${store.STANDALONE?'去考古营地挖掘':window.FOSSILS.fossils[c.id]&&store.eligible(c.id)?'可以去挖啦':unlock?.ORDER.includes(c.id)?'闯关解锁':c.location?'去「'+c.location+'」挖':'还没安排地点'}</small></div>`).join('');
+    $('#exhibits').innerHTML=list.slice(page*STANDS,page*STANDS+STANDS).map(c=>owned.has(c.id)?`<button class="exhibit" data-fossil="${c.id}" type="button">${exhibitSkeleton(c.id)}<strong>${c.name} · ${c.eraLabel}</strong></button>`:`<div class="exhibit" data-empty="${c.id}"><span class="unknown">?</span><small>${!fossilOf(c.id)?'尚未开放':store.STANDALONE?'去考古营地挖掘':store.eligible(c.id)?'可以去挖啦':unlock?.ORDER.includes(c.id)?'闯关解锁':c.location?'去「'+c.location+'」挖':'还没安排地点'}</small></div>`).join('');
     $('#pageInfo').textContent=`第 ${page+1} / ${pages} 页 · 已找到 ${found} 个`;const waiting=Object.keys(window.FOSSILS.fossils).filter(id=>!owned.has(id)&&store.eligible(id));if(!collected&&waiting.length>1)status('有 '+waiting.length+' 块化石等你挖，先挖这一块吧');$('#prevPage').disabled=page===0;$('#nextPage').disabled=page>=pages-1;$('#pager').hidden=pages<2;
-    $('#replay').hidden=!collected||F.restorationOnly;updateRevivalButtons();$('#redig').hidden=!collected;$('#redig').textContent=store.hasRepeat()?'继续挖掘':'再挖一次';$('#digLink').hidden=collected||!store.eligible();$('#digLink').href='./?'+baseQuery+'v=20261031-trex-r1';if(!collected&&!store.eligible())status(route?'完成'+route.name+'后，就能来挖化石。':'这块化石的探险地点还未开放。');
+    $('#replay').hidden=!collected||F.restorationOnly;updateRevivalButtons();$('#redig').hidden=!collected;$('#redig').textContent=store.hasRepeat()?'继续挖掘':'再挖一次';$('#digLink').hidden=collected||!store.eligible();$('#digLink').href='./?'+baseQuery+'v=20261113-f12-r1';if(!collected&&!store.eligible())status(route?'完成'+route.name+'后，就能来挖化石。':'这块化石的探险地点还未开放。');
   }
   $('#hallTabs').addEventListener('click',e=>{const b=e.target.closest('[data-hall]');if(!b)return;hall=b.dataset.hall;page=0;museum();});
   $('#prevPage').onclick=()=>{page--;museum();};$('#nextPage').onclick=()=>{page++;museum();};
@@ -406,7 +406,7 @@
     if(busy||!(store.resumeRepeat()||store.startRepeat())){warning();return;}
     replayAfterLoad=false;
     cancelSequence();cancelDrag();audio.stop();effects.reset();flashed.clear();dismissedDemos.clear();readyParts.clear();art.parts.forEach(p=>readyParts.add(p.id));pending.clear();clearTimeout(flushTimer);brushPointer=null;lastPoint=null;selected=null;brushStrokes=0;replaying=false;awake=false;toolDirection=0;view='dig';
-    history.replaceState(null,'','?'+baseQuery+'v=20261031-trex-r1');render();
+    history.replaceState(null,'','?'+baseQuery+'v=20261113-f12-r1');render();
   };
   $('#replay').onclick=()=>{
     if(busy||!store.eligible()||read().step!=='museum')return;

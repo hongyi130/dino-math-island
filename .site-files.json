@@ -560,6 +560,11 @@
     "sha256": "b798b2c0d8d2729f7e87d21138a8d81f46aea792c6908c09d456aeb4d1b17402"
   },
   {
+    "path": "assets/spino-3d.webp",
+    "bytes": 118068,
+    "sha256": "dab571c3ea87a69bd194d92da860ecdfd2e3413cb851e526a8d8e3c986daa5ad"
+  },
+  {
     "path": "assets/spino-reference-v1.webp",
     "bytes": 293384,
     "sha256": "d61517a1914744e12c0dbfba269bc0e2de37bdd3e4fd80e560a3e46eb8971a29"
@@ -2876,8 +2881,8 @@
   },
   {
     "path": "game.js",
-    "bytes": 111058,
-    "sha256": "be398c8b69b86d6570775278fa04a5131177d4f4ec6d18728bd96c1156ce4c81"
+    "bytes": 111059,
+    "sha256": "3faf7cfba41a204e7012fd48ea184def9ce502bf9876d92e81abda65875ab099"
   },
   {
     "path": "grade2-engine.js",
@@ -2911,8 +2916,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 24989,
-    "sha256": "ce0f5c5ebbabb8a6aef133ec26d38ce20e0944208ffac20ef3a9d26bbf96a750"
+    "bytes": 24992,
+    "sha256": "04914a9c3ea88ac714d4217fa56df8cc9377e9376bd3621f51cc684bf4fde972"
   },
   {
     "path": "island-audio.js",
@@ -2971,13 +2976,13 @@
   },
   {
     "path": "prototypes/fossil-dig/app.js",
-    "bytes": 53030,
-    "sha256": "8d7cb2a586e2ecd3a4c165acb81f00a4e43947172dd741136c199665b039930d"
+    "bytes": 53062,
+    "sha256": "8a85bc86b56eb74be2c3230108ca97c1c57f857b70ab34cf0c5bca1e3b5d024b"
   },
   {
     "path": "prototypes/fossil-dig/archaeology.html",
-    "bytes": 6716,
-    "sha256": "6a6d1d7898494f783fbc50b5867d0208f16d2eecb59f027ea737637531146b35"
+    "bytes": 8336,
+    "sha256": "5128863e7e45baf54831cdf1579e36731bbf270b0368e6a0a911fa645d2abd7c"
   },
   {
     "path": "prototypes/fossil-dig/art/bone-body.webp",
@@ -3058,6 +3063,1286 @@
     "path": "prototypes/fossil-dig/art/curled-tail.webp",
     "bytes": 39288,
     "sha256": "0f35c92c58b7e16330442c98256dbf24a0c3f1af3b4e3c71ad7e790ffeb5cd83"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/bone-body.webp",
+    "bytes": 26158,
+    "sha256": "1b7c1233ad2937d9f62efffef8102ec9ea636aba00111c60bb11ea1ead3334f3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/bone-front.webp",
+    "bytes": 33450,
+    "sha256": "46b26d630e6e3e5d77d59bd6c289c1ad2a816382082c29dd68ec84cce21dad90"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/bone-legs.webp",
+    "bytes": 35316,
+    "sha256": "7c3741ab30d18492fb75c494d54205c761964d31c3968903339ac0db44f44555"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/bone-neck.webp",
+    "bytes": 74028,
+    "sha256": "88c90a361fcfe3c20734fe1cd829a8a97821f04921a2fc21f8993e694b557576"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/bone-tail.webp",
+    "bytes": 20294,
+    "sha256": "02d861b45b99b563036f0e0af591956ab3f36c59285aaa477fa102c4df9d172c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/buried.webp",
+    "bytes": 188326,
+    "sha256": "045ba9232c1e50f29427295d30017a22ce3524388ad3c972c75c05e1ed3037f3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/fragments.webp",
+    "bytes": 24736,
+    "sha256": "53ed4aebc255f4010a1758f974001e0d8066f94c048ed61ef7ed8b4628307c6a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/grooves.webp",
+    "bytes": 315704,
+    "sha256": "4bd31ace1d79cec22f5ce543dd10824d78c12a71bb40a19f551be046adb3245f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/skeleton.webp",
+    "bytes": 179236,
+    "sha256": "6747c7d9a7a74a9b678f3439f9fd45af1fd312c2b64272fb1daf570402da5c90"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/stage-1.webp",
+    "bytes": 336356,
+    "sha256": "6b75edd15111ed4786cf055026a97b96c06010a4db5107399e519adb141f8a59"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/stage-2.webp",
+    "bytes": 326606,
+    "sha256": "4454dd1b9300c860c236afbea3c80f700db6fb4b76b5756168c2dff99e5b0ef9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/stage-3.webp",
+    "bytes": 309446,
+    "sha256": "1aa43d3da14aae62bc6642e07b88657b73d215abcf7e0fc3b2f669bebe6c7376"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/amarga/stage-4.webp",
+    "bytes": 348886,
+    "sha256": "37fbedbdc10357fcf0d7112c5301c61cd1c495cdaa411f03662c810c899b4e35"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/bone-body.webp",
+    "bytes": 36170,
+    "sha256": "51a5efb5604db88d26769804b557538d1d89023df698f9a18ae9dc46ea973c1f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/bone-front.webp",
+    "bytes": 37080,
+    "sha256": "8a1525ff18c3c263146306ab5bc75393d3b011f83eceed2b5d1d6603bd0b96a6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/bone-legs.webp",
+    "bytes": 42574,
+    "sha256": "ff25f184bb8220fb47c461e5b1129792ba992a11d5690edd9b5351ac3e0e6e17"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/bone-neck.webp",
+    "bytes": 22332,
+    "sha256": "c93bab63cff097ac1e2ec6a1e7ffc104db9477afac591a0451f9d073f36bd337"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/bone-tail.webp",
+    "bytes": 21160,
+    "sha256": "a371c58d06e547fc1949c353915e30788660e0cdbf783beba20b0ec93011c3c7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/buried.webp",
+    "bytes": 197330,
+    "sha256": "8abd066dc26022c9016ce44ee853d175d81220cdff236a9917d84a35ad2140ef"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/fragments.webp",
+    "bytes": 23716,
+    "sha256": "669152db5f3939884be439b99504735d79290e2c2490369850e320687b489642"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/grooves.webp",
+    "bytes": 326218,
+    "sha256": "618ef6d3246c660d140369b678419411e5af1585c05d43f75fff5fb695820add"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/skeleton.webp",
+    "bytes": 144066,
+    "sha256": "b9fb2f442f4acf0d60b89420081a9bf88a2d3435bc8b00228860e61ee5fef972"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/stage-1.webp",
+    "bytes": 360808,
+    "sha256": "aa043d52552d0c071943ff11849daac844bb8e70afcd56230dd9a9453bf88ac2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/stage-2.webp",
+    "bytes": 343790,
+    "sha256": "929326e118c7a4f9cbff7b3a657834c6c77fda57fc0a865bf8f801dee373ceba"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/stage-3.webp",
+    "bytes": 320916,
+    "sha256": "ef1fe80e2e5d8d5adc9eac15c07bb000375289e4670b80f768d0586511238a53"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/apato/stage-4.webp",
+    "bytes": 355936,
+    "sha256": "9403cdc150e0bb7752a2ee9933998b30a20f2e983bbea210134e495fcd2a3c27"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/bone-body.webp",
+    "bytes": 32126,
+    "sha256": "a83ecc380c463be89c2b8f11cd3307824acfa75eb2e87410acab4f0dae992352"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/bone-front.webp",
+    "bytes": 31318,
+    "sha256": "1fa41d24814572f7b2465548e32fe4407d4342e89a7fc1a1d758fb1c826da2a6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/bone-legs.webp",
+    "bytes": 37096,
+    "sha256": "f69688b2c0161b472400620cac3e153ad35f032cd20676e3c55c7e0d1dcfef9d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/bone-neck.webp",
+    "bytes": 23300,
+    "sha256": "606e26cccce8bede930942879afef14b2421308af0b95b35d71db6a4ca45ca92"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/bone-tail.webp",
+    "bytes": 20976,
+    "sha256": "bb3ac97638e0d86c4e788de171d7633f6f71f7c783be00187b7994a007700ed3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/buried.webp",
+    "bytes": 188096,
+    "sha256": "706d0a8c4be22881abcbfa8a8fd5e6c997846b8ea95f00320d9d65cbbc1c1e87"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/fragments.webp",
+    "bytes": 23296,
+    "sha256": "f179c1fd057843993a5d97f12feaabebe8072f8d2e85ac6c89506afe62bcaf38"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/grooves.webp",
+    "bytes": 325902,
+    "sha256": "9eda6ac747d01d2701cac8dcb227b1a013e4144e08c143ebd1b6c19243d1ba56"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/skeleton.webp",
+    "bytes": 131744,
+    "sha256": "3b0fb9c0f5422def74b8af53372286c5efb386662290f3f4eb15342b1a9ddd28"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/stage-1.webp",
+    "bytes": 364128,
+    "sha256": "5442f1559c1b38a933c266acc96aadf3ec1e6fc4de30a42355530fcda08c5824"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/stage-2.webp",
+    "bytes": 343100,
+    "sha256": "47836d74aba25beb5ed64e187c0fb29944bf97cc6c8cb2b96b83b99f3d19c573"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/stage-3.webp",
+    "bytes": 311852,
+    "sha256": "712f9343e6ce1b3e69657ba255ad11735c18340feaaadc97ad7488fd8d7227b7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/argentino/stage-4.webp",
+    "bytes": 355018,
+    "sha256": "e0fba85be2756cef2bd1569126cff6167216b614e870c3feb996d32a1c817633"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/bone-arms.webp",
+    "bytes": 31900,
+    "sha256": "4f12519b058712f63b10ecdddfdc3cb3a34b7014d8a031eb01becf74ddcaf1e4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/bone-body.webp",
+    "bytes": 31638,
+    "sha256": "962ca3de6a58843b4df9647dc719abd99d8c8cd57032fcea9884a99b891f9b87"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/bone-head.webp",
+    "bytes": 29648,
+    "sha256": "248337ff94ece5a61fa22295145be30b48bc3c14fdccc8f0d80d1c00af60d767"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/bone-legs.webp",
+    "bytes": 52630,
+    "sha256": "f7c30a94f421e2bf834585e095f828471f5b07de7e5d7c6fb11bde8165db0e0c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/bone-tail.webp",
+    "bytes": 22556,
+    "sha256": "01e11899f2b3a738eafcbb86db7bfcb568d748b072f01a20acf35b6e9353b599"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/buried.webp",
+    "bytes": 152078,
+    "sha256": "80db8c37697d911b953925f7e29211c9dd8bec9badf78d83e0141895385dc745"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/fragments.webp",
+    "bytes": 20978,
+    "sha256": "2180c07361859b6afb9264dd2be909314ddb53373f5bbeab1430f93f84047724"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/grooves.webp",
+    "bytes": 276184,
+    "sha256": "b5bf1829cf48d62df572e51029db6c3bf1da60d1bcd34636f610332cb174c8c8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/skeleton.webp",
+    "bytes": 155052,
+    "sha256": "88dd28f3950e988bda13c8e128956ca8a91e8da02fe43d8b76e522eac0533264"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/stage-1.webp",
+    "bytes": 286272,
+    "sha256": "7bf76343c90542cab37cd066c403f070b9bbf5960a3aebf04c666bd23780fc12"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/stage-2.webp",
+    "bytes": 276466,
+    "sha256": "4d9c4f952e19263364426b21184e103201dc4961e1eb3f2a72fe328a399d9746"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/stage-3.webp",
+    "bytes": 265704,
+    "sha256": "31de791f7f4f5813335a9b375079f2379e63c9d2e85a14e10401c91acce01df7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/bary/stage-4.webp",
+    "bytes": 305402,
+    "sha256": "4af266b322ced80dea212ddf8cd97d49c3018b9d570a11d1be7ab5e89420d718"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/bone-body.webp",
+    "bytes": 30518,
+    "sha256": "a0ce72672d7b7f57e556673f901609d9381575db0c45ed97b43dfcfc358d91d5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/bone-head.webp",
+    "bytes": 29474,
+    "sha256": "c8b2065e930add32974990e6b9b4fdedea6cae4bc7bd2dd48d8946489e3c235d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/bone-legs.webp",
+    "bytes": 58482,
+    "sha256": "de42dffdb642bf980ce630ad7a326ab5a2c10f4818ae2b731561f4da4c6bcb93"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/bone-tail.webp",
+    "bytes": 28546,
+    "sha256": "2d0849335f59153417deb6205e789de2e2aa00739e0e1d2782210ae66bb4b9b7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/buried.webp",
+    "bytes": 182320,
+    "sha256": "5c361d12ca896e6cf8edea4f260070cc53883ed465af9b48e24b1850614dbc80"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/fragments.webp",
+    "bytes": 25988,
+    "sha256": "c999bef9b6a796fb12120f92b75d36a80f787278dd31dbdf7599aa084ef9e197"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/grooves.webp",
+    "bytes": 323394,
+    "sha256": "b56b241fd5f44c03af55169aeb18a31a27cbcf4d9e9e0ad305532716e4b5ae07"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/skeleton.webp",
+    "bytes": 136164,
+    "sha256": "3512ee4170e4b1879fd8cccec2a369f0b187dfdec723613d69e4d6cd57bd578c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/stage-1.webp",
+    "bytes": 346572,
+    "sha256": "fa7f6eee9addefd5e476d3e7e5d9ea48df7b455592304728491eff2c09dbbdf4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/stage-2.webp",
+    "bytes": 332126,
+    "sha256": "506a9f055efe54a06abd00c625a498941e6c818cfe00ad51d84f38626e784437"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/stage-3.webp",
+    "bytes": 308218,
+    "sha256": "17eb1b66a4169583dfb2cd9f6dee4546fdd4ed2682ebbbe2c18c198e76b7295f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/carno/stage-4.webp",
+    "bytes": 350428,
+    "sha256": "e08fb1f13fe129567bcc592c28f8cf306b3331bf8d08e8846937bbe92109807b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/bone-body.webp",
+    "bytes": 37432,
+    "sha256": "072978eaf84caac3dcd310e17b0adb87c0318a3b51a1ec04449295eb0c71c9ce"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/bone-head.webp",
+    "bytes": 28404,
+    "sha256": "09b5cc5c0259f1ecb6e6a126ba3fd53f2b157257ce2babab077514327a0c7b76"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/bone-legs.webp",
+    "bytes": 46184,
+    "sha256": "2401b14fa31c3c22cf596b44e7b429553a6c6eaef15d8438f1ce5db346797075"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/bone-tail.webp",
+    "bytes": 23666,
+    "sha256": "6a6fea443edae1b2877c2fa9065f5da3d9a55e074a9184813752dfe9bf950c14"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/buried.webp",
+    "bytes": 178952,
+    "sha256": "daded48d787e16b6a22ba8bd1f17729d1593c015f19a76f474c3ee272ec0b2bf"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/fragments.webp",
+    "bytes": 25932,
+    "sha256": "487a19e9aa376f67a206e63ca8f8efc7942534a110e902fb49539ad3a31c0fcc"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/grooves.webp",
+    "bytes": 374238,
+    "sha256": "53c98c5b660deeeaef71741eeb420bc9c68a6b2089bdd676968b9f98ab5828c7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/skeleton.webp",
+    "bytes": 128950,
+    "sha256": "0a530cd62f148025469a6e4a9fe1806b8a91715f126e5ad7f287156975e34b94"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/stage-1.webp",
+    "bytes": 401852,
+    "sha256": "d18ccb14a5a758cc39587e98af506c42e0c59343b10722d6d88aee951dc33013"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/stage-2.webp",
+    "bytes": 380042,
+    "sha256": "10699164841eed97f67b9463a53821ae65182dac07a6f6fe5fea0a57cdaaea6a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/stage-3.webp",
+    "bytes": 340450,
+    "sha256": "fedad309dbc8e455a3e98bf556182da229b95c581818bd7c5466ba169e24e635"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/cerato/stage-4.webp",
+    "bytes": 391402,
+    "sha256": "f2278247e5758483df09d6b63dd48cbfe6800e11ec54522552c01f7c44e0f2f3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/bone-body.webp",
+    "bytes": 71458,
+    "sha256": "dea0f3834506b41761db58fc0f97a7be7bb83e66698dc3ad67965c8aa1384c75"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/bone-head.webp",
+    "bytes": 25670,
+    "sha256": "0aaaf73f7b83ec7c33dabfa601daaf5baf333df10702e12333fb835d2ecc811e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/bone-legs.webp",
+    "bytes": 50926,
+    "sha256": "0216de5691d3c5f53c8d99e114784f4fef04ea50587ae5c88778ab4143646bc1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/bone-tail.webp",
+    "bytes": 30174,
+    "sha256": "101986c5515b7846347ba408f25f9d37142cbd879fefd6a75a24ca0ece0c7962"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/buried.webp",
+    "bytes": 178858,
+    "sha256": "b3f8ffd6d4d59df8e7c13849971e187b6ff018726af2e3895450716c5b92cd7b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/fragments.webp",
+    "bytes": 27276,
+    "sha256": "08593b1df6f217412a241d8f2ecf2942be7df51745bf569e937e0b0daad62c62"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/grooves.webp",
+    "bytes": 326998,
+    "sha256": "b025f72ac8478ef2132d0e2df8d2a833f5b85fb6c26fa016c6011fc5265cb27c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/skeleton.webp",
+    "bytes": 166002,
+    "sha256": "0ea02f74856019435270483528fdda7c00a9e009fbb017c566fd7e1f63ec4688"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/stage-1.webp",
+    "bytes": 360856,
+    "sha256": "47018ec338521214e08016d4f70f038fe40d341b931c0597234ca9b73523b1c1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/stage-2.webp",
+    "bytes": 346292,
+    "sha256": "3b76a5068b4b85265083a18c5bb735edd9b0ca43dc014d8c5dc95eedd53aa277"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/stage-3.webp",
+    "bytes": 322104,
+    "sha256": "ca43bf86541271c54202604010c9b67233639ee2369dbba83fc725e54e8cf5ef"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/corytho/stage-4.webp",
+    "bytes": 361866,
+    "sha256": "4505d70a555b9e8c6a984383f8b231c3cf72588288f118177d83e6a5e6519246"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/bone-arms.webp",
+    "bytes": 33658,
+    "sha256": "4d968e772c711a1f5bfdc0a3739294b875f2d3c35fb903e07bc4c2d684d0d0bc"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/bone-body.webp",
+    "bytes": 24688,
+    "sha256": "c7e8b6244c21cfc8d3af5dbff81b5b5597e89b413ff211935ca96e2c1b6664ec"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/bone-head.webp",
+    "bytes": 33140,
+    "sha256": "1321e5d95154ad2c5d171758bced386c42556dd83772ff172b1d30bbb5a3fb3e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/bone-legs.webp",
+    "bytes": 48770,
+    "sha256": "697c74de5122fce2db1de80964f0f55a32c1de4e68486a1dc461507fd33c6cea"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/bone-tail.webp",
+    "bytes": 24416,
+    "sha256": "7639baad3658b93b80a0eb064ad9868cf2240eee5c04bab6ba5544a5a0648710"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/buried.webp",
+    "bytes": 150084,
+    "sha256": "70cb5f154048096cea27f177f29dcc3a166b4582d5bc41c1941c8616dc8fe7a6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/fragments.webp",
+    "bytes": 23844,
+    "sha256": "2a98a092ca334f8a2d794ee17e92bd87c25d64b64c1061e65d7f0077d31f4f51"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/grooves.webp",
+    "bytes": 329738,
+    "sha256": "c07ec26762ae89c0308265748b5d459dea82a8192d8feb1187790f0a72397681"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/skeleton.webp",
+    "bytes": 151272,
+    "sha256": "003ca71dbe62bb043b32f507134a1af5f14f539c5dc0fa1c2f4d2c7918eb513d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/stage-1.webp",
+    "bytes": 344332,
+    "sha256": "bc1da5a6e6b5b9d01fe85b3473fb090efcb3bc89d166895c36ec003fc0f617ae"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/stage-2.webp",
+    "bytes": 332026,
+    "sha256": "e9fc53e00784f59c2d579ab34e453fc531c949425aa186101077379e221c08ef"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/stage-3.webp",
+    "bytes": 313364,
+    "sha256": "83c1091112432ad04e5227f8d740175e2bd487f57dea9a4c31f06daf5ddcee1d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/deinonych/stage-4.webp",
+    "bytes": 359592,
+    "sha256": "d3c43a7c300a3f6e42419f0257583792b5c62b3b8cb3c1d0b4396b87ad86991e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/bone-body.webp",
+    "bytes": 70548,
+    "sha256": "259373ec3e4aa104c30a3370ad5a895f840110962e558be5b9f4cf075d36fe48"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/bone-front.webp",
+    "bytes": 40382,
+    "sha256": "0467c86a634e980e0d317e27872adff4d34c8291cec13276800ded9b66448747"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/bone-head.webp",
+    "bytes": 16012,
+    "sha256": "d072f0a5519811070ebb3227fa77390c7daf9681052bf7b0be7bf42891fd4c11"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/bone-legs.webp",
+    "bytes": 39238,
+    "sha256": "7a45e701c5a9ea02aee4343bc9c4165bd6780e9bcccf8a41904b614a3f5abb91"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/bone-tail.webp",
+    "bytes": 22626,
+    "sha256": "a9dba16921cd6566dee7f78acd18496714ba4aaae7130f907c3d8c66cbfe9f5e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/buried.webp",
+    "bytes": 191232,
+    "sha256": "5a383a7c0cf41ddd487dfefdd23a1d1c474d4f8fc9a3ff6e6a76234dd4eb7ce3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/fragments.webp",
+    "bytes": 27170,
+    "sha256": "c71446d3d1cc07f77e339741e91cefc68d0b8e67c2d44bd1529c98248a5cce5d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/grooves.webp",
+    "bytes": 308184,
+    "sha256": "724864f66a16219cefba1b2724845379f41827796ebe98ac4506caabcad7a308"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/skeleton.webp",
+    "bytes": 171418,
+    "sha256": "1e79d6660e187c20562bc696e8e3c25577082e3267b96a18b0462f372c8dbf5e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/stage-1.webp",
+    "bytes": 363404,
+    "sha256": "8f087c520db41f12196356724e111aeaea057ffb5807374ac9ee8cf454b455cd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/stage-2.webp",
+    "bytes": 352494,
+    "sha256": "500b08a427d78779094260f08cd34abf5f33ecc5fd49784999b9c3d4c4174cb6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/stage-3.webp",
+    "bytes": 321230,
+    "sha256": "6908db697b6cb9eefaaae7eb748819af86d4b1b3b9d07f75d2ccf6674c18a93c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/euoplo/stage-4.webp",
+    "bytes": 355298,
+    "sha256": "f244a028cb1a8696cf71244a39122d684c33072bfe72b0c56a34f38e6055f7c5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/bone-arms.webp",
+    "bytes": 32466,
+    "sha256": "6242a9bafb745a780e7e1d02b33690b659f1ecd1358cf02731d6ff8b9c5cc56a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/bone-body.webp",
+    "bytes": 34470,
+    "sha256": "4795269f2d73b5002f7d360fb272697e97ad4bb5b75e2d2ec0e12e0739ee2796"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/bone-head.webp",
+    "bytes": 21550,
+    "sha256": "7cf958d5f655d92c245eadbd364fe575bbed66ed8cdfda0cb1aaed6e71e3405d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/bone-legs.webp",
+    "bytes": 50618,
+    "sha256": "8eb293aa8c03eba59a0544f9352b156f7da9aab975d8382607f7b7a6e97f09fb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/bone-tail.webp",
+    "bytes": 23818,
+    "sha256": "8125df17eea213833ea88fca9c536666482252678fe65883361ae656f27320cd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/buried.webp",
+    "bytes": 151570,
+    "sha256": "2b005b36ccb257e532cb03782303a2560eea22f97b190b8e3dd2a768e06f1acb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/fragments.webp",
+    "bytes": 27056,
+    "sha256": "7e0c47e66cc0a8c4d55b89c1cea923a43cb2a9053e4fdbded77991e1b64a2c77"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/grooves.webp",
+    "bytes": 311376,
+    "sha256": "c9720222f4a878880093cc473eee6e4d1fb4cc8619d372aa430e7353a46100d5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/skeleton.webp",
+    "bytes": 151570,
+    "sha256": "7c5028b8be7c451e6d9b4ab5428ff4b595b1e9da750e5b8911863b2d41513304"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/stage-1.webp",
+    "bytes": 324944,
+    "sha256": "de17b4632c19d4af63154698a87615d4fa82838dc9b71c71b2cfc43bbf246b52"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/stage-2.webp",
+    "bytes": 311926,
+    "sha256": "fe44a52e3e232e2615201fb85b910bd6cab6d6e2617511003b174211fa2ed90d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/stage-3.webp",
+    "bytes": 300254,
+    "sha256": "e6278c0f824031e15105e8bf500ab35a67a81cd9f5f1c44762726d5e6eec7fb4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/iguano/stage-4.webp",
+    "bytes": 335948,
+    "sha256": "2276f8a7d536f84615d10e9750aa12cb6f6f497300eb784aef08930f5089c4e6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/bone-body.webp",
+    "bytes": 73578,
+    "sha256": "eae0217f91f30acea6bb0086e52c82e98f134c098094a3d6c9745f7032d22d52"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/bone-front.webp",
+    "bytes": 23672,
+    "sha256": "599abf99f0d025ea8effe430bad32241d1af3b1efb784601a74b993a05036703"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/bone-head.webp",
+    "bytes": 19570,
+    "sha256": "e3d957edf2f89e7fa87cf6c570844851bf1b38259928b5ddb133f740b4557231"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/bone-legs.webp",
+    "bytes": 29558,
+    "sha256": "eb7e3554f161bfe9bdb953c8baa0bad76691b9af234940e0fe73d1aa1aed2651"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/bone-tail.webp",
+    "bytes": 29278,
+    "sha256": "07532a2324faa0cbc9a9e930a48fcbfbbc3461271ddf462a4ae5fe1478a3d0d6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/buried.webp",
+    "bytes": 201156,
+    "sha256": "ca8854b69ff930db5d02e089756896be950c9b7ddb2a7ec14d1f42874b2c219a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/fragments.webp",
+    "bytes": 19906,
+    "sha256": "114c51687dcc324d0708499dc2a7a99ccf23ec5bbe9280b4769da105bc054d10"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/grooves.webp",
+    "bytes": 300420,
+    "sha256": "62ebb1e0a0227894dd930c041891cebac3674e9c11cd245c45a1bdd6fc9f9830"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/skeleton.webp",
+    "bytes": 161000,
+    "sha256": "f1741ac3c41fa976016505d7e93eb214d15fe1f402e1f86153844ab5d29a5a8d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/stage-1.webp",
+    "bytes": 331654,
+    "sha256": "c77daaa39d8ed34a2abb46e5c68d482b54138eb9f41b7c83441eae2328ecd40c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/stage-2.webp",
+    "bytes": 316840,
+    "sha256": "638f6b79bd281ff46c117e7b4feccc7c3fec5138d41a61c0734b8b09f79516b9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/stage-3.webp",
+    "bytes": 294816,
+    "sha256": "bbaa48e0f5cb2c76f93c12270ae09c933d673aa958959ab6b49e3f84f627bc5c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/kentro/stage-4.webp",
+    "bytes": 333570,
+    "sha256": "4965e61aed2349792dbc480d9c6b3648f909023a56a21bd69c80cc4a279ba911"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/bone-body.webp",
+    "bytes": 36526,
+    "sha256": "3856862ff8f932f2ceb617f701a3c61a01812da6b6546ee7b0e70049df991a2d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/bone-front.webp",
+    "bytes": 34034,
+    "sha256": "5029703d206be5330e9f0a610933034dfc3e66bd7b91d5f3e66621dfdc704844"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/bone-head.webp",
+    "bytes": 33146,
+    "sha256": "c72e2fdcb67a80d5eaf6ed5d6c201bd6892f7b6a299b41efd7be74940d1515e0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/bone-legs.webp",
+    "bytes": 54434,
+    "sha256": "7398044c302b7385fd52579e2c16f810a06516ae00db06f178ce6d0f6f08991e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/bone-tail.webp",
+    "bytes": 25404,
+    "sha256": "0c1fc27119d77bead8098c8d1a72d847d0137e3cb6b09ae1bea04a7c2aa7e265"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/buried.webp",
+    "bytes": 148998,
+    "sha256": "aa0c0b72cff9a18659d4521433cdf1170686e6beaaa0fe99bcefdc9b9fa23b3d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/fragments.webp",
+    "bytes": 22472,
+    "sha256": "73dfe82ab959600f039b7ef7bdf319dd8f5f9d2aa6f1d42139d84858499b1363"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/grooves.webp",
+    "bytes": 247268,
+    "sha256": "a2a48889b2358d6d46a28cbb9d258d5154f73038fbf6c42f7853f16be1d16f12"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/skeleton.webp",
+    "bytes": 166752,
+    "sha256": "7aaff67f6b1f16d37ed07a8e54c0b7ba117224e9f7aaa4af9354901f48c0466d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/stage-1.webp",
+    "bytes": 273000,
+    "sha256": "d7ae9291470522f7e16c27d86421dce9bf509ab014ae9a75d31f9fd9a84fe94a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/stage-2.webp",
+    "bytes": 261094,
+    "sha256": "157062bae13d1987a415d7279a96a83b589f285b4e44ff19fc4d286b4f15e8b7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/stage-3.webp",
+    "bytes": 244374,
+    "sha256": "9937eaad0a02e19e062fa015958650bbe51dc349b22cda61206785c29d23a7c1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/lambeo/stage-4.webp",
+    "bytes": 288640,
+    "sha256": "ea316a14d25be9766dc18d5ce790b14c12f7ea78f548e60040125d7e21d0189c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/bone-body.webp",
+    "bytes": 70270,
+    "sha256": "96a316a77a5f4e0c98c79f57c68421a71933ac9ab69755692504a199ff2f046e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/bone-head.webp",
+    "bytes": 25628,
+    "sha256": "d5961f74a22a91dbef4539327fd4a636b6b7c84c495fc25367d7796a304dd58c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/bone-legs.webp",
+    "bytes": 55352,
+    "sha256": "5625d8c294f623d2e09e1c435e6073d438c60d7fdeb0845e24fe8229e9f22b64"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/bone-tail.webp",
+    "bytes": 23554,
+    "sha256": "c72095a88a4466405b3aafef6810153e5ecfb38f2d093347cabfe8615fd0c9b7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/buried.webp",
+    "bytes": 169718,
+    "sha256": "85c8a5c0b740c8545d12b6fb5983e57b389e8992b9c60a25e5c346ad3bf2b83e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/fragments.webp",
+    "bytes": 28938,
+    "sha256": "3711c25cb7b4701a8bfb6eb2122c1f35197caff42507be133c03be53faa8990b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/grooves.webp",
+    "bytes": 322682,
+    "sha256": "e8c2c58315fd3301a5996ccd356a9dbcb15de94347a57af31085d0d634ce9836"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/skeleton.webp",
+    "bytes": 162804,
+    "sha256": "befa10c8c13d8494b35c59b3c3cd5fbde71cef9ee74f44cd9897ca9cccd10f56"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/stage-1.webp",
+    "bytes": 355540,
+    "sha256": "18a57a75662ae4c74735dfbce7f7f4651e16a29fb8fab0de2a4876abe6b83b45"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/stage-2.webp",
+    "bytes": 339482,
+    "sha256": "6b3328d53fb993b1982ccd19abc6901d1e70e5afc39640ddf9b27bb0f432e22c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/stage-3.webp",
+    "bytes": 311866,
+    "sha256": "580eff2a7f5ba29566bc9c453ad1bd85ffb8ad951c7e38d607607d67eda5d6c3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/maia/stage-4.webp",
+    "bytes": 358602,
+    "sha256": "f8e436cd8b2d94095dc4640048b28d5fbf1f4032526147088393ca58d603e19a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/bone-arms.webp",
+    "bytes": 28860,
+    "sha256": "51a104eb85ac219eca827446e377e0b776279aaa30b3562a7103475a33c1d096"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/bone-body.webp",
+    "bytes": 19082,
+    "sha256": "b3895ad0e423121f801d4d0b24335ff6cedd7f35309e51621742b9dc0d03d417"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/bone-head.webp",
+    "bytes": 22740,
+    "sha256": "6dc77f8e48628e52adb68d25ce2d40f3c8b3bfe0173843917c869feb68a9baf0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/bone-legs.webp",
+    "bytes": 40776,
+    "sha256": "4bea8f3abb2e53995e336601bd29e55e1b91dd696e4dea64bdc7350229bbf538"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/bone-tail.webp",
+    "bytes": 19674,
+    "sha256": "3eb8cafa0a106e4f6dcfedf04f2c59f6737078767edf62e85b32f35682410fec"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/buried.webp",
+    "bytes": 156446,
+    "sha256": "54ecca83ea1d194adbd8d20b01484de0cc76b1abb4b96b6c2bb79fe149a48186"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/fragments.webp",
+    "bytes": 23244,
+    "sha256": "c93d56f58955218b09a1b6dd6ec3cc9008707f7bd42697434c812bb33a98e856"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/grooves.webp",
+    "bytes": 321630,
+    "sha256": "94e2a9af1e1a97ce1ba0847c6dc9ba88a0661c7a42a77ced108868147f5e9de4"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/skeleton.webp",
+    "bytes": 121244,
+    "sha256": "885ef440f26798f2d3b1ef9863d3f94d74107c3684d3938538ed199aaca6dc7f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/stage-1.webp",
+    "bytes": 323328,
+    "sha256": "831aa01ce4266b66db5e8ad7f51e2e806dd91134afa06c4e853f920bbce4f724"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/stage-2.webp",
+    "bytes": 315612,
+    "sha256": "f6ee66b20e61ae30e5eb35f8ccb843b38c5edd1dfdd2d0065945bddc2cc106d2"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/stage-3.webp",
+    "bytes": 300244,
+    "sha256": "c1f6cc1cc9d57c6be1af78047656f60132ffdf99b4c13ffadcac99542eb3a033"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/micro/stage-4.webp",
+    "bytes": 337564,
+    "sha256": "a464dca4fbc0762925760f8eaf12ac2ebfbeb2ce33177b1c35789f1a6ddc9b59"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/bone-body.webp",
+    "bytes": 37098,
+    "sha256": "7174a8961cbcf961cc7b020fdfdb213f36ac6ef488d1a004eb65abd578979cb7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/bone-front.webp",
+    "bytes": 27382,
+    "sha256": "43377dee6f55911739d0afe77b22e5b1351615d867e58544d5bfc65256b7efba"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/bone-legs.webp",
+    "bytes": 33234,
+    "sha256": "96a5f8675c0d2b5fd9d1bc47cfc2490e4c68ed8ce1f8ecf7b2f5d635205f2e9b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/bone-neck.webp",
+    "bytes": 20446,
+    "sha256": "31604edbbf5382e645b72c1e862b2cdb6867223e402af95e6ef09f3b8d2804f0"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/bone-tail.webp",
+    "bytes": 21120,
+    "sha256": "9340f9dad55677bc48e8ac5e2c0d606450bad8c545f6c10c2cfc1b1d2777e3db"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/buried.webp",
+    "bytes": 134500,
+    "sha256": "16b2c7a012a2d391be79806fce2f14c603bef7a0d8ff85c05eada04b1ea64a11"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/fragments.webp",
+    "bytes": 14704,
+    "sha256": "c71397805b0602b29e26c9675f56c53d976db57c22931988c813c75e08a88935"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/grooves.webp",
+    "bytes": 214986,
+    "sha256": "7955f34cdad2166a79df9dcf539b4d0280aa77face69b8fb1d3be3d563eea768"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/skeleton.webp",
+    "bytes": 129474,
+    "sha256": "df1dd795a7d74b721fe84b0ea53c49c73729bf4ce026fd58ed03dad94f928adb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/stage-1.webp",
+    "bytes": 216952,
+    "sha256": "524028087f8eac1ae6b63a27e7a9642416cf21b200a4fa8438f26bff200961bd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/stage-2.webp",
+    "bytes": 214984,
+    "sha256": "634ce3e3a6dcc7c8e4ce41ce99dd0ede9660ecb76f652f8a6a1b0671604f85c6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/stage-3.webp",
+    "bytes": 210558,
+    "sha256": "5e11f5da972eeaf3cd299c6386949b5a982c1c78e3c92adba13be667fcb895cd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/niger/stage-4.webp",
+    "bytes": 240772,
+    "sha256": "6a17aa2be75588aa23c80260f89c55579db0580e727ad49c54e008392e9ae125"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/bone-body.webp",
+    "bytes": 56168,
+    "sha256": "ffb967d209c0ce44071eaa1d6c3afd10fa8c8ed93b1d8f25c150efeab12ab807"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/bone-front.webp",
+    "bytes": 28156,
+    "sha256": "cc8897fb9dd476066d88403c16324b80ddca0e328f9c790196240da64c17fad1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/bone-head.webp",
+    "bytes": 25346,
+    "sha256": "cc322abc6014af8a8b0d2ec508a4afaba8f372f6f5d33280283e9dfe3feb6d7f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/bone-legs.webp",
+    "bytes": 27560,
+    "sha256": "0aa5f35706dc98fcdac373f5afccef72565d5f2112b20a2d5c51f7bcb4ddcab1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/bone-tail.webp",
+    "bytes": 20314,
+    "sha256": "dd9f42d2af4ced036601ab1b5ab7ac4e03de66254bfbda8eadf33f8f7b80dfa8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/buried.webp",
+    "bytes": 150932,
+    "sha256": "8b2902201bd3b57a81cd944545cca8bc07a4ce54bd18f51f0cffa9a538739c50"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/fragments.webp",
+    "bytes": 17066,
+    "sha256": "3c6e3064ba6cc9625882c1ec481b6f432256125280bc7afa7ba88119e5fd9c52"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/grooves.webp",
+    "bytes": 239020,
+    "sha256": "ca59e753bedc2be6c071eb65151fc24f6de1b126fb97d01c04694d11cfd3cd38"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/skeleton.webp",
+    "bytes": 141618,
+    "sha256": "32949327cd85e72074aac2ced577f41e14beed0a8ea2fcaa56088d821d12c8d3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/stage-1.webp",
+    "bytes": 264686,
+    "sha256": "bfc49b9794e45bab659d08c945cc09650427a5659613108336cdbcdc2d2de5e1"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/stage-2.webp",
+    "bytes": 261534,
+    "sha256": "57183dfc323e31371509b119323b1725c0b5c89feebb24eab6fd44278ba55786"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/stage-3.webp",
+    "bytes": 252928,
+    "sha256": "9ff8f6bc3e654a8cdeda69de89057f4013a35c3554276db879ef523119025234"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/nodo/stage-4.webp",
+    "bytes": 285554,
+    "sha256": "837b34d1e6861f9889f1bad5d9204ce8c0c076613ca663307e39dd933767eede"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/bone-body.webp",
+    "bytes": 43666,
+    "sha256": "b2596bbee7715895f624366b7264eeed480e191b5a5c2d6c1b38f150c047d9fd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/bone-front.webp",
+    "bytes": 42696,
+    "sha256": "b1b7020a720c78eb148b7264e0f799e89637c7d9b5753f522518b3ce31a5a995"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/bone-head.webp",
+    "bytes": 53534,
+    "sha256": "8379d232f77e86a4183e4bb95b5e0c7bb2f63f37cd3cd9c0b1947d83a056df68"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/bone-legs.webp",
+    "bytes": 54910,
+    "sha256": "bf39511e3f128ee7298803504f75e1e522d2fa78ea2ed1cc9c55db207d883761"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/bone-tail.webp",
+    "bytes": 23136,
+    "sha256": "a12ee292c193631151495ce3904a6c4b98e215491a90ab416de9b8dd3c2b2458"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/buried.webp",
+    "bytes": 199116,
+    "sha256": "04ee78e9ccc6f84e23e9d417d92b60e0c56aecfded9ca85806c218a0abd4a8ff"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/fragments.webp",
+    "bytes": 26846,
+    "sha256": "27d4b9428044efa5fb3b5478cd2c94c16ca8519225db175782a8fea97c8db7ce"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/grooves.webp",
+    "bytes": 301044,
+    "sha256": "798fe476b449c2c709dac0e7fa6a50e60d2cf46f5a95f7af82131f8eaf105a0d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/skeleton.webp",
+    "bytes": 197414,
+    "sha256": "e82aba9bb1d778989b5e95c4c6385004e3411a61cfa2be234e06721087fefd2c"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/stage-1.webp",
+    "bytes": 350906,
+    "sha256": "4fc864eae55045621c95f3c61887126ba17278e75749e3849b40b6537bdd2d07"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/stage-2.webp",
+    "bytes": 335196,
+    "sha256": "b1218eae00da4aa8f67b5725f6c497b1f7a5e9aacce605be6207742ce605dc94"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/stage-3.webp",
+    "bytes": 315238,
+    "sha256": "77e39c59588dc7befe99986f830b03eef439799deb9561564583343c8073d723"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/pachyrhino/stage-4.webp",
+    "bytes": 344116,
+    "sha256": "f20f4855bb85beb69b859526a7d6f1f5055cbb7d25e093d6c4a8f3d3fa2ad632"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/bone-body.webp",
+    "bytes": 34530,
+    "sha256": "211450aee86a11d10d1cb515b084168cde4bc50f052c18977c04d44cf27ce7f3"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/bone-front.webp",
+    "bytes": 46130,
+    "sha256": "9534c098d0e6c29df3ed8f82d68d6bd57979eca3625552dd1d8d557a0bc6e042"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/bone-head.webp",
+    "bytes": 47212,
+    "sha256": "42384857e20ced281bc24db79df246d0563a0d6bf6552710f4fe1f7ca75443fd"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/bone-legs.webp",
+    "bytes": 46780,
+    "sha256": "a17db200771b7e20495ab137af0e6806c3a614427e435bae9e8dd47f01044a88"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/bone-tail.webp",
+    "bytes": 23680,
+    "sha256": "358bbcca5db061388dc0b80b5bf21fba2e9bdda436cdb14543745983122e451a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/buried.webp",
+    "bytes": 172330,
+    "sha256": "8bcb0168c3d14726ce7e2cb22ed2945bf0e9c5ba78d6ba29076bef4f8319320f"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/fragments.webp",
+    "bytes": 15552,
+    "sha256": "34c4bf74e4d39a2a92c66da7862564a7afccf47322ed24f90f10ccc1fe1fdeea"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/grooves.webp",
+    "bytes": 208322,
+    "sha256": "96f62c5723f674d5f5e23c2be9192fa7f735d6b5cb2e234ac29febd7fea20db6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/skeleton.webp",
+    "bytes": 179422,
+    "sha256": "5f1c411235c93b9717450d9db26e1d9e01e65dd272a75d0cf69937c2df3fd956"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/stage-1.webp",
+    "bytes": 227494,
+    "sha256": "25e04f11f4a2c0f87b58dc7e98a61c2a1142aafd975c35f5ac6e7372b5cc7ffe"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/stage-2.webp",
+    "bytes": 227342,
+    "sha256": "2476e5189f177a9b01fd23209a77c43537da6d7e30463d645026c23fe236095b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/stage-3.webp",
+    "bytes": 225498,
+    "sha256": "c1785d05f5426527d77989ffa558939cc6105152e27b94e82151e625204fac83"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/proto/stage-4.webp",
+    "bytes": 257334,
+    "sha256": "ca69c7817dcf3dab0f2cef508d67834fdfbf853952fbb20e4ae64233c679e183"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/bone-arms.webp",
+    "bytes": 24852,
+    "sha256": "17da79beb562f78bbd2da184dc85e436ab2153c9d6f5f0dc128fd788508cdd75"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/bone-body.webp",
+    "bytes": 31924,
+    "sha256": "2b0169a6a681b51c059cb0db57ef6d55c8bfc251ca4b5d55ab7c718f0b82731e"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/bone-head.webp",
+    "bytes": 29252,
+    "sha256": "a0d3bf90b94400d8f00074757d94014aa818da76315530b0bea1c65f697a6d95"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/bone-legs.webp",
+    "bytes": 55494,
+    "sha256": "edfb4dfda613336f34fa46723d50b48675e118bd24832bfe74b1ab44129a3ebf"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/bone-tail.webp",
+    "bytes": 26998,
+    "sha256": "4eff59f33eb95c4108ca2f7962af5f3a9eefcf297b9ed0a9c3ecb65cec815aa8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/buried.webp",
+    "bytes": 115988,
+    "sha256": "83521b1ba896f760f9cc06fa44ccb4807b139f9fffb503f20a62295d8db901c9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/fragments.webp",
+    "bytes": 22842,
+    "sha256": "9dbc6505bc8d4fb3c0f481e9ff39a287df87a39066bcdd6293256fb3bfa25249"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/grooves.webp",
+    "bytes": 246582,
+    "sha256": "4df5fc88b05f42d41159abc8a7a90f2e0f319764026c005d32fef81e8fab93c9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/skeleton.webp",
+    "bytes": 153736,
+    "sha256": "a319bc000b8081ac740fa523a4bd0c523929811f8ef66a8b49281783057a3b17"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/stage-1.webp",
+    "bytes": 255346,
+    "sha256": "015e401c87bb0ba1c18c03587ed4d5326e62dba2eb603af60242cff4f170b24d"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/stage-2.webp",
+    "bytes": 252300,
+    "sha256": "8b91190cd731e9592379e625b75a3ab7893f63bb28fc6f9f678929f9ed6fc600"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/stage-3.webp",
+    "bytes": 243670,
+    "sha256": "debd7a796c285e9946cd4c3926e16999c3389f24e3c83883530b676b54906608"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/psittaco/stage-4.webp",
+    "bytes": 276964,
+    "sha256": "2ebd3c4bafe62b2c252db4dc693cd0058b118b49dbe9d3eb04239bc8192621b7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/bone-arms.webp",
+    "bytes": 25600,
+    "sha256": "4465099585eee417707b90c23265e47615a598576bc184d17eaf93c2d1b20249"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/bone-body.webp",
+    "bytes": 24484,
+    "sha256": "d35fe485da9dbb82f860ef6935b5cf28408228517af73df2032bfa11ecff1447"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/bone-head.webp",
+    "bytes": 18670,
+    "sha256": "e4152924873262460a766c6658a67766819e79881569b39b1d344bcf7f473ef8"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/bone-legs.webp",
+    "bytes": 51392,
+    "sha256": "900fc20e889b113301fbf1c0308e2aa3f329ed727e208f989a1aaafb64c190f7"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/bone-tail.webp",
+    "bytes": 20148,
+    "sha256": "e044b9f4ec7323cdb09db241619d95b3105aad3e1b9fc2df2e2dbd1ea51fdfbb"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/buried.webp",
+    "bytes": 175176,
+    "sha256": "8017dc08c6a805acc3b5d2cfada74d69108afbedb2ff705910e60c10b78927a6"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/fragments.webp",
+    "bytes": 27222,
+    "sha256": "8cfd32c5107c020183afc658aecfa05c62a96de1349b8fd269d352a137ea0988"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/grooves.webp",
+    "bytes": 351462,
+    "sha256": "d737db4588811002f3c8236f58ac12ac8bb72e3d1ece97d20b830eaed2d96e53"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/skeleton.webp",
+    "bytes": 128840,
+    "sha256": "5d496548e93a8c18c01f144fb956210d8ae38d649e1a5537105d4c7614da4e43"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/stage-1.webp",
+    "bytes": 356434,
+    "sha256": "2913ce021b1fcab46ee56c53dde0915da90a1c37d41b6fd82531aafbb98b16af"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/stage-2.webp",
+    "bytes": 348550,
+    "sha256": "8dee01370e7279ea99a05f7e51496cc20a10b26e1ae7e946c7c1efc02a7f5a12"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/stage-3.webp",
+    "bytes": 338942,
+    "sha256": "5abc2f37f9c31cfae4dbcb7625ecaf320f94c95a669c087f69f84cf95456f439"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/discovery/struthio/stage-4.webp",
+    "bytes": 369468,
+    "sha256": "e0b129c0ab4424673499c5016d7fca42c380c114c4e5d5b96ed7e7f3438d4f97"
   },
   {
     "path": "prototypes/fossil-dig/art/egg-bowl.webp",
@@ -4550,9 +5835,29 @@
     "sha256": "74cbcb837a9b6d840d162668396cb6a3e2e6f95f06537c8d46e706394bc240fe"
   },
   {
+    "path": "prototypes/fossil-dig/art/site-thumbs/amarga.webp",
+    "bytes": 27196,
+    "sha256": "9f53611d81d810c67894f868d7bcbcb1f0b2f53bc178c3d5813614928f138cc0"
+  },
+  {
     "path": "prototypes/fossil-dig/art/site-thumbs/anky.webp",
     "bytes": 20776,
     "sha256": "1fd9b6aeca0b25862f542901a68d6fc99104b663840ab431a51620be8949dbf5"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/apato.webp",
+    "bytes": 30394,
+    "sha256": "a5ce8f8ad207ef5f4c42e7942289bd31e71ad31feed8d435924cf0644fcc94be"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/argentino.webp",
+    "bytes": 30000,
+    "sha256": "43c76a6b276eca280a919ced17b79ca8768036de61c92fdfe4efbe484118e23a"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/bary.webp",
+    "bytes": 25090,
+    "sha256": "7f8eca960cddeded49f51ce8e79dfbfb57739b0742b715f632334ebcb2922942"
   },
   {
     "path": "prototypes/fossil-dig/art/site-thumbs/brachio.webp",
@@ -4560,9 +5865,29 @@
     "sha256": "58c7fb57a49f66635c96431b1b53627773874785bfe5ecfbbe1bcc453843e5e6"
   },
   {
+    "path": "prototypes/fossil-dig/art/site-thumbs/carno.webp",
+    "bytes": 25402,
+    "sha256": "a928898aa15bdab5295b879b10860ddcd2d196bb456d1bcbec4f35fe60c66848"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/cerato.webp",
+    "bytes": 29216,
+    "sha256": "0a6801a57a13fbd447ce7450976275af08ccbc3b704a8e106c82a3ac6fd8cedf"
+  },
+  {
     "path": "prototypes/fossil-dig/art/site-thumbs/compso.webp",
     "bytes": 18722,
     "sha256": "bbbb4a5a94689781404cce703b0e03a33104371929d0044d68fcb038cf7f6262"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/corytho.webp",
+    "bytes": 28594,
+    "sha256": "26eb75bb97222da6870bdf9d42d795a6225edde037207b1b08addbbe83998008"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/deinonych.webp",
+    "bytes": 29936,
+    "sha256": "25107896fe9399075012e5ae1d90861d9773c84eabb17cd5e72b789fb90e4738"
   },
   {
     "path": "prototypes/fossil-dig/art/site-thumbs/dilo.webp",
@@ -4575,14 +5900,54 @@
     "sha256": "1a01d9114e56fd9e3b91c0ea99e6e73a97e24516b53c86276c7f58b413072201"
   },
   {
+    "path": "prototypes/fossil-dig/art/site-thumbs/euoplo.webp",
+    "bytes": 27786,
+    "sha256": "f406fc5dcc69e721998457fc0b81f9b018da89406c498a2d0541c96ec2471161"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/iguano.webp",
+    "bytes": 23424,
+    "sha256": "10c6ec451113fe56e3d59044d4d20fae8f10454864ba92162eb6d440a2bd7f92"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/kentro.webp",
+    "bytes": 25624,
+    "sha256": "842f06302ce5ce35527cae5c10248c4d8773678f5ca7b04e9e84856f51496f92"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/lambeo.webp",
+    "bytes": 19542,
+    "sha256": "6512dd2a4b3b5a672feff3d9a40fc92ebe519742c00845bc7d1b2fad39c4befa"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/maia.webp",
+    "bytes": 29686,
+    "sha256": "9c3d410bf6aa90496f3ca984c841d6a7f3c1576fd8990103faa20e8043d69c18"
+  },
+  {
     "path": "prototypes/fossil-dig/art/site-thumbs/mamenshi.webp",
     "bytes": 34662,
     "sha256": "5089421b3a02d833721027f160585150f315cfc844ef1939a5e7e2bb6024b2f5"
   },
   {
+    "path": "prototypes/fossil-dig/art/site-thumbs/micro.webp",
+    "bytes": 27510,
+    "sha256": "d880d6d1ee51a4e57480a03d881a2227f229cd44f74a663c79c4db1414449b9d"
+  },
+  {
     "path": "prototypes/fossil-dig/art/site-thumbs/mosasaur.webp",
     "bytes": 20136,
     "sha256": "9e6a055adac85373ce6cbf1cfeda891562a28e0dbd7e7f0c2565a2a8be4bf556"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/niger.webp",
+    "bytes": 18414,
+    "sha256": "bf8d7b0325ba4006948a163e2d3d2450be81b91e972c75b213b7116d80eba177"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/nodo.webp",
+    "bytes": 23684,
+    "sha256": "057192f682cf01b5c4ef7356b7d6d3ad2a4f075b4e78570d870ccae434f22bcc"
   },
   {
     "path": "prototypes/fossil-dig/art/site-thumbs/oviraptor.webp",
@@ -4595,9 +5960,24 @@
     "sha256": "48dc37fb41577cd87a862faa493d02c9eadb02b3e7392ad8b8bd1270217d93be"
   },
   {
+    "path": "prototypes/fossil-dig/art/site-thumbs/pachyrhino.webp",
+    "bytes": 27252,
+    "sha256": "9b9a38b3737ddbd5301a2847c668b18c7464e63eadae04d4706d5afc02d4c0a6"
+  },
+  {
     "path": "prototypes/fossil-dig/art/site-thumbs/parasaur.webp",
     "bytes": 22512,
     "sha256": "6e24300f507fc5b1c0a5566c59d6ff3c630342d1536afe875056f5a5ac1f0789"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/proto.webp",
+    "bytes": 16450,
+    "sha256": "d31fd737e74f8f28f1911556dca0c54033300a5736fbc43a19b9eeea035c03c9"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/psittaco.webp",
+    "bytes": 19364,
+    "sha256": "280222e76da0014454ef302a7805eba47bc9f57567eff4d9fbfcce9706160297"
   },
   {
     "path": "prototypes/fossil-dig/art/site-thumbs/ptero.webp",
@@ -4618,6 +5998,11 @@
     "path": "prototypes/fossil-dig/art/site-thumbs/stego.webp",
     "bytes": 23034,
     "sha256": "4a10dd415688863716e6a4fae9d870028e0f6d0b5bc9b0c67df464b5e8bb227b"
+  },
+  {
+    "path": "prototypes/fossil-dig/art/site-thumbs/struthio.webp",
+    "bytes": 28194,
+    "sha256": "54986ca6c3f4481346cf81dae6a851b7bd97e608d440c14eee6a57b7379332e3"
   },
   {
     "path": "prototypes/fossil-dig/art/site-thumbs/styraco.webp",
@@ -4775,9 +6160,29 @@
     "sha256": "6da56c237808b4a0715e2b8bf48aa2732a99bfaa0a642d6551b2cd9dfa0a84b6"
   },
   {
+    "path": "prototypes/fossil-dig/camp.8215c68ba807.js",
+    "bytes": 216686,
+    "sha256": "8215c68ba8077b0b2f14d6f6d5a817932d1ba579024a96d9761dadd36a28140c"
+  },
+  {
+    "path": "prototypes/fossil-dig/camp.cbe51260b3ce.js",
+    "bytes": 4113,
+    "sha256": "cbe51260b3cec1580c9367b992e430b4a4562bee3cec235e4efa811111026fce"
+  },
+  {
+    "path": "prototypes/fossil-dig/dig.56ae712fe4d0.js",
+    "bytes": 509592,
+    "sha256": "56ae712fe4d02c08e4359a145c947931f424fc84a206a9e14581fd5c65f270aa"
+  },
+  {
     "path": "prototypes/fossil-dig/dig.c60e369e6127.js",
     "bytes": 325997,
     "sha256": "c60e369e6127cbe24ed8afad45ab63960f902cc0b8fbaa1f989ece6d41bd9233"
+  },
+  {
+    "path": "prototypes/fossil-dig/discovery-fossils.js",
+    "bytes": 183560,
+    "sha256": "d6c85451e420ab04b0304a67eb08feeb70ed856012ca65f24e67ca9bbd1d90c0"
   },
   {
     "path": "prototypes/fossil-dig/egg-progress.css",
@@ -4831,8 +6236,8 @@
   },
   {
     "path": "prototypes/fossil-dig/index.html",
-    "bytes": 7285,
-    "sha256": "07d731f8b152a0895df148d609f80811b828e2ef8cfddf212febfcaa2ddf4b04"
+    "bytes": 7281,
+    "sha256": "5c7ed87813ef70a5e296051cd8e473c8bb5bf9de35c100f3061fdb0184b97d50"
   },
   {
     "path": "prototypes/fossil-dig/journey-fossils.js",
@@ -4886,8 +6291,8 @@
   },
   {
     "path": "prototypes/g2-multiply/index.html",
-    "bytes": 34265,
-    "sha256": "70b6cf3223eb8e5c51a4e1805dd17bf6e24a6a124afc017d4fafb6de1a8c4e0c"
+    "bytes": 34268,
+    "sha256": "386590143708263731b9588a89faf260d93a2d616141c3fa71a9f7adf7046dd9"
   },
   {
     "path": "prototypes/g2-multiply/journey-play.css",
@@ -4901,8 +6306,8 @@
   },
   {
     "path": "prototypes/g2-share/app.js",
-    "bytes": 15260,
-    "sha256": "1955f9a10a5d2f47426f9ab12d392299d29e83ad8aca2ced4ae65985578539ca"
+    "bytes": 15263,
+    "sha256": "01c3fd25443884bd8b29f9133daa509536432b092f67d65800be0de449bd9d90"
   },
   {
     "path": "prototypes/g2-share/backgrounds.js",
@@ -4911,8 +6316,8 @@
   },
   {
     "path": "prototypes/g2-share/index.html",
-    "bytes": 2475,
-    "sha256": "88b616bcf60d86f78027078a0897c79ba800c3c2ed8b697ec40dfc886669d155"
+    "bytes": 2476,
+    "sha256": "07d8825a929a3760f34566da34311a9f1f0f63bec47efa7a8a1a7b357a9d00c1"
   },
   {
     "path": "prototypes/g2-share/speech.js",
@@ -4926,8 +6331,8 @@
   },
   {
     "path": "prototypes/island-journey.html",
-    "bytes": 8634,
-    "sha256": "2bedb342843e5d0f2fd8c663735d9ee8c7e973d933e18137a4e3dbcae7eb2b98"
+    "bytes": 8704,
+    "sha256": "0b397391cc923729950c1c005f28e7cd0c82f92652c955f3b869b15d20e1a465"
   },
   {
     "path": "prototypes/island-journey/character-eras.json",
@@ -4946,8 +6351,8 @@
   },
   {
     "path": "prototypes/island-journey/journey.js",
-    "bytes": 19928,
-    "sha256": "8dfd02b4be1bc89b719933c99c00866f35405688afdeb353376b17e5c3917650"
+    "bytes": 19918,
+    "sha256": "79f454781ab7c3e3506373f7afd6ac7583ec6806f2b3188d51744d39a732eb71"
   },
   {
     "path": "prototypes/island-journey/jurassic-map.webp",
@@ -5045,6 +6450,26 @@
     "sha256": "7771f85a457d0a91bbb5552be48dd36972f5af86bcb21c0bee6a3ed249cf7c61"
   },
   {
+    "path": "runtime.88106516cf8e.js",
+    "bytes": 402650,
+    "sha256": "88106516cf8e4db61a8e7852472975703e36b64183391d900b2c97c4906e035d"
+  },
+  {
+    "path": "runtime.e3e62607f6bc.js",
+    "bytes": 517317,
+    "sha256": "e3e62607f6bc2f8cba4c0491672657debf4a721eb0a31a2262f3c259909ff85a"
+  },
+  {
+    "path": "runtime.f1a9f068a295.js",
+    "bytes": 514482,
+    "sha256": "f1a9f068a2952879526b0b7c99c46cd56192eb518b50ec02dbc7d8818e5b4ced"
+  },
+  {
+    "path": "runtime.fadf6064b900.js",
+    "bytes": 518311,
+    "sha256": "fadf6064b9003eb58062f36bef8165f241117aaef2e41df510df597917bd4402"
+  },
+  {
     "path": "scene-data.js",
     "bytes": 8044,
     "sha256": "bb30619052b222ec5587b70766c69b1594c39266dd763074ab7ba194184097dc"
@@ -5103,6 +6528,11 @@
     "path": "styles.7d3edad5cbd2.css",
     "bytes": 184055,
     "sha256": "7d3edad5cbd258ea2cdc905eb1f16398bd01e38262d3c7b19559ca2601315e28"
+  },
+  {
+    "path": "styles.d6ebac6c6067.css",
+    "bytes": 137240,
+    "sha256": "d6ebac6c606774a84d19dd4db5200b3b64b249a8339aeb8031ee7f214b4f78ac"
   },
   {
     "path": "task-guidance-cues.js",

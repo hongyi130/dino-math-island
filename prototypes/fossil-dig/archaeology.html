@@ -27,9 +27,9 @@
   }
 </script>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f4ebd7;color:#382d20;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}a{color:inherit}header,main{max-width:1100px;margin:auto;padding-left:clamp(20px,5vw,56px);padding-right:clamp(20px,5vw,56px)}header{display:flex;justify-content:space-between;align-items:center;padding-top:24px;gap:16px}.brand{font-weight:800;font-size:17px;letter-spacing:.04em}.museum{border:1px solid #bca783;border-radius:100px;padding:10px 17px;text-decoration:none;background:#fff8e9;font-size:14px;font-weight:700;white-space:nowrap}.museum:hover,.museum:focus-visible{background:#ebdbb9}main{padding-top:clamp(38px,7vw,72px);padding-bottom:60px}.intro{max-width:660px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:#956d3c}.intro h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(33px,6vw,56px);line-height:1.16;margin:12px 0}.intro p{line-height:1.8;color:#76664d;margin:0}.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:38px 0 15px}.section-head h2{font-size:20px;margin:0}.section-head span{font-size:13px;color:#806e53}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{display:flex;flex-direction:column;text-decoration:none;background:#fff9eb;border:1px solid #dbcbb0;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px #5b412012;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-3px);box-shadow:0 9px 22px #5b412022}.card:focus-visible,.museum:focus-visible{outline:3px solid #356854;outline-offset:3px}.art{height:185px;background:radial-gradient(ellipse,#ead9b8,#f5ead5 72%);display:grid;place-items:center;overflow:hidden}.art img{width:100%;height:100%;object-fit:contain}.card-content{padding:15px 18px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px}.card h3{font-size:17px;margin:0 0 5px}.sub{font-size:12px;color:#88755b}.action{font-size:13px;font-weight:750;color:#356854;white-space:nowrap}footer{margin-top:32px;font-size:13px;color:#897a65;line-height:1.6}@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.art{height:clamp(125px,36vw,180px)}.card-content{padding:12px;display:block}.card h3{font-size:16px}.action{display:block;margin-top:9px}.section-head{margin-top:30px}}@media(max-width:330px){.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
-</style></head><body><header><div class="brand">◈ 恐龙考古营地</div><a class="museum" href="./?archaeology=1&amp;fossil=brachio&amp;view=museum&amp;v=20261101-archaeology-r1">我的化石博物馆 →</a></header><main><div class="intro"><span class="eyebrow">小小古生物学家</span><h1>今天想挖哪块化石？</h1><p>选一处现场，先破开岩石，再清理骨架、拼装并收藏。每一次发现，都可以收藏到博物馆。</p></div><div class="section-head"><h2>选择你的考古现场</h2><span id="count"></span></div><div class="grid" id="sites"></div><footer>挖掘进度与收藏保存在当前设备的浏览器中。</footer></main>
-<script src="./camp.6da56c237808.js"></script>
+*{box-sizing:border-box}body{margin:0;background:#f4ebd7;color:#382d20;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}a{color:inherit}header,main{max-width:1100px;margin:auto;padding-left:clamp(20px,5vw,56px);padding-right:clamp(20px,5vw,56px)}header{display:flex;justify-content:space-between;align-items:center;padding-top:24px;gap:16px}.brand{font-weight:800;font-size:17px;letter-spacing:.04em}.museum{border:1px solid #bca783;border-radius:100px;padding:10px 17px;text-decoration:none;background:#fff8e9;font-size:14px;font-weight:700;white-space:nowrap}.museum:hover,.museum:focus-visible{background:#ebdbb9}main{padding-top:clamp(38px,7vw,72px);padding-bottom:60px}.intro{max-width:660px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:#956d3c}.intro h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(33px,6vw,56px);line-height:1.16;margin:12px 0}.intro p{line-height:1.8;color:#76664d;margin:0}.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:38px 0 15px}.section-head h2{font-size:20px;margin:0}.section-head span{font-size:13px;color:#806e53}.search{display:block;max-width:28rem;margin:0 0 18px;font-size:13px;font-weight:700;color:#76664d}.search input{display:block;width:100%;margin-top:7px;padding:12px 14px;min-height:44px;border:1px solid #bca783;border-radius:12px;background:#fff9eb;color:#382d20;font:inherit;font-size:16px}.search input:focus-visible{outline:3px solid #356854;outline-offset:2px}.empty{padding:24px 0;color:#76664d;line-height:1.7}.card[hidden],.empty[hidden]{display:none}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{display:flex;flex-direction:column;text-decoration:none;background:#fff9eb;border:1px solid #dbcbb0;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px #5b412012;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-3px);box-shadow:0 9px 22px #5b412022}.card:focus-visible,.museum:focus-visible{outline:3px solid #356854;outline-offset:3px}.art{height:185px;background:radial-gradient(ellipse,#ead9b8,#f5ead5 72%);display:grid;place-items:center;overflow:hidden}.art img{width:100%;height:100%;object-fit:contain}.card-content{padding:15px 18px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px}.card h3{font-size:17px;margin:0 0 5px}.sub{font-size:12px;color:#88755b}.action{font-size:13px;font-weight:750;color:#356854;white-space:nowrap}footer{margin-top:32px;font-size:13px;color:#897a65;line-height:1.6}@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.art{height:clamp(125px,36vw,180px)}.card-content{padding:12px;display:block}.card h3{font-size:16px}.action{display:block;margin-top:9px}.section-head{margin-top:30px}}@media(max-width:330px){.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style></head><body><header><div class="brand">◈ 恐龙考古营地</div><a class="museum" href="./?archaeology=1&amp;fossil=brachio&amp;view=museum&amp;v=20261113-f12-r1">我的化石博物馆 →</a></header><main><div class="intro"><span class="eyebrow">小小古生物学家</span><h1>今天想挖哪块化石？</h1><p>选一处现场，先破开岩石，再清理骨架、拼装并收藏。每一次发现，都可以收藏到博物馆。</p></div><div class="section-head"><h2>选择你的考古现场</h2><span id="count" aria-live="polite"></span></div><label class="search" for="siteSearch">找一种恐龙<input id="siteSearch" type="search" placeholder="输入名称，比如禽龙" autocomplete="off" aria-controls="sites"></label><div class="grid" id="sites"></div><p class="empty" id="noSites" hidden>暂时没找到这只恐龙，试试其他名称吧。</p><footer>挖掘进度与收藏保存在当前设备的浏览器中。</footer></main>
+<script src="./camp.cbe51260b3ce.js"></script>
 <script>
 (() => {
   'use strict';
@@ -52,14 +52,15 @@
   for (const fossil of fossils) {
     const card = document.createElement('a');
     card.className = 'card';
-    card.href = './?archaeology=1&fossil=' + encodeURIComponent(fossil.id) + '&v=20261113-load-r1';
+    card.dataset.search = (fossil.name + ' ' + fossil.id).toLowerCase();
+    card.href = './?archaeology=1&fossil=' + encodeURIComponent(fossil.id) + '&v=20261113-f12-r1';
     const art = document.createElement('div');
     art.className = 'art';
     const img = document.createElement('img');
     img.alt = '';
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.dataset.src = './art/site-thumbs/' + fossil.id + '.webp?v=20261101-speed-r1';
+    img.dataset.src = './art/site-thumbs/' + fossil.id + '.webp?v=20261113-f12-r1';
     art.append(img);
     const content = document.createElement('div');
     content.className = 'card-content';
@@ -81,5 +82,21 @@
     if (thumbnails) thumbnails.observe(img);
     else img.src = img.dataset.src;
   }
+  document.querySelector('#siteSearch').addEventListener('input', event => {
+    const term = event.target.value.trim().toLowerCase();
+    let visible = 0;
+    for (const card of sites.children) {
+      card.hidden = !card.dataset.search.includes(term);
+      if (!card.hidden) {
+        visible++;
+        // A failed thumbnail can retry when the child finds it again. Keep
+        // untouched cards lazy, and never retry repeatedly in the background.
+        const img = card.querySelector('img');
+        if (img.hasAttribute('src') && img.complete && !img.naturalWidth) img.src = img.dataset.src;
+      }
+    }
+    document.querySelector('#count').textContent = (term ? visible + ' / ' : '') + fossils.length + ' 个考古现场';
+    document.querySelector('#noSites').hidden = visible > 0;
+  });
 })();
 </script></body></html>
