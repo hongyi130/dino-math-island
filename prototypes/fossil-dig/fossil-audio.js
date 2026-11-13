@@ -11,7 +11,23 @@
     function stopVoice(reason='cancelled'){if(!voiceNode)return;const n=voiceNode;voiceNode=null;n.onended=null;try{n.stop();}catch(_){}lastVoice={...lastVoice,completed:false,reason,playedMs:(context.currentTime-voiceStarted)*1000,end:performance.now()};narrating=false;island.setNarrating(false);voiceResolve?.(lastVoice);voiceResolve=null;}
     function stop(){voiceEpoch++;stopFX();stopVoice();}
     function ensureContext(){if(!context){const C=window.AudioContext||window.webkitAudioContext;if(C)context=new C();}return context;}
-    function prepareVoice(){if(voiceInfo?.silent)return Promise.resolve(null);if(!voicePromise)voicePromise=(async()=>{const c=ensureContext();if(!c)return null;const response=await fetch(new URL('../voice/'+voiceFile,base));if(!response.ok)throw Error('voice unavailable');return c.decodeAudioData(await response.arrayBuffer());})().catch(()=>null);return voicePromise;}
+    function prepareVoice() {
+      if (voiceInfo?.silent) return Promise.resolve(null);
+      if (!voicePromise) {
+        voicePromise = (async () => {
+          const c = ensureContext();
+          if (!c) return null;
+          const response = await fetch(new URL('../voice/' + voiceFile, base));
+          if (!response.ok) throw Error('voice unavailable');
+          return c.decodeAudioData(await response.arrayBuffer());
+        })().catch(() => {
+          // A failed preload must be retried when the child reaches the reveal.
+          voicePromise = null;
+          return null;
+        });
+      }
+      return voicePromise;
+    }
     async function narrate(onStart){const epoch=++voiceEpoch,buffer=await prepareVoice();if(epoch!==voiceEpoch)return {completed:false,reason:"cancelled",playedMs:0};if(!buffer||!enabled||document.hidden){lastVoice={completed:false,reason:!enabled?'muted':'unavailable',playedMs:0};return lastVoice;}stopFX();stopVoice();await context.resume();if(epoch!==voiceEpoch)return {completed:false,reason:'cancelled',playedMs:0};const cue=cueOf(),duration=cue.end-cue.time;voiceNode=context.createBufferSource();voiceNode.buffer=buffer;voiceNode.connect(context.destination);voiceStarted=context.currentTime;narrating=true;island.setNarrating(true);lastVoice={start:performance.now(),offset:cue.time,endOffset:cue.end,durationMs:duration*1000,completed:false};return new Promise(resolve=>{voiceResolve=resolve;voiceNode.onended=()=>{voiceNode=null;narrating=false;island.setNarrating(false);lastVoice={...lastVoice,end:performance.now(),playedMs:duration*1000,completed:true,reason:'cue-ended'};voiceResolve=null;resolve(lastVoice);};voiceNode.start(voiceStarted,cue.time,duration);onStart?.(cue);});}
     function allowed(){return enabled&&!document.hidden&&!speechActive();}
     function unlock(){island.unlock();ensureContext();if(enabled&&!document.hidden)context?.resume().catch(()=>{});}

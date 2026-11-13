@@ -29,7 +29,57 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f4ebd7;color:#382d20;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}a{color:inherit}header,main{max-width:1100px;margin:auto;padding-left:clamp(20px,5vw,56px);padding-right:clamp(20px,5vw,56px)}header{display:flex;justify-content:space-between;align-items:center;padding-top:24px;gap:16px}.brand{font-weight:800;font-size:17px;letter-spacing:.04em}.museum{border:1px solid #bca783;border-radius:100px;padding:10px 17px;text-decoration:none;background:#fff8e9;font-size:14px;font-weight:700;white-space:nowrap}.museum:hover,.museum:focus-visible{background:#ebdbb9}main{padding-top:clamp(38px,7vw,72px);padding-bottom:60px}.intro{max-width:660px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:#956d3c}.intro h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(33px,6vw,56px);line-height:1.16;margin:12px 0}.intro p{line-height:1.8;color:#76664d;margin:0}.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:38px 0 15px}.section-head h2{font-size:20px;margin:0}.section-head span{font-size:13px;color:#806e53}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{display:flex;flex-direction:column;text-decoration:none;background:#fff9eb;border:1px solid #dbcbb0;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px #5b412012;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-3px);box-shadow:0 9px 22px #5b412022}.card:focus-visible,.museum:focus-visible{outline:3px solid #356854;outline-offset:3px}.art{height:185px;background:radial-gradient(ellipse,#ead9b8,#f5ead5 72%);display:grid;place-items:center;overflow:hidden}.art img{width:100%;height:100%;object-fit:contain}.card-content{padding:15px 18px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px}.card h3{font-size:17px;margin:0 0 5px}.sub{font-size:12px;color:#88755b}.action{font-size:13px;font-weight:750;color:#356854;white-space:nowrap}footer{margin-top:32px;font-size:13px;color:#897a65;line-height:1.6}@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.art{height:clamp(125px,36vw,180px)}.card-content{padding:12px;display:block}.card h3{font-size:16px}.action{display:block;margin-top:9px}.section-head{margin-top:30px}}@media(max-width:330px){.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 </style></head><body><header><div class="brand">◈ 恐龙考古营地</div><a class="museum" href="./?archaeology=1&amp;fossil=brachio&amp;view=museum&amp;v=20261101-archaeology-r1">我的化石博物馆 →</a></header><main><div class="intro"><span class="eyebrow">小小古生物学家</span><h1>今天想挖哪块化石？</h1><p>选一处现场，先破开岩石，再清理骨架、拼装并收藏。每一次发现，都可以收藏到博物馆。</p></div><div class="section-head"><h2>选择你的考古现场</h2><span id="count"></span></div><div class="grid" id="sites"></div><footer>挖掘进度与收藏保存在当前设备的浏览器中。</footer></main>
-<script src="./camp.8215c68ba807.js"></script>
+<script src="./camp.6da56c237808.js"></script>
 <script>
-(()=>{'use strict';let saved={};try{saved=JSON.parse(localStorage.getItem('dino-math-archaeology-fossils-v1')||'{}')}catch(_){}const owned=new Set(Array.isArray(saved.museum)?saved.museum:[]),fossils=Object.values(window.FOSSILS.fossils),sites=document.querySelector('#sites');document.querySelector('#count').textContent=`${fossils.length} 个考古现场`;for(const f of fossils){const a=document.createElement('a');a.className='card';a.href=`./?archaeology=1&fossil=${encodeURIComponent(f.id)}&v=20261101-archaeology-r1`;const art=document.createElement('div');art.className='art';const img=document.createElement('img');img.src='./art/site-thumbs/'+f.id+'.webp?v=20261101-speed-r1';img.alt='';img.loading='lazy';art.append(img);const content=document.createElement('div');content.className='card-content';const text=document.createElement('div'),name=document.createElement('h3'),sub=document.createElement('div'),action=document.createElement('span');name.textContent=f.name;sub.className='sub';sub.textContent=(f.era==='cretaceous'?'白垩纪':'侏罗纪')+(f.excavation==='tide'?' · 引水挖掘':f.fieldTool?' · '+f.fieldTool.label:'');action.className='action';action.textContent=owned.has(f.id)?'已收藏 · 再看看 →':saved.dig?.[f.id]?.hits>0?'继续挖掘 →':'开始挖掘 →';text.append(name,sub);content.append(text,action);a.append(art,content);sites.append(a)}})();
+(() => {
+  'use strict';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('dino-math-archaeology-fossils-v1') || '{}') || {}; } catch (_) {}
+  const owned = new Set(Array.isArray(saved.museum) ? saved.museum : []);
+  const fossils = Object.values(window.FOSSILS.fossils);
+  const sites = document.querySelector('#sites');
+  document.querySelector('#count').textContent = fossils.length + ' 个考古现场';
+  // Native lazy loading can request many rows ahead on a mobile connection.
+  const thumbnails = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const img = entry.target;
+      img.src = img.dataset.src;
+      thumbnails.unobserve(img);
+    }
+  }, {rootMargin: '200px'}) : null;
+
+  for (const fossil of fossils) {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = './?archaeology=1&fossil=' + encodeURIComponent(fossil.id) + '&v=20261113-load-r1';
+    const art = document.createElement('div');
+    art.className = 'art';
+    const img = document.createElement('img');
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.dataset.src = './art/site-thumbs/' + fossil.id + '.webp?v=20261101-speed-r1';
+    art.append(img);
+    const content = document.createElement('div');
+    content.className = 'card-content';
+    const text = document.createElement('div');
+    const name = document.createElement('h3');
+    const sub = document.createElement('div');
+    const action = document.createElement('span');
+    name.textContent = fossil.name;
+    sub.className = 'sub';
+    sub.textContent = (fossil.era === 'cretaceous' ? '白垩纪' : '侏罗纪') +
+      (fossil.excavation === 'tide' ? ' · 引水挖掘' : fossil.fieldTool ? ' · ' + fossil.fieldTool.label : '');
+    action.className = 'action';
+    action.textContent = owned.has(fossil.id) ? '已收藏 · 再看看 →' :
+      saved.dig?.[fossil.id]?.hits > 0 ? '继续挖掘 →' : '开始挖掘 →';
+    text.append(name, sub);
+    content.append(text, action);
+    card.append(art, content);
+    sites.append(card);
+    if (thumbnails) thumbnails.observe(img);
+    else img.src = img.dataset.src;
+  }
+})();
 </script></body></html>

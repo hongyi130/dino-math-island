@@ -13,8 +13,7 @@
   const stageIndex=hits=>hits===0?0:hits<3?1:hits<5?2:3;
   const readyStages=new Set();
   if(view!=='museum')store.resumeRepeat();
-  const initial=store.load().dig[ID],initialStage=stageIndex(initial.hits);
-  stageImages[initialStage].fetchPriority='high';stageImages[initialStage].src='./'+F.stages[initialStage]+V;
+  let initialStage=0,assetsLoading=false,replayAfterLoad=false;
   let shellFrame=0,sandFrame=0,strokeCounted=false;
   const readyParts=new Set(art.parts.map(p=>p.id)),landings=[],dragStarts=[],dismissedDemos=new Set();
   const g=art.geometry,timers=new Set(),transitions=[],partImages=new Map();
@@ -24,10 +23,16 @@
   function updateRevivalButtons(){
     const ready=revivalReady();
     const waiting=revivalAssetsFailed?'复活图片未加载，请刷新':'正在准备复活图片…';
-    $('#replay').disabled=!ready;
-    $('#replay').textContent=ready?'再看一遍复活':waiting;
+    $('#replay').disabled=assetsLoading&&!ready;
+    $('#replay').textContent=ready||!assetsLoading?'再看一遍复活':waiting;
     $('#wake').disabled=!F.restorationOnly&&!ready;
     $('#wake').textContent=F.restorationOnly?'查看修复成果':ready?'看'+F.name+'复活':waiting;
+  }
+  function playRequestedReplay(){
+    if(revivalReady()&&replayAfterLoad){
+      replayAfterLoad=false;
+      if(view==='museum'&&!document.hidden)revive(true);
+    }
   }
   const geometry=part=>{const[x,y,r,b]=part.box,[W,H]=art.skeletonSize;return{x:g.x+x/W*g.scale,y:g.y+y/H*g.scale,w:(r-x)/W*g.scale,h:(b-y)/H*g.scale};};
   const later=(fn,ms)=>{const id=setTimeout(()=>{timers.delete(id);fn();},ms);timers.add(id);return id;};
@@ -58,6 +63,7 @@
     if(!store.eligible()&&byLevels){const left=unlock.ORDER.indexOf(ID)*unlock.PER+unlock.PER-unlock.status().done;header('一块化石在等你','在闯关里再过 '+left+' 关，就能来挖');$('#lockedImg').src='./'+F.stages[0]+V;$('#locked p').textContent='每闯过 5 关，就能挖出一块化石。';const link=$('#locked a');link.textContent='去闯关';link.href='../../index.html';$('#locked').hidden=false;$('.steps').hidden=true;return;}
     if(!store.eligible()){header('一块化石在等你',route?'先完成'+route.name+'的'+(route.routes?'六关':'三关'):'这个地点还未开放');$('#lockedImg').src='./'+F.stages[0]+V;$('#locked p').textContent=route?'完成'+route.name+'的 '+(route.routes?6:3)+' 关就能来挖':'这块化石的探险地点还未开放。';const link=$('#locked a');link.textContent=route?'去'+route.name:'返回地图';link.href=route?'../'+route.sample+'/?journey='+route.route+'&level='+route.firstLevel+'&v=20261031-trex-r1':'../island-journey.html?v=20261031-trex-r1';$('#locked').hidden=false;$('.steps').hidden=true;return;}
     if(current.step==='museum'){view='museum';museum();return;}
+    prepareExcavation();
     if(!knockReady){status('正在准备挖掘现场…');return;}$('#workspace').hidden=false;
     if(layered&&['rubble','brush','puzzle'].includes(current.step))paintRubble();
     if(current.step==='rubble'){header('把碎石搬到岩边','点一下碎石，移开压在沙土上的石块');canvas.hidden=false;paintSand();rubbleStatus();return;}
@@ -398,14 +404,22 @@
   $('#exhibits').addEventListener('click',e=>{const b=e.target.closest('[data-fossil]');if(!b)return;const f=fossilOf(b.dataset.fossil);$('#factImg').src=f.living.file;$('#factImg').alt=f.name;$('#fact h2').textContent=f.card.title;$('#fact p').textContent=f.card.text;$('#fact').showModal();});
   $('#redig').onclick=()=>{
     if(busy||!(store.resumeRepeat()||store.startRepeat())){warning();return;}
+    replayAfterLoad=false;
     cancelSequence();cancelDrag();audio.stop();effects.reset();flashed.clear();dismissedDemos.clear();readyParts.clear();art.parts.forEach(p=>readyParts.add(p.id));pending.clear();clearTimeout(flushTimer);brushPointer=null;lastPoint=null;selected=null;brushStrokes=0;replaying=false;awake=false;toolDirection=0;view='dig';
     history.replaceState(null,'','?'+baseQuery+'v=20261031-trex-r1');render();
   };
-  $('#replay').onclick=()=>{revive(true);};$('#closeFact').onclick=()=>$('#fact').close();
+  $('#replay').onclick=()=>{
+    if(busy||!store.eligible()||read().step!=='museum')return;
+    audio.unlock();
+    if(revivalReady()){revive(true);return;}
+    replayAfterLoad=true;
+    prepareExcavation();
+    updateRevivalButtons();
+  };$('#closeFact').onclick=()=>$('#fact').close();
   $('#sound').onclick=()=>{audio.setEnabled(!audio.enabled);$('#sound').textContent=audio.enabled?'声音开':'声音关';$('#sound').setAttribute('aria-pressed',String(audio.enabled));};
   $('#back').onclick=e=>{flushBrush();if(!store.storageOK()){e.preventDefault();warning();}};
-  window.addEventListener('pagehide',()=>{flushBrush();cancelSequence();cancelDrag();extraTool?.reset();audio.stop();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){flushBrush();cancelSequence();cancelDrag();extraTool?.reset();audio.stop();if(!awake)render();}else if(extraTool&&!awake&&!busy)render();});
+  window.addEventListener('pagehide',()=>{replayAfterLoad=false;flushBrush();cancelSequence();cancelDrag();extraTool?.reset();audio.stop();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){replayAfterLoad=false;flushBrush();cancelSequence();cancelDrag();extraTool?.reset();audio.stop();if(!awake)render();}else if(extraTool&&!awake&&!busy)render();});
   window.addEventListener('pageshow',event=>{if(event.persisted&&extraTool&&!awake)render();});
   store.subscribe(warning);window.addEventListener('storage',()=>{cancelSequence();cancelDrag();render();});
   reduced.addEventListener('change',()=>{cancelDrag();if(reduced.matches){if(transition?.to==='puzzle')art.parts.forEach(landed);if(transition?.to==='revive'){[$('#living'),$('#floatingSkeleton'),board,$('#board')].forEach(el=>el.getAnimations().forEach(a=>a.cancel()));settleHero();}effects.reset();document.querySelectorAll('.flight-bone,.knock-impact,.knock-piece').forEach(e=>e.remove());document.querySelectorAll('.receiving').forEach(e=>e.classList.remove('receiving'));}});
@@ -423,7 +437,7 @@
       grooves.append(...art.parts.map(p=>artImage(p,'')));face.after(grooves);
     }else face.src='./'+art.face.file+V;
     $('#living').src=F.living.file;$('#living').alt='从石板中复活的'+F.name;document.documentElement.style.setProperty('--living-r',(([w,h])=>w/h)(F.living.aspect.split('/')));
-    $('#living').decode().then(()=>{revivalImageReady=true;updateRevivalButtons();})
+    $('#living').decode().then(()=>{revivalImageReady=true;updateRevivalButtons();playRequestedReplay();})
       .catch(()=>{revivalAssetsFailed=true;updateRevivalButtons();});
     for(const id of ['fossil-groove','fossil-bone-groove'])document.querySelectorAll('#'+id+' feFlood').forEach((el,i)=>el.setAttribute('flood-color',[F.groove.base,F.groove.inset,F.groove.light][i]));
     board.dataset.rock=F.rock;document.body.classList.toggle('wide-fossil',cut);document.body.classList.toggle('natural-fossil',natural);$('#tray').dataset.n=art.parts.length;$('#tray').setAttribute('aria-label','从石板中取出的 '+art.parts.length+' 块骨头');
@@ -436,7 +450,8 @@
     stageImages.forEach((image,i)=>image.decode().then(()=>{
       readyStages.add(i);
       if(!busy&&view==='dig'&&read().step==='knock'&&stageIndex(current.hits)===i){
-        if(tide)renderTide();else if(tool)renderField();else paintShell();
+        if(!knockReady){knockReady=true;render();}
+        else if(tide)renderTide();else if(tool)renderField();else paintShell();
       }
     }).catch(()=>{}));
     Promise.all([$('#eggWhole'),$('#bowl'),...(cut&&!natural?[]:[$('#cleanFace')]),$('#sandSource'),...stageImages,...imgs,...grooveImages,...(rubbleImage?[rubbleImage]:[]),...$('#slab').querySelectorAll('img')].map(i=>i.decode())).then(()=>{
@@ -444,13 +459,23 @@
       if(cut&&!natural)$('#cutGrooves').hidden=false;
       sandBase=makeSand();assetsReady=true;updateRevivalButtons();if(!tide&&!tool&&read().step==='knock')paintSand();
       if(!knockReady){knockReady=true;render();}else if(waitingAssets&&!busy){waitingAssets=false;if((tide||tool)&&view==='dig')render();else status(`已经敲了 ${read().hits} / 6 下`);}
+      playRequestedReplay();
     }).catch(()=>{if(cut&&!natural)$('#cutGrooves').hidden=true;revivalAssetsFailed=true;updateRevivalButtons();status('图片还没加载好，请刷新后再试');});
   }
+  function prepareExcavation(){
+    if(assetsLoading)return;
+    assetsLoading=true;
+    initialStage=stageIndex(read().hits);
+    stageImages[initialStage].fetchPriority='high';
+    stageImages[initialStage].src='./'+F.stages[initialStage]+V;
+    stageImages[initialStage].decode().then(()=>{
+      readyStages.add(initialStage);
+      if(view==='dig'&&read().step==='knock'&&stageIndex(current.hits)===initialStage){
+        knockReady=true;render();
+      }
+      startRemainingAssets();
+    }).catch(()=>{revivalAssetsFailed=true;updateRevivalButtons();status('图片还没加载好，请刷新后再试');});
+  }
   render();
-  stageImages[initialStage].decode().then(()=>{
-    readyStages.add(initialStage);
-    if(read().step==='knock'){knockReady=true;render();}
-    startRemainingAssets();
-  }).catch(()=>{revivalAssetsFailed=true;updateRevivalButtons();status('图片还没加载好，请刷新后再试');});
   Object.defineProperty(window,'__fossil',{value:Object.freeze({get interactions(){return{landings:structuredClone(landings),dragStarts:structuredClone(dragStarts),readyParts:[...readyParts],dragging:drag?.id||null};},get effects(){return structuredClone(effects.stats);},get state(){return store.load();},get view(){return view;},get audio(){return audio.status();},get reduced(){return reduced.matches;},get awake(){return awake;},get selected(){return selected;},get ready(){return knockReady;},get brush(){return{coverage:store.coverage([...read().cleared,...pending]),strokes:brushStrokes,widthRatio:.12};},get transition(){return{active:busy,from:transition?.from,to:transition?.to,elapsed:transition?performance.now()-transition.start:0};},get transitions(){return structuredClone(transitions);}})});
 })();

@@ -597,7 +597,8 @@
     const visible = document.querySelector('.scene-backdrop.is-visible');
     if (visible?.dataset.scene === scene.image) return;
     const incoming = visible?.id === 'sceneA' ? $('#sceneB') : $('#sceneA');
-    incoming.style.backgroundImage = 'url("./assets/' + scene.image + '")';
+    const scenePath = './assets/' + scene.image;
+    incoming.style.backgroundImage = 'url("' + (window.DinoBoot?.imageUrl?.(scenePath) || scenePath) + '")';
     incoming.style.backgroundPosition = scene.position || 'center 46%';
     incoming.style.backgroundSize = scene.size || 'cover';
     incoming.style.filter = scene.filter || 'none';
@@ -660,10 +661,26 @@
           scene: window.DinoBoot?.imageUrl?.(warmupScene) || warmupScene,
           image: window.DinoBoot?.imageUrl?.('./assets/' + species[level.factKind].image) || './assets/' + species[level.factKind].image,
           soundOn: () => soundOn,
-          onDone: () => { if (introToken === roundToken) beginLevel(true); }
+          onDone: () => {
+            if (introToken !== roundToken) return;
+            const enter = () => {
+              if (introToken !== roundToken) return;
+              setScene(levelIndex);
+              beginLevel(true);
+            };
+            if (window.DinoBoot) {
+              window.DinoBoot.prepareLevel([
+                './assets/' + scenes[levelIndex].image,
+                './assets/' + species[level.factKind].image
+              ], enter);
+            } else enter();
+          }
         });
-        // The level-one board can load behind the warm-up once the player enters.
-        setScene(levelIndex);
+        // Reuse the retry-aware image loader when the warm-up ends early.
+        const background = './assets/' + scenes[levelIndex].image;
+        if (window.DinoBoot?.image) {
+          window.DinoBoot.image(background).catch(() => {});
+        } else setScene(levelIndex);
         return;
       }
       beginLevel(fromGesture);

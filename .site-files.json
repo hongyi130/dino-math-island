@@ -2876,8 +2876,8 @@
   },
   {
     "path": "game.js",
-    "bytes": 110380,
-    "sha256": "51487c58fe8588f6c5e1beb7ff21f7f1442d18bb97c19115399915d50cdafead"
+    "bytes": 111058,
+    "sha256": "be398c8b69b86d6570775278fa04a5131177d4f4ec6d18728bd96c1156ce4c81"
   },
   {
     "path": "grade2-engine.js",
@@ -2912,7 +2912,7 @@
   {
     "path": "index.html",
     "bytes": 24989,
-    "sha256": "ecadecfd2b605bca6f403dad0ec45ccefffa29574aea3593acd61752024e808c"
+    "sha256": "ce0f5c5ebbabb8a6aef133ec26d38ce20e0944208ffac20ef3a9d26bbf96a750"
   },
   {
     "path": "island-audio.js",
@@ -2971,13 +2971,13 @@
   },
   {
     "path": "prototypes/fossil-dig/app.js",
-    "bytes": 52221,
-    "sha256": "dfa2b86f939bf1e69066329807dc5cbed5a985889438c9a6c535aa339fdb27f1"
+    "bytes": 53030,
+    "sha256": "8d7cb2a586e2ecd3a4c165acb81f00a4e43947172dd741136c199665b039930d"
   },
   {
     "path": "prototypes/fossil-dig/archaeology.html",
-    "bytes": 5838,
-    "sha256": "299bc262c037cfba89c8d5fbc80bb0b8a76d68a219f2da58b88e8e608cb4411c"
+    "bytes": 6716,
+    "sha256": "6a6d1d7898494f783fbc50b5867d0208f16d2eecb59f027ea737637531146b35"
   },
   {
     "path": "prototypes/fossil-dig/art/bone-body.webp",
@@ -4770,9 +4770,14 @@
     "sha256": "c5ae8b50c813f0b268179da0281373192ac809cbf8d8c215f4f739062bae02b1"
   },
   {
-    "path": "prototypes/fossil-dig/camp.8215c68ba807.js",
-    "bytes": 216686,
-    "sha256": "8215c68ba8077b0b2f14d6f6d5a817932d1ba579024a96d9761dadd36a28140c"
+    "path": "prototypes/fossil-dig/camp.6da56c237808.js",
+    "bytes": 1679,
+    "sha256": "6da56c237808b4a0715e2b8bf48aa2732a99bfaa0a642d6551b2cd9dfa0a84b6"
+  },
+  {
+    "path": "prototypes/fossil-dig/dig.c60e369e6127.js",
+    "bytes": 325997,
+    "sha256": "c60e369e6127cbe24ed8afad45ab63960f902cc0b8fbaa1f989ece6d41bd9233"
   },
   {
     "path": "prototypes/fossil-dig/egg-progress.css",
@@ -4806,8 +4811,8 @@
   },
   {
     "path": "prototypes/fossil-dig/fossil-audio.js",
-    "bytes": 5713,
-    "sha256": "bd900e0899f75bcea97410edb6e1dbaa8c2fa2b1343683bcbedc01a29cff1352"
+    "bytes": 5986,
+    "sha256": "12414af104e03d5dffa9149e5957a7db31eb528da625f5c379d25e8ed80e1a1f"
   },
   {
     "path": "prototypes/fossil-dig/fossil-effects.js",
@@ -4826,8 +4831,8 @@
   },
   {
     "path": "prototypes/fossil-dig/index.html",
-    "bytes": 8279,
-    "sha256": "4f9934cc3b9f88b5c44a1224a04fd932b851a44233c656556a62f06ba4cfcfee"
+    "bytes": 7285,
+    "sha256": "07d731f8b152a0895df148d609f80811b828e2ef8cfddf212febfcaa2ddf4b04"
   },
   {
     "path": "prototypes/fossil-dig/journey-fossils.js",
@@ -5035,9 +5040,9 @@
     "sha256": "4abf62d21668ca518527c1b6e1162729174ac1e9cfcd290b67d8efa23558b4ad"
   },
   {
-    "path": "runtime.e3e62607f6bc.js",
-    "bytes": 517317,
-    "sha256": "e3e62607f6bc2f8cba4c0491672657debf4a721eb0a31a2262f3c259909ff85a"
+    "path": "runtime.7771f85a457d.js",
+    "bytes": 518310,
+    "sha256": "7771f85a457d0a91bbb5552be48dd36972f5af86bcb21c0bee6a3ed249cf7c61"
   },
   {
     "path": "scene-data.js",
@@ -5116,7 +5121,7 @@
   },
   {
     "path": "warmup.js",
-    "bytes": 13950,
-    "sha256": "5839cad97c2c2b9c18e5fd9e69e7ab42a9c98eef849aa7f76933166b91da825d"
+    "bytes": 14265,
+    "sha256": "54cb179c3fb3a7907e81322561d757dc97d9fdd70e951d4eb80f73d115a1c29c"
   }
 ]

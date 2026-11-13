@@ -118,7 +118,8 @@
           if (settled || token !== sayToken) return;
           settled = true;
           clearTimeout(sayTimer);
-          audio.onended = audio.onerror = audio.onplaying = null;
+          audio.onended = audio.onerror = audio.onplaying = audio.ontimeupdate = null;
+          if (failed) audio.pause();
           if (failed && source !== path) {
             URL.revokeObjectURL(source);
             clips.delete(name);
@@ -127,9 +128,18 @@
         };
         audio.onended = () => finish(false);
         audio.onerror = () => finish(true);
-        audio.onplaying = () => warmVoice(names[index + 1] || following);
+        const watchProgress = () => {
+          if (settled || token !== sayToken) return;
+          clearTimeout(sayTimer);
+          sayTimer = setTimeout(() => finish(true), VOICE_LIMIT_MS);
+        };
+        audio.onplaying = () => {
+          watchProgress();
+          warmVoice(names[index + 1] || following);
+        };
+        audio.ontimeupdate = watchProgress;
         audio.src = source;
-        sayTimer = setTimeout(() => finish(true), VOICE_LIMIT_MS);
+        watchProgress();
         audio.play()?.catch?.(() => finish(true));
       };
       playClip(clips.get(name) || path);
